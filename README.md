@@ -6,14 +6,14 @@
 
 ## users テーブル
 
-| Column             | Type    | Options     |
-| ------------------ | ------- | ----------- |
-| name               | string  | null: false |
-| email              | string  | null: false |
-| introduce          | text    |             |
-| image              | text    |             |
-| encrypted_password | string  | null: false |
-| admin              | integer |             |
+| Column             | Type    | Options                  |
+| ------------------ | ------- | ------------------------ |
+| name               | string  | null: false, default: "" |
+| email              | string  | null: false, default: "" |
+| introduce          | text    |                          |
+| image              | text    |                          |
+| encrypted_password | string  | null: false, default: "" |
+| admin              | integer |                          |
 
 ### Association
 
@@ -23,18 +23,18 @@
 
 ## experiences テーブル
 
-| Column                | Type       | Options     |
-| --------------------- | ---------- | ----------- |
-| name                  | string     | null: false |
-| outline               | text       |             |
-| image                 | text       |             |
-| address               | string     |             |
-| latitude              | integer    |             |
-| longitude             | integer    |             |
-| type_id               | integer    | null: false |
-| business_hours_start  | string     |             |
-| business_hours_finish | string     |             |
-| area               | references | null: false, foreign_key: true |
+| Column                | Type       | Options                        |
+| --------------------- | ---------- | ------------------------------ |
+| name                  | string     | null: false, default: ""       |
+| outline               | text       |                                |
+| image                 | text       |                                |
+| address               | string     | null: false                    |
+| latitude              | integer    | null: false                    |
+| longitude             | integer    | null: false                    |
+| type_id               | integer    | null: false                    |
+| business_hours_start  | string     |                                |
+| business_hours_finish | string     |                                |
+| area                  | references | null: false, foreign_key: true |
 | genre                 | references | null: false, foreign_key: true |
 
 ### Association
@@ -62,7 +62,7 @@
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
 | comment    | text       | null: false                    |
-| score      | integer    | null: false                    |
+| score_id   | integer    | null: false                    |
 | user       | references | null: false, foreign_key: true |
 | experience | references | null: false, foreign_key: true |
 
