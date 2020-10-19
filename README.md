@@ -62,7 +62,7 @@
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
 | comment    | text       | null: false                    |
-| score      | integer    | null: false                    |
+| score_id   | integer    | null: false                    |
 | user       | references | null: false, foreign_key: true |
 | experience | references | null: false, foreign_key: true |
 
