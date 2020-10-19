@@ -17,9 +17,12 @@
 
 ### Association
 
-- has_many :histories
-- has_many :reviews
-- has_many :favorites
+- has_one_attached :image
+- has_many :reviews, dependent: :destroy
+- has_many :histories, dependent: :destroy
+- has_many :his_exps, through: :histories, source: :experience
+- has_many :favorites, dependent: :destroy
+- has_many :fav_exps, through: :favorites, source: :experience
 
 ## experiences テーブル
 
@@ -39,11 +42,14 @@
 
 ### Association
 
-- has_many :histories
-- has_many :reviews
-- has_many :favorites
+- has_one_attached :image
 - belongs_to :area
 - belongs_to :genre
+- has_many :reviews
+- has_many :histories
+- has_many :his_users, through: :histories, source: :user
+- has_many :favorites
+- has_many :fav_users, through: :favorites, source: :user
 
 ## histories テーブル
 
@@ -68,6 +74,7 @@
 
 ### Association
 
+- belongs_to_active_hash :score
 - belongs_to :user
 - belongs_to :experience
 
@@ -92,6 +99,7 @@
 
 ### Association
 
+- belongs_to_active_hash :island
 - has_many :experiences
 
 ## genres テーブル
@@ -103,7 +111,7 @@
 - has_many :experiences
 
 # ER図
-https://i.gyazo.com/84e8850b2bf697b67571f5be42d2f004.png
+https://i.gyazo.com/0bb2f584edcd557aa5b447177635d4fc.png
 
 # 作者
 ### 山崎 泰則
