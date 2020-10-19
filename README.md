@@ -103,12 +103,12 @@
 - has_many :experiences
 
 # ER図
-https://gyazo.com/84e8850b2bf697b67571f5be42d2f004
+https://i.gyazo.com/84e8850b2bf697b67571f5be42d2f004.png
 
 # 作者
-## 山崎 泰則
-Twitter : <a href="https://twitter.com/yasunori_aloha">https://twitter.com/yasunori_aloha</a>
+### 山崎 泰則
+Twitter : https://twitter.com/yasunori_aloha
 
-Qiita : <a href="https://qiita.com/yasunori_aloha">https://qiita.com/yasunori_aloha</a>
+Qiita : https://qiita.com/yasunori_aloha
 
-メールはこちらへ : <a href="t26.yasunori.yamasaki@gmail.com">t26.yasunori.yamasaki@gmail.com</a>
+メールはこちらへ : t26.yasunori.yamasaki@gmail.com
