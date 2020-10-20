@@ -1,7 +1,8 @@
 $backColor: #ffffff;
 $searchTypeHeight: 576px;
 $searchMainHeight: 443px;
-$searchNameHeight: 20px + $searchMainHeight + 10px;
+$searchNameTop: 20px + $searchMainHeight + 10px;
+$searcuNameHeight: $searchTypeHeight - $searchMainHeight - 10px;
 @mixin search-header {
   margin: 14px 0 0 20px;
   height: 30px;
@@ -75,17 +76,40 @@ $searchNameHeight: 20px + $searchMainHeight + 10px;
   }
   .search-name{
     @include search-main;
-    height: calc(#{$searchTypeHeight} - #{$searchMainHeight} - 10px);
+    height: $searcuNameHeight;
     width: 600px;
-    top: $searchNameHeight;
+    top: $searchNameTop;
     left: 650px;
-    .search-name-header{
+    .name-header{
       @include search-header;
       .glass-map-sub{
         @include glass_image;
       }
-      .search-name-header-string{
+      .name-header-string{
         @include header-string;
+      }
+    }
+    .name-main{
+      height: calc(#{$searcuNameHeight} - 44px);
+      width: calc(100% - 40px);
+      margin: 0 20px;
+      @for $n from 1 through 2 {
+        .name-main#{$n}{
+          display: flex;
+          @for $i from 1 through 4 {
+            .name#{$i} {
+              height: 39px;
+              width: 140px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              .under-bar{
+                font-size: 18px;
+                text-decoration: underline;
+              }
+            }
+          }
+        }
       }
     }
   }
