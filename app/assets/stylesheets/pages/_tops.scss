@@ -1,5 +1,29 @@
+$backColor: #ffffff;
+@mixin search-header {
+  margin: 14px 0 0 20px;
+  height: 30px;
+  width: 395px;
+  display: flex;
+  align-items: center;
+}
+@mixin glass_image {
+  height: 20px;
+  width: 20px;
+}
+@mixin header-string {
+  height: 30px;
+  color: #6e6e6e;
+  font-size: 22px;
+  margin-left: 5px;
+}
+@mixin search-main {
+  background-color: rgba($color: $backColor, $alpha: 0.85);
+  position: absolute;
+  top: 20px;
+  backdrop-filter: blur(5px);
+}
 .header{
-  background-color: aqua;
+  background-color: #00ffff;
   height: 214px;
   width: 100%;
 }
@@ -10,16 +34,48 @@
     width: 100%;
   }
   .search-type{
-    position: absolute;
-    background-color: yellow;
+    @include search-main;
     height: 576px;
     width: 435px;
-    top: 20px;
     left: 190px;
+    .search-type-header{
+      @include search-header;
+      .glass-type-header{
+        @include glass_image;
+      }
+      .search-type-header-string{
+        @include header-string;
+      }
+    }
+  }
+  .search-map{
+    @include search-main;
+    height: 443px;
+    width: 600px;
+    left: 650px;
+    .search-map-header{
+      @include search-header;
+      .glass-map-header{
+        @include glass_image;
+      }
+      .search-map-header-string{
+        @include header-string;
+      }
+    }
+    .search-map-main{
+      height: calc(100% - 84px);
+      margin: 20px 30px 20px 30px;
+      .islands-image{
+        height: 100%;
+      }
+    }
+    .search-map-sub{
+      
+    }
   }
 }
 .test{
-  background-color: white;
+  background-color: $backColor;
   height: 900px;
   width: 100%;
 }

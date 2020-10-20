@@ -2,4 +2,19 @@
 .topmain
   = image_tag("toppage.jpg")
   .search-type
+    .search-type-header
+      = image_tag('glass_icon.png', alt: 'glass', class: 'glass-type-header')
+      .search-type-header-string
+        %b 条件から探す
+  .search-map
+    .search-map-header
+      = image_tag('glass_icon.png', alt: 'glass', class: 'glass-map-header')
+      .search-map-header-string
+        %b 地図から探す
+    .search-map-main
+      = image_tag('hawaiian_islands.png', alt: 'hawaiian_islands', class: 'islands-image')
+    .search-map-sub
+      = image_tag('glass_icon.png', alt: 'glass', class: 'glass-map-sub')
+
 .test
+576px
