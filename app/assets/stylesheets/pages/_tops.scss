@@ -1,0 +1,25 @@
+.header{
+  background-color: aqua;
+  height: 214px;
+  width: 100%;
+}
+.topmain{
+  position: relative;
+  img{
+    height: 616px;
+    width: 100%;
+  }
+  .search-type{
+    position: absolute;
+    background-color: yellow;
+    height: 576px;
+    width: 435px;
+    top: 20px;
+    left: 190px;
+  }
+}
+.test{
+  background-color: white;
+  height: 900px;
+  width: 100%;
+}
