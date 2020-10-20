@@ -1,4 +1,7 @@
 $backColor: #ffffff;
+$searchTypeHeight: 576px;
+$searchMainHeight: 443px;
+$searchNameHeight: 20px + $searchMainHeight + 10px;
 @mixin search-header {
   margin: 14px 0 0 20px;
   height: 30px;
@@ -50,7 +53,7 @@ $backColor: #ffffff;
   }
   .search-map{
     @include search-main;
-    height: 443px;
+    height: $searchMainHeight;
     width: 600px;
     left: 650px;
     .search-map-header{
@@ -64,13 +67,26 @@ $backColor: #ffffff;
     }
     .search-map-main{
       height: calc(100% - 84px);
-      margin: 20px 30px 20px 30px;
+      margin: 20px 30px 0 30px;
       .islands-image{
         height: 100%;
       }
     }
-    .search-map-sub{
-      
+  }
+  .search-name{
+    @include search-main;
+    height: calc(#{$searchTypeHeight} - #{$searchMainHeight} - 10px);
+    width: 600px;
+    top: $searchNameHeight;
+    left: 650px;
+    .search-name-header{
+      @include search-header;
+      .glass-map-sub{
+        @include glass_image;
+      }
+      .search-name-header-string{
+        @include header-string;
+      }
     }
   }
 }
