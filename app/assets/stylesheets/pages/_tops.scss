@@ -103,9 +103,12 @@ $searcuNameHeight: $searchTypeHeight - $searchMainHeight - 10px;
               display: flex;
               align-items: center;
               justify-content: center;
-              .under-bar{
-                font-size: 18px;
-                text-decoration: underline;
+              .island-name{
+                color: #000000;
+                .under-bar{
+                  font-size: 18px;
+                  text-decoration: underline;
+                }
               }
             }
           }
