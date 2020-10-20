@@ -12,11 +12,12 @@
       .search-map-header-string
         %b 地図から探す
     .search-map-main
-      = image_tag('hawaiian_islands.png', alt: 'hawaiian_islands', class: 'islands-image')
+      = image_tag('hawaiian_islands.png',usemap: "#ImageMap", alt: 'hawaiian_islands', class: 'islands-image')
+      %map{name: "ImageMap"}
+        %area{alt: "", coords: "18,45,15,46,13,47,11,48,10,50,9,52,9,56,8,57,6,55,4,54,3,53,3,50,4,48,5,45,7,42,8,40,11,38,13,37,14,35,16,33,21,33,21,34,20,36,18,39,18,45,20,48", href: "#", shape: "poly"}/
   .search-name
     .search-name-header
       = image_tag('glass_icon.png', alt: 'glass', class: 'glass-map-sub')
       .search-name-header-string
         %b 島名から探す
 .test
-576px
