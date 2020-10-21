@@ -2,6 +2,7 @@ $backColor: rgba($color: #ffffff, $alpha: 0.85);
 $searchHeight: 576px;
 $searchTypeHeight: 325px;
 $searchLeftWidth: 435px;
+$searchRightWidth: 600px;
 $searchWordHeight:$searchHeight - 10px - $searchTypeHeight;
 $searchNameHeight: $searchHeight - 443px - 10px;
 @mixin search-header {
@@ -26,10 +27,23 @@ $searchNameHeight: $searchHeight - 443px - 10px;
   backdrop-filter: blur(5px);
 }
 .header{
-  height: 214px;
+  height: 96px;
   width: 100%;
+  text-align: right;
+  background-color: whitesmoke;
+  .header-word{
+    background-color: skyblue;
+    color: #333333;
+    font-size: 24px;
+    padding-left: 190px;
+  }
+    .header-image{
+      padding-right: 190px;
+    }
 }
 .topmain{
+  height: 616px;
+  width: 100%;
   position: relative;
   .search-left{
     @include search-main();
@@ -71,8 +85,6 @@ $searchNameHeight: $searchHeight - 443px - 10px;
                 }
                 .type-icon{
                   margin: 0 10px;
-                }
-                .type-name{
                 }
               }
             }
@@ -145,7 +157,7 @@ $searchNameHeight: $searchHeight - 443px - 10px;
   .search-right{
     @include search-main();
     height: $searchHeight;
-    width: 600px;
+    width: $searchRightWidth;
     left: 650px;
       .search-map{
         @include back-translucent();
@@ -200,8 +212,36 @@ $searchNameHeight: $searchHeight - 443px - 10px;
       }
   }
 }
-.test{
-  background-color: $backColor;
-  height: 900px;
+.footer{
+  background-color: whitesmoke;
+  height: 90px;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  .footer-main{
+    height: 100%;
+    width: calc(#{$searchLeftWidth} + 25px + #{$searchRightWidth});
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .footer-link{
+      display: flex;
+      justify-content: space-around;
+      .privacy-link{
+        font-size: 12px;
+        text-decoration: none;
+        color: gray;
+      }
+      .space{
+        width: 50px;
+      }
+      .email{
+        @extend .privacy-link;
+      }
+    }
+    .copyright{
+      font-size: 10px;
+      color: #808080;
+    }
+  }
 }
