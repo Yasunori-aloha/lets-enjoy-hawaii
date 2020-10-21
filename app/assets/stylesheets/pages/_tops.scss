@@ -1,10 +1,8 @@
-$backColor: #ffffff;
-$searchTypeHeight: 576px;
-$searchMainHeight: 443px;
-$searchNameTop: 20px + $searchMainHeight + 10px;
-$searchNameHeight: $searchTypeHeight - $searchMainHeight - 10px;
+$backColor: rgba($color: #ffffff, $alpha: 0.85);
+$searchHeight: 576px;
+$searchNameHeight: $searchHeight - 443px - 10px;
 @mixin search-header {
-  margin: 14px 0 0 20px;
+  padding: 14px 0 0 20px;
   height: 30px;
   width: 395px;
   display: flex;
@@ -17,9 +15,11 @@ $searchNameHeight: $searchTypeHeight - $searchMainHeight - 10px;
   margin-left: 5px;
 }
 @mixin search-main {
-  background-color: rgba($color: $backColor, $alpha: 0.85);
   position: absolute;
   top: 20px;
+}
+@mixin back-translucent {
+  background-color: $backColor;
   backdrop-filter: blur(5px);
 }
 .header{
@@ -32,16 +32,14 @@ $searchNameHeight: $searchTypeHeight - $searchMainHeight - 10px;
     height: 616px;
     width: 100%;
   }
-  .main{
-    @extend .top-image;
-    top: 0;
-    left: 0;
-    position: absolute;
+  .search-left{
+    @include search-main();
+    height: $searchHeight;
+    width: 435px;
+    left: 190px;
     .search-type{
-      @include search-main;
+      @include back-translucent();
       height: 381px;
-      width: 435px;
-      left: 190px;
       .search-type-header{
         @include search-header;
         .search-type-header-string{
@@ -50,11 +48,8 @@ $searchNameHeight: $searchTypeHeight - $searchMainHeight - 10px;
       }
     }
     .search-word{
-      @include search-main;
+      @include back-translucent();
       height: 195px;
-      width: 435px;
-      top: 396px;
-      left: 190px;
       .search-word-header{
         @include search-header;
         .search-word-header-string{
@@ -88,57 +83,56 @@ $searchNameHeight: $searchTypeHeight - $searchMainHeight - 10px;
         }
       }
     }
-    .search-map{
-      @include search-main;
-      height: $searchMainHeight;
-      width: 600px;
-      left: 650px;
-      .search-map-header{
-        @include search-header;
-        .search-map-header-string{
-          @include header-string;
+  }
+  .search-right{
+    @include search-main();
+    height: $searchHeight;
+    width: 600px;
+    left: 650px;
+      .search-map{
+        @include back-translucent();
+        height: 443px;
+        width: 100%;
+        .search-map-header{
+          @include search-header;
+          .search-map-header-string{
+            @include header-string;
+          }
+        }
+        .search-map-main{
+          height: calc(100% - 84px);
+          padding: 20px 30px 0 30px;
         }
       }
-      .search-map-main{
-        height: calc(100% - 84px);
-        margin: 20px 30px 0 30px;
-        .islands-image{
-          height: 100%;
-          width: 100%;
+      .search-name{
+        @include back-translucent();
+        margin-top: 10px;
+        height: $searchNameHeight;
+        .name-header{
+          @include search-header();
+          .name-header-string{
+            @include header-string();
+          }
         }
-      }
-    }
-    .search-name{
-      @include search-main;
-      height: $searchNameHeight;
-      width: 600px;
-      top: $searchNameTop;
-      left: 650px;
-      .name-header{
-        @include search-header;
-        .name-header-string{
-          @include header-string;
-        }
-      }
-      .name-main{
-        height: calc(#{$searchNameHeight} - 44px);
-        width: calc(100% - 40px);
-        margin: 0 20px;
-        @for $n from 1 through 2 {
-          .name-main#{$n}{
-            display: flex;
-            @for $i from 1 through 4 {
-              .name#{$i} {
-                height: 39px;
-                width: 140px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                .island-name{
-                  color: #000000;
-                  .under-bar{
-                    font-size: 18px;
-                    text-decoration: underline;
+        .name-main{
+          height: 123px;
+          padding: 0 20px;
+          @for $n from 1 through 2 {
+            .name-main#{$n}{
+              display: flex;
+              @for $i from 1 through 4 {
+                .name#{$i} {
+                  height: 39px;
+                  width: 140px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  .island-name{
+                    color: #000000;
+                    .under-bar{
+                      font-size: 18px;
+                      text-decoration: underline;
+                    }
                   }
                 }
               }
@@ -146,7 +140,6 @@ $searchNameHeight: $searchTypeHeight - $searchMainHeight - 10px;
           }
         }
       }
-    }
   }
 }
 .test{
