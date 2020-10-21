@@ -1,0 +1,247 @@
+$backColor: rgba($color: #ffffff, $alpha: 0.85);
+$searchHeight: 576px;
+$searchTypeHeight: 325px;
+$searchLeftWidth: 435px;
+$searchRightWidth: 600px;
+$searchWordHeight:$searchHeight - 10px - $searchTypeHeight;
+$searchNameHeight: $searchHeight - 443px - 10px;
+@mixin search-header {
+  padding: 14px 0 0 20px;
+  height: 30px;
+  width: 395px;
+  display: flex;
+  align-items: center;
+}
+@mixin header-string {
+  height: 30px;
+  color: #6e6e6e;
+  font-size: 22px;
+  margin-left: 5px;
+}
+@mixin search-main {
+  position: absolute;
+  top: 20px;
+}
+@mixin back-translucent {
+  background-color: $backColor;
+  backdrop-filter: blur(5px);
+}
+.header{
+  height: 96px;
+  width: 100%;
+  text-align: right;
+  background-color: whitesmoke;
+  .header-word{
+    background-color: skyblue;
+    color: #333333;
+    font-size: 24px;
+    padding-left: 190px;
+  }
+    .header-image{
+      padding-right: 190px;
+    }
+}
+.topmain{
+  height: 616px;
+  width: 100%;
+  position: relative;
+  .search-left{
+    @include search-main();
+    height: $searchHeight;
+    width: $searchLeftWidth;
+    left: 190px;
+    .search-type{
+      @include back-translucent();
+      height: $searchTypeHeight;
+      .search-type-header{
+        @include search-header;
+        .search-type-header-string{
+          @include header-string;
+        }
+      }
+      .search-type-main{
+        height: calc(#{$searchTypeHeight} - 44px);
+        display: flex;
+        @for $i from 1 through 2 {
+          .type-main#{$i}{
+            width: calc(#{$searchLeftWidth} / 2);
+            padding: 11px 0;
+            @for $n from 1 through 3 {
+              .type#{$n}{
+                height: calc((#{$searchTypeHeight} - 44px) / 4);
+                border: 1px solid #000000;
+                border-radius: 8px;
+                margin: 11px 20px 11px 20px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                position: relative;
+                .purpose-name{
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  height: 100%;
+                  width: 100%;
+                }
+                .type-icon{
+                  margin: 0 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .search-word{
+      @include back-translucent();
+      margin-top: 10px;
+      height: $searchWordHeight;
+      .search-word-header{
+        @include search-header();
+        .search-word-header-string{
+          @include header-string();
+        }
+      }
+      .search-word-main{
+        height: calc(#{$searchWordHeight} - 44px);
+        width: 435px;
+        .form{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .keyword{
+            margin: 0 auto 10px 0;
+            padding-left: 20px;
+            .main-word{
+              margin-right: 10px;
+              color: #646464;
+            }
+            .text-field{
+              margin: 10px 0;
+              padding-left: 5px;
+              height: 32px;
+              width: 300px;
+              border: 1px solid #808080;
+              border-radius: 4px;
+            }
+          }
+          .select{
+            margin-right: auto;
+            padding-left: 68px;
+            .main-select{
+              margin-right: 10px;
+              color: #646464;
+            }
+            .select-box{
+              margin: 10px 0;
+              height: 37px;
+              border: 1px solid #808080;
+              border-radius: 4px;
+            }
+          }
+          .submit{
+            margin-top: 10px;
+            height: 54px;
+            width: 300px;
+            cursor: pointer;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            background-color: #90b200;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+  .search-right{
+    @include search-main();
+    height: $searchHeight;
+    width: $searchRightWidth;
+    left: 650px;
+      .search-map{
+        @include back-translucent();
+        height: 443px;
+        width: 100%;
+        .search-map-header{
+          @include search-header;
+          .search-map-header-string{
+            @include header-string;
+          }
+        }
+        .search-map-main{
+          height: calc(100% - 84px);
+          padding: 20px 30px;
+        }
+      }
+      .search-name{
+        @include back-translucent();
+        margin-top: 10px;
+        height: $searchNameHeight;
+        .name-header{
+          @include search-header();
+          .name-header-string{
+            @include header-string();
+          }
+        }
+        .name-main{
+          height: 123px;
+          padding: 0 20px;
+          @for $n from 1 through 2 {
+            .name-main#{$n}{
+              display: flex;
+              @for $i from 1 through 4 {
+                .name#{$i} {
+                  height: 39px;
+                  width: 140px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  .island-name{
+                    color: #000000;
+                    .under-bar{
+                      font-size: 18px;
+                      text-decoration: underline;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+  }
+}
+.footer{
+  background-color: whitesmoke;
+  height: 90px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .footer-main{
+    height: 100%;
+    width: calc(#{$searchLeftWidth} + 25px + #{$searchRightWidth});
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .footer-link{
+      display: flex;
+      justify-content: space-around;
+      .privacy-link{
+        font-size: 12px;
+        text-decoration: none;
+        color: gray;
+      }
+      .space{
+        width: 50px;
+      }
+      .email{
+        @extend .privacy-link;
+      }
+    }
+    .copyright{
+      font-size: 10px;
+      color: #808080;
+    }
+  }
+}
