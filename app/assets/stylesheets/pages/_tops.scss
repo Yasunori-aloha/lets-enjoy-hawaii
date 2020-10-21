@@ -49,11 +49,12 @@ $searchNameHeight: $searchHeight - 443px - 10px;
     }
     .search-word{
       @include back-translucent();
-      height: 195px;
+      margin-top: 10px;
+      height: calc(#{$searchHeight} - 10px - 381px);
       .search-word-header{
-        @include search-header;
+        @include search-header();
         .search-word-header-string{
-          @include header-string;
+          @include header-string();
         }
       }
       .search-word-main{
@@ -63,7 +64,7 @@ $searchNameHeight: $searchHeight - 443px - 10px;
         flex-direction: column;
         align-items: center;
         .word{
-          margin-top: 14px;
+          margin-top: 10px;
           height: 37px;
           width: 327px;
           text-align: center;
@@ -71,7 +72,7 @@ $searchNameHeight: $searchHeight - 443px - 10px;
           border-radius: 4px;
         }
         .submit{
-          margin-top: 30px;
+          margin-top: 20px;
           height: 54px;
           width: 300px;
           cursor: pointer;
@@ -101,7 +102,7 @@ $searchNameHeight: $searchHeight - 443px - 10px;
         }
         .search-map-main{
           height: calc(100% - 84px);
-          padding: 20px 30px 0 30px;
+          padding: 20px 30px;
         }
       }
       .search-name{
