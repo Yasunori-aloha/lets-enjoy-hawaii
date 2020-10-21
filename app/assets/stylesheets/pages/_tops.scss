@@ -1,6 +1,7 @@
 $backColor: rgba($color: #ffffff, $alpha: 0.85);
 $searchHeight: 576px;
 $searchTypeHeight: 325px;
+$searchLeftWidth: 435px;
 $searchWordHeight:$searchHeight - 10px - $searchTypeHeight;
 $searchNameHeight: $searchHeight - 443px - 10px;
 @mixin search-header {
@@ -33,7 +34,7 @@ $searchNameHeight: $searchHeight - 443px - 10px;
   .search-left{
     @include search-main();
     height: $searchHeight;
-    width: 435px;
+    width: $searchLeftWidth;
     left: 190px;
     .search-type{
       @include back-translucent();
@@ -45,17 +46,28 @@ $searchNameHeight: $searchHeight - 443px - 10px;
         }
       }
       .search-type-main{
-        background-color: black;
-        height: calc(100% - 44px);
+        height: calc(#{$searchTypeHeight} - 44px);
         display: flex;
-        .type-main1{
-          background-color: blue;
-          width: 217px;
-          .type1{
-            background-color: white;
-            margin: 22px 20px;
-            display: flex;
-            align-items: center;
+        @for $i from 1 through 2 {
+          .type-main#{$i}{
+            width: calc(#{$searchLeftWidth} / 2);
+            padding: 11px 0;
+            @for $n from 1 through 3 {
+              .type#{$n}{
+                height: calc((#{$searchTypeHeight} - 44px) / 4);
+                border: 1px solid #000000;
+                border-radius: 8px;
+                margin: 11px 20px 11px 20px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                .type-icon{
+                  margin: 0 10px;
+                }
+                .type-name{
+                }
+              }
+            }
           }
         }
       }
