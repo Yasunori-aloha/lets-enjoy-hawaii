@@ -1,5 +1,7 @@
 $backColor: rgba($color: #ffffff, $alpha: 0.85);
 $searchHeight: 576px;
+$searchTypeHeight: 325px;
+$searchWordHeight:$searchHeight - 10px - $searchTypeHeight;
 $searchNameHeight: $searchHeight - 443px - 10px;
 @mixin search-header {
   padding: 14px 0 0 20px;
@@ -28,10 +30,6 @@ $searchNameHeight: $searchHeight - 443px - 10px;
 }
 .topmain{
   position: relative;
-  .top-image{
-    height: 616px;
-    width: 100%;
-  }
   .search-left{
     @include search-main();
     height: $searchHeight;
@@ -39,18 +37,33 @@ $searchNameHeight: $searchHeight - 443px - 10px;
     left: 190px;
     .search-type{
       @include back-translucent();
-      height: 381px;
+      height: $searchTypeHeight;
       .search-type-header{
         @include search-header;
         .search-type-header-string{
           @include header-string;
         }
       }
+      .search-type-main{
+        background-color: black;
+        height: calc(100% - 44px);
+        display: flex;
+        .type-main1{
+          background-color: blue;
+          width: 217px;
+          .type1{
+            background-color: white;
+            margin: 22px 20px;
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
     }
     .search-word{
       @include back-translucent();
       margin-top: 10px;
-      height: calc(#{$searchHeight} - 10px - 381px);
+      height: $searchWordHeight;
       .search-word-header{
         @include search-header();
         .search-word-header-string{
@@ -58,29 +71,53 @@ $searchNameHeight: $searchHeight - 443px - 10px;
         }
       }
       .search-word-main{
-        height: 150px;
+        height: calc(#{$searchWordHeight} - 44px);
         width: 435px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .word{
-          margin-top: 10px;
-          height: 37px;
-          width: 327px;
-          text-align: center;
-          border: 1px solid #808080;
-          border-radius: 4px;
-        }
-        .submit{
-          margin-top: 20px;
-          height: 54px;
-          width: 300px;
-          cursor: pointer;
-          color: #fff;
-          border: none;
-          border-radius: 4px;
-          background-color: #90b200;
-          font-size: 18px;
+        .form{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .keyword{
+            margin: 0 auto 10px 0;
+            padding-left: 20px;
+            .main-word{
+              margin-right: 10px;
+              color: #646464;
+            }
+            .text-field{
+              margin: 10px 0;
+              padding-left: 5px;
+              height: 32px;
+              width: 300px;
+              border: 1px solid #808080;
+              border-radius: 4px;
+            }
+          }
+          .select{
+            margin-right: auto;
+            padding-left: 68px;
+            .main-select{
+              margin-right: 10px;
+              color: #646464;
+            }
+            .select-box{
+              margin: 10px 0;
+              height: 37px;
+              border: 1px solid #808080;
+              border-radius: 4px;
+            }
+          }
+          .submit{
+            margin-top: 10px;
+            height: 54px;
+            width: 300px;
+            cursor: pointer;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            background-color: #90b200;
+            font-size: 18px;
+          }
         }
       }
     }

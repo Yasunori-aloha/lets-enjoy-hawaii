@@ -1,21 +1,42 @@
 .header
 .topmain
-  = image_tag("toppage.jpg", class: 'top-image')
+  = image_tag "toppage.jpg", alt: 'トップ画像', height: '616px', width: '1440px', class: 'top-image'
   .search-left
     .search-type
       .search-type-header
         = image_tag 'glass_icon.png', alt: 'glass', height: '20px', width: '20px', class: 'glass-image'
         .search-type-header-string
           %b 目的から探す
+      .search-type-main
+        .type-main1
+          .type1
+            = image_tag 'hotel_icon.png', alt: 'ホテル', height: '40px', width: '40px', class: 'type-icon'
+            %p
+              ホテル
+              %br/
+              コンドミニアム
+          .type2
+          .type3
+          .type4
+        .type-main2
+          .type1
+          .type2
+          .type3
+          .type4
     .search-word
       .search-word-header
         = image_tag 'glass_icon.png', alt: 'glass', height: '20px', width: '20px', class: 'glass-image'
         .search-word-header-string
           %b キーワードから探す
       .search-word-main
-        %input{type: "text", placeholder: 'ホテル名・地名やイベント名など', class: 'word'}
-        %button{type: 'submit', class: 'submit'}
-          %b 検索
+        = form_with url: '/', class: 'form',local: true do |form|
+          .keyword
+            %b.main-word キーワード
+            = form.text_field :keyword, placeholder: 'ホテル名・地名やイベント名など', class: 'text-field'
+          .select
+            %b.main-select 評価
+            = form.collection_select :score, Score.all, :id, :name, {}, {class:'select-box', id:'score'}
+          = form.submit '検索', class: 'submit'
   .search-right
     .search-map
       .search-map-header
