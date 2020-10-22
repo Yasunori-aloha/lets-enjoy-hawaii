@@ -10,13 +10,8 @@ $regHeight: 881px;
     flex-direction: column;
     min-height: 100vh;
     background-color: #f7f7f7;
-    .register-header{
-      height: 65px;
-      width: calc(#{$v100} - (50px * 2));
-      padding: 0 50px;
-      .leh-icon{
-        height: 65px;
-      }
+    .leh-header{
+      padding: 15px 0 0 50px;
     }
     .register-main-wrapper{
       flex: 1;
@@ -27,7 +22,7 @@ $regHeight: 881px;
         display: flex;
         justify-content: center;
         color: #484848;
-        padding: 60px 0 30px;
+        padding: 20px 0 30px;
         .register-main-content{
           width: 510px;
           border-radius: 10px;
