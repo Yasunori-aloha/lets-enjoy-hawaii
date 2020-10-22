@@ -1,10 +1,7 @@
 .register-all
   .register-layout
     .register-wrapper
-      .leh-header
-        .leh-icon
-          %a{href: '/', class: 'rootLink'}
-            = image_tag 'leh_logo.png', alt: 'アイコン画像', height: '80px', width: '80px', class: 'register-icon'
+      = render 'shared/leh_header'
       .register-main-wrapper
         .register-main
           .register-main-content
