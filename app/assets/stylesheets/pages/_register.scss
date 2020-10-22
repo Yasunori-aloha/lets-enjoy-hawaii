@@ -21,7 +21,19 @@ $regHeight: 881px;
     .register-footer{
       height: 60px;
       width: $v100;
-      .register-copyright{
+      text-align: center;
+      .register-footer-list{
+        display: flex;
+        justify-content: center;
+        margin: 0 0 8px;
+        list-style: none;
+        .register-footer-link{
+          color: #fff;
+          text-decoration: none;
+          font-size: 10px;
+        }
+      }
+      .register-footer-copyright{
         color: #fff;
         font-size: 10px;
         font-style: normal;
