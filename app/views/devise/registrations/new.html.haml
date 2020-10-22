@@ -13,18 +13,30 @@
                 = render "devise/shared/error_messages", resource: resource
                 .register-form-input
                   = f.text_field :name, placeholder: '氏名（例：畑中三郎）', autocomplete: 'name', class: 'register-input'
-                  %span{style: 'display:none'}, class: 'register-error-message'} この項目は必須です
+                  %span{style: 'display:none'}, class: 'register-error-message'}この項目は必須です
                 .register-form-input
                   = f.email_field :email, placeholder: 'メールアドレス', autocomplete: "email", autocorrect: 'off', autocapitalize: 'off', class: 'register-input'
-                  %span{style: 'display:none'}, class: 'register-error-message'} この項目は必須です
+                  %span{style: 'display:none'}, class: 'register-error-message'}この項目は必須です
                 .register-form-input
                   = f.password_field :password, placeholder: 'パスワード（8～20文字・半角英数字・記号を2種以上）', maxlength: '20', autocomplete: "new-password", class: 'register-input'
-                  %span{style: 'display:none'}, class: 'register-error-message'} この項目は必須です
+                  %span{style: 'display:none'}, class: 'register-error-message'}この項目は必須です
                 .register-form-input
                   = f.password_field :password_confirmation, placeholder: '上記と同じパスワードを入力してください', autocomplete: "new-password", class: 'register-input'
-                  %span{style: 'display:none'}, class: 'register-error-message'} この項目は必須です
+                  %span{style: 'display:none'}, class: 'register-error-message'}この項目は必須です
                 = f.submit "登録する", class: 'button-cv register-button'
-                = render "devise/shared/links"
+            .socialLogin
+              %span{class: 'socialLoginTitle'}こちらもご利用いただけます
+              .socialLoginContainer
+                %div
+                  %a{href: '#', class: 'socialLoginLink'}
+                %div
+                  %a{href: '#', class: 'socialLoginLink'}
+                %div
+                  %a{href: '#', class: 'socialLoginLink'}
+                %div
+                  %a{href: '#', class: 'socialLoginLink'}
+            %p
+            = render "devise/shared/links"
       .register-footer
         %ul.register-footer-list
           %li

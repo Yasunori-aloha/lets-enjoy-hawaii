@@ -1,16 +1,6 @@
 $v100: 100%;
 $regHeight: 881px;
-@mixin box-sizing {
-  box-sizing: border-box;
-  margin: 0;
-}
-@mixin block {
-  display: block;
-}
 .register-all{
-  position: relative;
-  height: $regHeight;
-  width: $v100;
   .register-wrapper{
     background: image-url('register_image.jpg');
     background-repeat: no-repeat;
@@ -39,7 +29,6 @@ $regHeight: 881px;
         color: #484848;
         padding: 60px 0 30px;
         .register-main-content{
-          @include box-sizing();
           width: 510px;
           border-radius: 10px;
           box-shadow: 0 1px 2px rgba(0,0,0,.05),
@@ -57,23 +46,17 @@ $regHeight: 881px;
             text-align: center;
           }
           .register-form{
-            @include box-sizing();
             width: $v100;
             .new_user{
-              @include box-sizing();
               display: flex;
               flex-direction: column;
               align-items: center;
               margin: 0 auto;
               .register-form-input{
-                @include box-sizing();
-                @include block();
                 width: $v100;
                 margin-bottom: 30px;
                 position: relative;
                 .register-input{
-                  @include box-sizing();
-                  @include block();
                   border: 1px solid #ccc;
                   appearance: none;
                   height: 50px;
@@ -85,7 +68,6 @@ $regHeight: 881px;
                   font-size: 14px;
                 }
                 .register-error-message{
-                  @include block();
                   font-size: 12px;
                   color: red;
                   position: absolute;
@@ -95,6 +77,43 @@ $regHeight: 881px;
               .register-button{
                 width: $v100;
                 font-size: 18px;
+              }
+            }
+          }
+          .socialLogin{
+            border-top: 1px solid #ccc;
+            margin-top: 30px;
+            padding-top: 15px;
+            position: relative;
+            text-align: center;
+            width: $v100;
+            .socialLoginTitle{
+              font-size: 14px;
+              line-height: 20px;
+              background-color: #fff;
+              display: inline-block;
+              margin: 0 -25%;
+              position: absolute;
+              text-align: center;
+              top: -10px;
+              width: 50%;
+            }
+            .socialLoginContainer{
+              height: 92px;
+              width: $v100;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+              margin: 0 auto;
+              .socialLoginLink{
+                height: 72px;
+                width: 72px;
+                display: flex;
+                align-items: center;
+                font-size: 12px;
+                border: 1px solid #e5e5e5;
+                border-radius: 6px;
+                margin: 10px;
               }
             }
           }
