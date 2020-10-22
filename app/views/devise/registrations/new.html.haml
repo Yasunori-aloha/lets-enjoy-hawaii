@@ -1,40 +1,34 @@
 .register-all
-  = image_tag 'register_image.jpg', alt: '会員登録', height: '100%', width: '100%', class: 'register-image'
-  .register-body
-    .register-header
-      .leh-icon
-        = image_tag 'leh_logo.png', alt: 'アイコン画像', height: '65px', width: '65px', class: 'register-icon'
-    .register-main
-      .register-main-content
-        %h2 Sign up
-        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-          = render "devise/shared/error_messages", resource: resource
-          .field
-            = f.label :name
-            %br/
-            = f.text_field :email, autofocus: true
-          .field
-            = f.label :email
-            %br/
-            = f.email_field :email, autofocus: true, autocomplete: "email"
-          .field
-            = f.label :password
-            - if @minimum_password_length
-              %em
-                (#{@minimum_password_length} characters minimum)
-            %br/
-            = f.password_field :password, autocomplete: "new-password"
-          .field
-            = f.label :password_confirmation
-            %br/
-            = f.password_field :password_confirmation, autocomplete: "new-password"
-          .actions
-            = f.submit "Sign up"
-          = render "devise/shared/links"
-    .register-footer
-      %ul.register-footer-list
-        %li
-          %a{href: 'mailto:t26.yasunori.yamasaki@gmail.com', class: 'register-footer-link'}
-            ヘルプ・お問い合わせ
-      .register-footer-copyright
-        Copyright© yasunori_yamasaki All Rights Reserved.
+  .register-layout
+    .register-wrapper
+      .register-header
+        .leh-icon
+          = image_tag 'leh_logo.png', alt: 'アイコン画像', height: '65px', width: '65px', class: 'register-icon'
+      .register-main-wrapper
+        .register-main
+          .register-main-content
+            %span.register-main-text 会員登録
+            .register-form
+              = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+                = render "devise/shared/error_messages", resource: resource
+                .register-form-input
+                  = f.text_field :name, placeholder: '氏名（例：畑中三郎）', autocomplete: 'name', class: 'register-input'
+                  %span{style: 'display:none'}, class: 'register-error-message'} この項目は必須です
+                .register-form-input
+                  = f.email_field :email, placeholder: 'メールアドレス', autocomplete: "email", autocorrect: 'off', autocapitalize: 'off', class: 'register-input'
+                  %span{style: 'display:none'}, class: 'register-error-message'} この項目は必須です
+                .register-form-input
+                  = f.password_field :password, placeholder: 'パスワード（8～20文字・半角英数字・記号を2種以上）', maxlength: '20', autocomplete: "new-password", class: 'register-input'
+                  %span{style: 'display:none'}, class: 'register-error-message'} この項目は必須です
+                .register-form-input
+                  = f.password_field :password_confirmation, placeholder: '上記と同じパスワードを入力してください', autocomplete: "new-password", class: 'register-input'
+                  %span{style: 'display:none'}, class: 'register-error-message'} この項目は必須です
+                = f.submit "登録する", class: 'button-cv register-button'
+                = render "devise/shared/links"
+      .register-footer
+        %ul.register-footer-list
+          %li
+            %a{href: 'mailto:t26.yasunori.yamasaki@gmail.com', class: 'register-footer-link'}
+              ヘルプ・お問い合わせ
+        .register-footer-copyright
+          Copyright© yasunori_yamasaki All Rights Reserved.
