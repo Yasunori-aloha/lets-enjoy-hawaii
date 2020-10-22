@@ -1,8 +1,32 @@
+$v100: 100%;
+$regHeight: 881px;
 .register-all{
   position: relative;
-  .register-main{
+  height: $regHeight;
+  width: $v100;
+  .register-body{
     position: absolute;
     top: 0;
     left: 0;
+    height: $v100;
+    width: $v100;
+    .register-header{
+      height: 65px;
+      width: $v100;
+      padding: 0 30px;
+    }
+    .register-main{
+      height: calc(#{$regHeight} - 65px - 60px);
+    }
+    .register-footer{
+      height: 60px;
+      width: $v100;
+      .register-copyright{
+        color: #fff;
+        font-size: 10px;
+        font-style: normal;
+        margin-top: 10px;
+      }
+    }
   }
 }

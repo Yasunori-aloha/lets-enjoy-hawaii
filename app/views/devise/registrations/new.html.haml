@@ -1,28 +1,35 @@
 .register-all
   = image_tag 'register_image.jpg', alt: '会員登録', height: '100%', width: '100%', class: 'register-image'
-  .register-main
-    %h2 Sign up
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = render "devise/shared/error_messages", resource: resource
-      .field
-        = f.label :name
-        %br/
-        = f.text_field :email, autofocus: true
-      .field
-        = f.label :email
-        %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email"
-      .field
-        = f.label :password
-        - if @minimum_password_length
-          %em
-            (#{@minimum_password_length} characters minimum)
-        %br/
-        = f.password_field :password, autocomplete: "new-password"
-      .field
-        = f.label :password_confirmation
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password"
-      .actions
-        = f.submit "Sign up"
-      = render "devise/shared/links"
+  .register-body
+    .register-header
+      .leh-icon
+        = image_tag 'leh_logo.png', alt: 'アイコン画像', height: '65px', width: '65px', class: 'register-icon'
+    .register-main
+      %h2 Sign up
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .field
+          = f.label :name
+          %br/
+          = f.text_field :email, autofocus: true
+        .field
+          = f.label :email
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email"
+        .field
+          = f.label :password
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %br/
+          = f.password_field :password, autocomplete: "new-password"
+        .field
+          = f.label :password_confirmation
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password"
+        .actions
+          = f.submit "Sign up"
+        = render "devise/shared/links"
+    .register-footer
+      .register-copyright
+        Copyright© yasunori_yamasaki All Rights Reserved.
