@@ -1,18 +1,44 @@
-= render 'shared/leh_header'
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.signInUpAll
+  .signInUpLayout
+    .signInUpWrapper
+      = render 'shared/leh_header'
+      .signInUpMainWrapper
+        .signInUpMain
+          .signInUpMainContent
+            %span.registerText ログイン
+            .signInUpForm
+              = form_with model: @user, url: user_session_path, local: true, class: 'signInUpUser' do |f|
+                = render "devise/shared/error_messages", resource: @user
+                .signInUpFormInput
+                  = f.email_field :email, placeholder: 'メールアドレス', autocomplete: "email", autocorrect: 'off', autocapitalize: 'off', class: 'signInUpInput'
+                  %span{style: 'display:none', class: 'signInUpErrorMessage'}この項目は必須です
+                .signInUpFormInput
+                  = f.password_field :password, placeholder: 'パスワード（8～20文字・半角英数字・記号を2種以上）', maxlength: '20', autocomplete: "current-password", class: 'signInUpInput'
+                  %span{style: 'display:none', class: 'signInUpErrorMessage'}この項目は必須です
+                - if devise_mapping.rememberable?
+                  .rememberMePassword
+                    %label.rememberMe
+                      %span{'aria-checked' => "true", class: 'checkboxWarpper'}
+                        = f.check_box :remember_me
+                      %span ログイン状態を保持
+                    = link_to "パスワードをお忘れの方", new_password_path(resource_name), target: '_blank', rel: 'noopner', class: 'passwordReset'
+                = f.submit "ログイン", class: 'button-cv signInUpButton'
+            .socialLogin
+              %span{class: 'socialLoginTitle'}こちらもご利用いただけます
+              .socialLoginContainer
+                %div
+                  %a{href: '#', class: 'socialLoginLink'}
+                %div
+                  %a{href: '#', class: 'socialLoginLink'}
+                %div
+                  %a{href: '#', class: 'socialLoginLink'}
+                %div
+                  %a{href: '#', class: 'socialLoginLink'}
+              = render "devise/shared/links"
+      .signInUpFooter
+        %ul.signInUpFooterList
+          %li
+            %a{href: 'mailto:t26.yasunori.yamasaki@gmail.com', class: 'signInUpFooterLink'}
+              ヘルプ・お問い合わせ
+        .signInUpFooterCopyright
+          Copyright© yasunori_yamasaki All Rights Reserved.
