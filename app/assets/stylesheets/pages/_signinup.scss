@@ -1,0 +1,164 @@
+$v100: 100%;
+$regHeight: 881px;
+.signInUpAll{
+  .signInUpLayout{
+    .signInUpWrapper{
+      background: image-url('register_image.jpg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f7f7f7;
+      .signInUpMainWrapper{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        .signInUpMain{
+          display: flex;
+          justify-content: center;
+          color: #484848;
+          padding: 20px 0 30px;
+          .signInUpMainContent{
+            width: 510px;
+            border-radius: 10px;
+            box-shadow: 0 1px 2px rgba(0,0,0,.05),
+            0 0 6px rgba(0,0,0,.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 45px;
+            .registerText{
+              margin-bottom: 30px;
+              font-size: 22px;
+              font-weight: 700;
+              display: block;
+              text-align: center;
+            }
+            .signInUpForm{
+              width: $v100;
+              .signInUpUser{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0 auto;
+                .signInUpFormInput{
+                  width: $v100;
+                  margin-bottom: 30px;
+                  position: relative;
+                  .signInUpInput{
+                    border: 1px solid #ccc;
+                    appearance: none;
+                    height: 50px;
+                    width: $v100;
+                    transition: border .2s ease-out;
+                    outline: 0;
+                    border-radius: 6px;
+                    padding: 15px;
+                    font-size: 14px;
+                  }
+                  .signInUpErrorMessage{
+                    font-size: 12px;
+                    color: red;
+                    position: absolute;
+                    top: 53px;
+                  }
+                }
+                .signInUpButton{
+                  width: $v100;
+                  font-size: 18px;
+                }
+              }
+            }
+            .socialLogin{
+              border-top: 1px solid #ccc;
+              margin-top: 30px;
+              padding-top: 15px;
+              position: relative;
+              text-align: center;
+              width: $v100;
+              .socialLoginTitle{
+                font-size: 14px;
+                line-height: 20px;
+                background-color: #fff;
+                display: inline-block;
+                margin: 0 -25%;
+                position: absolute;
+                text-align: center;
+                top: -10px;
+                width: 50%;
+              }
+              .socialLoginContainer{
+                height: 92px;
+                width: $v100;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin: 0 auto;
+                .socialLoginLink{
+                  height: 72px;
+                  width: 72px;
+                  display: flex;
+                  align-items: center;
+                  font-size: 12px;
+                  border: 1px solid #e5e5e5;
+                  border-radius: 6px;
+                  margin: 10px;
+                }
+              }
+            }
+            .registerPolicy{
+              margin: 10px 0 0;
+              font-size: 11px;
+              .registerPolicyLink{
+                color: #008dde!important;
+                text-decoration: none!important;
+              }
+            }
+            .loginLink{
+              display: flex;
+              align-items: center;
+              font-size: 14px;
+              margin: 30px 0 -10px;
+              flex-wrap: wrap;
+              .loginLinkTitle{
+                margin-right: 5px;
+              }
+              .loginText{
+                color: #008dde!important;
+                text-decoration: none!important;
+                text-align: center;
+                display: block;
+              }
+            }
+          }
+        }
+      }
+      .signInUpFooter{
+        height: 60px;
+        width: $v100;
+        text-align: center;
+        .signInUpFooterList{
+          display: flex;
+          justify-content: center;
+          margin: 0 0 8px;
+          list-style: none;
+          .signInUpFooterLink{
+            color: #fff;
+            text-decoration: none;
+            font-size: 10px;
+          }
+        }
+        .signInUpFooterCopyright{
+          color: #fff;
+          font-size: 10px;
+          font-style: normal;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
