@@ -1,4 +1,22 @@
-.leh-header
-  .leh-icon
-    = link_to new_user_registration_path, class: 'rootLink' do
-      = image_tag 'leh_logo.png', alt: 'アイコン画像', height: '80px', width: '80px', class: 'register-icon'
+.lehHeader
+  .headerWrap
+    .lehIcon
+      = link_to new_user_registration_path, class: 'rootLink' do
+        = image_tag 'leh_logo.png', alt: 'アイコン画像', height: '80px', width: '80px', class: 'register-icon'
+    .lehSignLogin
+      .signLoginWrapper
+        %ul.signLogin
+          - if user_signed_in?
+            %li
+              %a{class: 'slName', href: '#', rel: 'nofollow'}
+                ログイン
+            %li
+              %a{class: 'slName', href: '#', rel: 'nofollow'}
+                会員登録
+          - else
+            %li
+              %a{class: 'slName', href: '#', rel: 'nofollow'}
+                マイページ
+            %li
+              %a{class: 'slName', href: '#', rel: 'nofollow'}
+                ログアウト

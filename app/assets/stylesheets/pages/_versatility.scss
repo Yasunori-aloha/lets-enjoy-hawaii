@@ -1,3 +1,4 @@
+$transition: .2s ease-in-out;
 *{
   box-sizing: border-box;
   margin: 0;
@@ -12,7 +13,7 @@ div{
 a:link, a:visited{
   text-decoration: unset;
   color: #484848;
-  transition: .2s ease-in-out;
+  transition: $transition;
 }
 p{
   display: block;
@@ -21,8 +22,58 @@ p{
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 }
-.leh-header{
-  padding: 15px 0 0 50px;
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+li{
+  display: list-item;
+}
+.lehHeader{
+  .headerWrap{
+    padding: 10px 190px 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    .lehIcon{
+      height: 80px;
+      width: 80px;
+      margin-bottom: 5px;
+      position: relative;
+      .rootLink{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .lehSignLogin{
+      width: 420px;
+      margin: 0;
+      float: right;
+      text-align: right;
+      .signLoginWrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 45px;
+        .signLogin{
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          li{
+            margin-left: 10px;
+            .slName{
+              color: #008dde;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 .button-cv{
   height: 50px;
@@ -30,7 +81,7 @@ p{
   outline: 0;
   border-radius: 6px;
   cursor: pointer;
-  transition: .2s ease-in-out;
+  transition: $transition;
   color: #fff;
   background-color: #00b900;
   font-weight: 700;
