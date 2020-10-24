@@ -1,5 +1,5 @@
 .header
-  = image_tag 'leh_logo.png', alt: 'ヘッダー画像', height: '96px', width: '96px', class: 'header-image'
+  = render 'shared/leh_header'
 .topmain
   = image_tag "toppage.jpg", alt: 'トップ画像', height: '616px', width: '1440px', class: 'top-image'
   .search-left
@@ -109,15 +109,12 @@
 
 .footer
   .footer-main
-    .footer-logo
-      = image_tag 'leh_logo.png', alt: 'ロゴ', height: '90px', width: '90px', class: 'logo-image'
-    .footer-link
-      .privacy
+    %ul.footer-link
+      %li.privacy
         %a{href: '#', class: 'privacy-link'}
-          %span プライバシーポリシー
-      .space
-      .inquiry
-        %a{href: 't26.yasunori.yamasaki@gmail.com', class: 'email'}
-          %span お問い合わせ
+          プライバシーポリシー
+      %li.inquiry
+        %a{href: 'mailto:t26.yasunori.yamasaki@gmail.com', class: 'email'}
+          お問い合わせ
     .copyright
-      %span Copyright ©︎ All Rights Reserved.
+      Copyright©︎ yasunori_yamasaki All Rights Reserved.

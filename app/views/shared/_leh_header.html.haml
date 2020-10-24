@@ -1,0 +1,16 @@
+.lehHeader
+  .headerWrap
+    .lehIcon
+      = link_to root_path, class: 'rootLink' do
+        = image_tag 'leh_logo.png', alt: 'アイコン画像', height: '80px', width: '80px', class: 'register-icon'
+    .lehSignLogin
+      .signLoginWrapper
+        %ul.signLogin
+          %li
+            = link_to 'ログイン', new_user_session_path, rel: 'nofollow', class: 'slName'
+          %li
+            = link_to '会員登録', new_user_registration_path, rel: 'nofollow', class: 'slName'
+          %li
+            = link_to 'マイページ', '#', rel: 'nofollow', class: 'slName'
+          %li
+            = link_to 'ログアウト', destroy_user_session_path, method: :delete, rel: 'nofollow', class: 'slName'

@@ -27,19 +27,7 @@ $searchNameHeight: $searchHeight - 443px - 10px;
   backdrop-filter: blur(5px);
 }
 .header{
-  height: 96px;
-  width: 100%;
-  text-align: right;
   background-color: whitesmoke;
-  .header-word{
-    background-color: skyblue;
-    color: #333333;
-    font-size: 24px;
-    padding-left: 190px;
-  }
-    .header-image{
-      padding-right: 190px;
-    }
 }
 .topmain{
   height: 616px;
@@ -227,16 +215,19 @@ $searchNameHeight: $searchHeight - 443px - 10px;
     .footer-link{
       display: flex;
       justify-content: space-around;
-      .privacy-link{
+      align-items: center;
+      .privacy{
+        margin-right: 10px;
+        .privacy-link{
+          font-size: 12px;
+          text-decoration: none;
+          color: gray;
+        }
+      }
+      .email{
         font-size: 12px;
         text-decoration: none;
         color: gray;
-      }
-      .space{
-        width: 50px;
-      }
-      .email{
-        @extend .privacy-link;
       }
     }
     .copyright{
