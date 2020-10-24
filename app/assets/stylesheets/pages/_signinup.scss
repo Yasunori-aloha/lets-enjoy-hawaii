@@ -67,6 +67,23 @@ $regHeight: 881px;
                     top: 53px;
                   }
                 }
+                .rememberMePassword{
+                  width: 100%;
+                  font-size: 13px;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  margin-bottom: 15px;
+                  .rememberMe{
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    }
+                  }
+                  .passwordReset{
+                    color: #008dde!important;
+                    text-decoration: none!important;
+                  }
                 .signInUpButton{
                   width: $v100;
                   font-size: 18px;
@@ -133,6 +150,10 @@ $regHeight: 881px;
                 text-align: center;
                 display: block;
               }
+            }
+            .loginLinkWrapper{
+              @extend .loginLink;
+              justify-content: center;
             }
           }
         }
