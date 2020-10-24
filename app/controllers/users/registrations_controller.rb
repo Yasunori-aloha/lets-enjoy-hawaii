@@ -10,6 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     binding.pry
+    super
   end
 
   # GET /resource/edit
