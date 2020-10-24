@@ -6,11 +6,13 @@
     .lehSignLogin
       .signLoginWrapper
         %ul.signLogin
-          %li
-            = link_to 'ログイン', new_user_session_path, rel: 'nofollow', class: 'slName'
-          %li
-            = link_to '会員登録', new_user_registration_path, rel: 'nofollow', class: 'slName'
-          %li
-            = link_to 'マイページ', '#', rel: 'nofollow', class: 'slName'
-          %li
-            = link_to 'ログアウト', destroy_user_session_path, method: :delete, rel: 'nofollow', class: 'slName'
+          - unless user_signed_in?
+            %li
+              = link_to 'ログイン', new_user_session_path, rel: 'nofollow', class: 'slName'
+            %li
+              = link_to '会員登録', new_user_registration_path, rel: 'nofollow', class: 'slName'
+          - else
+            %li
+              = link_to "#{current_user.name}さんのマイページ", "/users/#{current_user.id}", rel: 'nofollow', class: 'slName'
+            %li
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete, rel: 'nofollow', class: 'slName'
