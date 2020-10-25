@@ -5,4 +5,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :users, only: [:show]
+  namespace :experiences do
+    get 'search'
+  end
 end
