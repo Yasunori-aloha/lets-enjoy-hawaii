@@ -1,0 +1,12 @@
+.header
+  = render 'shared/leh_header'
+.search
+  - if @search.present?
+    %h2
+    - @experiences.each do |exp|
+      = exp.name
+      %span の検索結果
+    .result
+      = "1-#{@experiences.count}件表示"
+  - else
+    %h2 検索結果

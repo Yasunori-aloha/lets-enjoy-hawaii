@@ -7,5 +7,4 @@ class Experience < ApplicationRecord
   has_many :his_users, through: :histories, source: :user
   has_many :favorites
   has_many :fav_users, through: :favorites, source: :user
-
 end
