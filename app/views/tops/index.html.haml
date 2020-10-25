@@ -49,13 +49,13 @@
         .search-word-header-string
           %b キーワードから探す
       .search-word-main
-        = form_with model:@experience, url: experiences_search_path, method: 'GET', class: 'form',local: true do |form|
+        = search_form_for @search, url: experiences_search_path, class: 'form' do |form|
           .keyword
             %b.main-word キーワード
-            = form.text_field :keyword, placeholder: 'ホテル名・地名やイベント名など', class: 'text-field'
+            = form.search_field :name_cont, placeholder: 'ホテル名・地名やイベント名など', class: 'text-field'
           .select
             %b.main-select 評価
-            = form.collection_select :score, Score.all, :id, :name, {}, {class:'select-box', id:'score'}
+            = form.collection_select :score_gteq, Score.all, :id, :name, {}, {class:'select-box', id:'score'}
           = form.submit '検索', class: 'submit'
   .search-right
     .search-map
