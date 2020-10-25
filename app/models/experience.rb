@@ -10,6 +10,6 @@ class Experience < ApplicationRecord
 
   def self.search(search)
     return Experience.all unless search
-    Experience.where('name LIKE ?', "%#{search}%")
+    Experience.where('name LIKE ? AND score LIKE ?', "%#{search.keyword}%", "#{search.score}")
   end
 end

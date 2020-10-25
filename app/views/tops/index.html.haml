@@ -49,7 +49,7 @@
         .search-word-header-string
           %b キーワードから探す
       .search-word-main
-        = form_with url: '/', class: 'form',local: true do |form|
+        = form_with model:@experience, url: experiences_search_path, method: 'GET', class: 'form',local: true do |form|
           .keyword
             %b.main-word キーワード
             = form.text_field :keyword, placeholder: 'ホテル名・地名やイベント名など', class: 'text-field'

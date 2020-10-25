@@ -1,5 +1,6 @@
 class ExperiencesController < ApplicationController
   def search
-    @experience = Experience.search(params[:keyword])
+    binding.pry
+    @experience = Experience.search(params[:keyword, :score])
   end
 end
