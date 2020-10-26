@@ -1,0 +1,2 @@
+class RentalcarsController < ApplicationController
+end

@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   namespace :experiences do
     get 'search'
   end
+  scope module: :experiences do
+    resources :rentalcars, only: [:index]
+  end
 end
