@@ -11,35 +11,35 @@
       .search-type-main
         .type-main1
           .type1
-            %a{href: hotels_path, class: 'purpose-name'}
+            = link_to '', {controller: 'experiences', action: 'edit', name: 'hotel'}, class: 'purpose-name'
             = image_tag 'hotel_icon.png', alt: 'ホテル', height: '40px', width: '40px', class: 'type-icon'
             %p.type-name
               ホテル
               %br/
               コンドミニアム
           .type2
-            %a{href: dinners_path, class: 'purpose-name'}
+            = link_to '', {controller: 'experiences', action: 'edit', name: 'dinner'}, class: 'purpose-name'
             = image_tag 'lunch_icon.png', alt: '食事', height: '40px', width: '40px', class: 'type-icon'
             %p.type-name
               食事
           .type3
-            %a{href: rentalcars_path, class: 'purpose-name'}
+            = link_to '', {controller: 'experiences', action: 'edit', name: 'rentacar'}, class: 'purpose-name'
             = image_tag 'car_icon.png', alt: 'レンタカー', height: '40px', width: '40px', class: 'type-icon'
             %p.type-name
               レンタカー
         .type-main2
           .type1
-            %a{href: leisures_path, class: 'purpose-name'}
+            = link_to '', {controller: 'experiences', action: 'edit', name: 'leisure'}, class: 'purpose-name'
             = image_tag 'leisure_icon.png', alt: '遊び・体験', height: '40px', width: '40px', class: 'type-icon'
             %p.type-name
               遊び・体験
           .type2
-            %a{href: landmarks_path, class: 'purpose-name'}
+            = link_to '', {controller: 'experiences', action: 'edit', name: 'landmark'}, class: 'purpose-name'
             = image_tag 'landmark_icon.png', alt: '観光地', height: '40px', width: '40px', class: 'type-icon'
             %p.type-name
               観光地
           .type3
-            %a{href: shoppings_path, class: 'purpose-name'}
+            = link_to '', {controller: 'experiences', action: 'edit', name: 'shopping'}, class: 'purpose-name'
             = image_tag 'shopping_icon.png', alt: 'ショッピング', height: '40px', width: '40px', class: 'type-icon'
             %p.type-name
               ショッピング
