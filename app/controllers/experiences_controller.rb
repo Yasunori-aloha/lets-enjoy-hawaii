@@ -3,5 +3,6 @@ class ExperiencesController < ApplicationController
   end
 
   def edit
+    render "search/#{params[:name]}"
   end
 end
