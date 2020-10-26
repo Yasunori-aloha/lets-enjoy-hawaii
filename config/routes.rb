@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   namespace :experiences do
     get 'search'
   end
+  get '/:name', to: 'experiences#edit' 
 end
