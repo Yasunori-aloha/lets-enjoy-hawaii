@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'leisures/index'
   get 'dinners/index'
   get 'landmarks/index'
   get 'shoppings/index'
