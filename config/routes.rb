@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'landmarks/index'
   get 'shoppings/index'
   get 'hotels/index'
   root to: 'tops#index'
@@ -14,5 +15,6 @@ Rails.application.routes.draw do
     resources :rentalcars, only: [:index]
     resources :hotels, only: [:index]
     resources :shoppings, only: [:index]
+    resources :landmarks, only: [:index]
   end
 end
