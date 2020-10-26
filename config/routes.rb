@@ -19,5 +19,6 @@ Rails.application.routes.draw do
     resources :shoppings, only: [:index]
     resources :landmarks, only: [:index]
     resources :dinners, only: [:index]
+    resources :leisures, only: [:index]
   end
 end
