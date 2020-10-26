@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'dinners/index'
   get 'landmarks/index'
   get 'shoppings/index'
   get 'hotels/index'
@@ -16,5 +17,6 @@ Rails.application.routes.draw do
     resources :hotels, only: [:index]
     resources :shoppings, only: [:index]
     resources :landmarks, only: [:index]
+    resources :dinners, only: [:index]
   end
 end
