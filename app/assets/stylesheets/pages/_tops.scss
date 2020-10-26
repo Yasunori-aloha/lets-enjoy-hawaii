@@ -168,6 +168,7 @@ $searchNameHeight: $searchHeight - 443px - 10px;
         height: $searchNameHeight;
         .name-header{
           @include search-header();
+          margin-bottom: 7px;
           .name-header-string{
             @include header-string();
           }
@@ -187,10 +188,8 @@ $searchNameHeight: $searchHeight - 443px - 10px;
                   justify-content: center;
                   .island-name{
                     color: #000000;
-                    .under-bar{
-                      font-size: 18px;
-                      text-decoration: underline;
-                    }
+                    font-size: 18px;
+                    text-decoration: underline;
                   }
                 }
               }

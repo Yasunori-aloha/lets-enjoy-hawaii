@@ -32,6 +32,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
+  gem 'bullet'
 end
 
 group :development do
@@ -50,3 +51,4 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'active_hash'
 gem 'haml-rails'
+gem 'ransack'
