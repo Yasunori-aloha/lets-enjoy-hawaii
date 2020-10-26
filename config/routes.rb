@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'shoppings/index'
   get 'hotels/index'
   root to: 'tops#index'
   devise_for :users, controllers: {
@@ -12,5 +13,6 @@ Rails.application.routes.draw do
   scope module: :experiences do
     resources :rentalcars, only: [:index]
     resources :hotels, only: [:index]
+    resources :shoppings, only: [:index]
   end
 end
