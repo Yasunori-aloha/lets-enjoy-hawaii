@@ -12,10 +12,10 @@
     / トップページからの遷移リンクを表示
     .menu{id: 'contentsArea'}
       / メールアドレス入力フォーム
-      #reissue
-        #reissueHeader{class: 'nobg'}
+      #reissue.emailFormWrapper
+        #reissueHeader{class: 'emailFormHeader'}
           %p.title パスワードを再発行する
-        #reissueMain
+        #reissueMain.emailFormMain
           ご本人であることを確認するために、現在登録されているメールアドレスを入力し、「送信する」ボタンを押してください。
           ご登録いただいているメールアドレスにパスワード再設定手続きのメールをお送りします。
         %br/
@@ -33,5 +33,16 @@
           ※ 自動応答フォームでうまくいかない場合は、
           = link_to 'こちらからお問い合わせください。', '#'
       / メールアドレス入力フォーム
-      #forget
+      / 新規会員登録ページへの遷移リンク
+      #reissue.signUpLinkWrapper
+        #reissueHeader{class: 'signUpLinkHeader'}
+          %p.title 登録時のメールアドレスをすでに使用されていない場合は
+        #reissueMain.signUpLinkMain
+          ご登録内容のお問い合わせやパスワードの再発行のご連絡を登録時のメールアドレスへ送りますので、登録アドレスが使用できない場合はお知らせできません。
+          新しいメールアドレスで再度会員登録をして、ご利用ください。
+          %br/
+          ※お気に入りや、口コミしたお店の一覧表示は移行できません。
+          .toSignUpLink
+            = link_to 'もう一度会員登録する', new_user_registration_path, class: 'submit', type: 'submit'
+      / 新規会員登録ページへの遷移リンク
   .passwordFooter
