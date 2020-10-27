@@ -7,6 +7,7 @@
           .signInUpMainContent
             %span.registerText ログイン
             .signInUpForm
+              / 入力フォーム
               = form_with model: @user, url: user_session_path, local: true, class: 'signInUpUser' do |f|
                 = render "devise/shared/error_messages", resource: @user
                 .signInUpFormInput
@@ -23,8 +24,10 @@
                       %span ログイン状態を保持
                     = link_to "パスワードをお忘れの方", new_password_path(resource_name), target: '_blank', rel: 'noopner', class: 'passwordReset'
                 = f.submit "ログイン", class: 'button-cv signInUpButton'
+              / 入力フォーム
             .socialLogin
               %span{class: 'socialLoginTitle'}こちらもご利用いただけます
+              / SNSアカウントでログインできる
               .socialLoginContainer
                 %div
                   %a{href: '#', class: 'socialLoginLink'}
@@ -34,13 +37,17 @@
                   %a{href: '#', class: 'socialLoginLink'}
                 %div
                   %a{href: '#', class: 'socialLoginLink'}
+              / SNSアカウントでログインできる
               = render "devise/shared/links"
+              / テストユーザーとしてログインするためのフォーム 
               .testUserSignInForm
                 %span.testUserLoginText ※アカウント登録せず、ユーザー機能を試したい方は
                 = form_with model: @user, url: user_session_path, local: true, class: 'testUserLoginForm' do |f|
                   = f.hidden_field :email, :value => 'test@test.com'
                   = f.hidden_field :password, :value => 'testuser1'
                   = f.submit "こちら", class: 'tesuUserLoginButton'
+              / テストユーザーとしてログインするためのフォーム
+      / フッター
       .signInUpFooter
         %ul.signInUpFooterList
           %li
@@ -48,3 +55,4 @@
               ヘルプ・お問い合わせ
         .signInUpFooterCopyright
           Copyright© yasunori_yamasaki All Rights Reserved.
+      / フッター
