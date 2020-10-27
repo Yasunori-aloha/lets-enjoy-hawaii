@@ -135,6 +135,26 @@ $regHeight: 881px;
                 text-decoration: none!important;
               }
             }
+            .testUserSignInForm{
+              width: 100%;
+              margin-top: 20px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              .testUserLoginText{
+                font-size: 14px;
+                margin-right: 5px;
+              }
+              .testUserLoginForm{
+                .tesuUserLoginButton{
+                  font-size: 14px;
+                  color: #008dde;
+                  border-style: none;
+                  background-color: #fff;
+                  cursor: pointer;
+                }
+              }
+            }
             .loginLink{
               display: flex;
               align-items: center;

@@ -38,6 +38,12 @@
               %a{href: '#', class: 'registerPolicyLink'}プライバシーポリシー
               に同意したものとみなされます。
             = render "devise/shared/links"
+            .testUserSignInForm
+              %span.testUserLoginText ※アカウント登録せず、ユーザー機能を試したい方は
+              = form_with model: @user, url: user_session_path, local: true, class: 'testUserLoginForm' do |f|
+                = f.hidden_field :email, :value => 'test@test.com'
+                = f.hidden_field :password, :value => 'testuser1'
+                = f.submit "こちら", class: 'tesuUserLoginButton'
       .signInUpFooter
         %ul.signInUpFooterList
           %li
