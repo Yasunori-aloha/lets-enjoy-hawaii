@@ -2,118 +2,49 @@
 
 ハワイ諸島の人気アクティビティや人気店等の情報を日本語で掲載し、口コミや評価を手軽に投稿できるサイトです。
 
-# テーブル設計
+## アプリ概要
+ - ハワイ諸島にある様々な店舗・観光名所やホテル等の検索ができます。
+ - お店や、観光場所等の口コミを点数付きで投稿する機能を実装予定
+ - いったことのある場所・気になる場所を登録し、自身のマイページで管理できる機能を実装予定
 
-## users テーブル
+Ruby on Railsで制作指しています。
 
-| Column             | Type    | Options                  |
-| ------------------ | ------- | ------------------------ |
-| name               | string  | null: false, default: "" |
-| email              | string  | null: false, default: "" |
-| introduce          | text    |                          |
-| image              | text    |                          |
-| encrypted_password | string  | null: false, default: "" |
-| admin              | integer |                          |
+## アプリ機能
+Ruby on Railsで制作したアプリです。
+ - キーワード検索(あいまい) :店舗名や地名等、入力したキーワードに合致する場所を曖昧検索できます。
+ - 場所検索機能(地図/目的) :地図上や探す目的から場所を検索できます。
+ - マイページ機能 :口コミ投稿した場所、お気に入り登録した場所を一覧で確認することができます。
+ - 口コミ投稿・評価機能 :コメントをつけて場所の評価を5段階で行えます。
 
-### Association
+## 使い方
+### 場所検索
+1. トップページの検索欄に任意のキーワードを入力 or 地図上・島名からいきたい場所を選択 or 目的別のボタンからやりたいことを選択
+2. 検索条件に該当する場所をクリック
 
-- has_one_attached :image
-- has_many :reviews, dependent: :destroy
-- has_many :histories, dependent: :destroy
-- has_many :his_exps, through: :histories, source: :experience
-- has_many :favorites, dependent: :destroy
-- has_many :fav_exps, through: :favorites, source: :experience
+### 口コミ投稿
+ - 実装予定
+### お気に入り登録
+ - 実装予定
 
-## experiences テーブル
+## ローカル環境へのインストール方法
+```
+$ git clone https://github.com/Yasunori-aloha/lets-enjoy-hawaii.git
+$cd lets-enjoy-hawaii
+$bundle install
+$rails db:create
+$ rails db:migrate
+```
+## ER図
+https://i.gyazo.com/47094ab8833f94f8dfd865dbe43699e9.png
 
-| Column                | Type       | Options                        |
-| --------------------- | ---------- | ------------------------------ |
-| name                  | string     | null: false, default: ""       |
-| outline               | text       |                                |
-| image                 | text       |                                |
-| address               | string     | null: false                    |
-| latitude              | integer    | null: false                    |
-| longitude             | integer    | null: false                    |
-| type_id               | integer    | null: false                    |
-| business_hours_start  | string     |                                |
-| business_hours_finish | string     |                                |
-| area                  | references | null: false, foreign_key: true |
-| genre                 | references | null: false, foreign_key: true |
+## その他
+順次機能を実装しております。
 
-### Association
+実装予定の機能については、Issuesからご確認いただけます。
 
-- has_one_attached :image
-- belongs_to :area
-- belongs_to :genre
-- has_many :reviews
-- has_many :histories
-- has_many :his_users, through: :histories, source: :user
-- has_many :favorites
-- has_many :fav_users, through: :favorites, source: :user
+https://github.com/Yasunori-aloha/lets-enjoy-hawaii/issues
 
-## histories テーブル
-
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| user       | references | null: false, foreign_key: true |
-| experience | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :experience
-
-## reviews テーブル
-
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| comment    | text       | null: false                    |
-| score_id   | integer    | null: false                    |
-| user       | references | null: false, foreign_key: true |
-| experience | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to_active_hash :score
-- belongs_to :user
-- belongs_to :experience
-
-## favorites テーブル
-
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| user       | references | null: false, foreign_key: true |
-| experience | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :experience
-
-## areas テーブル
-
-| Column    | Type    | Options     |
-| --------- | ------- | ----------- |
-| name      | string  | null: false |
-| island_id | integer | null: false |
-
-### Association
-
-- belongs_to_active_hash :island
-- has_many :experiences
-
-## genres テーブル
-
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| name   | string | null: false |
-
-- has_many :experiences
-
-# ER図
-https://i.gyazo.com/0bb2f584edcd557aa5b447177635d4fc.png
-
-# 作者
+## 作者
 ### 山崎 泰則
 Twitter : https://twitter.com/yasunori_aloha
 
