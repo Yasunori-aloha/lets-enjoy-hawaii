@@ -2,20 +2,36 @@
   .passwordHeader
     = render 'shared/leh_header'
   .passwordMain{align: 'center'}
+    / トップページからの遷移リンクを表示
     .menu{id: 'passwordMain', style: 'margin-bottom:0; text-align: left'}
       = link_to 'トップ', root_path
       &nbsp;>&nbsp;
       = link_to '会員情報の確認・変更', '#'
       &nbsp;>&nbsp;
       %strong パスワードの再発行
+    / トップページからの遷移リンクを表示
     .menu{id: 'contentsArea'}
+      / メールアドレス入力フォーム
       #reissue
-        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-          = render "devise/shared/error_messages", resource: resource
-          .field
-            = f.label :email
-            %br/
-            = f.email_field :email, autofocus: true, autocomplete: "email"
+        #reissueHeader{class: 'nobg'}
+          %p.title パスワードを再発行する
+        #reissueMain
+          ご本人であることを確認するために、現在登録されているメールアドレスを入力し、「送信する」ボタンを押してください。
+          ご登録いただいているメールアドレスにパスワード再設定手続きのメールをお送りします。
+        %br/
+        = form_with model: @user, url: user_password_path, local: true do |f|
+          %div{style: 'width:652px;',class: 'bottom_p_10px right_p_20px left_p_20px'}
+            .passwordFieldWrapper
+              .passwordField
+                = f.label :email
+                %span.userEmailText (半角英数)
+              .passwordEmailField
+                = f.email_field :email, autofocus: true, autocomplete: "email", class: 'userEmailField'
           .actions
-            = f.submit "Send me reset password instructions"
-  .passwordHeader
+            = f.submit "送信する", class: 'submit'
+        %div{style: 'padding-left: 20px; padding-bottom: 10px;'}
+          ※ 自動応答フォームでうまくいかない場合は、
+          = link_to 'こちらからお問い合わせください。', '#'
+      / メールアドレス入力フォーム
+      #forget
+  .passwordFooter
