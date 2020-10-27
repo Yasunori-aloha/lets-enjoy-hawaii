@@ -90,26 +90,6 @@ $regHeight: 881px;
                 }
               }
             }
-            .testUserSignInForm{
-              width: 100%;
-              margin-top: 10px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              .testUserLoginText{
-                font-size: 14px;
-                margin-right: 5px;
-              }
-              .testUserLoginForm{
-                .tesuUserLoginButton{
-                  font-size: 14px;
-                  color: #008dde;
-                  border-style: none;
-                  background-color: #fff;
-                  cursor: pointer;
-                }
-              }
-            }
             .socialLogin{
               border-top: 1px solid #ccc;
               margin-top: 30px;
@@ -153,6 +133,26 @@ $regHeight: 881px;
               .registerPolicyLink{
                 color: #008dde!important;
                 text-decoration: none!important;
+              }
+            }
+            .testUserSignInForm{
+              width: 100%;
+              margin-top: 20px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              .testUserLoginText{
+                font-size: 14px;
+                margin-right: 5px;
+              }
+              .testUserLoginForm{
+                .tesuUserLoginButton{
+                  font-size: 14px;
+                  color: #008dde;
+                  border-style: none;
+                  background-color: #fff;
+                  cursor: pointer;
+                }
               }
             }
             .loginLink{
