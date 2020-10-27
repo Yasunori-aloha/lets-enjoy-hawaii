@@ -199,39 +199,4 @@ $searchNameHeight: $searchHeight - 443px - 10px;
       }
   }
 }
-.footer{
-  background-color: whitesmoke;
-  height: 90px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  .footer-main{
-    height: 100%;
-    width: calc(#{$searchLeftWidth} + 25px + #{$searchRightWidth});
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .footer-link{
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      .privacy{
-        margin-right: 10px;
-        .privacy-link{
-          font-size: 12px;
-          text-decoration: none;
-          color: gray;
-        }
-      }
-      .email{
-        font-size: 12px;
-        text-decoration: none;
-        color: gray;
-      }
-    }
-    .copyright{
-      font-size: 10px;
-      color: #808080;
-    }
-  }
-}
+

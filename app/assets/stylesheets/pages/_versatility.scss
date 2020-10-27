@@ -7,6 +7,9 @@ html{
   font-size: 16px;
   word-spacing: 1px;
 }
+body{
+  color: rgb(102, 102, 102);
+}
 div{
   display: block;
 }
@@ -85,4 +88,40 @@ li{
   color: #fff;
   background-color: #00b900;
   font-weight: 700;
+}
+.leh_footer{
+  background-color: whitesmoke;
+  height: 90px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .leh_footer-main{
+    height: 100%;
+    width: calc(#{$searchLeftWidth} + 25px + #{$searchRightWidth});
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .leh_footer-link{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      .leh_privacy{
+        margin-right: 10px;
+        .leh_privacy-link{
+          font-size: 12px;
+          text-decoration: none;
+          color: gray;
+        }
+      }
+      .leh_email{
+        font-size: 12px;
+        text-decoration: none;
+        color: gray;
+      }
+    }
+    .leh_copyright{
+      font-size: 10px;
+      color: #808080;
+    }
+  }
 }
