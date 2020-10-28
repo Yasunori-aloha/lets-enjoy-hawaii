@@ -22,7 +22,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # end
 
   def facebook
-    binding.pry
     authorization
   end
 
@@ -34,6 +33,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def authorization
     @user = User.from_omniauth(request.env["omniauth.auth"])
+    # ユーザー情報がDBに保存済みならログイン処理をして、新規ユーザーなら新規登録画面へ遷移させる。
+    if @user.persisted?
+      sign_in_and_redirect @user, event: :authentication
+    else
+      render template: 'users/registrations/new'
+    end
   end
 
   # The path used when OmniAuth fails
