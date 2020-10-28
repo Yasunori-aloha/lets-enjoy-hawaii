@@ -4,7 +4,7 @@
       すでにアカウントをお持ちですか？
     = link_to "ログイン", new_session_path(resource_name), class: 'loginText'
     %br/
-- if devise_mapping.registerable? && controller_name != 'registrations'
+- if devise_mapping.registerable? && controller_name != 'registrations' && controller_name != 'omniauth_callbacks'
   %p.loginLinkWrapper
     %span.loginLinkTitle
       アカウントをお持ちではありませんか？
