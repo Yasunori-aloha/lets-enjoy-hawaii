@@ -21,7 +21,27 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #   super
   # end
 
-  # protected
+  def facebook
+    authorization
+  end
+
+  def google_oauth2
+  authorization
+  end
+
+  private
+
+  def authorization
+    sns_info = User.from_omniauth(request.env["omniauth.auth"])
+    @user = sns_info[:user]
+    # ユーザー情報がDBに保存済みならログイン処理をして、新規ユーザーなら新規登録画面へ遷移させる。
+    if @user.persisted?
+      sign_in_and_redirect @user, event: :authentication
+    else
+      @sns_id = sns_info[:sns].id
+      render template: 'users/registrations/new'
+    end
+  end
 
   # The path used when OmniAuth fails
   # def after_omniauth_failure_path_for(scope)

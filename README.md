@@ -40,7 +40,7 @@ $rails db:create
 $ rails db:migrate
 ```
 ## ER図
-https://i.gyazo.com/47094ab8833f94f8dfd865dbe43699e9.png
+https://i.gyazo.com/08a8d9a209c12f1b4f8d982910212e44.png
 
 ## その他
 順次機能を実装しております。

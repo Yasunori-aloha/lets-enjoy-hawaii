@@ -31,10 +31,10 @@
               .socialLoginContainer
                 %div
                   %a{href: '#', class: 'socialLoginLink'}
-                %div
-                  %a{href: '#', class: 'socialLoginLink'}
-                %div
-                  %a{href: '#', class: 'socialLoginLink'}
+                #googleLogin
+                  = link_to '', user_google_oauth2_omniauth_authorize_path, method: :post, class: 'socialLoginLink'
+                #facebookLogin
+                  = link_to image_tag("f_logo_RGB-Blue_58.png", height: '30px', width: '30px'), user_facebook_omniauth_authorize_path, method: :post, class: 'socialLoginLink'
                 %div
                   %a{href: '#', class: 'socialLoginLink'}
               / SNSアカウントでログインできる
