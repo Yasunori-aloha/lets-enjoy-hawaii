@@ -22,6 +22,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # end
 
   def facebook
+    binding.pry
     authorization
   end
 

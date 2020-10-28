@@ -13,5 +13,7 @@ class User < ApplicationRecord
   has_many :fav_exps, through: :favorites, source: :experience
   has_many :sns_credentials
 
-  
+  def self.from_omniauth(auth)
+    binding.pry
+  end
 end
