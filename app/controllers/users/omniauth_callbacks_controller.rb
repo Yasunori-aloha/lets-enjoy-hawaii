@@ -21,7 +21,19 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #   super
   # end
 
-  # protected
+  def facebook
+    authorization
+  end
+
+  def google_oauth2
+  authorization
+  end
+
+  private
+
+  def authorization
+    @user = User.from_omniauth(request.env["omniauth.auth"])
+  end
 
   # The path used when OmniAuth fails
   # def after_omniauth_failure_path_for(scope)
