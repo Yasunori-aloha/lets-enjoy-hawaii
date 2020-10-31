@@ -1,57 +1,56 @@
-.signInUpAll
-  .signInUpLayout
-    .signInUpWrapper
+.signin_up_all
+  .signin_up_layout
+    .signin_up_wrapper
       = render 'shared/leh_header'
-      .signInUpMainWrapper
-        .signInUpMain
-          .signInUpMainContent
-            %span.registerText 会員登録
-            .signInUpForm
-              = form_with model: @user, url: user_registration_path, local: true, class: 'signInUpUser' do |f|
+      .signin_up_main_wrapper
+        .signin_up_main
+          .signin_up_main_content
+            %span.register_text 会員登録
+            .signin_up_form
+              = form_with model: @user, url: user_registration_path, local: true, class: 'signin_up_user' do |f|
                 = render "devise/shared/error_messages", resource: @user
-                .signInUpFormInput
-                  = f.text_field :name, placeholder: '氏名（例：畑中三郎）', autocomplete: 'name', class: 'signInUpInput'
-                  %span{style: 'display:none'}, class: 'signInUpErrorMessage'}この項目は必須です
-                .signInUpFormInput
-                  = f.email_field :email, placeholder: 'メールアドレス', autocomplete: "email", autocorrect: 'off', autocapitalize: 'off', class: 'signInUpInput'
-                  %span{style: 'display:none'}, class: 'signInUpErrorMessage'}この項目は必須です
+                .signin_up_form_input
+                  = f.text_field :name, placeholder: '氏名（例：畑中三郎）', autocomplete: 'name', class: 'signin_up_input'
+                  %span{style: 'display:none'}, class: 'signin_up_error_message'}この項目は必須です
+                .signin_up_form_input
+                  = f.email_field :email, placeholder: 'メールアドレス', autocomplete: "email", autocorrect: 'off', autocapitalize: 'off', class: 'signin_up_input'
+                  %span{style: 'display:none'}, class: 'signin_up_error_message'}この項目は必須です
                 -# SNS認証での新規登録ならパスワード入力欄を消去し、登録ボタンを押した際にsns_auth: true というparamsを送信する。
                 - if @sns_id.present?
                   = hidden_field_tag :sns_auth, true
                 - else
-                  .signInUpFormInput
-                    = f.password_field :password, placeholder: 'パスワード（8～20文字・半角英数字・記号を2種以上）', maxlength: '20', autocomplete: "new-password", class: 'signInUpInput'
-                    %span{style: 'display:none'}, class: 'signInUpErrorMessage'}この項目は必須です
-                  .signInUpFormInput
-                    = f.password_field :password_confirmation, placeholder: '上記と同じパスワードを入力してください', autocomplete: "new-password", class: 'signInUpInput'
-                    %span{style: 'display:none'}, class: 'signInUpErrorMessage'}この項目は必須です
-                = f.submit "登録する", class: 'button-cv signInUpButton'
-            .socialLogin
-              %span{class: 'socialLoginTitle'}こちらもご利用いただけます
-              .socialLoginContainer
+                  .signin_up_form_input
+                    = f.password_field :password, placeholder: 'パスワード（8～20文字・半角英数字・記号を2種以上）', maxlength: '20', autocomplete: "new-password", class: 'signin_up_input'
+                    %span{style: 'display:none'}, class: 'signin_up_error_message'}この項目は必須です
+                  .signin_up_form_input
+                    = f.password_field :password_confirmation, placeholder: '上記と同じパスワードを入力してください', autocomplete: "new-password", class: 'signin_up_input'
+                    %span{style: 'display:none'}, class: 'signin_up_error_message'}この項目は必須です
+                = f.submit "登録する", class: 'button_cv signin_up_button'
+            .social_login
+              %span{class: 'social_login_title'}こちらもご利用いただけます
+              .social_login_container
                 %div
-                  %a{href: '#', class: 'socialLoginLink'}
+                  %a{href: '#', class: 'social_login_link'}
                 #googleLogin
-                  = link_to '', user_google_oauth2_omniauth_authorize_path, method: :post, class: 'socialLoginLink'
+                  = link_to '', user_google_oauth2_omniauth_authorize_path, method: :post, class: 'social_login_link'
                 #facebookLogin
-                  = link_to image_tag("f_logo_RGB-Blue_58.png", height: '30px', width: '30px'), user_facebook_omniauth_authorize_path, method: :post, class: 'socialLoginLink'
+                  = link_to image_tag("f_logo_RGB-Blue_58.png", height: '30px', width: '30px'), user_facebook_omniauth_authorize_path, method: :post, class: 'social_login_link'
                 %div
-                  %a{href: '#', class: 'socialLoginLink'}
-            %p.registerPolicy
+                  %a{href: '#', class: 'social_login_link'}
+            %p.register_policy
               会員登録に伴い、
-              %a{href: '#', class: 'registerPolicyLink'}プライバシーポリシー
+              %a{href: '#', class: 'register_policy_link'}プライバシーポリシー
               に同意したものとみなされます。
             = render "devise/shared/links"
-            .testUserSignInForm
-              %span.testUserLoginText ※アカウント登録せず、ユーザー機能を試したい方は
-              = form_with model: @user, url: user_session_path, local: true, class: 'testUserLoginForm' do |f|
+            .testuser_sign_in_form
+              %span.testuser_login_text ※アカウント登録せず、ユーザー機能を試したい方は
+              = form_with model: @user, url: user_session_path, local: true, class: 'testuser_login_form' do |f|
                 = f.hidden_field :email, :value => 'test@test.com'
                 = f.hidden_field :password, :value => 'testuser1'
-                = f.submit "こちら", class: 'tesuUserLoginButton'
-      .signInUpFooter
-        %ul.signInUpFooterList
+                = f.submit "こちら", class: 'testuser_login_button'
+      .signin_up_footer
+        %ul.signin_up_footer_list
           %li
-            %a{href: 'mailto:t26.yasunori.yamasaki@gmail.com', class: 'signInUpFooterLink'}
-              ヘルプ・お問い合わせ
-        .signInUpFooterCopyright
+            = link_to 'ヘルプ・お問い合わせ', 'mailto:t26.yasunori.yamasaki@gmail.com', class: 'signin_up_footer_link'
+        .signin_up_footer_copyright
           Copyright© yasunori_yamasaki All Rights Reserved.

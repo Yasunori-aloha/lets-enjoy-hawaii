@@ -1,8 +1,8 @@
 $v100: 100%;
 $regHeight: 881px;
-.signInUpAll{
-  .signInUpLayout{
-    .signInUpWrapper{
+.signin_up_all{
+  .signin_up_layout{
+    .signin_up_wrapper{
       background: image-url('register_image.jpg');
       background-repeat: no-repeat;
       background-position: center center;
@@ -11,17 +11,17 @@ $regHeight: 881px;
       flex-direction: column;
       min-height: 100vh;
       background-color: #f7f7f7;
-      .signInUpMainWrapper{
+      .signin_up_main_wrapper{
         flex: 1;
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        .signInUpMain{
+        .signin_up_main{
           display: flex;
           justify-content: center;
           color: #484848;
           padding: 20px 0 30px;
-          .signInUpMainContent{
+          .signin_up_main_content{
             width: 510px;
             border-radius: 10px;
             box-shadow: 0 1px 2px rgba(0,0,0,.05),
@@ -31,25 +31,25 @@ $regHeight: 881px;
             align-items: center;
             background-color: #fff;
             padding: 45px;
-            .registerText{
+            .register_text{
               margin-bottom: 30px;
               font-size: 22px;
               font-weight: 700;
               display: block;
               text-align: center;
             }
-            .signInUpForm{
+            .signin_up_form{
               width: $v100;
-              .signInUpUser{
+              .signin_up_user{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 margin: 0 auto;
-                .signInUpFormInput{
+                .signin_up_form_input{
                   width: $v100;
                   margin-bottom: 30px;
                   position: relative;
-                  .signInUpInput{
+                  .signin_up_input{
                     border: 1px solid #ccc;
                     appearance: none;
                     height: 50px;
@@ -60,7 +60,7 @@ $regHeight: 881px;
                     padding: 15px;
                     font-size: 14px;
                   }
-                  .signInUpErrorMessage{
+                  .signin_up_error_message{
                     font-size: 12px;
                     color: red;
                     position: absolute;
@@ -84,20 +84,20 @@ $regHeight: 881px;
                     color: #008dde!important;
                     text-decoration: none!important;
                   }
-                .signInUpButton{
+                .signin_up_button{
                   width: $v100;
                   font-size: 18px;
                 }
               }
             }
-            .socialLogin{
+            .social_login{
               border-top: 1px solid #ccc;
               margin-top: 30px;
               padding-top: 15px;
               position: relative;
               text-align: center;
               width: $v100;
-              .socialLoginTitle{
+              .social_login_title{
                 font-size: 14px;
                 line-height: 20px;
                 background-color: #fff;
@@ -108,14 +108,14 @@ $regHeight: 881px;
                 top: -10px;
                 width: 50%;
               }
-              .socialLoginContainer{
+              .social_login_container{
                 height: 92px;
                 width: $v100;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
                 margin: 0 auto;
-                .socialLoginLink{
+                .social_login_link{
                   height: 72px;
                   width: 72px;
                   display: flex;
@@ -130,26 +130,26 @@ $regHeight: 881px;
                 }
               }
             }
-            .registerPolicy{
+            .register_policy{
               margin: 10px 0 0;
               font-size: 11px;
-              .registerPolicyLink{
+              .register_policy_link{
                 color: #008dde!important;
                 text-decoration: none!important;
               }
             }
-            .testUserSignInForm{
+            .testuser_sign_in_form{
               width: 100%;
               margin-top: 20px;
               display: flex;
               justify-content: center;
               align-items: center;
-              .testUserLoginText{
+              .testuser_login_text{
                 font-size: 14px;
                 margin-right: 5px;
               }
-              .testUserLoginForm{
-                .tesuUserLoginButton{
+              .testuser_login_form{
+                .testuser_login_button{
                   font-size: 14px;
                   color: #008dde;
                   border-style: none;
@@ -181,22 +181,22 @@ $regHeight: 881px;
           }
         }
       }
-      .signInUpFooter{
+      .signin_up_footer{
         height: 60px;
         width: $v100;
         text-align: center;
-        .signInUpFooterList{
+        .signin_up_footer_list{
           display: flex;
           justify-content: center;
           margin: 0 0 8px;
           list-style: none;
-          .signInUpFooterLink{
+          .signin_up_footer_link{
             color: #fff;
             text-decoration: none;
             font-size: 10px;
           }
         }
-        .signInUpFooterCopyright{
+        .signin_up_footer_copyright{
           color: #fff;
           font-size: 10px;
           font-style: normal;
