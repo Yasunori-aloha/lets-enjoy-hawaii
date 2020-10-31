@@ -1,4 +1,5 @@
 = render 'shared/leh_header'
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
-= @user.name
+.mypage_wrapper
+  = image_tag 'mypage_image', alt: 'マイページ', height: '616px', width: '1440px', class: 'mypage_image'
+  .mypage_main
+= render 'shared/leh_footer'
