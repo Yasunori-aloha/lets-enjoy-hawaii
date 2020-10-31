@@ -31,14 +31,16 @@ $userNameHeight: calc(100% / 4 * 3);
           height: 100%;
           width: 200px;
           padding-top: 30px;
-          .mypage_user_setting_list{
+          .mypage_user_side_list{
             height: 100%;
             width: 100%;
             padding-left: 10px;
-            .mypage_user_setting{
-              color: #fff;
-              font-size: 14px;
+            .mypage_user_side{
               margin-bottom: 10px;
+              .mypage_user_side_text{
+                color: #fff;
+                font-size: 14px;
+              }
             }
           }
         }
