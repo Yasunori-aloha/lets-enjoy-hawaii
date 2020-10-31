@@ -5,11 +5,19 @@
     .mypage_contents_head
     .mypage_contents_main
       .mypage_contents_main_left
-        .mypage_user_info_wrapper
-          %ul.mypage_user_info_list
-            %li.mypage_user_info
+        .mypage_user_setting_wrapper
+          %ul.mypage_user_setting_list
+            %li.mypage_user_setting
               会員情報の確認・変更
-            %li.mypage_user_info
+            %li.mypage_user_setting
               各種設定
       .mypage_contents_main_right
+        .mypage_user_info_head
+          .mypage_user_image
+            = image_tag 'no_image.jpg', alt: 'no_image', height: '150px', width: '150px', class: 'user_image'
+          .mypage_user_name_area
+            .mypage_user_name1
+              = @user.name
+            .mypage_user_name2
+              さんのマイページ
 = render 'shared/leh_footer'
