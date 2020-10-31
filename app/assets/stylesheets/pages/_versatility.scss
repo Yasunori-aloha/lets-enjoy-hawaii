@@ -33,18 +33,18 @@ ul{
 li{
   display: list-item;
 }
-.lehHeader{
-  .headerWrap{
+.leh_header{
+  .header_wrapper{
     padding: 10px 190px 0 50px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    .lehIcon{
+    .leh_icon{
       height: 80px;
       width: 80px;
       margin-bottom: 5px;
       position: relative;
-      .rootLink{
+      .root_link{
         position: absolute;
         top: 0;
         left: 0;
@@ -52,23 +52,23 @@ li{
         width: 100%;
       }
     }
-    .lehSignLogin{
+    .leh_sign_login{
       width: 420px;
       margin: 0;
       float: right;
       text-align: right;
-      .signLoginWrapper{
+      .sign_login_wrapper{
         display: flex;
         flex-direction: column;
         justify-content: center;
         height: 45px;
-        .signLogin{
+        .sign_login{
           display: flex;
           align-items: center;
           justify-content: flex-end;
           li{
             margin-left: 10px;
-            .slName{
+            .sl_name{
               color: #008dde;
               font-size: 14px;
             }
