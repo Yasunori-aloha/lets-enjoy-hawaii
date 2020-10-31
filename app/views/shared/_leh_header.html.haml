@@ -1,21 +1,21 @@
-.lehHeader
-  .headerWrap
-    .lehIcon
-      = link_to root_path, class: 'rootLink' do
-        = image_tag 'leh_logo.png', alt: 'アイコン画像', height: '80px', width: '80px', class: 'register-icon'
-    .lehSignLogin
-      .signLoginWrapper
-        %ul.signLogin
+.leh_header
+  .header_wrapper
+    .leh_icon
+      = link_to root_path, class: 'root_link' do
+        = image_tag 'leh_logo.png', alt: 'アイコン画像', height: '80px', width: '80px', class: 'register_icon'
+    .leh_sign_login
+      .sign_login_wrapper
+        %ul.sign_login
           -# 会員登録画面とログイン画面の時はリンクを表示させない。
           - unless controller_name == 'registrations' || controller_name == 'sessions'
             -# ユーザーがログインしていなければ『ログイン』か『会員登録』を表示させる。
             - unless user_signed_in?
               %li
-                = link_to 'ログイン', new_user_session_path, rel: 'nofollow', class: 'slName'
+                = link_to 'ログイン', new_user_session_path, rel: 'nofollow', class: 'sl_name'
               %li
-                = link_to '会員登録', new_user_registration_path, rel: 'nofollow', class: 'slName'
+                = link_to '会員登録', new_user_registration_path, rel: 'nofollow', class: 'sl_name'
             - else
               %li
-                = link_to "#{current_user.name}さんのマイページ", "/users/#{current_user.id}", rel: 'nofollow', class: 'slName'
+                = link_to "#{current_user.name}さんのマイページ", "/users/#{current_user.id}", rel: 'nofollow', class: 'sl_name'
               %li
-                = link_to 'ログアウト', destroy_user_session_path, method: :delete, rel: 'nofollow', class: 'slName'
+                = link_to 'ログアウト', destroy_user_session_path, method: :delete, rel: 'nofollow', class: 'sl_name'
