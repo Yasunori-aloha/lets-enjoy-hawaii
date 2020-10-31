@@ -95,19 +95,19 @@ li{
   width: 100%;
   display: flex;
   justify-content: center;
-  .leh_footer-main{
+  .leh_footer_main{
     height: 100%;
     width: calc(#{$searchLeftWidth} + 25px + #{$searchRightWidth});
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .leh_footer-link{
+    .leh_footer_link{
       display: flex;
       justify-content: space-around;
       align-items: center;
       .leh_privacy{
         margin-right: 10px;
-        .leh_privacy-link{
+        .leh_privacy_link{
           font-size: 12px;
           text-decoration: none;
           color: gray;
