@@ -1,5 +1,9 @@
 $userNameHeight: calc(100% / 4 * 3);
 .mypage_wrapper{
+  background-image: url('mypage_image.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
   min-height: 100vh;
   width: 100vw;
   position: relative;
@@ -18,7 +22,7 @@ $userNameHeight: calc(100% / 4 * 3);
     .mypage_contents_main{
       display: flex;
       .mypage_contents_main_left{
-        height: calc(960px - 95px);
+        height: calc(100vh - 94px);
         width: 436px;
         border-right: 1px solid #646464;
         display: flex;
@@ -40,7 +44,7 @@ $userNameHeight: calc(100% / 4 * 3);
         }
       }
       .mypage_contents_main_right{
-        height: 100vh;
+        height: 100%;
         width: calc(100% - 436px);
         padding: 0 243px 0 28px;
         .mypage_user_info_head{
