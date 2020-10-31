@@ -1,5 +1,15 @@
 = render 'shared/leh_header'
 .mypage_wrapper
-  = image_tag 'mypage_image', alt: 'マイページ', height: '616px', width: '1440px', class: 'mypage_image'
+  = image_tag 'mypage_image.jpg', alt: 'マイページ', height: '100%', width: '100%', class: 'mypage_image'
   .mypage_main
+    .mypage_contents_head
+    .mypage_contents_main
+      .mypage_contents_main_left
+        .mypage_user_info_wrapper
+          %ul.mypage_user_info_list
+            %li.mypage_user_info
+              会員情報の確認・変更
+            %li.mypage_user_info
+              各種設定
+      .mypage_contents_main_right
 = render 'shared/leh_footer'
