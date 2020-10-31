@@ -46,7 +46,7 @@ $userNameHeight: calc(100% / 4 * 3);
         .mypage_user_info_head{
           height: 185px;
           width: 100%;
-          background-color: rgba($color: #ffffff, $alpha: 0.55);
+          background-color: rgba($color: #ffffff, $alpha: 0.75);
           display: flex;
           margin-top: 28px;
           border-radius: 5px;
@@ -76,6 +76,15 @@ $userNameHeight: calc(100% / 4 * 3);
               line-height: 37px;
             }
           }
+        }
+        .mypage_user_info_main{
+          @extend .mypage_user_info_head;
+          height: 250px;
+          width: 100%;
+          margin-top: 20px;
+          display: block;
+          color: black;
+          padding: 25px 17px;
         }
       }
     }

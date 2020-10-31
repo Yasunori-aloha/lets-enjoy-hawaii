@@ -25,4 +25,8 @@
               さんのマイページ
         .mypage_user_info_main
           .mypage_user_introduction
+            - if @user.introduce.nil?
+              まだ自己紹介はありません。
+            - else
+              = @user.introduce
 = render 'shared/leh_footer'
