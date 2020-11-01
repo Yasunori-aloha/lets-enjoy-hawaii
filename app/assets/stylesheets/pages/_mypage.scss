@@ -123,7 +123,7 @@ $userNameHeight: calc(100% / 4 * 3);
             .field{
               width: 100%;
               margin-bottom: 10px;
-              .text-top{
+              .text_top{
                 vertical-align: top;
               }
               .edit_user_form{
@@ -137,11 +137,12 @@ $userNameHeight: calc(100% / 4 * 3);
           .image_field{
             text-align: left;
             padding-left: 20px;
-            .text-top{
+            .text_top{
               vertical-align: top;
             }
             .user_image{
               @include user_image();
+              cursor: pointer;
             }
             .hidden{
               display: none;

@@ -35,13 +35,11 @@
               = f.label :メールアドレス
               = f.email_field :email, autocomplete: "email", autocorrect: 'off', autocapitalize: 'off', class: 'edit_user_form'
             .field
-              = f.label :自己紹介文, class: 'text-top'
+              = f.label :自己紹介文, class: 'text_top'
               = f.text_area :introduce, size: '64x8', class: 'edit_user_form'
             .image_field
-              = f.label :アイコン画像, class: 'text-top'
-              - unless @user.image.attached?
-                = image_tag 'no_image.jpg', alt: 'no_image', height: '150px', width: '150px', class: 'user_image'
-              - else
+              = f.label :アイコン画像, class: 'text_top'
+              = f.label :image do
                 = image_tag @user.image, alt: 'no_image', height: '150px', width: '150px', class: 'user_image'
               = f.file_field :image, class: 'hidden'
             = f.submit "更新する", class: 'button_cv update_button'
