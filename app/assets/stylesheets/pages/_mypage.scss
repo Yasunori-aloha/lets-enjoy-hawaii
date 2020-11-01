@@ -18,6 +18,19 @@ $userNameHeight: calc(100% / 4 * 3);
     .mypage_contents_head{
       height: 94px;
       border-bottom: 1px solid #646464;
+      display: flex;
+      justify-content: flex-end;
+      .mypage_contents_number_list{
+        height: 100%;
+        margin-right: 245px;
+        padding-top: 12px;
+        color: white;
+        font-size: 16px;
+        text-align: end;
+        .mypage_contents_number{
+          margin-bottom: 2px;
+        }
+      }
     }
     .mypage_contents_main{
       display: flex;
