@@ -5,6 +5,8 @@
     = f.email_field :email, autocomplete: "email", autocorrect: 'off', autocapitalize: 'off'
   .field
     = f.text_area :introduce
+  .field
+    = f.file_field :image
   = f.submit "更新する", class: 'button_cv signin_up_button'
 
 -# %h2
