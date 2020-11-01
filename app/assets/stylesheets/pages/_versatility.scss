@@ -128,3 +128,14 @@ img {
     }
   }
 }
+#link_main{
+  padding: 10px 0 5px 0;
+  border-bottom: 1px dotted #ccc;
+  a{
+    outline: none;
+  }
+  a:visited{
+    text-decoration: none;
+    color: #069;
+  }
+}
