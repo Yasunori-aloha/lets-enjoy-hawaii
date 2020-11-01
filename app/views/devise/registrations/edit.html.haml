@@ -30,15 +30,19 @@
           = form_with model: @user, url: user_registration_path, local: true, class: 'edit_user' do |f|
             .field
               = f.label :お名前
-              = f.text_field :name, placeholder: '氏名（例：畑中三郎）', autocomplete: 'name'
+              = f.text_field :name, placeholder: '氏名（例：畑中三郎）', autocomplete: 'name', class: 'edit_user_form'
             .field
               = f.label :メールアドレス
-              = f.email_field :email, autocomplete: "email", autocorrect: 'off', autocapitalize: 'off'
+              = f.email_field :email, autocomplete: "email", autocorrect: 'off', autocapitalize: 'off', class: 'edit_user_form'
             .field
-              = f.label :自己紹介文
-              = f.text_area :introduce
-            .field
-              = f.label :アイコン画像
-              = f.file_field :image
-            = f.submit "更新する", class: 'button_cv signin_up_button'
+              = f.label :自己紹介文, class: 'text-top'
+              = f.text_area :introduce, size: '64x8', class: 'edit_user_form'
+            .image_field
+              = f.label :アイコン画像, class: 'text-top'
+              - unless @user.image.attached?
+                = image_tag 'no_image.jpg', alt: 'no_image', height: '150px', width: '150px', class: 'user_image'
+              - else
+                = image_tag @user.image, alt: 'no_image', height: '150px', width: '150px', class: 'user_image'
+              = f.file_field :image, class: 'hidden'
+            = f.submit "更新する", class: 'button_cv update_button'
 = render 'shared/leh_footer'

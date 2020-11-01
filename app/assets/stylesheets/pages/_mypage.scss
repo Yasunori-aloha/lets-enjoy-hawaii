@@ -1,11 +1,15 @@
 $userNameHeight: calc(100% / 4 * 3);
+@mixin user_image {
+  border-radius: 10px;
+  border: 1px solid gray;
+}
 .mypage_wrapper{
   background-image: url('mypage_image.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   position: relative;
   background-attachment: fixed;
   .mypage_main{
@@ -13,7 +17,7 @@ $userNameHeight: calc(100% / 4 * 3);
     top: 0;
     left: 0;
     height: 100vh;
-    width: 100%;
+    width: 1440px;
     background-color: rgba($color: black, $alpha: 0.5);
     .mypage_contents_head{
       height: 94px;
@@ -74,8 +78,7 @@ $userNameHeight: calc(100% / 4 * 3);
             width: 150px;
             margin: 17px;
             .user_image{
-              border-radius: 10px;
-              border: 1px solid gray;
+              @include user_image();
             }
           }
           .mypage_user_name_area{
@@ -106,13 +109,49 @@ $userNameHeight: calc(100% / 4 * 3);
         }
         .user_edit_main{
           @extend .mypage_user_info_head;
-          height: 500px;
+          height: 100%;
           display: block;
           color: black;
           padding: 0 17px;
           #link_main{
             font-size: 12px;
             border-bottom: 1px dotted black;
+          }
+          .edit_user{
+            padding-top: 17px;
+            text-align: end;
+            .field{
+              width: 100%;
+              margin-bottom: 10px;
+              .text-top{
+                vertical-align: top;
+              }
+              .edit_user_form{
+                width: calc(100% - 120px);
+                border: 1px solid gray;
+                border-radius: 6px;
+                padding: 5px;
+              }
+            }
+          }
+          .image_field{
+            text-align: left;
+            padding-left: 20px;
+            .text-top{
+              vertical-align: top;
+            }
+            .user_image{
+              @include user_image();
+            }
+            .hidden{
+              display: none;
+            }
+          }
+          .update_button{
+            margin: 17px 199px;
+            height: 54px;
+            width: 300px;
+            background-color: #90b200;
           }
         }
       }
