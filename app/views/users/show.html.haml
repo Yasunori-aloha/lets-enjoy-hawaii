@@ -24,10 +24,7 @@
       .mypage_contents_main_right
         .mypage_user_info_head
           .mypage_user_image
-            - unless @user.image.attached?
-              = image_tag 'no_image.jpg', alt: 'no_image', height: '150px', width: '150px', class: 'user_image'
-            - else
-              = image_tag @user.image, alt: 'no_image', height: '150px', width: '150px', class: 'user_image'
+            = user_image_attached?(@user)
           .mypage_user_name_area
             .mypage_user_name1
               = @user.name

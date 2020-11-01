@@ -40,7 +40,7 @@
             .image_field
               = f.label :アイコン画像, class: 'text_top'
               = f.label :image do
-                = image_tag @user.image, alt: 'no_image', height: '150px', width: '150px', class: 'user_image'
+                = user_image_attached?(@user)
               = f.file_field :image, class: 'hidden'
             = f.submit "更新する", class: 'button_cv update_button'
 = render 'shared/leh_footer'
