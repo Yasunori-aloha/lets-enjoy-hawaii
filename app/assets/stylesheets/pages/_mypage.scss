@@ -99,11 +99,21 @@ $userNameHeight: calc(100% / 4 * 3);
         .mypage_user_info_main{
           @extend .mypage_user_info_head;
           height: 250px;
-          width: 100%;
           margin-top: 20px;
           display: block;
           color: black;
           padding: 25px 17px;
+        }
+        .user_edit_main{
+          @extend .mypage_user_info_head;
+          height: 500px;
+          display: block;
+          color: black;
+          padding: 0 17px;
+          #link_main{
+            font-size: 12px;
+            border-bottom: 1px dotted black;
+          }
         }
       }
     }
