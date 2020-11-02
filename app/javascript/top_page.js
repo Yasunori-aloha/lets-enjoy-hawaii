@@ -16,13 +16,14 @@ $(function(){
     'assets/hawaiian_islands.png',
   ];
   {
-    // カーソルが要素に乗ったら、乗った要素の'data-id'で判別して対応した地図を表示させる。
-    $('map').on('mouseover', function(){
-      const hoverId = $(':hover')[7].dataset.id;
+    $('map, .island_name').on('mouseover', function (){
+      // カーソルが乗っている要素を取得し、取得した要素に対応する地図を表示色変更させる。
+      const target = ($(':hover').length - 1);
+      const hoverId = $(':hover')[target].dataset.id;
       mapImage.src = images[hoverId];
     });
     // カーソルが要素から外れたら、地図表示を元に戻す。
-    $('map').on('mouseout', function(){
+    $('map, .island_name').on('mouseout', function(){
       mapImage.src = images[8];
     });
   }
