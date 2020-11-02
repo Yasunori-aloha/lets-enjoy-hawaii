@@ -1,57 +1,29 @@
 'use strict';
 
-
 $(function(){
-  let mapImage = $('#map_image')[0];
+  // 地図画像を表示しているimageタグを取得。
+  const mapImage = $('#map_image')[0];
+  // 地図の表示で使用する画像を配列で変数に保存。
+  const images = [
+    'assets/hawaiian_islands_niihau.png',
+    'assets/hawaiian_islands_oahu.png',
+    'assets/hawaiian_islands_kahoolawe.png',
+    'assets/hawaiian_islands_lanai.png',
+    'assets/hawaiian_islands_molokai.png',
+    'assets/hawaiian_islands_maui.png',
+    'assets/hawaiian_islands_kauai.png',
+    'assets/hawaiian_islands_island_of_hawaii.png',
+    'assets/hawaiian_islands.png',
+  ];
   {
-    // オアフ島をホバーしている間、オアフ島の表示色を変更する。
-    $('#map_oahu').on('mouseover', function(){
-      mapImage.src = 'assets/hawaiian_islands_oahu.png'
+    // カーソルが要素に乗ったら、乗った要素の'data-id'で判別して対応した地図を表示させる。
+    $('map').on('mouseover', function(){
+      const hoverId = $(':hover')[7].dataset.id;
+      mapImage.src = images[hoverId];
     });
-    $('#map_oahu').on('mouseout', function(){
-      mapImage.src = 'assets/hawaiian_islands.png'
-    });
-    $('#map_niihau').on('mouseover', function(){
-      mapImage.src = 'assets/hawaiian_islands_niihau.png'
-    });
-    $('#map_niihau').on('mouseout', function(){
-      mapImage.src = 'assets/hawaiian_islands.png'
-    });
-    $('#map_kahoolawe').on('mouseover', function(){
-      mapImage.src = 'assets/hawaiian_islands_kahoolawe.png'
-    });
-    $('#map_kahoolawe').on('mouseout', function(){
-      mapImage.src = 'assets/hawaiian_islands.png'
-    });
-    $('#map_lanai').on('mouseover', function(){
-      mapImage.src = 'assets/hawaiian_islands_lanai.png'
-    });
-    $('#map_lanai').on('mouseout', function(){
-      mapImage.src = 'assets/hawaiian_islands.png'
-    });
-    $('#map_molokai').on('mouseover', function(){
-      mapImage.src = 'assets/hawaiian_islands_molokai.png'
-    });
-    $('#map_molokai').on('mouseout', function(){
-      mapImage.src = 'assets/hawaiian_islands.png'
-    });
-    $('#map_kauai').on('mouseover', function(){
-      mapImage.src = 'assets/hawaiian_islands_kauai.png'
-    });
-    $('#map_kauai').on('mouseout', function(){
-      mapImage.src = 'assets/hawaiian_islands.png'
-    });
-    $('#map_hawaii').on('mouseover', function(){
-      mapImage.src = 'assets/hawaiian_islands_island_of_hawaii.png'
-    });
-    $('#map_hawaii').on('mouseout', function(){
-      mapImage.src = 'assets/hawaiian_islands.png'
-    });
-    $('#map_maui').on('mouseover', function(){
-      mapImage.src = 'assets/hawaiian_islands_maui.png'
-    });
-    $('#map_maui').on('mouseout', function(){
-      mapImage.src = 'assets/hawaiian_islands.png'
+    // カーソルが要素から外れたら、地図表示を元に戻す。
+    $('map').on('mouseout', function(){
+      mapImage.src = images[8];
     });
   }
 });
