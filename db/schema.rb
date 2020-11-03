@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_071020) do
+ActiveRecord::Schema.define(version: 2020_11_03_073427) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 2020_11_03_071020) do
     t.string "name", default: "", null: false
     t.text "outline"
     t.string "address", null: false
-    t.float "latitude", null: false
-    t.float "longitude", null: false
+    t.float "latitude", limit: 53, null: false
+    t.float "longitude", limit: 53, null: false
     t.string "business_hours_start"
     t.string "business_hours_finish"
     t.bigint "area_id", null: false
