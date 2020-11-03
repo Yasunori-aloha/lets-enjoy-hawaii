@@ -1,7 +1,7 @@
 .leh_header
   .header_wrapper
     .leh_icon
-      = link_to root_path, class: 'root_link' do
+      = link_to root_path, data:{turbolinks: "false"}, class: 'root_link' do
         = image_tag 'leh_logo.png', alt: 'アイコン画像', height: '80px', width: '80px', class: 'register_icon'
     .leh_sign_login
       .sign_login_wrapper
