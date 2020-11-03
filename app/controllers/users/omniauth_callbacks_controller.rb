@@ -26,13 +26,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def google_oauth2
-  authorization
+    authorization
   end
 
   private
 
   def authorization
-    sns_info = User.from_omniauth(request.env["omniauth.auth"])
+    sns_info = User.from_omniauth(request.env['omniauth.auth'])
     @user = sns_info[:user]
     # ユーザー情報がDBに保存済みならログイン処理をして、新規ユーザーなら新規登録画面へ遷移させる。
     if @user.persisted?
