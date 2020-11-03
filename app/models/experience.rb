@@ -10,6 +10,6 @@ class Experience < ApplicationRecord
 
   # インスタンス変数に対してメソッドを使用することで、1つのexperienceに対して'user_id'を探すことができる。
   def already_favorited?(user)
-    Favorite.find_by(user_id: user.id).exists?
+    Favorite.exists?(user_id: user.id)
   end
 end
