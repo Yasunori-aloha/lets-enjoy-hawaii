@@ -6,7 +6,10 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
   }
   resources :users, only: [:show]
-  resources :experiences, only: [:show]
+  resources :experiences, only: [:show], shallow: true do
+    resource :favorites, only: [:create, :destroy]
+    get :favorites, on: :collection
+  end
   namespace :experiences do
     get 'search'
   end
