@@ -1,0 +1,9 @@
+.header
+  = render 'shared/leh_header'
+%h1
+  = "#{@experience.name}の詳細"
+  -# お気に入りされていればお気に入り登録の解除ができて、まだならお気に入り登録ができる。
+  - if @experience.already_favorited?(current_user)
+    = link_to icon("fas", "star"), experience_favorites_path(@experience.id), method: :delete
+  - else
+    = link_to icon("far", "star"), experience_favorites_path(@experience.id), method: :post

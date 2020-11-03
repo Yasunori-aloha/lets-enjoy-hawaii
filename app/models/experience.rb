@@ -7,4 +7,9 @@ class Experience < ApplicationRecord
   has_many :his_users, through: :histories, source: :user
   has_many :favorites
   has_many :fav_users, through: :favorites, source: :user
+
+  # インスタンス変数に対してメソッドを使用することで、1つのexperienceに対して'user_id'を探すことができる。
+  def already_favorited?(user)
+    Favorite.exists?(user_id: user.id)
+  end
 end

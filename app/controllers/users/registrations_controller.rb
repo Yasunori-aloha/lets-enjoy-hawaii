@@ -16,9 +16,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       params[:user][:password_confirmation] = pass
     end
     @user = User.new(sign_up_params)
-    unless @user.valid?
-      render :new and return
-    end
+    render :new and return unless @user.valid?
+
     @user.save
     sign_in(:user, @user)
     redirect_to root_path
@@ -59,10 +58,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :introduce, :image])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[name introduce image])
   end
 
-  def after_update_path_for(resource)
+  def after_update_path_for(_resource)
     "/users/#{current_user.id}"
   end
 

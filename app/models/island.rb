@@ -1,4 +1,4 @@
-class Island < AcriveHash::Base
+class Island < ActiveHash::Base
   self.data = [
     { id: 1, name: 'ハワイ島'},
     { id: 2, name: 'マウイ島'}
