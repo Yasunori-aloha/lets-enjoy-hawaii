@@ -2,3 +2,4 @@
   = render 'shared/leh_header'
 %h1
   = "#{@experience.name}の詳細"
+  = link_to 'お気に入り', "/experiences/#{@experience.id}/favorites", method: :post
