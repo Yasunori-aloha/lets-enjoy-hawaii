@@ -3,7 +3,7 @@
 $(function(){
   // 地図画像を表示しているimageタグを取得。
   const mapImage = $('#map_image')[0];
-  // 地図の表示で使用する画像を配列で変数に保存。
+  // 地図の表示で使用する画像を配列で変数に格納。
   const images = [
     'assets/hawaiian_islands_niihau.png',
     'assets/hawaiian_islands_oahu.png',
