@@ -1,18 +1,26 @@
-.shopping_header{
+.content_header{
   margin: 0 245px;
   font-size: 10px;
 }
-.shopping_main{
-  background-color: yellow;
+.content_main{
   height: 500px;
   width: calc(100% - 490px);
   margin: 0 245px;
   display: flex;
   &_left{
-    background-color: blue;
+    // background-color: blue;
     width: 740px;
     &_header{
-      @extend .shopping_main_left;
+      @extend .content_main_left;
+      display: flex;
+      padding-top: 5px;
+      .content_title{
+        font-size: 24px;
+        font-weight: bold;
+        color: #333333;
+        line-height: 40px;
+        padding-left: 3px;
+      }
     }
   }
   &_right{
