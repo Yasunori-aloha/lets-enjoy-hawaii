@@ -2,7 +2,7 @@
   = render 'shared/leh_header'
 .content_header
   .menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
-    = link_to 'トップページ', "/users/#{current_user.id}"
+    = link_to 'トップページ', root_path, data:{turbolinks: "false"}
     &nbsp;>&nbsp;
     %strong ショッピング
 .content_main
@@ -32,7 +32,9 @@
             口コミランク順
           %li{class: 'order_list text_active order_none'}
             おすすめ順
-    .content_main_left_main
+    %ul.content_main_left_main
+      %li.content_main_left_main_list
+      %li.content_main_left_main_list
   .content_main_right
 %h1 ショッピング
 - @experiences.each do |experience|
