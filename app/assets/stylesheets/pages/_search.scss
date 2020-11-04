@@ -26,7 +26,8 @@ $upHeight: 29px;
     }
     &_info{
       @extend .content_main_left;
-      height: 60px;
+      height: 50px;
+      color: #333333;
       margin-bottom: 10px;
       &_up{
         height: $upHeight;
@@ -35,7 +36,6 @@ $upHeight: 29px;
         .ul_number{
           display: flex;
           align-items: flex-end;
-          color: #333333;
           .number{
             word-spacing: 0px;
           }
@@ -63,11 +63,35 @@ $upHeight: 29px;
         }
       }
       &_down{
-        background-color: black;
-        height: calc(100% - #{$upHeight});
+        height: 14px;
+        font-size: 12px;
+        padding-top: 5px;
+        .order{
+          display: flex;
+          align-items: center;
+          .order_list{
+            margin-left: 5px;
+            padding-right: 6px;
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
+            border-right: 1px solid #ccc;
+            &.text_active{
+              color: #333333;
+              font-weight: bold;
+              text-decoration: none;
+              cursor: auto;
+            }
+            &.order_none{
+              border: none;
+            }
+          }
+        }
       }
     }
     &_main{
+      height: 100px;
+      background-color: black;
     }
   }
   &_right{
