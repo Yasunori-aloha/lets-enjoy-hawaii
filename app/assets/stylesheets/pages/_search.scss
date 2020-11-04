@@ -1,0 +1,22 @@
+.shopping_header{
+  margin: 0 245px;
+  font-size: 10px;
+}
+.shopping_main{
+  background-color: yellow;
+  height: 500px;
+  width: calc(100% - 490px);
+  margin: 0 245px;
+  display: flex;
+  &_left{
+    background-color: blue;
+    width: 740px;
+    &_header{
+      @extend .shopping_main_left;
+    }
+  }
+  &_right{
+    background-color: greenyellow;
+    width: calc(100% - 740px);
+  }
+}

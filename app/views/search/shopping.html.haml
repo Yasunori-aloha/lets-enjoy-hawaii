@@ -1,11 +1,18 @@
 .header
   = render 'shared/leh_header'
+.shopping_header
+  .menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
+    = link_to 'トップページ', "/users/#{current_user.id}"
+    &nbsp;>&nbsp;
+    %strong ショッピング
 .shopping_main
+  .shopping_main_left
+    .shopping_main_left_header
+      = image_tag 'shopping_icon.png', alt: 'ショッピング', height: '40px', width: '40px', class: 'type_icon'
+  .shopping_main_right
 %h1 ショッピング
 - @experiences.each do |experience|
   = link_to "#{experience.name}の詳細", "/experiences/#{experience.id}"
   = experience.outline
-  .menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
-    = link_to 'マイページトップ', "/users/#{current_user.id}"
-    &nbsp;>&nbsp;
-    %strong 会員情報の確認・変更
+.footer
+  = render 'shared/leh_footer'
