@@ -94,7 +94,7 @@ $gray: #ccc;
     &_main{
       cursor: pointer;
       &_list{
-        height: 320px;
+        // height: 320px;
         margin-bottom: 15px;
         border-radius: 10px;
         border: 1px solid $gray;
@@ -149,6 +149,11 @@ $gray: #ccc;
             font-size: 12px;
             word-spacing: 0;
           }
+        }
+        .content_main_outline{
+          background-color: black;
+          height: 161px;
+          margin: 20px 11px 10px;
         }
       }
     }
