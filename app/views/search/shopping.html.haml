@@ -37,7 +37,7 @@
         %li.content_main_left_main_list
           .content_main_header
             .content_main_header_name
-              = link_to "#{exp.name}", '#', class: 'show_experiences'
+              = link_to "#{exp.name}", "experiences/#{exp.id}", class: 'show_experiences'
             .content_main_header_score
               .star_rating
                 %div{id: 'star_rating', class: 'star_rating_front'}
