@@ -4,4 +4,7 @@ class Area < ApplicationRecord
   has_many :experiences
 
   validates :island, presence: true
+
+  def name_of_this_area(experience)
+  end
 end

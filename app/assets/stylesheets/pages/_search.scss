@@ -1,4 +1,5 @@
 $upHeight: 29px;
+$linkColor: blue;
 .content_header{
   margin: 0 245px;
   font-size: 10px;
@@ -9,7 +10,7 @@ $upHeight: 29px;
   margin: 0 245px;
   display: flex;
   &_left{
-    // background-color: blue;
+    // background-color: $linkColor;
     width: 740px;
     &_header{
       @extend .content_main_left;
@@ -73,7 +74,7 @@ $upHeight: 29px;
           .order_list{
             margin-left: 5px;
             padding-right: 6px;
-            color: blue;
+            color: $linkColor;
             cursor: pointer;
             text-decoration: underline;
             border-right: 1px solid #ccc;
@@ -91,11 +92,64 @@ $upHeight: 29px;
       }
     }
     &_main{
+      cursor: pointer;
       &_list{
         height: 320px;
         margin-bottom: 15px;
         border-radius: 10px;
-        background-color: black;
+        // background-color: black;
+        .content_main_header{
+          height: 87px;
+          // background-color: gray;
+          padding: 11px;
+          &_name{
+            .show_experiences{
+              font-size: 18px;
+              color: $linkColor;
+              font-weight: bold;
+            }
+          }
+          &_score{
+            display: flex;
+            .star_rating{
+              margin-right: 6px;
+              width: 5em;
+              line-height: 22px;
+              font-size: 22px;
+              position: relative;
+              &_front{
+                position: absolute;
+                top: 0;
+                left: 0;
+                overflow: hidden;
+                color: orange;
+                width: 88%;
+              }
+              &_back{
+                color: #ccc;
+              }
+            }
+            .rating_point{
+              color: black;
+              font-weight: bold;
+              line-height: 26px;
+            }
+            .review_count{
+              @extend .rating_point;
+              font-weight: unset;
+              font-size: 12px;
+              line-height: 25px;
+            }
+            .review_link{
+              color: $linkColor;
+            }
+          }
+          &_place{
+            margin-top: -4px;
+            font-size: 12px;
+            word-spacing: 0;
+          }
+        }
       }
     }
   }
