@@ -1,5 +1,6 @@
 $upHeight: 29px;
 $linkColor: blue;
+$gray: #ccc;
 .content_header{
   margin: 0 245px;
   font-size: 10px;
@@ -99,9 +100,11 @@ $linkColor: blue;
         border-radius: 10px;
         // background-color: black;
         .content_main_header{
-          height: 87px;
-          // background-color: gray;
-          padding: 11px;
+          height: 88px;
+          // background-color: $gray;
+          padding: 11px 0;
+          margin: 0 11px;
+          border-bottom: dotted 2px #ccc;
           &_name{
             .show_experiences{
               font-size: 18px;
