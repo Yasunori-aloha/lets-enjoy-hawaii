@@ -40,11 +40,11 @@
               = link_to "#{exp.name}", '#', class: 'show_experiences'
             .content_main_header_score
               .star_rating
-                .star_rating_front
+                %div{id: 'star_rating', class: 'star_rating_front'}
                   ★★★★★
                 .star_rating_back
                   ★★★★★
-              %span.rating_point
+              %span{id: 'exp_score', class: 'rating_point'}
                 = exp.score
               %span.review_count
                 （
@@ -56,9 +56,5 @@
               \＞
               = exp.area.name
   .content_main_right
-%h1 ショッピング
-- @experiences.each do |experience|
-  = link_to "#{experience.name}の詳細", "/experiences/#{experience.id}"
-  = experience.outline
 .footer
   = render 'shared/leh_footer'
