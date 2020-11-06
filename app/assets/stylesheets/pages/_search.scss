@@ -154,6 +154,39 @@ $gray: #ccc;
           height: 161px;
           margin: 20px 11px 10px;
           display: flex;
+          .content_outline{
+            margin-left: 11px;
+            height: 100%;
+            width: 100%;
+            &_main{
+              line-height: 18px;
+              color: $linkColor;
+              font-weight: bold;
+              font-size: 14px;
+              margin-bottom: 5px;
+            }
+            &_sub{
+              font-size: 11px;
+              line-height: 15px;
+              margin-bottom: 8px;
+            }
+            &_category{
+              font-size: 11px;
+              margin-bottom: 10px;
+              .category_icon{
+                color: #ffa500;
+              }
+            }
+            &_age{
+              font-size: 12px;
+              line-height: 12px;
+            }
+            &_price{
+              color: #ff0000;
+              font-weight: bold;
+            }
+            // background-color: black;
+          }
         }
       }
     }

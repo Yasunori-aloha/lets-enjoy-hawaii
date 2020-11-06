@@ -57,6 +57,18 @@
               = exp.area.name
           .content_main_outline
             = image_tag '', height: '134px', width: '178px', class: 'content_image'
+            .content_outline
+              .content_outline_main
+                説明文
+              .content_outline_sub
+                説明文
+              .content_outline_category
+                = icon('fas', 'flag', class: 'category_icon')
+                = exp.genre.name
+              .content_outline_age
+                対象年齢
+              .content_outline_price
+                平均費用〜
   .content_main_right
 .footer
   = render 'shared/leh_footer'
