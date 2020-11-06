@@ -6,8 +6,10 @@ class ExperiencesController < ApplicationController
   end
 
   def edit
+    binding.pry
     # クリックされたカテゴリーの'data-id'を基にGenreモデルを探し、結果に紐づくお店やレジャー施設情報をインスタンスに格納。
-    @genres = Genre.where(category_id: params[:data][:id])
+    
+    @genres = Genre.where(category_id: Category.find_by(name:params[:data][:id])
     @experiences = []
     @genres.each do |genre|
       @experiences << Experience.find_by(genre_id: genre.id)
