@@ -1,7 +1,9 @@
 'use strict';
 
 $(window).on('load',function(){
-  if(document.URL.match('shopping')) {
+  const url = location.pathname;
+  const conditions = (url == '/shopping') || (url == '/landmark') || (url == '/leisure') || (url == '/rentacar') || (url == '/dinner') || (url == '/hotel')
+  if(conditions) {
     // exp.scoreの点数を取得して、変数に代入。
     const expScore = $('#exp_score')[0].innerText;
 
