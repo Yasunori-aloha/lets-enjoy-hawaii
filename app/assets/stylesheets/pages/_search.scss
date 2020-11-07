@@ -192,7 +192,51 @@ $gray: #ccc;
     }
   }
   &_right{
-    background-color: greenyellow;
     width: calc(100% - 740px);
+    .right_content_area{
+      width: 180px;
+      margin: 74px 0 0 auto;
+      border: 1px solid $gray;
+      border-radius: 4px;
+      padding-top: 4px;
+      &_title{
+        color: #333333;
+        font-size: 12px;
+        font-weight: bold;
+        border-left: 4px solid #ffa500;
+        margin: 4px 0 9px 5px;
+        padding: 0 3px;
+      }
+      .right_content{
+        height: 38px;
+        // background-color: black;
+        margin: 3px 0 7px;
+        padding: 0 5px;
+        display: flex;
+        .fav_image{
+          margin-right: 4px;
+        }
+        .fav_name{
+          font-size: 12px;
+          font-weight: bold;
+          color: $linkColor;
+          margin-top: 10px;
+        }
+      }
+      .content_sub{
+        @extend .right_content;
+        height: 47px;
+        margin-top: 7px;
+        border-top: 1px dotted $gray;
+        padding-top: 9px;
+        .name_sub{
+          font-size: 12px;
+          font-weight: bold;
+          color: $linkColor;
+          margin-top: 4px;
+          line-height: 14px;
+        }
+      }
+    }
   }
 }
