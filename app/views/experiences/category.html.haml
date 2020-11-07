@@ -2,14 +2,18 @@
   = render 'shared/leh_header'
 .content_header
   .menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
-    = link_to 'トップページ', root_path, data:{turbolinks: "false"}
+    = link_to 'トップページ', root_path
     &nbsp;>&nbsp;
-    %strong ショッピング
+    %strong
+      = @experiences[0].genre.category.name
+    %span{id: 'category_id', style: 'display:none'}
+      = @experiences[0].genre.category.id
 .content_main
   .content_main_left
     .content_main_left_header
-      = image_tag 'shopping_icon.png', alt: 'ショッピング', height: '35px', width: '35px', class: 'type_icon'
-      %h1.content_title ショッピングスポット
+      = image_tag '', alt: 'ショッピング', height: '35px', width: '35px', class: 'type_icon', id: 'category_icon'
+      %h1.content_title 
+        = "#{@experiences[0].genre.category.name}スポット"
     .content_main_left_info
       .content_main_left_info_up
         %ul.ul_number
