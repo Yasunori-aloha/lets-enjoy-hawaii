@@ -37,18 +37,18 @@
           %li{class: 'order_list text_active order_none'}
             おすすめ順
     %ul.content_main_left_main
-      - @experiences.each do |exp|
+      - @experiences.each_with_index do |exp,index|
         %li.content_main_left_main_list
           .content_main_header
             .content_main_header_name
               = link_to "#{exp.name}", "experiences/#{exp.id}", class: 'show_experiences'
             .content_main_header_score
               .star_rating
-                %div{id: 'star_rating', class: 'star_rating_front'}
+                %div{id: "star_rating#{index}", class: 'star_rating_front'}
                   ★★★★★
                 .star_rating_back
                   ★★★★★
-              %span{id: 'exp_score', class: 'rating_point'}
+              %span{class: 'rating_point exp_score'}
                 = exp.score
               %span.review_count
                 （
