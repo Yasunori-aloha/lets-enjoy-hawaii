@@ -13,6 +13,6 @@ class ExperiencesController < ApplicationController
     @genres.each do |genre|
       @experiences << Experience.find_by(genre_id: genre.id)
     end
-    render "search/#{params[:name]}"
+    render "experiences/category"
   end
 end
