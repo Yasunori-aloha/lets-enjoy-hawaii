@@ -7,11 +7,10 @@ class ExperiencesController < ApplicationController
 
   def edit
     # クリックされたカテゴリーの'name'を基にCategoryモデルを探し、結果に紐づくお店やレジャー施設情報をインスタンスに格納。
-    category_id = Category.find_by(search: params[:name]).id
-    @genres = Genre.where(category_id: category_id)
+    @category = Category.find_by(search: params[:name])
     @experiences = []
-    @genres.each do |genre|
-      @experiences << Experience.find_by(genre_id: genre.id)
+    Genre.where(category_id: @category.id).find_each do |genre|
+      Experience.includes(:genre).includes(:area).where(genre_id: genre.id).find_each{|exp| @experiences << exp}
     end
     render "experiences/category"
   end
