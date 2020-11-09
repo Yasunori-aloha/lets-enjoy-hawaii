@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ExperiencesController < ApplicationController
   def search; end
 
@@ -6,12 +8,12 @@ class ExperiencesController < ApplicationController
   end
 
   def edit
-    # クリックされたカテゴリーの'data-id'を基にGenreモデルを探し、結果に紐づくお店やレジャー施設情報をインスタンスに格納。
-    @genres = Genre.where(category_id: params[:data][:id])
+    # クリックされたカテゴリーの'name'を基にCategoryモデルを探し、結果に紐づくお店やレジャー施設情報をインスタンスに格納。
+    @category = Category.find_by(search: params[:name])
     @experiences = []
-    @genres.each do |genre|
-      @experiences << Experience.find_by(genre_id: genre.id)
+    Genre.where(category_id: @category.id).find_each do |genre|
+      Experience.includes(:genre).includes(:area).where(genre_id: genre.id).find_each { |exp| @experiences << exp }
     end
-    render "search/#{params[:name]}"
+    render 'experiences/category'
   end
 end

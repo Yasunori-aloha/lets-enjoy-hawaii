@@ -16,7 +16,6 @@ div{
 a:link, a:visited{
   text-decoration: unset;
   color: #484848;
-  transition: $transition;
 }
 p{
   display: block;
@@ -132,10 +131,10 @@ img {
   padding: 10px 0 5px 0;
   border-bottom: 1px dotted #ccc;
   a{
+    text-decoration-line: underline;
     outline: none;
   }
   a:visited{
-    text-decoration: none;
     color: #069;
   }
 }

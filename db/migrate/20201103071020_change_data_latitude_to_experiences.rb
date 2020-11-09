@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeDataLatitudeToExperiences < ActiveRecord::Migration[6.0]
   def change
     change_column :experiences, :latitude, :float, null: false

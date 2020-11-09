@@ -1,0 +1,91 @@
+.header
+  = render 'shared/leh_header'
+.content_header
+  .menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
+    = link_to 'トップページ', root_path, id: 'change_link', style: 'color: blue'
+    %span
+      &nbsp;>&nbsp;
+    %strong
+      = @category.name
+    %span{id: 'category_id', style: 'display:none'}
+      = @category.id
+.content_main
+  .content_main_left
+    .content_main_left_header
+      = image_tag '', alt: 'ショッピング', height: '35px', width: '35px', class: 'type_icon', id: 'category_icon'
+      %h1.content_title 
+        = "#{@category.name}スポット"
+    .content_main_left_info
+      .content_main_left_info_up
+        %ul.ul_number
+          %li.number
+            = "1 - #{@experiences.length}件"
+          %li.all_number
+            = "（全#{@experiences.length}件中）"
+        %ul.ul_list
+          %li{class: 'list list_active'}
+            = icon('fas', 'list')
+          %li.list
+            = icon('fas', 'th')
+      .content_main_left_info_down
+        %ul.order
+          %li
+            並び順：
+          %li{id: 'change_link', class: 'order_list'}
+            安い順
+          %li{id: 'change_link', class: 'order_list'}
+            口コミランク順
+          %li{class: 'order_list text_active order_none'}
+            おすすめ順
+    %ul.content_main_left_main
+      - @experiences.each_with_index do |exp,index|
+        %li.content_main_left_main_list
+          .content_main_header
+            .content_main_header_name
+              = link_to "#{exp.name}", "experiences/#{exp.id}", id: 'change_link', class: 'show_experiences'
+            .content_main_header_score
+              .star_rating
+                %div{id: "star_rating#{index}", class: 'star_rating_front'}
+                  ★★★★★
+                .star_rating_back
+                  ★★★★★
+              %span{class: 'rating_point exp_score'}
+                = exp.score
+              %span.review_count
+                （
+              = link_to "口コミ#{exp.reviews.count.to_s(:delimited)}件", '#', class: 'review_count review_link'
+              %span.review_count
+                ）
+            %p.content_main_header_place
+              = exp.area.island.name
+              \＞
+              = exp.area.name
+          .content_main_outline
+            = image_tag '', height: '134px', width: '178px', class: 'content_image'
+            .content_outline
+              .content_outline_main
+                説明文
+              .content_outline_sub
+                説明文
+              .content_outline_category
+                = icon('fas', 'flag', class: 'category_icon')
+                = exp.genre.name
+              .content_outline_age
+                対象年齢
+              .content_outline_price
+                平均費用〜
+  .content_main_right
+    - if user_signed_in? && current_user.favorites.exists?
+      .right_content_area
+        %h2.right_content_area_title
+          最近のお気に入りスポット
+        .right_content
+          = image_tag '', height: '38px', width: '51px', class: 'fav_image'
+          %p{id: 'change_link', class: 'fav_name'}
+            テスト
+        .content_sub
+          = image_tag '', height: '38px', width: '51px', class: 'fav_image'
+          %p.name_sub
+            テスト
+.footer
+  = render 'shared/leh_footer'

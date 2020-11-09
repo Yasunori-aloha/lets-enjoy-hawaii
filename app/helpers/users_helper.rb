@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UsersHelper
   def user_image_attached?(user)
     if user.image.attached?
