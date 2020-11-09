@@ -1,13 +1,17 @@
 .header
   = render 'shared/leh_header'
 .show_content_area
-.content_header
-.menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
-  = link_to 'トップページ', root_path, id: 'change_link', style: 'color: blue'
-  %span
-    &nbsp;>&nbsp;
-  %strong
-    -# = @category.name
+  .menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
+    = link_to 'トップページ', root_path, id: 'change_link', style: 'color: blue'
+    %span
+      &nbsp;>&nbsp;
+    = link_to "#{@experience.genre.category.name}", '/shopping', id: 'change_link', style: 'color: blue'
+    %span
+      &nbsp;>&nbsp;
+    %strong
+      = @experience.name
+    %span{id: 'category_id', style: 'display:none'}
+      = @experience.genre.category.id
 %h1
   = "#{@experience.name}の詳細"
   -# お気に入りされていればお気に入り登録の解除ができて、まだならお気に入り登録ができる。

@@ -10,7 +10,8 @@ $(window).on('load',function(){
     'assets/shopping_icon.png'
   ];
   const url = location.pathname;
-  const conditions = (url == '/shopping') || (url == '/landmark') || (url == '/leisure') || (url == '/rentacar') || (url == '/dinner') || (url == '/hotel');
+  console.log(url);
+  const conditions = (url == '/shopping') || (url == '/landmark') || (url == '/leisure') || (url == '/rentacar') || (url == '/dinner') || (url == '/hotel') || (url == '/experiences');
   if(conditions) {
     // 'category_id'を取得して、その'id'に対応したアイコン画像を配列から取得して表示させる。
     const categoryIcon = $('#category_icon')[0];
