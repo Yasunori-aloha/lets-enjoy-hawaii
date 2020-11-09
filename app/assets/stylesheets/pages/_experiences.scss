@@ -1,8 +1,25 @@
-.show_content_area{
-  // background-color: black;
-  width: 950px;
+$contentLeftWidth: 740px;
+$contentLeftMargin: 30px;
+.menu{
+  font-size: 10px;
   margin: 0 auto;
-  .menu{
-    font-size: 10px;
+  width: 950px;
+}
+.show_content_wrapper{
+  @extend .menu;
+  display: flex;
+  .show_content_left{
+    height: 1000px;
+    width: $contentLeftWidth;
+    margin-right: $contentLeftMargin;
+    .show_left_info{
+      height: 200px;
+      background-color: black;
+    }
+  }
+  .show_content_right{
+    background-color: black;
+    height: 1000px;
+    width: calc(100% - #{$contentLeftWidth} - #{$contentLeftMargin});
   }
 }
