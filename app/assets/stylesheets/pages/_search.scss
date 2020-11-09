@@ -1,6 +1,10 @@
 $upHeight: 29px;
 $linkColor: blue;
 $gray: #ccc;
+.link_hover{
+  text-decoration-line: underline!important;
+  color: #ffa500!important;
+}
 .content_header{
   margin: 0 245px;
   font-size: 10px;
@@ -185,7 +189,6 @@ $gray: #ccc;
               color: #ff0000;
               font-weight: bold;
             }
-            // background-color: black;
           }
         }
       }
@@ -209,7 +212,6 @@ $gray: #ccc;
       }
       .right_content{
         height: 38px;
-        // background-color: black;
         margin: 3px 0 7px;
         padding: 0 5px;
         display: flex;

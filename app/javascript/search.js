@@ -27,3 +27,12 @@ $(window).on('load',function(){
     });
   }
 });
+
+$(function(){
+  $('[id^="change"]').on('mouseover',function(){
+    $(this).addClass('link_hover');
+  });
+  $('[id^="change"]').on('mouseout',function(){
+    $(this).removeClass('link_hover');
+  });
+});

@@ -2,8 +2,9 @@
   = render 'shared/leh_header'
 .content_header
   .menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
-    = link_to 'トップページ', root_path
-    &nbsp;>&nbsp;
+    = link_to 'トップページ', root_path, id: 'change_link', style: 'color: blue'
+    %span
+      &nbsp;>&nbsp;
     %strong
       = @category.name
     %span{id: 'category_id', style: 'display:none'}
@@ -30,9 +31,9 @@
         %ul.order
           %li
             並び順：
-          %li.order_list
+          %li{id: 'change_link', class: 'order_list'}
             安い順
-          %li.order_list
+          %li{id: 'change_link', class: 'order_list'}
             口コミランク順
           %li{class: 'order_list text_active order_none'}
             おすすめ順
@@ -41,7 +42,7 @@
         %li.content_main_left_main_list
           .content_main_header
             .content_main_header_name
-              = link_to "#{exp.name}", "experiences/#{exp.id}", class: 'show_experiences'
+              = link_to "#{exp.name}", "experiences/#{exp.id}", id: 'change_link', class: 'show_experiences'
             .content_main_header_score
               .star_rating
                 %div{id: "star_rating#{index}", class: 'star_rating_front'}
@@ -80,7 +81,7 @@
           最近のお気に入りスポット
         .right_content
           = image_tag '', height: '38px', width: '51px', class: 'fav_image'
-          %p.fav_name
+          %p{id: 'change_link', class: 'fav_name'}
             テスト
         .content_sub
           = image_tag '', height: '38px', width: '51px', class: 'fav_image'
