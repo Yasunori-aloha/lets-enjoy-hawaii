@@ -14,11 +14,23 @@ $contentLeftMargin: 30px;
     margin-right: $contentLeftMargin;
     .show_left_info{
       height: 200px;
-      background-color: black;
+      display: flex;
+      justify-content: space-between;
+      .show_info_left{
+        height: 100%;
+        width: 50px;
+        margin: 25px 0;
+        background-color: black;
+      }
+      .show_info_right{
+        @extend .show_info_left;
+        height: 140px;
+        width: 170px;
+      }
     }
   }
   .show_content_right{
-    background-color: black;
+    // background-color: black;
     height: 1000px;
     width: calc(100% - #{$contentLeftWidth} - #{$contentLeftMargin});
   }
