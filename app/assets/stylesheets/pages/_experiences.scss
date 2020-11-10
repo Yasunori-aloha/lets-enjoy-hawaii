@@ -20,12 +20,39 @@ $contentLeftMargin: 30px;
         height: 100%;
         width: 50px;
         margin: 25px 0;
-        background-color: black;
       }
       .show_info_right{
         @extend .show_info_left;
         height: 140px;
         width: 170px;
+        .post_reviews{
+          height: 37px;
+          line-height: 37px;
+          font-size: 20px;
+          border: 1px solid $gray;
+          border-radius: 3px;
+          text-align: center;
+          margin-bottom: 5px;
+        }
+        .share_act{
+          @extend .post_reviews;
+        }
+        &_down{
+          display: flex;
+          .favorite{
+            height: 25px;
+            width: calc((170px - 5px) / 2) ;
+            line-height: 25px;
+            font-size: 15px;
+            border: 1px solid $gray;
+            border-radius: 3px;
+            padding-left: 5px;
+          }
+          .have_been_place{
+            @extend .favorite;
+            margin-left: 5px;
+          }
+        }
       }
     }
   }

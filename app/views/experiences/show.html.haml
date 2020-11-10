@@ -16,13 +16,24 @@
     .show_left_info
       .show_info_left
       .show_info_right
+        %ul
+          %li.post_reviews
+            = icon('far', 'comment-dots', class: 'fa-flip-horizontal')
+            口コミ投稿
+          %li.share_act
+            = icon('fas', 'share')
+            シェアする
+        %ul.show_info_right_down
+          %li.favorite
+            -# お気に入りされていればお気に入り登録の解除ができて、まだならお気に入り登録ができる。
+            - if @experience.already_favorited?(current_user)
+              = link_to icon("fas", "star"), experience_favorites_path(@experience.id), method: :delete
+            - else
+              = link_to icon("far", "star"), experience_favorites_path(@experience.id), method: :post
+            = @experience.favorites.length.to_s(:delimited)
+          %li.have_been_place
+            = icon('fas', 'shoe-prints',class: 'fa-rotate-270')
+            行った
   .show_content_right
-%h1
-  = "#{@experience.name}の詳細"
-  -# お気に入りされていればお気に入り登録の解除ができて、まだならお気に入り登録ができる。
-  - if @experience.already_favorited?(current_user)
-    = link_to icon("fas", "star"), experience_favorites_path(@experience.id), method: :delete
-  - else
-    = link_to icon("far", "star"), experience_favorites_path(@experience.id), method: :post
 .footer
   = render 'shared/leh_footer'
