@@ -3,9 +3,14 @@ $contentLeftMargin: 30px;
 @mixin areaLinkTo {
   font-weight: bold;
   margin-right: 30px;
-  }
   .link_to{
     margin: -1px 6px 0 8px;
+  }
+}
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .menu{
   font-size: 10px;
@@ -116,8 +121,13 @@ $contentLeftMargin: 30px;
               width: 86px;
               border-radius: 4px 4px 0 0;
               border: 2px solid #ffa500;
-              border-bottom: 2px solid #ffffff;
               margin-right: 4px;
+              text-align: center;
+              cursor: pointer;
+              &.active_tab{
+                border-bottom: 2px solid #ffffff;
+                cursor: auto;
+              }
             }
           }
         }
