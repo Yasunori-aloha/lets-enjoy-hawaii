@@ -20,20 +20,25 @@
           %li.post_reviews
             = icon('far', 'comment-dots', class: 'fa-flip-horizontal')
             口コミ投稿
+            = link_to '','#', class: 'btn'
           %li.share_act
             = icon('fas', 'share')
             シェアする
+            = link_to '','#', class: 'btn'
         %ul.show_info_right_down
           %li.favorite
             -# お気に入りされていればお気に入り登録の解除ができて、まだならお気に入り登録ができる。
             - if @experience.already_favorited?(current_user)
-              = link_to icon("fas", "star"), experience_favorites_path(@experience.id), method: :delete
+              = icon("fas", "star")
+              = link_to '', experience_favorites_path(@experience.id), method: :delete, class: 'btn'
             - else
-              = link_to icon("far", "star"), experience_favorites_path(@experience.id), method: :post
+              = icon("far", "star")
+              = link_to '', experience_favorites_path(@experience.id), method: :post, class: 'btn'
             = @experience.favorites.length.to_s(:delimited)
           %li.have_been_place
             = icon('fas', 'shoe-prints',class: 'fa-rotate-270')
             行った
+            = link_to '', '#', class: 'btn'
   .show_content_right
 .footer
   = render 'shared/leh_footer'

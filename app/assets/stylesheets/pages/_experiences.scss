@@ -33,6 +33,7 @@ $contentLeftMargin: 30px;
           border-radius: 3px;
           text-align: center;
           margin-bottom: 5px;
+          position: relative;
         }
         .share_act{
           @extend .post_reviews;
@@ -47,6 +48,10 @@ $contentLeftMargin: 30px;
             border: 1px solid $gray;
             border-radius: 3px;
             padding-left: 5px;
+            position: relative;
+            .fa-star{
+              color: #ffa500;
+            }
           }
           .have_been_place{
             @extend .favorite;
