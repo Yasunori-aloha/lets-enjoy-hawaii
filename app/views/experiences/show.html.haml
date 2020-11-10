@@ -71,15 +71,27 @@
     .show_left_main
       .show_left_main_tab
         %ul.experience_tabs
-          %li{class: 'tab1 active_tab'}
+          %li{class: 'tab active_tab'}
             %span
               概要
-          %li.tab2
-          %li.tab3
-          %li.tab4
-          %li.tab5
-          %li.tab6
-          %li.tab7
+          %li.tab_2line
+            %span
+              口コミ
+            %br/
+            %span.number
+              = "(#{@experience.reviews.length}件)"
+          %li.tab_2line
+            %span
+              写真
+            %br/
+            %span.number
+              (107枚)
+          %li.tab
+            %span
+              地図
+          %li.tab
+            %span
+              周辺情報
   .show_content_right
 .footer
   = render 'shared/leh_footer'
