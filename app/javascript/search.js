@@ -10,15 +10,15 @@ $(window).on('load',function(){
     'assets/shopping_icon.png'
   ];
   const url = location.pathname;
-  console.log(url);
-  const conditions = (url == '/shopping') || (url == '/landmark') || (url == '/leisure') || (url == '/rentacar') || (url == '/dinner') || (url == '/hotel') || (url == '/experiences');
+  const conditions = (url == '/shopping') || (url == '/landmark') || (url == '/leisure') || (url == '/rentacar') || (url == '/dinner') || (url == '/hotel');
   if(conditions) {
     // 'category_id'を取得して、その'id'に対応したアイコン画像を配列から取得して表示させる。
     const categoryIcon = $('#category_icon')[0];
     const categoryId = $('#category_id')[0].innerText;
     categoryIcon.src = categoryIcons[categoryId - 1];
-
-    // exp.scoreクラスを複数取得して、ノードリストから配列へ変換し、各要素毎に処理をしていく。
+  }
+  if(conditions || (/\/experiences\/[0-9]{1,}/.test(url))) {
+    // exp_scoreクラスを複数取得して、ノードリストから配列へ変換し、各要素毎に処理をしていく。
     const expScoreArray = Array.from($('.exp_score'));
     expScoreArray.forEach((element, index) => {
       const expScore = element.innerText;
