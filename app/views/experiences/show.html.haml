@@ -15,6 +15,24 @@
   .show_content_left
     .show_left_info
       .show_info_left
+        %ul
+          %li.show_info_name
+            = image_tag 'shopping_icon.png', alt: '', height: '35px', width: '35px', class: ''
+            %h1.experience_name
+              キッザニア甲子園
+          %li.show_info_score
+            .star_rating
+              %div{id: "star_rating", class: 'star_rating_front'}
+                ★★★★★
+              .star_rating_back
+                ★★★★★
+            %span{class: 'rating_point exp_score'}
+              = @experience.score
+            %span.review_count
+              （
+            = link_to "口コミ#{@experience.reviews.count.to_s(:delimited)}件", '#', class: 'review_count review_link'
+            %span.review_count
+              ）
       .show_info_right
         %ul
           %li.post_reviews

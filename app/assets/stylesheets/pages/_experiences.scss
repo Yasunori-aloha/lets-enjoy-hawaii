@@ -18,8 +18,28 @@ $contentLeftMargin: 30px;
       justify-content: space-between;
       .show_info_left{
         height: 100%;
-        width: 50px;
+        width: 500px;
         margin: 25px 0;
+        // background-color: black;
+        .show_info_name{
+          display: flex;
+          .experience_name{
+            font-size: 24px;
+            font-weight: bold;
+            margin: -1px 0 0 3px;
+          }
+        }
+        .show_info_score{
+          @include exp_score;
+          padding-top: 5px;
+          .rating_point{
+            font-size: 16px;
+            margin-top: 1px;
+          }
+          .review_count{
+            font-size: 12px;
+          }
+        }
       }
       .show_info_right{
         @extend .show_info_left;
@@ -62,7 +82,6 @@ $contentLeftMargin: 30px;
     }
   }
   .show_content_right{
-    // background-color: black;
     height: 1000px;
     width: calc(100% - #{$contentLeftWidth} - #{$contentLeftMargin});
   }
