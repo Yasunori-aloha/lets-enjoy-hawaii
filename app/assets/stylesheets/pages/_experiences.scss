@@ -20,7 +20,6 @@ $contentLeftMargin: 30px;
     width: $contentLeftWidth;
     margin-right: $contentLeftMargin;
     .show_left_info{
-      height: 200px;
       display: flex;
       justify-content: space-between;
       .show_info_left{
@@ -46,12 +45,6 @@ $contentLeftMargin: 30px;
           .review_count{
             font-size: 12px;
           }
-        }
-        .black{
-          height: 19px;
-          width: 100%;
-          margin: 3px 0;
-          background-color: black;
         }
         .area_wrapper{
           display: flex;
@@ -107,6 +100,14 @@ $contentLeftMargin: 30px;
             margin-left: 5px;
           }
         }
+      }
+    }
+    .show_left_main{
+      height: 1000px;
+      &_tab{
+        height: 43px;
+        border-bottom: 2px solid #ffa500;
+        background-color: black;
       }
     }
   }
