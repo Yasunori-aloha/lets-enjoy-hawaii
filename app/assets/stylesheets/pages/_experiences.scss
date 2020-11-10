@@ -105,9 +105,22 @@ $contentLeftMargin: 30px;
     .show_left_main{
       height: 1000px;
       &_tab{
-        height: 43px;
-        border-bottom: 2px solid #ffa500;
-        background-color: black;
+        .experience_tabs{
+          display: flex;
+          height: 43px;
+          border-bottom: 2px solid #ffa500;
+          padding: 0 12px;
+          @for $i from 1 through 7 {
+            .tab#{$i}{
+              height: 43px;
+              width: 86px;
+              border-radius: 4px 4px 0 0;
+              border: 2px solid #ffa500;
+              border-bottom: 2px solid #ffffff;
+              margin-right: 4px;
+            }
+          }
+        }
       }
     }
   }
