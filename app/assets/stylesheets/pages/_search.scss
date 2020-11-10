@@ -115,7 +115,7 @@ $gray: #ccc;
             }
           }
           .experience_score{
-            @include exp_score;
+            @include expScore;
           }
           &_place{
             margin-top: -4px;

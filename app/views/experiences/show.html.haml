@@ -33,6 +33,17 @@
             = link_to "口コミ#{@experience.reviews.count.to_s(:delimited)}件", '#', class: 'review_count review_link'
             %span.review_count
               ）
+          %li.black
+          %li.area_wrapper
+            %span.area
+              エリア
+            = link_to "#{@experience.area.island.name}",'#', id: 'change_link', class: 'link_to'
+            = link_to "#{@experience.area.name}",'#', id: 'change_link', class: 'link_to'
+          %li.genre_wrapper
+            %span.genre
+              ジャンル
+            = link_to "#{@experience.genre.category.name}",'#', id: 'change_link', class: 'link_to'
+            = link_to "#{@experience.genre.name}",'#', id: 'change_link', class: 'link_to'
       .show_info_right
         %ul
           %li.post_reviews

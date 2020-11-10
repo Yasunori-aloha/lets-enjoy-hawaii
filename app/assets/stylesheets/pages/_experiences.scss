@@ -1,5 +1,12 @@
 $contentLeftWidth: 740px;
 $contentLeftMargin: 30px;
+@mixin areaLinkTo {
+  font-weight: bold;
+  margin-right: 30px;
+  }
+  .link_to{
+    margin: -1px 6px 0 8px;
+}
 .menu{
   font-size: 10px;
   margin: 0 auto;
@@ -20,7 +27,7 @@ $contentLeftMargin: 30px;
         height: 100%;
         width: 500px;
         margin: 25px 0;
-        // background-color: black;
+        color: #333333;
         .show_info_name{
           display: flex;
           .experience_name{
@@ -30,7 +37,7 @@ $contentLeftMargin: 30px;
           }
         }
         .show_info_score{
-          @include exp_score;
+          @include expScore;
           padding-top: 5px;
           .rating_point{
             font-size: 16px;
@@ -38,6 +45,28 @@ $contentLeftMargin: 30px;
           }
           .review_count{
             font-size: 12px;
+          }
+        }
+        .black{
+          height: 19px;
+          width: 100%;
+          margin: 3px 0;
+          background-color: black;
+        }
+        .area_wrapper{
+          display: flex;
+          font-size: 12px;
+          margin-top: 12px;
+          .area{
+            @include areaLinkTo();
+          }
+        }
+        .genre_wrapper{
+          @extend .area_wrapper;
+          margin-top: 5px;
+          .genre{
+            @include areaLinkTo();
+            margin-right: 19px;
           }
         }
       }

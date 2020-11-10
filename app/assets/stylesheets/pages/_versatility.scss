@@ -1,5 +1,5 @@
 $transition: .2s ease-in-out;
-@mixin exp_score {
+@mixin expScore {
   display: flex;
   .star_rating{
     margin-right: 6px;
@@ -47,10 +47,10 @@ body{
 div{
   display: block;
 }
-a:link, a:visited{
-  text-decoration: unset;
-  color: #484848;
-}
+// a:link, a:visited{
+//   text-decoration: unset;
+//   color: #484848;
+// }
 p{
   display: block;
   margin-block-start: 1em;
@@ -178,4 +178,7 @@ img {
   a:visited{
     color: #069;
   }
+}
+.link_to{
+  color: blue;
 }
