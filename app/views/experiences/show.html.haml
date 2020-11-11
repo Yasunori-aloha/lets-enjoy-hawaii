@@ -104,42 +104,42 @@
               %li.list_score
                 %span.evaluation
                   満足
-                %span.persent
+                %span{id: 'score_5', class: 'persent'}
                   55%
                 .persent_graph
-                  .persent_graph_front
+                  %div{id: 'graph_score5', class: 'persent_graph_front'}
                   .persent_graph_back
               %li.list_score
                 %span.evaluation
                   やや満足
-                %span.persent
+                %span{id: 'score_4', class: 'persent'}
                   34%
                 .persent_graph
-                  .persent_graph_front
+                  %div{id: 'graph_score4', class: 'persent_graph_front'}
                   .persent_graph_back
               %li.list_score
                 %span.evaluation
                   普通
-                %span.persent
+                %span{id: 'score_3', class: 'persent'}
                   9%
                 .persent_graph
-                  .persent_graph_front
+                  %div{id: 'graph_score3', class: 'persent_graph_front'}
                   .persent_graph_back
               %li.list_score
                 %span.evaluation
                   やや不満
-                %span.persent
+                %span{id: 'score_2', class: 'persent'}
                   1%
                 .persent_graph
-                  .persent_graph_front
+                  %div{id: 'graph_score2', class: 'persent_graph_front'}
                   .persent_graph_back
               %li.list_score
                 %span.evaluation
                   不満
-                %span.persent
+                %span{id: 'score_1', class: 'persent'}
                   0%
                 .persent_graph
-                  .persent_graph_front
+                  %div{id: 'graph_score1', class: 'persent_graph_front'}
                   .persent_graph_back
         .business_info
           .business_info_title
@@ -156,9 +156,7 @@
             %span.business_info_main_postalcode
               = @experience.address
             %span.business_info_main_address
-              -# 兵庫県西宮市甲子園8-1-100
             %span
-              -# ららぽーと甲子園
   .show_content_right
 .footer
   = render 'shared/leh_footer'
