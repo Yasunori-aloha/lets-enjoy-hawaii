@@ -1,4 +1,38 @@
 $transition: .2s ease-in-out;
+@mixin expScore {
+  display: flex;
+  .star_rating{
+    margin-right: 6px;
+    width: 5em;
+    line-height: 22px;
+    font-size: 22px;
+    position: relative;
+    &_front{
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      color: #ffa500;
+    }
+    &_back{
+      color: $gray;
+    }
+  }
+  .rating_point{
+    color: black;
+    font-weight: bold;
+    line-height: 26px;
+  }
+  .review_count{
+    @extend .rating_point;
+    font-weight: unset;
+    font-size: 12px;
+    line-height: 25px;
+  }
+  .review_link{
+    color: $linkColor;
+  }
+}
 *, :after, :before{
   box-sizing: border-box;
   margin: 0;
@@ -13,10 +47,10 @@ body{
 div{
   display: block;
 }
-a:link, a:visited{
-  text-decoration: unset;
-  color: #484848;
-}
+// a:link, a:visited{
+//   text-decoration: unset;
+//   color: #484848;
+// }
 p{
   display: block;
   margin-block-start: 1em;
@@ -34,6 +68,13 @@ li{
 }
 img {
   vertical-align: bottom;
+}
+.btn{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 .leh_header{
   .header_wrapper{
@@ -137,4 +178,7 @@ img {
   a:visited{
     color: #069;
   }
+}
+.link_to{
+  color: blue;
 }

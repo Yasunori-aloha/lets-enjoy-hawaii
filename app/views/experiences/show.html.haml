@@ -1,9 +1,143 @@
 .header
   = render 'shared/leh_header'
-%h1
-  = "#{@experience.name}の詳細"
-  -# お気に入りされていればお気に入り登録の解除ができて、まだならお気に入り登録ができる。
-  - if @experience.already_favorited?(current_user)
-    = link_to icon("fas", "star"), experience_favorites_path(@experience.id), method: :delete
-  - else
-    = link_to icon("far", "star"), experience_favorites_path(@experience.id), method: :post
+.menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
+  = link_to 'トップページ', root_path, id: 'change_link', style: 'color: blue'
+  %span
+    &nbsp;>&nbsp;
+  = link_to "#{@experience.genre.category.name}", '/shopping', id: 'change_link', style: 'color: blue'
+  %span
+    &nbsp;>&nbsp;
+  %strong
+    = @experience.name
+  %span{id: 'category_id', style: 'display:none'}
+    = @experience.genre.category.id
+.show_content_wrapper
+  .show_content_left
+    .show_left_info
+      .show_info_left
+        %ul
+          %li.show_info_name
+            = image_tag 'shopping_icon.png', alt: '', height: '35px', width: '35px', class: ''
+            %h1.experience_name
+              = @experience.name
+          %li.show_info_score
+            .star_rating
+              %div{id: "star_rating0", class: 'star_rating_front'}
+                ★★★★★
+              .star_rating_back
+                ★★★★★
+            %span{class: 'rating_point exp_score'}
+              = @experience.score
+            %span.review_count
+              （
+            = link_to "口コミ#{@experience.reviews.count.to_s(:delimited)}件", '#', class: 'review_count review_link'
+            %span.review_count
+              ）
+          %li.black
+          %li.area_wrapper
+            %span.area
+              エリア
+            = link_to "#{@experience.area.island.name}",'#', id: 'change_link', class: 'link_to'
+            = link_to "#{@experience.area.name}",'#', id: 'change_link', class: 'link_to'
+          %li.genre_wrapper
+            %span.genre
+              ジャンル
+            = link_to "#{@experience.genre.category.name}",'#', id: 'change_link', class: 'link_to'
+            = link_to "#{@experience.genre.name}",'#', id: 'change_link', class: 'link_to'
+      .show_info_right
+        %ul
+          %li.post_reviews
+            = icon('far', 'comment-dots', class: 'fa-flip-horizontal')
+            口コミ投稿
+            = link_to '','#', class: 'btn'
+          %li.share_act
+            = icon('fas', 'share')
+            シェアする
+            = link_to '','#', class: 'btn'
+        %ul.show_info_right_down
+          %li.favorite
+            -# お気に入りされていればお気に入り登録の解除ができて、まだならお気に入り登録ができる。
+            - if @experience.already_favorited?(current_user)
+              = icon("fas", "star")
+              = link_to '', experience_favorites_path(@experience.id), method: :delete, class: 'btn'
+            - else
+              = icon("far", "star")
+              = link_to '', experience_favorites_path(@experience.id), method: :post, class: 'btn'
+            = @experience.favorites.length.to_s(:delimited)
+          %li.have_been_place
+            = icon('fas', 'shoe-prints',class: 'fa-rotate-270')
+            行った
+            = link_to '', '#', class: 'btn'
+    .show_left_main
+      .show_left_main_tab
+        %ul.experience_tabs
+          %li{class: 'tab active_tab'}
+            %span
+              概要
+          %li.tab_2line
+            %span
+              口コミ
+            %br/
+            %span.number
+              = "(#{@experience.reviews.length}件)"
+          %li.tab_2line
+            %span
+              写真
+            %br/
+            %span.number
+              (0枚)
+          %li.tab
+            %span
+              地図
+          %li.tab
+            %span
+              周辺情報
+      .show_left_main_content
+        %h1.experience_name
+          = @experience.name
+        .picture_score
+          .content_picture
+            画像表示部分
+          .content_score
+            -# アクティビティの5段階評価の各点数ごとの割合を表示させる。
+            %ul.content_score_list
+              %li.list_title
+                評価分布
+              - 5.times do |i|
+                - if @scores.length != 0
+                  %li.list_score
+                    %span.evaluation
+                      = @evalutions[4 - i]
+                    %span{id: "score_#{5 - i}", class: 'persent'}
+                      = "#{(@scores.count(5 - i).to_f / @scores.length * 100).floor}%"
+                    .persent_graph
+                      %div{id: "graph_score#{5 - i}", class: 'persent_graph_front'}
+                      .persent_graph_back
+                - else
+                  %li.list_score
+                    %span.evaluation
+                      = @evalutions[4 - i]
+                    %span{id: "score_#{5 - i}", class: 'persent'}
+                      0%
+                    .persent_graph
+                      %div{id: "graph_score#{5 - i}", class: 'persent_graph_front'}
+                      .persent_graph_back
+        .business_info
+          .business_info_title
+            %span
+              営業時間
+          .business_info_main
+            %span
+              = "平日: #{@experience.business_hours_start} 〜 #{@experience.business_hours_finish}"
+        .business_info2
+          .business_info_title
+            %span
+              所在地
+          .business_info_main
+            %span.business_info_main_postalcode
+              = @experience.address
+            %span.business_info_main_address
+            %span
+  .show_content_right
+.footer
+  = render 'shared/leh_footer'

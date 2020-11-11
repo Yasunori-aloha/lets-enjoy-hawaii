@@ -114,39 +114,8 @@ $gray: #ccc;
               font-weight: bold;
             }
           }
-          &_score{
-            display: flex;
-            .star_rating{
-              margin-right: 6px;
-              width: 5em;
-              line-height: 22px;
-              font-size: 22px;
-              position: relative;
-              &_front{
-                position: absolute;
-                top: 0;
-                left: 0;
-                overflow: hidden;
-                color: orange;
-              }
-              &_back{
-                color: $gray;
-              }
-            }
-            .rating_point{
-              color: black;
-              font-weight: bold;
-              line-height: 26px;
-            }
-            .review_count{
-              @extend .rating_point;
-              font-weight: unset;
-              font-size: 12px;
-              line-height: 25px;
-            }
-            .review_link{
-              color: $linkColor;
-            }
+          .experience_score{
+            @include expScore;
           }
           &_place{
             margin-top: -4px;
