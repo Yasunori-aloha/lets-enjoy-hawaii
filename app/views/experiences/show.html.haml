@@ -105,7 +105,7 @@
                 %span.evaluation
                   満足
                 %span{id: 'score_5', class: 'persent'}
-                  = "#{(@scores.count(5)/@scores.length.to_f * 100).floor}%"
+                  = "#{(@scores.count(5).to_f/@scores.length * 100).to_i}%"
                 .persent_graph
                   %div{id: 'graph_score5', class: 'persent_graph_front'}
                   .persent_graph_back
@@ -113,7 +113,7 @@
                 %span.evaluation
                   やや満足
                 %span{id: 'score_4', class: 'persent'}
-                  = "#{(@scores.count(4)/@scores.length.to_f * 100).floor}%"
+                  = "#{(@scores.count(4).to_f/@scores.length * 100).to_i}%"
                 .persent_graph
                   %div{id: 'graph_score4', class: 'persent_graph_front'}
                   .persent_graph_back
@@ -121,7 +121,7 @@
                 %span.evaluation
                   普通
                 %span{id: 'score_3', class: 'persent'}
-                  = "#{(@scores.count(3)/@scores.length.to_f * 100).floor}%"
+                  = "#{(@scores.count(3).to_f/@scores.length * 100).to_i}%"
                 .persent_graph
                   %div{id: 'graph_score3', class: 'persent_graph_front'}
                   .persent_graph_back
@@ -129,7 +129,7 @@
                 %span.evaluation
                   やや不満
                 %span{id: 'score_2', class: 'persent'}
-                  = "#{(@scores.count(2)/@scores.length.to_f * 100).floor}%"
+                  = "#{(@scores.count(2).to_f/@scores.length.to_f * 100).to_i}%"
                 .persent_graph
                   %div{id: 'graph_score2', class: 'persent_graph_front'}
                   .persent_graph_back
@@ -137,7 +137,7 @@
                 %span.evaluation
                   不満
                 %span{id: 'score_1', class: 'persent'}
-                  = "#{(@scores.count(1)/@scores.length.to_f * 100).floor}%"
+                  = "#{(@scores.count(1)/@scores.length.to_f * 100).to_i}%"
                 .persent_graph
                   %div{id: 'graph_score1', class: 'persent_graph_front'}
                   .persent_graph_back
@@ -158,6 +158,5 @@
             %span.business_info_main_address
             %span
   .show_content_right
-    
 .footer
   = render 'shared/leh_footer'
