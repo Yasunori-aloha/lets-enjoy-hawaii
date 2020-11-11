@@ -5,6 +5,8 @@ class ExperiencesController < ApplicationController
 
   def show
     @experience = Experience.find(params[:id])
+    @scores = []
+    Review.where(experience_id: @experience.id).each { |review| @scores << review.score }
   end
 
   def edit
