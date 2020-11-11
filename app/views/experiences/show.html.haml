@@ -102,14 +102,24 @@
               %li.list_title
                 評価分布
               - 5.times do |i|
-                %li.list_score
-                  %span.evaluation
-                    = @evalutions[4 - i]
-                  %span{id: "score_#{5 - i}", class: 'persent'}
-                    = "#{(@scores.count(5 - i).to_f / @scores.length * 100).floor}%"
-                  .persent_graph
-                    %div{id: "graph_score#{5 - i}", class: 'persent_graph_front'}
-                    .persent_graph_back
+                - if @scores.length != 0
+                  %li.list_score
+                    %span.evaluation
+                      = @evalutions[4 - i]
+                    %span{id: "score_#{5 - i}", class: 'persent'}
+                      = "#{(@scores.count(5 - i).to_f / @scores.length * 100).floor}%"
+                    .persent_graph
+                      %div{id: "graph_score#{5 - i}", class: 'persent_graph_front'}
+                      .persent_graph_back
+                - else
+                  %li.list_score
+                    %span.evaluation
+                      = @evalutions[4 - i]
+                    %span{id: "score_#{5 - i}", class: 'persent'}
+                      0%
+                    .persent_graph
+                      %div{id: "graph_score#{5 - i}", class: 'persent_graph_front'}
+                      .persent_graph_back
         .business_info
           .business_info_title
             %span
