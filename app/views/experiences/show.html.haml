@@ -101,46 +101,15 @@
             %ul.content_score_list
               %li.list_title
                 評価分布
-              %li.list_score
-                %span.evaluation
-                  満足
-                %span{id: 'score_5', class: 'persent'}
-                  = "#{(@scores.count(5).to_f/@scores.length * 100).to_i}%"
-                .persent_graph
-                  %div{id: 'graph_score5', class: 'persent_graph_front'}
-                  .persent_graph_back
-              %li.list_score
-                %span.evaluation
-                  やや満足
-                %span{id: 'score_4', class: 'persent'}
-                  = "#{(@scores.count(4).to_f/@scores.length * 100).to_i}%"
-                .persent_graph
-                  %div{id: 'graph_score4', class: 'persent_graph_front'}
-                  .persent_graph_back
-              %li.list_score
-                %span.evaluation
-                  普通
-                %span{id: 'score_3', class: 'persent'}
-                  = "#{(@scores.count(3).to_f/@scores.length * 100).to_i}%"
-                .persent_graph
-                  %div{id: 'graph_score3', class: 'persent_graph_front'}
-                  .persent_graph_back
-              %li.list_score
-                %span.evaluation
-                  やや不満
-                %span{id: 'score_2', class: 'persent'}
-                  = "#{(@scores.count(2).to_f/@scores.length.to_f * 100).to_i}%"
-                .persent_graph
-                  %div{id: 'graph_score2', class: 'persent_graph_front'}
-                  .persent_graph_back
-              %li.list_score
-                %span.evaluation
-                  不満
-                %span{id: 'score_1', class: 'persent'}
-                  = "#{(@scores.count(1)/@scores.length.to_f * 100).to_i}%"
-                .persent_graph
-                  %div{id: 'graph_score1', class: 'persent_graph_front'}
-                  .persent_graph_back
+              - 5.times do |i|
+                %li.list_score
+                  %span.evaluation
+                    = @evalutions[4 - i]
+                  %span{id: "score_#{5 - i}", class: 'persent'}
+                    = "#{(@scores.count(5 - i).to_f / @scores.length * 100).floor}%"
+                  .persent_graph
+                    %div{id: "graph_score#{5 - i}", class: 'persent_graph_front'}
+                    .persent_graph_back
         .business_info
           .business_info_title
             %span
