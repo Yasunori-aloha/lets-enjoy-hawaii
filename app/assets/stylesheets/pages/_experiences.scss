@@ -156,10 +156,16 @@ $colorBlack: #333333;
         }
         .picture_score{
           display: flex;
+          justify-content: space-between;
           height: 1000px;
           .content_picture{
             height: 370px;
             width: 490px;
+            background-color: black;
+          }
+          .content_score{
+            height: 180px;
+            width: 240px;
             background-color: black;
           }
         }
