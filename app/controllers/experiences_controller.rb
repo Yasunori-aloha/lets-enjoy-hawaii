@@ -7,7 +7,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.find(params[:id])
     @scores = []
     Review.where(experience_id: @experience.id).each { |review| @scores << review.score }
-    @evalutions = ['不満','やや不満','普通','やや満足','満足']
+    @evalutions = %w[不満 やや不満 普通 やや満足 満足]
   end
 
   def edit
