@@ -158,5 +158,7 @@
             %span.business_info_main_address
             %span
   .show_content_right
+    - @experience.reviews.each do |review|
+      = review.score.id
 .footer
   = render 'shared/leh_footer'
