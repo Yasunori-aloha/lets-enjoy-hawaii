@@ -95,7 +95,7 @@
       .show_left_main_content
         %h1.experience_name
           = @experience.name
-        %ul.picture_score
+        .picture_score
           .content_picture
           .content_score
             %ul.content_score_list
@@ -141,6 +141,19 @@
                 .persent_graph
                   .persent_graph_front
                   .persent_graph_back
+        .dq
+        .business_info
+        .business_info2
+          .business_info_title
+            %span
+              所在地
+          .business_info_main
+            %span.business_info_main_postalcode
+              〒663-8178
+            %span.business_info_main_address
+              兵庫県西宮市甲子園8-1-100
+            %span
+              ららぽーと甲子園
   .show_content_right
 .footer
   = render 'shared/leh_footer'
