@@ -42,32 +42,34 @@
           %li.genre_wrapper
             %span.genre
               ジャンル
-            = link_to "#{@experience.genre.category.name}",'#', id: 'change_link', class: 'link_to'
+            = link_to "#{@experience.genre.category.name}","/#{@experience.genre.category.search}", id: 'change_link', class: 'link_to'
             = link_to "#{@experience.genre.name}",'#', id: 'change_link', class: 'link_to'
       .show_info_right
-        %ul
-          %li.post_reviews
-            = icon('far', 'comment-dots', class: 'fa-flip-horizontal')
-            口コミ投稿
-            = link_to '','#', class: 'btn'
-          %li.share_act
-            = icon('fas', 'share')
-            シェアする
-            = link_to '','#', class: 'btn'
-        %ul.show_info_right_down
-          %li.favorite
-            -# お気に入りされていればお気に入り登録の解除ができて、まだならお気に入り登録ができる。
-            - if @experience.already_favorited?(current_user)
-              = icon("fas", "star")
-              = link_to '', experience_favorites_path(@experience.id), method: :delete, class: 'btn'
-            - else
-              = icon("far", "star")
-              = link_to '', experience_favorites_path(@experience.id), method: :post, class: 'btn'
-            = @experience.favorites.length.to_s(:delimited)
-          %li.have_been_place
-            = icon('fas', 'shoe-prints',class: 'fa-rotate-270')
-            行った
-            = link_to '', '#', class: 'btn'
+        -# 未ログインユーザーなら'口コミ投稿'等のボタンが表示されない。
+        - if user_signed_in?
+          %ul
+            %li.post_reviews
+              = icon('far', 'comment-dots', class: 'fa-flip-horizontal')
+              口コミ投稿
+              = link_to '','#', class: 'btn'
+            %li.share_act
+              = icon('fas', 'share')
+              シェアする
+              = link_to '','#', class: 'btn'
+          %ul.show_info_right_down
+            %li.favorite
+              -# お気に入りされていればお気に入り登録の解除ができて、まだならお気に入り登録ができる。
+              - if @experience.already_favorited?(current_user, @experience)
+                = icon("fas", "star")
+                = link_to '', experience_favorites_path(@experience.id), method: :delete, class: 'btn'
+              - else
+                = icon("far", "star")
+                = link_to '', experience_favorites_path(@experience.id), method: :post, class: 'btn'
+              = @experience.favorites.length.to_s(:delimited)
+            %li.have_been_place
+              = icon('fas', 'shoe-prints',class: 'fa-rotate-270')
+              行った
+              = link_to '', '#', class: 'btn'
     .show_left_main
       .show_left_main_tab
         %ul.experience_tabs
