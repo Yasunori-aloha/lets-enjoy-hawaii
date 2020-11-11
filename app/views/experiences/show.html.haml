@@ -57,7 +57,7 @@
         %ul.show_info_right_down
           %li.favorite
             -# お気に入りされていればお気に入り登録の解除ができて、まだならお気に入り登録ができる。
-            - if @experience.already_favorited?(current_user)
+            - if @experience.already_favorited?(current_user, @experience)
               = icon("fas", "star")
               = link_to '', experience_favorites_path(@experience.id), method: :delete, class: 'btn'
             - else
