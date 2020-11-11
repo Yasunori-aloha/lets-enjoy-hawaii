@@ -15,14 +15,12 @@ $colorBlack: #333333;
   @extend .menu;
   display: flex;
   .show_content_left{
-    height: 1000px;
     width: $contentLeftWidth;
     margin-right: $contentLeftMargin;
     .show_left_info{
       display: flex;
       justify-content: space-between;
       .show_info_left{
-        height: 100%;
         width: 500px;
         margin: 25px 0;
         color: $colorBlack;
@@ -109,7 +107,6 @@ $colorBlack: #333333;
       }
     }
     .show_left_main{
-      height: 1000px;
       &_tab{
         .experience_tabs{
           display: flex;
@@ -147,7 +144,6 @@ $colorBlack: #333333;
         }
       }
       &_content{
-        height: 1000px;
         margin-top: 16px;
         .experience_name{
           font-size: 18px;
@@ -211,13 +207,7 @@ $colorBlack: #333333;
             }
           }
         }
-        .dq{
-          height: 145px;
-        }
         .business_info{
-          height: 71px;
-        }
-        .business_info2{
           display: flex;
           height: 36px;
           border: 1px solid $gray;
@@ -243,11 +233,15 @@ $colorBlack: #333333;
             }
           }
         }
+        .business_info2{
+          @extend .business_info;
+          border-top: 0;
+          margin-bottom: 30px;
+        }
       }
     }
   }
   .show_content_right{
-    height: 1000px;
     width: calc(100% - #{$contentLeftWidth} - #{$contentLeftMargin});
   }
 }
