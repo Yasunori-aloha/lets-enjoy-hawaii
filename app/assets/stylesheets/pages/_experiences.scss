@@ -1,5 +1,6 @@
 $contentLeftWidth: 740px;
 $contentLeftMargin: 30px;
+$colorBlack: #333333;
 @mixin center {
   display: flex;
   justify-content: center;
@@ -24,7 +25,7 @@ $contentLeftMargin: 30px;
         height: 100%;
         width: 500px;
         margin: 25px 0;
-        color: #333333;
+        color: $colorBlack;
         .show_info_name{
           display: flex;
           .experience_name{
@@ -119,7 +120,8 @@ $contentLeftMargin: 30px;
             height: 43px;
             width: 86px;
             border-radius: 4px 4px 0 0;
-            border: 2px solid #ffa500;
+            border: 2px solid $gray;
+            border-bottom: 2px solid #ffa500;
             margin-right: 4px;
             padding: 12px 0 0;
             font-size: 12px;
@@ -132,6 +134,7 @@ $contentLeftMargin: 30px;
             &.active_tab{
               color: orangered;
               font-weight: bold;
+              border: 2px solid #ffa500;
               border-bottom: 2px solid #ffffff;
               cursor: auto;
             }
@@ -139,6 +142,25 @@ $contentLeftMargin: 30px;
           .tab_2line{
             @extend .tab;
             padding: 6px 0 0;
+          }
+        }
+      }
+      &_content{
+        height: 1000px;
+        margin-top: 16px;
+        .experience_name{
+          font-size: 18px;
+          font-weight: bold;
+          margin: 0 0 13px 3px;
+          color: $colorBlack;
+        }
+        .picture_score{
+          display: flex;
+          height: 1000px;
+          .content_picture{
+            height: 370px;
+            width: 490px;
+            background-color: black;
           }
         }
       }

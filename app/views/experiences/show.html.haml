@@ -19,7 +19,7 @@
           %li.show_info_name
             = image_tag 'shopping_icon.png', alt: '', height: '35px', width: '35px', class: ''
             %h1.experience_name
-              キッザニア甲子園
+              = @experience.name
           %li.show_info_score
             .star_rating
               %div{id: "star_rating0", class: 'star_rating_front'}
@@ -85,13 +85,19 @@
               写真
             %br/
             %span.number
-              (107枚)
+              (0枚)
           %li.tab
             %span
               地図
           %li.tab
             %span
               周辺情報
+      .show_left_main_content
+        %h1.experience_name
+          = @experience.name
+        %ul.picture_score
+          .content_picture
+          .content_score
   .show_content_right
 .footer
   = render 'shared/leh_footer'
