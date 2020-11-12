@@ -5,9 +5,27 @@
   display: flex;
   justify-content: space-between;
   .review_new_form{
-    height: 1000px;
     width: 750px;
-    background-color: black;
+    color: $colorBlack;
+    &_name{
+      height: 189px;
+      margin-top: 28px;
+      // background-color: black;
+      &_title{
+        display: flex;
+        .head_icon{
+          height: 22px;
+          width: 5px;
+          border-radius: 2px;
+          background-color: #ff4500;
+        }
+        .head_name{
+          font-size: 18px;
+          font-weight: bold;
+          margin-left: 8px;
+        }
+      }
+    }
   }
   .review_old_show{
     height: 1000px;
