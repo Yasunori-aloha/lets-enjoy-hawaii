@@ -51,7 +51,7 @@
             %li.post_reviews
               = icon('far', 'comment-dots', class: 'fa-flip-horizontal')
               口コミ投稿
-              = link_to '','#', class: 'btn'
+              = link_to '', new_experience_review_path(@experience.id), class: 'btn'
             %li.share_act
               = icon('fas', 'share')
               シェアする
