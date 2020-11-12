@@ -10,7 +10,6 @@
     &_name{
       height: 189px;
       margin-top: 28px;
-      // background-color: black;
       &_title{
         display: flex;
         .head_icon{
@@ -23,6 +22,15 @@
           font-size: 18px;
           font-weight: bold;
           margin-left: 8px;
+        }
+      }
+      &_info{
+        height: 107px;
+        margin-top: 27px;
+        .info_image{
+          height: 107px;
+          width: 160px;
+          background-color: black;
         }
       }
     }
