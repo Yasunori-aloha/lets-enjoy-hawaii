@@ -2,22 +2,23 @@
 
 $(window).on('load',function(){
   const categoryIcons = [
-    'assets/hotel_icon.png',
-    'assets/lunch_icon.png',
-    'assets/car_icon.png',
-    'assets/leisure_icon.png',
-    'assets/landmark_icon.png',
-    'assets/shopping_icon.png'
+    'hotel_icon',
+    'lunch_icon',
+    'car_icon',
+    'leisure_icon',
+    'landmark_icon',
+    'shopping_icon'
   ];
   const url = location.pathname;
-  const conditions = (url == '/shopping') || (url == '/landmark') || (url == '/leisure') || (url == '/rentacar') || (url == '/dinner') || (url == '/hotel');
+  const conditions = (url == '/shopping') || (url == '/landmark') || (url == '/leisure') || (url == '/rentacar') || (url == '/dinner') || (url == '/hotel') || (/\/experiences\/[0-9]{1,}/.test(url));
   if(conditions) {
-    // 'category_id'を取得して、その'id'に対応したアイコン画像を配列から取得して表示させる。
-    const categoryIcon = $('#category_icon')[0];
+    // 'category_id'を取得して、その'id'に対応したアイコン画像用のクラスを配列から取得して追加させる。
+    const categoryIcon = $('#category_icon');
+    console.log($('#category_icon'));
     const categoryId = $('#category_id')[0].innerText;
-    categoryIcon.src = categoryIcons[categoryId - 1];
+    categoryIcon.addClass(`${categoryIcons[categoryId - 1]}`);
   }
-  if(conditions || (/\/experiences\/[0-9]{1,}/.test(url))) {
+  if(conditions) {
     // exp_scoreクラスを複数取得して、ノードリストから配列へ変換し、各要素毎に処理をしていく。
     const expScoreArray = Array.from($('.exp_score'));
     expScoreArray.forEach((element, index) => {

@@ -246,3 +246,51 @@ $colorBlack: #333333;
     width: calc(100% - #{$contentLeftWidth} - #{$contentLeftMargin});
   }
 }
+.shopping_icon{
+  height: 35px;
+  width: 35px;
+  background: image-url('shopping_icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.hotel_icon{
+  height: 35px;
+  width: 35px;
+  background: image-url('hotel_icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.lunch_icon{
+  height: 35px;
+  width: 35px;
+  background: image-url('lunch_icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.car_icon{
+  height: 35px;
+  width: 35px;
+  background: image-url('car_icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.leisure_icon{
+  height: 35px;
+  width: 35px;
+  background: image-url('leisure_icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.landmark_icon{
+  height: 35px;
+  width: 35px;
+  background: image-url('landmark_icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
