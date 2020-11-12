@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
 
   def new
-    # binding.pry
+    @experience = Experience.find(params[:experience_id])
+    @review = Review.new
   end
 
   def create
