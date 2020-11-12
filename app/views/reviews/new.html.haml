@@ -17,9 +17,9 @@
             %span.exp_name
               = @experience.name
           %li.exp_area
-            エリア ： 兵庫 ＞ 尼崎・宝塚・三田・篠山
+            = "エリア ： #{@experience.area.island.name} ＞ #{@experience.area.name}"
           %li.exp_address
-            兵庫県西宮市甲子園8-1-100 ららぽーと甲子園
+            = @experience.address
     .review_new_form_score
     .review_new_form_content
   .review_old_show
