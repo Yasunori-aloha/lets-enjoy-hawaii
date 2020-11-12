@@ -9,7 +9,19 @@
           口コミを投稿する
       .review_new_form_name_info
         .info_image
-        .info_name
+        %ul.info_name
+          %li.exp_icon_name
+            .category_icon
+              = image_tag 'shopping_icon.png', alt: '', height: '35px', width: '35px', class: ''
+              %span{id: 'category_id', style: 'display:none'}
+                6
+                -# = @experience.genre.category.id
+            %span.exp_name
+              キッザニア甲子園
+          %li.exp_area
+            エリア ： 兵庫 ＞ 尼崎・宝塚・三田・篠山
+          %li.exp_address
+            兵庫県西宮市甲子園8-1-100 ららぽーと甲子園
     .review_new_form_score
     .review_new_form_content
   .review_old_show

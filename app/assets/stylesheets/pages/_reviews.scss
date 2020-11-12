@@ -25,12 +25,32 @@
         }
       }
       &_info{
-        height: 107px;
+        display: flex;
         margin-top: 27px;
         .info_image{
           height: 107px;
           width: 160px;
           background-color: black;
+        }
+        .info_name{
+          margin-left: 15px;
+          .exp_icon_name{
+            display: flex;
+            .exp_name{
+              font-weight: bold;
+              margin: 5px 0 0 8px;
+            }
+          }
+          .exp_area{
+            margin-top: 9px;
+            font-size: 11px;
+            word-spacing: 0;
+          }
+          .exp_address{
+            margin-top: 5px;
+            font-size: 12px;
+            word-spacing: 0;
+          }
         }
       }
     }
