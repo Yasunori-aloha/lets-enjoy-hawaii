@@ -45,4 +45,11 @@ $(function(){
   $('[id^="change"]').on('mouseout',function(){
     $(this).removeClass('link_hover');
   });
+  // 'ボタン'にホバーすると表示色を変更させる。
+  $('[id^="btn"]').on('mouseover',function(){
+    $(this).addClass('btn_hover');
+  });
+  $('[id^="btn"]').on('mouseout',function(){
+    $(this).removeClass('btn_hover');
+  });
 });
