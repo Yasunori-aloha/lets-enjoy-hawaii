@@ -78,9 +78,18 @@
           background-color: #ff4500;
         }
       }
-      .review_score_star{
+      .review_score{
+        display: flex;
         font-size: 30px;
         margin: 5px 0 0 1px;
+        .review_score_star{
+          width: 42px;
+          color: #ffa500;
+          cursor: pointer;
+        }
+        .review_btn{
+          display: none;
+        }
       }
     }
   }

@@ -14,7 +14,6 @@ $(window).on('load',function(){
   if(conditions) {
     // 'category_id'を取得して、その'id'に対応したアイコン画像用のクラスを配列から取得して追加させる。
     const categoryIcon = $('#category_icon');
-    console.log($('#category_icon'));
     const categoryId = $('#category_id')[0].innerText;
     categoryIcon.addClass(`${categoryIcons[categoryId - 1]}`);
   }
@@ -29,7 +28,7 @@ $(window).on('load',function(){
     });
   }
   // 詳細ページの5段階評価ごとの'%'を取得して数値に対応したグラフを表示させる。
-  if((/\/experiences\/[0-9]{1,}/.test(url))) {
+  if((/\/experiences\/[0-9]{1,}/.test(url)) && !(/\/experiences\/[0-9]{1,}\//.test(url))) {
     const showScoreArray = Array.from($('[id*="score_"]'));
     showScoreArray.reverse().forEach((element, index) => {
       const percent = element.innerText.match(/\d+/)[0];

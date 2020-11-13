@@ -2,41 +2,40 @@
   = render 'shared/leh_header'
 .review_new_wrapper
   .review_new_form
-    .review_new_form_name
-      .review_new_form_name_title
-        .head_icon
-        %h1.head_name
-          口コミを投稿する
-      .review_new_form_name_info
-        .info_image
-        %ul.info_name
-          %li.exp_icon_name
-            %div{id: 'category_icon'}
-              %span{id: 'category_id', style: 'display:none'}
-                = @experience.genre.category.id
-            %span.exp_name
-              = @experience.name
-          %li.exp_area
-            = "エリア ： #{@experience.area.island.name} ＞ #{@experience.area.name}"
-          %li.exp_address
-            = @experience.address
-    .review_new_form_score
-      .review_score_title
-        %h2.score_title
-          総合評価
-        %span.score_info
-          （星をクリックして評価してください）
-        %span.required_item
-          必須
-      .review_score_star
-        = form_with model: @review, url: experience_reviews_path, local: true do |f|
-          = f.radio_button :score, '1'
-          = f.radio_button :score, '2'
-          = f.radio_button :score, '3'
-          = f.radio_button :score, '4'
-          = f.radio_button :score, '5'
-    .review_new_form_content
-      1
+    = form_with model: @review, url: experience_reviews_path, class: 'review_form', local: true do |f|
+      .review_new_form_name
+        .review_new_form_name_title
+          .head_icon
+          %h1.head_name
+            口コミを投稿する
+        .review_new_form_name_info
+          .info_image
+          %ul.info_name
+            %li.exp_icon_name
+              %div{id: 'category_icon'}
+                %span{id: 'category_id', style: 'display:none'}
+                  = @experience.genre.category.id
+              %span.exp_name
+                = @experience.name
+            %li.exp_area
+              = "エリア ： #{@experience.area.island.name} ＞ #{@experience.area.name}"
+            %li.exp_address
+              = @experience.address
+      .review_new_form_score
+        .review_score_title
+          %h2.score_title
+            総合評価
+          %span.score_info
+            （星をクリックして評価してください）
+          %span.required_item
+            必須
+        -# 5段階評価をクリックで選択できるフォーム
+        .review_score
+          - 5.times do |i|
+            = f.label :"score_#{i+1}", '☆', class: 'review_score_star'
+            = f.radio_button :score, "#{i+1}", class: 'review_btn'
+      .review_new_form_content
+        1
   .review_old_show
 .footer
   = render 'shared/leh_footer'
