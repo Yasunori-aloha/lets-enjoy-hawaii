@@ -8,7 +8,6 @@
     width: 750px;
     color: $colorBlack;
     &_name{
-      height: 189px;
       margin-top: 28px;
       &_title{
         display: flex;
@@ -53,6 +52,12 @@
           }
         }
       }
+    }
+    &_score{
+      background-color: black;
+      height: 500px;
+      margin-top: 25px;
+      font-size: 18px;
     }
   }
   .review_old_show{
