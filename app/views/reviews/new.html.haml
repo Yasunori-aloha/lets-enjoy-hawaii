@@ -48,9 +48,9 @@
             = f.text_field :title, maxlength: 50, placeholder: '体験した感想や伝えたいことをまとめましょう', class: 'review_title'
           .review_main_info
             .main_icon
-            .main_name
-              内容（50～1000文字）
+            = f.label :comment, '内容（50～1000文字）', class: 'main_name'
           .review_main
+            = f.text_area :comment, maxlength: 1000, class: 'review', placeholder: "ご自身が実際に体験を通して感じた感想をお聞かせください。\nこれから訪れようとしている人へのアドバイスやおすすめ等を記入してください。"
   .review_old_show
 .footer
   = render 'shared/leh_footer'

@@ -130,6 +130,7 @@
         }
         .review_main_info{
           @extend .review_title_info;
+          margin-top: 12px;
           .main_icon{
             @extend .title_icon;
           }
@@ -143,6 +144,15 @@
             height: 24px;
             width: 752px;
             font-size: 13px;
+          }
+        }
+        .review_main{
+          @extend .review_title_main;
+          padding-top: 8px;
+          .review{
+            @extend .review_title;
+            resize: none;
+            height: 182px;
           }
         }
       }
