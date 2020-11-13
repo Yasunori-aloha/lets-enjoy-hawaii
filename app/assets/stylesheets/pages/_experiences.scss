@@ -72,6 +72,7 @@ $colorBlack: #333333;
         height: 140px;
         width: 170px;
         .post_reviews{
+          @include backgroundGradient();
           height: 37px;
           line-height: 37px;
           font-size: 20px;
@@ -87,6 +88,7 @@ $colorBlack: #333333;
         &_down{
           display: flex;
           .favorite{
+            @include backgroundGradient();
             height: 25px;
             width: calc((170px - 5px) / 2) ;
             line-height: 25px;
