@@ -53,9 +53,15 @@
             = f.text_area :comment, maxlength: 1000, class: 'review', placeholder: "ご自身が実際に体験を通して感じた感想をお聞かせください。\nこれから訪れようとしている人へのアドバイスやおすすめ等を記入してください。", class: 'review'
         .review_example
         .review_picture
-          .review_picure_title
+          .review_picture_title
             %h2.picture_title
               写真
+          .picture_btn
+            -# = icon('fas','camera')
+          %p.picture_info
+            写真を複数選択して、一度に追加することができます。
+          .picture_main_wrapper
+            .picture_show_area
   .review_old_show
 .footer
   = render 'shared/leh_footer'
