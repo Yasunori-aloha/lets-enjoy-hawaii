@@ -158,10 +158,6 @@
           }
         }
       }
-      .review_example{
-        margin-top: 14px;
-        height: 97px;
-      }
       .review_picture{
         margin-top: 30px;
         .review_picture_title{
@@ -171,11 +167,35 @@
           }
         }
         .picture_btn{
+          position: relative;
+          display: flex;
+          align-items: center;
           margin-top: 15px;
+          padding-left: 8px;
           height: 30px;
           width: 188px;
           border: 1px solid $gray;
           border-radius: 3px;
+          color: #787878;
+          font-size: 19px;
+          background: linear-gradient(#ffffff, $gray);
+          .picture_add{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            line-height: 28px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            color: $colorBlack;
+            cursor: pointer;
+          }
+          .rev_picture{
+            height: 100%;
+            width: 100%;
+          }
         }
         .picture_info{
           font-size: 12px;
