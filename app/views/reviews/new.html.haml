@@ -28,7 +28,15 @@
           （星をクリックして評価してください）
         %span.required_item
           必須
+      .review_score_star
+        = form_with model: @review, url: experience_reviews_path, local: true do |f|
+          = f.radio_button :score, '1'
+          = f.radio_button :score, '2'
+          = f.radio_button :score, '3'
+          = f.radio_button :score, '4'
+          = f.radio_button :score, '5'
     .review_new_form_content
+      1
   .review_old_show
 .footer
   = render 'shared/leh_footer'

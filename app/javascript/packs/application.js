@@ -11,6 +11,7 @@ require("jquery")
 require("mypage.js")
 require("top_page.js")
 require("search.js")
+require("review.js")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
