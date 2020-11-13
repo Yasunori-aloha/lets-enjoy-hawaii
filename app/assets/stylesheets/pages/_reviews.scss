@@ -137,6 +137,14 @@
             @extend .title_name;  
           }
         }
+        .review_title_main{
+          padding-top: 6px;
+          .review_title{
+            height: 24px;
+            width: 752px;
+            font-size: 13px;
+          }
+        }
       }
     }
   }

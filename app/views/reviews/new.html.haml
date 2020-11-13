@@ -43,10 +43,9 @@
         .review_content_main
           .review_title_info
             .title_icon
-            .title_name
-              タイトル（50文字以内）
+            = f.label :title, 'タイトル（50文字以内）', class: 'title_name'
           .review_title_main
-            = f.text_field :title, {}
+            = f.text_field :title, maxlength: 50, placeholder: '体験した感想や伝えたいことをまとめましょう', class: 'review_title'
           .review_main_info
             .main_icon
             .main_name
