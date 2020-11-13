@@ -1,3 +1,20 @@
+@mixin reviewTitle {
+  display: flex;
+  align-items: flex-end;
+  color: #ff4500;
+  border-bottom: 3px solid #ff4500;
+}
+@mixin subTitle {
+  font-weight: bold;
+  font-size: 18px;
+}
+@mixin requiredItem {
+  margin: 0 0 4px 5px;
+  font-size: 11px;
+  padding: 0 3px;
+  color: #ffffff;
+  background-color: #ff4500;
+}
 .review_new_wrapper{
   height: 1000px;
   width: 950px;
@@ -54,28 +71,18 @@
       }
     }
     &_score{
-      // background-color: black;
-      height: 500px;
       margin-top: 25px;
       .review_score_title{
-        display: flex;
-        align-items: flex-end;
-        color: #ff4500;
-        border-bottom: 3px solid #ff4500;
+        @include reviewTitle();
         .score_title{
-          font-weight: bold;
-          font-size: 18px;
+          @include subTitle();
         }
         .score_info{
           font-size: 12px;
           margin-bottom: 3px;
         }
         .required_item{
-          margin: 0 0 4px 5px;
-          font-size: 11px;
-          padding: 0 3px;
-          color: #ffffff;
-          background-color: #ff4500;
+          @include requiredItem();
         }
       }
       .review_score{
@@ -91,6 +98,19 @@
           display: none;
         }
       }
+    }
+    &_content{
+      .review_content_title{
+        @include reviewTitle();
+        margin-top: 40px;
+        .score_title{
+          @include subTitle();
+        }
+        .required_item{
+          @include requiredItem();
+        }
+      }
+      // background-color: black;
     }
   }
   .review_old_show{
