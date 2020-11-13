@@ -110,7 +110,34 @@
           @include requiredItem();
         }
       }
-      // background-color: black;
+      .review_content_main{
+        margin-top: 17px;
+        .review_title_info{
+          display: flex;
+          .title_icon{
+            height: 15px;
+            width: 4px;
+            border-radius: 1px;
+            background-color: #ff4500;
+          }
+          .title_name{
+            font-size: 14px;
+            font-weight: bold;
+            padding-left: 6px;
+            line-height: 16px;
+          }
+          // background-color: black;
+        }
+        .review_main_info{
+          @extend .review_title_info;
+          .main_icon{
+            @extend .title_icon;
+          }
+          .main_name{
+            @extend .title_name;  
+          }
+        }
+      }
     }
   }
   .review_old_show{
