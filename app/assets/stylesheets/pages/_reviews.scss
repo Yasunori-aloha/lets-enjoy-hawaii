@@ -126,7 +126,6 @@
             padding-left: 6px;
             line-height: 16px;
           }
-          // background-color: black;
         }
         .review_main_info{
           @extend .review_title_info;
@@ -157,6 +156,18 @@
               color: transparent;
             }
           }
+        }
+      }
+      .review_example{
+        margin-top: 14px;
+        height: 97px;
+      }
+      .review_picture{
+        // background-color: black;
+        @include reviewTitle();
+        margin-top: 30px;
+        .picture_title{
+          @include subTitle();
         }
       }
     }
