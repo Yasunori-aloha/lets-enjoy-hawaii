@@ -21,8 +21,13 @@
           %li.exp_address
             = @experience.address
     .review_new_form_score
-      %h2
-        総合評価
+      .review_score_title
+        %h2.score_title
+          総合評価
+        %span.score_info
+          （星をクリックして評価してください）
+        %span.required_item
+          必須
     .review_new_form_content
   .review_old_show
 .footer

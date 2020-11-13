@@ -54,10 +54,30 @@
       }
     }
     &_score{
-      background-color: black;
+      // background-color: black;
       height: 500px;
       margin-top: 25px;
-      font-size: 18px;
+      .review_score_title{
+        display: flex;
+        align-items: flex-end;
+        color: #ff4500;
+        border-bottom: 3px solid #ff4500;
+        .score_title{
+          font-weight: bold;
+          font-size: 18px;
+        }
+        .score_info{
+          font-size: 12px;
+          margin-bottom: 3px;
+        }
+        .required_item{
+          margin: 0 0 4px 5px;
+          font-size: 11px;
+          padding: 0 3px;
+          color: #ffffff;
+          background-color: #ff4500;
+        }
+      }
     }
   }
   .review_old_show{
