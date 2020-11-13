@@ -153,6 +153,9 @@
             @extend .review_title;
             resize: none;
             height: 182px;
+            input:focus::placeholder{
+              color: transparent;
+            }
           }
         }
       }

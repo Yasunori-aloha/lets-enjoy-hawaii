@@ -47,6 +47,12 @@ body{
 div{
   display: block;
 }
+input:focus::placeholder{
+  color: transparent;
+}
+textarea:focus::placeholder{
+  color: transparent;
+}
 // a:link, a:visited{
 //   text-decoration: unset;
 //   color: #484848;
