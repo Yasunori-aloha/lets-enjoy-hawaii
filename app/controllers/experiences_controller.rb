@@ -5,8 +5,7 @@ class ExperiencesController < ApplicationController
 
   def show
     @experience = Experience.find(params[:id])
-    @scores = []
-    Review.where(experience_id: @experience.id).each { |review| @scores << review.score }
+    score_images(@experience)
     @evalutions = %w[不満 やや不満 普通 やや満足 満足]
   end
 
@@ -19,4 +18,16 @@ class ExperiencesController < ApplicationController
     end
     render 'experiences/category'
   end
+
+  private
+
+  def score_images(exp)
+    @scores = []
+    @images_count = 0
+    Review.where(experience_id: exp.id).find_each do |review|
+      @scores << review.score
+      @images_count += review.images.count
+    end
+  end
+
 end

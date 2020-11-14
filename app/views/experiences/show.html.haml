@@ -92,7 +92,7 @@
             %br/
             -# 表示しているアクティビティに投稿されている写真の件数を表示させる。
             %span.number
-              = "(#{@experience.images.length}枚)"
+              = "(#{@images_count}枚)"
           %li.tab
             %span
               地図
@@ -106,23 +106,24 @@
           -# アクティビティの画像を表示させる。
           .content_picture
             -# 画像表示部分
-            - @experience.images.includes([:blob]).each do |image|
-              = image_tag image, height: '100px', width: '100px'
+            = @experience.image
           .content_score
             -# アクティビティの5段階評価の各点数ごとの割合を表示させる。
             %ul.content_score_list
               %li.list_title
                 評価分布
               - 5.times do |i|
-                - if @scores.length != 0
+                -# 口コミ評価があるなら、
+                - if @scores.count != 0
                   %li.list_score
                     %span.evaluation
                       = @evalutions[4 - i]
                     %span{id: "score_#{5 - i}", class: 'persent'}
-                      = "#{(@scores.count(5 - i).to_f / @scores.length * 100).floor}%"
+                      = "#{(@scores.count(5 - i).to_f / @scores.count * 100).floor}%"
                     .persent_graph
                       %div{id: "graph_score#{5 - i}", class: 'persent_graph_front'}
                       .persent_graph_back
+                  -# 口コミ評価が0件なら、固定で'0%'を表示させる。
                 - else
                   %li.list_score
                     %span.evaluation
@@ -149,6 +150,5 @@
             %span.business_info_main_address
             %span
   .show_content_right
-    = (@experience.reviews.sum(:score).to_f / @experience.reviews.length).round(1)
 .footer
   = render 'shared/leh_footer'

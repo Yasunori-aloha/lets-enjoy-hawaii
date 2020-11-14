@@ -9,8 +9,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     if @review.valid?
       @review.save
-      average_score = (Experience.find(experience_id).reviews.sum(:score).to_f / Experience.find(experience_id).reviews.length).round(1)
-      Experience.find(experience_id).update(images: images, score: average_score)
+      # 保存されている全口コミの評価点の平均を算出して、アクティビティの評価点を更新する。
+      find_experience.update(score: find_experience.reviews.average(:score))
       redirect_to experience_path(params[:experience_id])
     else
       render action: :new
