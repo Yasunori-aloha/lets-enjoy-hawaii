@@ -25,4 +25,5 @@ $(function(){
       $(`#star_btn${index}`)[0].innerText = '☆';
     };
   });
+
 });

@@ -66,6 +66,7 @@
           .picture_main_wrapper
             -# 追加した写真のプレビューが表示される。
             .picture_show_area
+              = image_tag '', height: '156px', width: '209px',id: 'review_images_set', class: 'exp_preview'
         .review_submit
           -# 送信ボタン
           = f.submit "投稿する",id: 'btn', class: 'submit'
