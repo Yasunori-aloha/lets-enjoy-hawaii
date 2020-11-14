@@ -3,12 +3,14 @@ class ReviewsController < ApplicationController
 
   def new
     @review_image = ReviewImage.new
+    binding.pry
   end
 
   def create
     @review_image = ReviewImage.new(review_params)
     if @review_image.valid?
-      binding.pry
+      @review_image.save
+      redirect_to experience_path(params[:experience_id])
     else
       render action: :new
     end
@@ -17,7 +19,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review_image).permit(:title, :comment, :score, images: [])
+    params.require(:review_image).permit(:title, :comment, :score, images: []).merge(user_id: current_user.id, experience_id: @experience.id)
   end
 
   def find_experience

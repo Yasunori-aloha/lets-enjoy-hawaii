@@ -16,10 +16,12 @@
     .show_left_info
       .show_info_left
         %ul
+          -# カテゴリーのアイコン画像とアクティビティの名称を表示させる。
           %li.show_info_name
             %div{id: 'category_icon'}
             %h1.experience_name
               = @experience.name
+          -# アクティビティの評価点とそれに対応した5段階評価を表示させる。
           %li.show_info_score
             .star_rating
               %div{id: "star_rating0", class: 'star_rating_front'}
@@ -34,6 +36,7 @@
             %span.review_count
               ）
           %li.black
+          -# アクティビティのエリア・ジャンルを表示させる。
           %li.area_wrapper
             %span.area
               エリア
@@ -80,14 +83,16 @@
             %span
               口コミ
             %br/
+            -# 表示しているアクティビティに投稿されている口コミの件数を表示させる。
             %span.number
               = "(#{@experience.reviews.length}件)"
           %li.tab_2line
             %span
               写真
             %br/
+            -# 表示しているアクティビティに投稿されている写真の件数を表示させる。
             %span.number
-              (0枚)
+              = "(#{@experience.images.length}枚)"
           %li.tab
             %span
               地図
@@ -98,8 +103,11 @@
         %h1.experience_name
           = @experience.name
         .picture_score
+          -# アクティビティの画像を表示させる。
           .content_picture
-            画像表示部分
+            -# 画像表示部分
+            - @experience.images.includes([:blob]).each do |image|
+              = image_tag image, height: '100px', width: '100px'
           .content_score
             -# アクティビティの5段階評価の各点数ごとの割合を表示させる。
             %ul.content_score_list
@@ -141,5 +149,6 @@
             %span.business_info_main_address
             %span
   .show_content_right
+    = (@experience.reviews.sum(:score).to_f / @experience.reviews.length).round(1)
 .footer
   = render 'shared/leh_footer'
