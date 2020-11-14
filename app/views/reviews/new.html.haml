@@ -2,7 +2,7 @@
   = render 'shared/leh_header'
 .review_new_wrapper
   .review_new_form
-    = form_with model: @review_image, url: experience_reviews_path, class: 'review_form', local: true do |f|
+    = form_with model: @review, url: experience_reviews_path, class: 'review_form', local: true do |f|
       .review_new_form_name
         .review_new_form_name_title
           .head_icon
@@ -60,7 +60,7 @@
           .picture_btn
             = icon('fas','camera')
             = f.label :images, '写真を追加する', class: 'picture_add'
-            = f.file_field :images, name: 'review_image[images][]', multiple: true, class: 'hidden'
+            = f.file_field :images, name: 'review[images][]', multiple: true, class: 'hidden'
           %p.picture_info
             写真を複数選択して、一度に追加することができます。
           .picture_main_wrapper

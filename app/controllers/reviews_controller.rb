@@ -3,7 +3,6 @@ class ReviewsController < ApplicationController
 
   def new
     @review_image = ReviewImage.new
-    binding.pry
   end
 
   def create
