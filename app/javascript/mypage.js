@@ -9,7 +9,11 @@ $(document).on('change', '#user_image, #review_images', function(e){
     const fileReader = new FileReader();
     // 画像ファイルをurlにエンコードする。
     fileReader.onload = () => {
-      $(`#${this.id}_set`).attr('src', fileReader.result);
+      if (this.id === 'user_image') {
+        $(`#${this.id}_set`).attr('src', fileReader.result);
+      } else {
+        $('.picture_show_area').append(`<img src="${fileReader.result}" class="preview">`);
+      };
     };
     fileReader.readAsDataURL(imageFile[index]);
   };

@@ -210,12 +210,15 @@
           display: flex;
           align-items: flex-end;
           .picture_show_area{
+            display: flex;
             height: 226px;
             width: 710px;
             margin: 0 auto 20px;
             border: 3px dotted $gray;
             background-color: #ffffff;
-            .exp_preview{
+            .preview{
+              height: 156px;
+              width: 209px;
               margin: 20px 0 0 20px;
             }
           }
