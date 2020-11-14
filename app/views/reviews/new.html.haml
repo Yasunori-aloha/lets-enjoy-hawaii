@@ -60,7 +60,7 @@
           .picture_btn
             = icon('fas','camera')
             = f.label :images, '写真を追加する', class: 'picture_add'
-            = f.file_field :images, name: 'review[images][]', class: 'hidden'
+            = f.file_field :images, name: 'review[images][]', multiple: true, class: 'hidden'
           %p.picture_info
             写真を複数選択して、一度に追加することができます。
           .picture_main_wrapper
