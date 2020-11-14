@@ -8,4 +8,10 @@ class ReviewsController < ApplicationController
   def create
     binding.pry
   end
+
+  private
+
+  def review_params
+    params.require(:review_images).permit(:title, :comment, :score, images: [])
+  end
 end
