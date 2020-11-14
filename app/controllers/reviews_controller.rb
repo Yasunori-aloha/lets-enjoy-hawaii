@@ -2,16 +2,21 @@ class ReviewsController < ApplicationController
 
   def new
     @experience = Experience.find(params[:experience_id])
-    @review = Review.new
+    @review_image = ReviewImage.new
   end
 
   def create
-    binding.pry
+    @review_image = ReviewImage.new(review_params)
+    if @review_image.valid?
+      binding.pry
+    else
+      render action: :new
+    end
   end
 
   private
 
   def review_params
-    params.require(:review_images).permit(:title, :comment, :score, images: [])
+    params.require(:review_image).permit(:title, :comment, :score, images: [])
   end
 end
