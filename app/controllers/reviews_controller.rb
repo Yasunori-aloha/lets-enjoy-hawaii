@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
+  before_action :find_experience, only: %i[new create]
 
   def new
-    @experience = Experience.find(params[:experience_id])
     @review_image = ReviewImage.new
   end
 
@@ -19,4 +19,9 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review_image).permit(:title, :comment, :score, images: [])
   end
+
+  def find_experience
+    @experience = Experience.find(params[:experience_id])
+  end
+
 end
