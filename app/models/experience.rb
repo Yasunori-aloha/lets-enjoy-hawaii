@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Experience < ApplicationRecord
-  has_one_attached :image
+  has_many_attached :images
   has_many :reviews
   belongs_to :area
   belongs_to :genre
