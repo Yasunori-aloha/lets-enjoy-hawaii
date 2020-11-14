@@ -119,7 +119,7 @@
                     %span.evaluation
                       = @evalutions[4 - i]
                     %span{id: "score_#{5 - i}", class: 'persent'}
-                      = "#{(@scores.count(5 - i).to_f / @scores.count * 100).floor}%"
+                      = "#{(@scores[5 - i].to_f / @scores.count * 100).floor}%"
                     .persent_graph
                       %div{id: "graph_score#{5 - i}", class: 'persent_graph_front'}
                       .persent_graph_back

@@ -5,7 +5,9 @@ class ExperiencesController < ApplicationController
 
   def show
     @experience = Experience.find(params[:id])
-    score_images(@experience)
+    # ハッシュ形式で各評価点がいくつ
+    @scores = @experience.reviews.group(:score).count
+    images_count(@experience)
     @evalutions = %w[不満 やや不満 普通 やや満足 満足]
   end
 
@@ -21,11 +23,9 @@ class ExperiencesController < ApplicationController
 
   private
 
-  def score_images(exp)
-    @scores = []
+  def images_count(exp)
     @images_count = 0
     Review.where(experience_id: exp.id).find_each do |review|
-      @scores << review.score
       @images_count += review.images.count
     end
   end
