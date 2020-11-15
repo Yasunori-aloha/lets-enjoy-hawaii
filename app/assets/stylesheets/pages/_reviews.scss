@@ -210,13 +210,15 @@
           display: flex;
           .picture_show_area{
             display: flex;
-            height: 215 px;
+            height: 215px;
             width: 710px;
             margin: 20px auto;
             border: 3px dotted $gray;
             background-color: #ffffff;
             .preview_wrap{
               margin: 20px 0 10px 20px;
+              float: left;
+              background-color: black;
               .preview{
                 height: 156px;
                 width: 209px;

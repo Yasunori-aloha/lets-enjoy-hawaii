@@ -13,9 +13,9 @@ $(document).on('change', '#user_image, #review_images', function(e){
         $(`#${this.id}_set`).attr('src', fileReader.result);
       } else {
         $('#picture_show_area').css('height', '100%');
-        $('.picture_show_area').append('<div class="preview_wrap"/>');
-        $('.preview_wrap').append(`<img src="${fileReader.result}" class="preview">`,'<div class="picture_delete"/>');
-        $('.picture_delete').append('<i class="far fa-window-close"/>', '<span id="change_link_delete" class="delete_btn">写真削除</span>');
+        $('.picture_show_area').append(`<div id="preview_wrap${index}" class="preview_wrap"/>`);
+        $(`#preview_wrap${index}`).append(`<img src="${fileReader.result}" class="preview">`,`<div id="picture_delete${index}" class="picture_delete"/>`);
+        $(`#picture_delete${index}`).append('<i class="far fa-window-close"/>', '<span id="change_link_delete" class="delete_btn">写真削除</span>');
       };
     };
     fileReader.readAsDataURL(imageFile[index]);
