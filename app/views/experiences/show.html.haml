@@ -29,7 +29,7 @@
               .star_rating_back
                 ★★★★★
             %span{class: 'rating_point exp_score'}
-              = @experience.score
+              = @experience.score.round(1)
             %span.review_count
               （
             = link_to "口コミ#{@experience.reviews.count.to_s(:delimited)}件", '#', class: 'review_count review_link'
@@ -119,7 +119,7 @@
                     %span.evaluation
                       = @evalutions[4 - i]
                     %span{id: "score_#{5 - i}", class: 'persent'}
-                      = "#{(@scores[5 - i].to_f / @scores.count * 100).floor}%"
+                      = "#{(@scores[5 - i].to_f / @experience.reviews.length * 100).floor}%"
                     .persent_graph
                       %div{id: "graph_score#{5 - i}", class: 'persent_graph_front'}
                       .persent_graph_back

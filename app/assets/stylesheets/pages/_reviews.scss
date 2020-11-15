@@ -210,6 +210,7 @@
           display: flex;
           .picture_show_area{
             display: flex;
+            flex-wrap: wrap;
             height: 215px;
             width: 710px;
             margin: 20px auto;
@@ -217,7 +218,6 @@
             background-color: #ffffff;
             .preview_wrap{
               margin: 20px 0 10px 20px;
-              float: left;
               .preview{
                 height: 156px;
                 width: 209px;
