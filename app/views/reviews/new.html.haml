@@ -66,6 +66,12 @@
           .picture_main_wrapper
             -# 追加した写真のプレビューが表示される。
             .picture_show_area
+              .preview_wrap
+                .preview
+                .picture_delete
+                  = icon('far', 'window-close')
+                  %span{id: 'change_link_delete', class: 'delete_btn'}
+                    写真削除
         .review_submit
           -# 送信ボタン
           = f.submit "投稿する",id: 'btn', class: 'submit'

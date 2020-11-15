@@ -12,7 +12,10 @@ $(document).on('change', '#user_image, #review_images', function(e){
       if (this.id === 'user_image') {
         $(`#${this.id}_set`).attr('src', fileReader.result);
       } else {
+        
+
         $('.picture_show_area').append(`<img src="${fileReader.result}" class="preview">`);
+        $('.preview').append('<p class="test"></p>');
       };
     };
     fileReader.readAsDataURL(imageFile[index]);

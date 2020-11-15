@@ -11,19 +11,21 @@ $(function(){
       $(`#star_btn${index}`)[0].innerText = '☆';
     };
   });
-  // '★'をホバーするとホバーした位置から左側にある'★'を全て表示変更させる。
-  $('[id^="star_btn"]').on('mouseover', function(){
-    const starId = $(this)[0].id.slice(-1);
-    for (let index = starId; index > 0; index--){
-      $(`#star_btn${index}`)[0].innerText = '★';
-    };
-  });
-  // '★'のホバーを外すと、クリックされていない部分を'☆'状態に戻す。
-  $('[id^="star_btn"]').on('mouseout', function(){
-    const starId = $(this)[0].id.slice(-1);
-    for (let index = starId; index > clickedId; index--){
-      $(`#star_btn${index}`)[0].innerText = '☆';
-    };
+  $('[id^="star_btn"]').on({
+    // '★'をホバーするとホバーした位置から左側にある'★'を全て表示変更させる。
+    'mouseover': function(){
+      const starId = $(this)[0].id.slice(-1);
+      for (let index = starId; index > 0; index--){
+        $(`#star_btn${index}`)[0].innerText = '★';
+      };
+    },
+    // '★'のホバーを外すと、クリックされていない部分を'☆'状態に戻す。
+    'mouseout': function(){
+      const starId = $(this)[0].id.slice(-1);
+      for (let index = starId; index > clickedId; index--){
+        $(`#star_btn${index}`)[0].innerText = '☆';
+      };
+    }
   });
 
 });

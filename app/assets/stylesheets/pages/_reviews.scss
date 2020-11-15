@@ -216,10 +216,25 @@
             margin: 0 auto 20px;
             border: 3px dotted $gray;
             background-color: #ffffff;
-            .preview{
-              height: 156px;
-              width: 209px;
+            .preview_wrap{
               margin: 20px 0 0 20px;
+              .preview{
+                height: 156px;
+                width: 209px;
+              }
+              .picture_delete{
+                margin-top: 5px;
+                font-size: 12px;
+                cursor: pointer;
+                i{
+                  color: #9a9a9a;
+                  font-size: 11px;
+                }
+                .delete_btn{
+                  color: #0000ff;
+                  text-decoration: underline;
+                }
+              }
             }
           }
         }
