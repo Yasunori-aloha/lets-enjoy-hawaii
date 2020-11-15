@@ -203,21 +203,20 @@
           margin-block-end: 0;
         }
         .picture_main_wrapper{
-          height: 266px;
+          // height: 266px;
           margin-top: 10px;
           border-radius: 4px;
           background-color: #eee;
           display: flex;
-          align-items: flex-end;
           .picture_show_area{
             display: flex;
-            height: 226px;
+            height: 215 px;
             width: 710px;
-            margin: 0 auto 20px;
+            margin: 20px auto;
             border: 3px dotted $gray;
             background-color: #ffffff;
             .preview_wrap{
-              margin: 20px 0 0 20px;
+              margin: 20px 0 10px 20px;
               .preview{
                 height: 156px;
                 width: 209px;
@@ -231,6 +230,7 @@
                   font-size: 11px;
                 }
                 .delete_btn{
+                  margin-left: 3px;
                   color: #0000ff;
                   text-decoration: underline;
                 }

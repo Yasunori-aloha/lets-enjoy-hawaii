@@ -12,10 +12,10 @@ $(document).on('change', '#user_image, #review_images', function(e){
       if (this.id === 'user_image') {
         $(`#${this.id}_set`).attr('src', fileReader.result);
       } else {
-        
-
-        $('.picture_show_area').append(`<img src="${fileReader.result}" class="preview">`);
-        $('.preview').append('<p class="test"></p>');
+        $('#picture_show_area').css('height', '100%');
+        $('.picture_show_area').append('<div class="preview_wrap"/>');
+        $('.preview_wrap').append(`<img src="${fileReader.result}" class="preview">`,'<div class="picture_delete"/>');
+        $('.picture_delete').append('<i class="far fa-window-close"/>', '<span id="change_link_delete" class="delete_btn">写真削除</span>');
       };
     };
     fileReader.readAsDataURL(imageFile[index]);
