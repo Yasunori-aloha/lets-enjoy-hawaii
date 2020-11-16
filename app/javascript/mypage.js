@@ -29,7 +29,7 @@ $(function(){
         } else {
           // プレビュー用の要素を表示エリア内に追加していき、表示枚数記録用の変数に値を追加する。
           $('#picture_show_area').css('height', '100%');
-          $('.picture_show_area').append(`<div id="preview_wrap${pictureWrapId}" class="preview_wrap"/>`);
+          $('.picture_show_area').append(`<div id="preview_wrap${pictureWrapId}" class="preview_wrap" data-image="${imageFile.name}"/>`);
           $(`#preview_wrap${pictureWrapId}`).append(`<img src="${fileReader.result}" class="preview">`,`<div id="picture_delete${pictureWrapId}" class="picture_delete"/>`);
           $(`#picture_delete${pictureWrapId}`).append('<i class="far fa-window-close"/>', '<span id="change_link_delete" class="delete_btn">写真削除</span>');
           pictureWrapId += 1;
@@ -38,15 +38,22 @@ $(function(){
     });
   });
 
-  // プレビューの'写真削除ボタン'をクリックすると、プレビューの削除と添付していた画像ファイルを初期化する。
+  // プレビューの'写真削除ボタン'をクリックすると、プレビューと添付していた画像ファイルを消去する。
   $(document).on('click','#change_link_delete', function(){
     const targetImage = $(this).parent().parent();
     if (fileField.files.length === 1) {
       $('input[type=file]').val(null)
       imageFileBox.clearData();
     } else {
-      console.log('test2');
-    }
+      const targetName = $(targetImage).data('image');
+      const fileFieldList = Array.from(fileField.files);
+      fileFieldList.forEach((file, index) => {
+        if (targetName === file.name) {
+          imageFileBox.items.remove(index);
+        }
+      });
+      fileField.files = imageFileBox.files
+    };
     targetImage.remove();
     $('#picture_show_area').css('height', '215px');
     console.log(imageFileBox);
