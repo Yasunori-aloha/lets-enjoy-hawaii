@@ -41,9 +41,15 @@ $(function(){
   // プレビューの'写真削除ボタン'をクリックすると、プレビューの削除と添付していた画像ファイルを初期化する。
   $(document).on('click','#change_link_delete', function(){
     const targetImage = $(this).parent().parent();
+    if (fileField.files.length === 1) {
+      $('input[type=file]').val(null)
+      imageFileBox.clearData();
+    } else {
+      console.log('test2');
+    }
     targetImage.remove();
     $('#picture_show_area').css('height', '215px');
-    fileField.value = '';
+    console.log(imageFileBox);
     console.log(fileField.files);
   });
 });
