@@ -5,20 +5,24 @@ $(function(){
   // プレビュー表示されている枚数を記録する変数。ページ更新ごとに値がリセットされる。
   let pictureWrapId = 0
 
-  // 画像データを格納する配列を生成。
-  let imageFileArray = new DataTransfer();
+  // 画像データを格納する箱を生成。
+  let imageFileBox = new DataTransfer();
 
   // 画像添付用のinput要素を取得。
   let fileField = $('input[type=file]')[0];
 
-  $(document).on('change', '#user_image, #review_images', function(e){
+  $(document).on('change', '#user_image, #review_images', function(){
     // 変更するために選択した画像ファイルを'配列に変換'して変数に代入する。
     const imageFileList = Array.from($('input[type=file]').prop('files'));
     
-    // 画像ファイルの数だけ、処理を繰り返す
     imageFileList.forEach(imageFile => {
       const fileReader = new FileReader();
-      // 画像ファイルをurlにエンコードする。
+      
+      imageFileBox.items.add(imageFile)
+      fileField.files = imageFileBox.files
+
+      // 画像ファイルを'URL'にエンコードする。
+      fileReader.readAsDataURL(imageFile);
       fileReader.onload = () => {
         if (this.id === 'user_image') {
           $(`#${this.id}_set`).attr('src', fileReader.result);
@@ -31,7 +35,6 @@ $(function(){
           pictureWrapId += 1;
         };
       };
-      fileReader.readAsDataURL(imageFile);
     });
   });
 
@@ -41,5 +44,6 @@ $(function(){
     targetImage.remove();
     $('#picture_show_area').css('height', '215px');
     fileField.value = '';
+    console.log(fileField.files);
   });
 });
