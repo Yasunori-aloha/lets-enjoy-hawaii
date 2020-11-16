@@ -29,5 +29,4 @@ class ExperiencesController < ApplicationController
       @images_count += review.images.count
     end
   end
-
 end

@@ -10,5 +10,4 @@ class Review < ApplicationRecord
     validates :comment
     validates :score
   end
-
 end

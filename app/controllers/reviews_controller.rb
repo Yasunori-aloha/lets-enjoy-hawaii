@@ -26,5 +26,4 @@ class ReviewsController < ApplicationController
   def find_experience
     @experience = Experience.find(params[:experience_id])
   end
-
 end
