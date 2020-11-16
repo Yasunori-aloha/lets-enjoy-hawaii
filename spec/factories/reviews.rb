@@ -6,7 +6,5 @@ FactoryBot.define do
     association :user
     association :experience
 
-    after(:build) do |review|
-      reivew.image.attach(io: File.open('public/テスト画像.png')), filename: 'テスト画像'
   end
 end

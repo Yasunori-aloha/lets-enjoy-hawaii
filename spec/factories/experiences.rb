@@ -12,8 +12,5 @@ FactoryBot.define do
     association :area
     association :genre
 
-    after(:build) do |experience|
-      experience.image.attach(io: File.open('public/テスト画像.png')), filename: 'テスト画像'
-    end
   end
 end
