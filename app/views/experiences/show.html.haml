@@ -29,7 +29,7 @@
               .star_rating_back
                 ★★★★★
             %span{class: 'rating_point exp_score'}
-              = @experience.score.round(1)
+              = @experience.score
             %span.review_count
               （
             = link_to "口コミ#{@experience.reviews.count.to_s(:delimited)}件", '#', class: 'review_count review_link'

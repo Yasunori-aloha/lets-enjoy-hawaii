@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     if @review.valid?
       @review.save
       # 保存されている全口コミの評価点の平均を算出して、アクティビティの評価点を更新する。
-      find_experience.update(score: find_experience.reviews.average(:score))
+      find_experience.update(score: find_experience.reviews.average(:score).round(1))
       redirect_to experience_path(params[:experience_id])
     else
       render action: :new

@@ -4,6 +4,7 @@ $(function(){
 
   // プレビュー表示されている枚数を記録する変数。ページ更新ごとに値がリセットされる。
   let pictureWrapId = 0
+  let fileField = $('input[type=file]')[0];
 
   $(document).on('change', '#user_image, #review_images', function(e){
     // 変更するために選択した画像ファイルを変数に代入する。
@@ -27,5 +28,13 @@ $(function(){
       };
       fileReader.readAsDataURL(imageFile[index]);
     };
+  });
+
+  // プレビューの'写真削除ボタン'をクリックすると、プレビューの削除と添付していた画像ファイルを初期化する。
+  $(document).on('click','#change_link_delete', function(){
+    const targetImage = $(this).parent().parent();
+    targetImage.remove();
+    $('#picture_show_area').css('height', '215px');
+    fileField.value = '';
   });
 });
