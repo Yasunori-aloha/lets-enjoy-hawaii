@@ -4,14 +4,19 @@ $(function(){
 
   // プレビュー表示されている枚数を記録する変数。ページ更新ごとに値がリセットされる。
   let pictureWrapId = 0
+
+  // 画像データを格納する配列を生成。
+  let imageFileArray = new DataTransfer();
+
+  // 画像添付用のinput要素を取得。
   let fileField = $('input[type=file]')[0];
 
   $(document).on('change', '#user_image, #review_images', function(e){
-    // 変更するために選択した画像ファイルを変数に代入する。
-    const imageFile = e.target.files;
+    // 変更するために選択した画像ファイルを'配列に変換'して変数に代入する。
+    const imageFileList = Array.from($('input[type=file]').prop('files'));
     
     // 画像ファイルの数だけ、処理を繰り返す
-    for (let index = 0; index < e.target.files.length; index++) {
+    imageFileList.forEach(imageFile => {
       const fileReader = new FileReader();
       // 画像ファイルをurlにエンコードする。
       fileReader.onload = () => {
@@ -26,8 +31,8 @@ $(function(){
           pictureWrapId += 1;
         };
       };
-      fileReader.readAsDataURL(imageFile[index]);
-    };
+      fileReader.readAsDataURL(imageFile);
+    });
   });
 
   // プレビューの'写真削除ボタン'をクリックすると、プレビューの削除と添付していた画像ファイルを初期化する。
