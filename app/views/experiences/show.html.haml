@@ -32,7 +32,7 @@
               = @experience.score
             %span.review_count
               （
-            = link_to "口コミ#{@experience.reviews.count.to_s(:delimited)}件", '#', class: 'review_count review_link'
+            = link_to "口コミ#{@experience.reviews.count.to_s(:delimited)}件", '#', class: 'review_count review_link', data:{name: 'review_count'}
             %span.review_count
               ）
           %li.black
@@ -84,7 +84,7 @@
               口コミ
             %br/
             -# 表示しているアクティビティに投稿されている口コミの件数を表示させる。
-            %span.number
+            %span{class: 'number', data:{name: 'review_count'}}
               = "(#{@experience.reviews.length}件)"
           %li.tab_2line
             %span
