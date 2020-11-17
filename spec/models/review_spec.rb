@@ -3,7 +3,7 @@ include ActionDispatch::TestProcess
 
 RSpec.describe Review, type: :model do
   before do
-    @review = FactoryBot.build(:review)
+    @review = build(:review)
     @review.images = [fixture_file_upload('files/test_image.png', 'image/png')]
   end
   describe '口コミ新規投稿' do
