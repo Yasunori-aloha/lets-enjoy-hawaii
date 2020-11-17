@@ -9,14 +9,14 @@ RSpec.describe "Reviews", type: :system do
 
   context '口コミの新規投稿ができる場合' do
     it 'ログインしているユーザーで、正常な値を入力していれば新規投稿ができる' do
-      #ログインする
+      #ログインする。
       visit new_user_session_path
       fill_in 'user_email', with: @user.email
       fill_in 'user_password', with: @user.password
       click_on 'ログイン'
       expect(current_path).to eq root_path
       
-      # アクティビティ詳細ページへ移動して、口コミ投稿ボタンがあるか確認する
+      # アクティビティ詳細ページへ移動して、口コミ投稿ボタンがあるか確認する。
       visit experience_path(@experience.id)
       expect(page).to have_content('口コミ投稿')
       
@@ -32,14 +32,18 @@ RSpec.describe "Reviews", type: :system do
       expect(@experience.reload.score).to eq @experience.reviews.average(:score).round(1)
       expect(current_path).to eq experience_path(@experience.id)
       
-      # 詳細ページの口コミ件数が1件増えている。
+      # 詳細ページの口コミ件数が1件増えているか確認する。
       reviews = all(:css, '[data-name="review_count"]')
       reviews.each do |review|
         expect(review).to have_content(@experience.reviews.length.to_s)
       end
-
-
-      binding.pry
+      
+      # 詳細ページの評価点・★の5段階評価が、更新された評価点に対応した表示になっているか確認する。
+      expect(page).to have_selector('.rating_point', text: "#{@experience.score}")
+      sr = find('#star_rating0')[:style]
+      expect(sr).to have_content((@experience.score*20).floor.to_s)
+      # binding.pry
+      # 評価分布のグラフと％表示が、投稿された口コミに対応した表示になっているか確認する。
     end
   end
   context '口コミの新規投稿ができない場合' do
