@@ -24,17 +24,17 @@ RSpec.describe Review, type: :model do
       it 'titleが入力されていないと投稿できない' do
         @review.title = nil
         @review.valid?
-        expect(@review.errors.full_messages).to include("Titleを入力してください")
+        expect(@review.errors.full_messages).to include('Titleを入力してください')
       end
       it 'commentが入力されていないと投稿できない' do
         @review.comment = nil
         @review.valid?
-        expect(@review.errors.full_messages).to include("Commentを入力してください")
+        expect(@review.errors.full_messages).to include('Commentを入力してください')
       end
       it 'scoreが選択されていないと投稿できない' do
         @review.score = nil
         @review.valid?
-        expect(@review.errors.full_messages).to include("Scoreを入力してください")
+        expect(@review.errors.full_messages).to include('Scoreを入力してください')
       end
     end
   end
