@@ -72,7 +72,7 @@
             %li.have_been_place
               = icon('fas', 'shoe-prints',class: 'fa-rotate-270')
               行った
-              = link_to '', '#', class: 'btn'
+              = link_to '', experience_histories_path(@experience.id), method: :post, class: 'btn'
     .show_left_main
       .show_left_main_tab
         %ul.experience_tabs
