@@ -11,11 +11,7 @@ RSpec.describe 'Reviews', type: :system do
     context '口コミの新規投稿ができる場合' do
       it 'ログインしているユーザーで、正常な値を入力していれば新規投稿ができる' do
         # ログインする。
-        visit new_user_session_path
-        fill_in 'user_email', with: user.email
-        fill_in 'user_password', with: user.password
-        click_on 'ログイン'
-        expect(current_path).to eq root_path
+        sign_in(user)
 
         # アクティビティ詳細ページへ移動して、口コミ投稿ボタンがあるか確認する。
         visit experience_path(experience.id)

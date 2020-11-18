@@ -9,11 +9,7 @@ RSpec.describe "Histories", type: :system do
     context '行った記録がクリックした際にDBに保存される場合' do
       it 'ログインユーザーで、初めてクリックする場合はDBに保存される。' do
         # ログインする。
-        visit new_user_session_path
-        fill_in 'user_email', with: user.email
-        fill_in 'user_password', with: user.password
-        click_on 'ログイン'
-        expect(current_path).to eq root_path
+        sign_in(user)
 
         # アクティビティ詳細ページへ移動して、行ったボタンがあり、アイコンが足跡か確認する。
         visit experience_path(experience.id)
@@ -28,11 +24,7 @@ RSpec.describe "Histories", type: :system do
     context '行った記録がクリックした際にDBから消去される場合' do
       it 'ログインユーザーですでに記録が保存されているアクティビティではクリックするとDBから記録が消去される。' do
         # ログインする。
-        visit new_user_session_path
-        fill_in 'user_email', with: user.email
-        fill_in 'user_password', with: user.password
-        click_on 'ログイン'
-        expect(current_path).to eq root_path
+        sign_in(user)
 
         # アクティビティ詳細ページへ移動して、行ったボタンがあり、アイコンがチェックマークか確認する。
         history.save
