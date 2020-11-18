@@ -1,5 +1,4 @@
 class HistoriesController < ApplicationController
-
   def create
     current_user.histories.create(experience_id: params[:experience_id])
     redirect_experience(params[:experience_id])
