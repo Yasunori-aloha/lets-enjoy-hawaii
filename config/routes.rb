@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :experiences, only: [:show], shallow: true do
     resources :reviews, only: %i[new create]
+    resource :histories, only: %i[create destroy]
     resource :favorites, only: %i[create destroy]
-    get :favorites, on: :collection
   end
   namespace :experiences do
     get 'search'
