@@ -14,4 +14,8 @@ class Experience < ApplicationRecord
   def already_favorited?(user, exp)
     Favorite.exists?(user_id: user.id, experience_id: exp.id)
   end
+
+  def already_histories?(user, exp)
+    History.exists?(user_id: user.id, experience_id: exp.id)
+  end
 end
