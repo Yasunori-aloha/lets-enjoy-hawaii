@@ -22,23 +22,16 @@ RSpec.describe History, type: :model do
         history.save
         history_2.user_id = user_2.id
         expect(history).to be_valid
-        # binding.pry
       end
     end
     context '行った履歴がDBに保存されない。' do
       it 'すでにアクティビティをクリックしていれば保存されない。' do
+        history.save
+        history_2.valid?
+        expect(history_2.errors.full_messages).to include 'Userはすでに存在します'
+        # binding.pry
       end
     end
   end
 
-  describe '行ったボタンクリック履歴消去' do
-    context '行った履歴がDBから消去される。' do
-      it 'すでに履歴がDBに保存されていれば、データを消去できる。' do
-      end
-    end
-    context '行った履歴がDBから消去されない。' do
-      it 'クリックしたユーザーの行った履歴がDBに保存されていなければ、データを消去できない。' do
-      end
-    end
-  end
 end
