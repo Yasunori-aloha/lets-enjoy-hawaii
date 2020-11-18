@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_201_111_140_357) do
+ActiveRecord::Schema.define(version: 20_201_113_110_951) do
   create_table 'active_storage_attachments', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
     t.string 'name', null: false
     t.string 'record_type', null: false
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20_201_111_140_357) do
     t.bigint 'experience_id', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.string 'title', null: false
     t.index ['experience_id'], name: 'index_reviews_on_experience_id'
     t.index ['user_id'], name: 'index_reviews_on_user_id'
   end

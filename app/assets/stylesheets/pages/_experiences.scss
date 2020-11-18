@@ -72,6 +72,7 @@ $colorBlack: #333333;
         height: 140px;
         width: 170px;
         .post_reviews{
+          @include backgroundGradient();
           height: 37px;
           line-height: 37px;
           font-size: 20px;
@@ -87,6 +88,7 @@ $colorBlack: #333333;
         &_down{
           display: flex;
           .favorite{
+            @include backgroundGradient();
             height: 25px;
             width: calc((170px - 5px) / 2) ;
             line-height: 25px;
@@ -245,4 +247,52 @@ $colorBlack: #333333;
   .show_content_right{
     width: calc(100% - #{$contentLeftWidth} - #{$contentLeftMargin});
   }
+}
+.shopping_icon{
+  height: 35px;
+  width: 35px;
+  background: image-url('shopping_icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.hotel_icon{
+  height: 35px;
+  width: 35px;
+  background: image-url('hotel_icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.lunch_icon{
+  height: 35px;
+  width: 35px;
+  background: image-url('lunch_icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.car_icon{
+  height: 35px;
+  width: 35px;
+  background: image-url('car_icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.leisure_icon{
+  height: 35px;
+  width: 35px;
+  background: image-url('leisure_icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.landmark_icon{
+  height: 35px;
+  width: 35px;
+  background: image-url('landmark_icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }

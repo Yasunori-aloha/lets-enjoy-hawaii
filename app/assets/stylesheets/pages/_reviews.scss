@@ -1,0 +1,273 @@
+@mixin reviewTitle {
+  display: flex;
+  align-items: flex-end;
+  color: #ff4500;
+  border-bottom: 3px solid #ff4500;
+}
+@mixin subTitle {
+  font-weight: bold;
+  font-size: 18px;
+}
+@mixin requiredItem {
+  margin: 0 0 4px 5px;
+  font-size: 11px;
+  padding: 0 3px;
+  color: #ffffff;
+  background-color: #ff4500;
+}
+.review_new_wrapper{
+  width: 950px;
+  margin: 0 auto 100px;
+  display: flex;
+  justify-content: space-between;
+  .review_new_form{
+    width: 750px;
+    color: $colorBlack;
+    &_name{
+      margin-top: 28px;
+      &_title{
+        display: flex;
+        .head_icon{
+          height: 22px;
+          width: 5px;
+          border-radius: 2px;
+          background-color: #ff4500;
+        }
+        .head_name{
+          font-size: 18px;
+          font-weight: bold;
+          margin-left: 8px;
+        }
+      }
+      &_info{
+        display: flex;
+        margin-top: 27px;
+        .info_image{
+          height: 107px;
+          width: 160px;
+          background-color: black;
+        }
+        .info_name{
+          margin-left: 15px;
+          .exp_icon_name{
+            display: flex;
+            .exp_name{
+              font-weight: bold;
+              margin: 5px 0 0 8px;
+            }
+          }
+          .exp_area{
+            margin-top: 9px;
+            font-size: 11px;
+            word-spacing: 0;
+          }
+          .exp_address{
+            margin-top: 5px;
+            font-size: 12px;
+            word-spacing: 0;
+          }
+        }
+      }
+    }
+    &_score{
+      margin-top: 25px;
+      .review_score_title{
+        @include reviewTitle();
+        .score_title{
+          @include subTitle();
+        }
+        .score_info{
+          font-size: 12px;
+          margin-bottom: 3px;
+        }
+        .required_item{
+          @include requiredItem();
+        }
+      }
+      .review_score{
+        display: flex;
+        font-size: 30px;
+        margin: 5px 0 0 1px;
+        .review_score_star{
+          width: 42px;
+          color: #ffa500;
+          cursor: pointer;
+        }
+        .review_btn{
+          display: none;
+        }
+      }
+    }
+    &_content{
+      .review_content_title{
+        @include reviewTitle();
+        margin-top: 40px;
+        .score_title{
+          @include subTitle();
+        }
+        .required_item{
+          @include requiredItem();
+        }
+      }
+      .review_content_main{
+        margin-top: 17px;
+        .review_title_info{
+          display: flex;
+          .title_icon{
+            height: 15px;
+            width: 4px;
+            border-radius: 1px;
+            background-color: #ff4500;
+          }
+          .title_name{
+            font-size: 14px;
+            font-weight: bold;
+            padding-left: 6px;
+            line-height: 16px;
+          }
+        }
+        .review_main_info{
+          @extend .review_title_info;
+          margin-top: 12px;
+          .main_icon{
+            @extend .title_icon;
+          }
+          .main_name{
+            @extend .title_name;  
+          }
+        }
+        .review_title_main{
+          padding-top: 6px;
+          .review_title{
+            height: 24px;
+            width: 752px;
+            font-size: 13px;
+          }
+        }
+        .review_main{
+          @extend .review_title_main;
+          padding-top: 8px;
+          .review{
+            @extend .review_title;
+            resize: none;
+            height: 182px;
+            input:focus::placeholder{
+              color: transparent;
+            }
+          }
+        }
+      }
+      .review_picture{
+        margin-top: 30px;
+        .review_picture_title{
+          @include reviewTitle();
+          .picture_title{
+            @include subTitle();
+          }
+        }
+        .picture_btn{
+          @include backgroundGradient();
+          position: relative;
+          display: flex;
+          align-items: center;
+          margin-top: 15px;
+          padding-left: 8px;
+          height: 30px;
+          width: 188px;
+          border: 1px solid $gray;
+          border-radius: 3px;
+          color: #787878;
+          font-size: 19px;
+          .picture_add{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            line-height: 28px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            color: $colorBlack;
+            cursor: pointer;
+          }
+          .rev_picture{
+            height: 100%;
+            width: 100%;
+          }
+        }
+        .picture_info{
+          font-size: 12px;
+          text-align: right;
+          margin-block-start: 1px;
+          margin-block-end: 0;
+        }
+        .picture_main_wrapper{
+          // height: 266px;
+          margin-top: 10px;
+          border-radius: 4px;
+          background-color: #eee;
+          display: flex;
+          .picture_show_area{
+            display: flex;
+            flex-wrap: wrap;
+            height: 215px;
+            width: 710px;
+            margin: 20px auto;
+            border: 3px dotted $gray;
+            background-color: #ffffff;
+            .preview_wrap{
+              margin: 20px 0 10px 20px;
+              .preview{
+                height: 156px;
+                width: 209px;
+              }
+              .picture_delete{
+                margin-top: 5px;
+                font-size: 12px;
+                width: 67px;
+                cursor: pointer;
+                i{
+                  color: #9a9a9a;
+                  font-size: 11px;
+                }
+                .delete_btn{
+                  margin-left: 3px;
+                  color: #0000ff;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
+      .review_submit{
+        margin-top: 31px;
+        height: 100px;
+        border-top: 1px solid $gray;
+        display: flex;
+        justify-content: center;
+        .submit{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 57px;
+          width: 282px;
+          margin: 50px 10px 0;
+          font-size: 24px;
+          font-weight: bold;
+          color: #ffffff;
+          border-radius: 3px;
+          border: none;
+          background-color: #00b900;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .review_old_show{
+    height: 1000px;
+    width: 180px;
+    // background-color: black;
+  }
+}

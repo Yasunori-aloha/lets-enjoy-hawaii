@@ -16,10 +16,12 @@
     .show_left_info
       .show_info_left
         %ul
+          -# カテゴリーのアイコン画像とアクティビティの名称を表示させる。
           %li.show_info_name
-            = image_tag 'shopping_icon.png', alt: '', height: '35px', width: '35px', class: ''
+            %div{id: 'category_icon'}
             %h1.experience_name
               = @experience.name
+          -# アクティビティの評価点とそれに対応した5段階評価を表示させる。
           %li.show_info_score
             .star_rating
               %div{id: "star_rating0", class: 'star_rating_front'}
@@ -30,10 +32,11 @@
               = @experience.score
             %span.review_count
               （
-            = link_to "口コミ#{@experience.reviews.count.to_s(:delimited)}件", '#', class: 'review_count review_link'
+            = link_to "口コミ#{@experience.reviews.count.to_s(:delimited)}件", '#', class: 'review_count review_link', data:{name: 'review_count'}
             %span.review_count
               ）
           %li.black
+          -# アクティビティのエリア・ジャンルを表示させる。
           %li.area_wrapper
             %span.area
               エリア
@@ -51,7 +54,7 @@
             %li.post_reviews
               = icon('far', 'comment-dots', class: 'fa-flip-horizontal')
               口コミ投稿
-              = link_to '','#', class: 'btn'
+              = link_to '', new_experience_review_path(@experience.id), class: 'btn'
             %li.share_act
               = icon('fas', 'share')
               シェアする
@@ -80,14 +83,16 @@
             %span
               口コミ
             %br/
-            %span.number
+            -# 表示しているアクティビティに投稿されている口コミの件数を表示させる。
+            %span{class: 'number', data:{name: 'review_count'}}
               = "(#{@experience.reviews.length}件)"
           %li.tab_2line
             %span
               写真
             %br/
+            -# 表示しているアクティビティに投稿されている写真の件数を表示させる。
             %span.number
-              (0枚)
+              = "(#{@images_count}枚)"
           %li.tab
             %span
               地図
@@ -98,23 +103,27 @@
         %h1.experience_name
           = @experience.name
         .picture_score
+          -# アクティビティの画像を表示させる。
           .content_picture
-            画像表示部分
+            -# 画像表示部分
+            = @experience.image
           .content_score
             -# アクティビティの5段階評価の各点数ごとの割合を表示させる。
             %ul.content_score_list
               %li.list_title
                 評価分布
               - 5.times do |i|
-                - if @scores.length != 0
+                -# 口コミ評価があるなら、
+                - if @scores.count != 0
                   %li.list_score
                     %span.evaluation
                       = @evalutions[4 - i]
                     %span{id: "score_#{5 - i}", class: 'persent'}
-                      = "#{(@scores.count(5 - i).to_f / @scores.length * 100).floor}%"
+                      = "#{(@scores[5 - i].to_f / @experience.reviews.length * 100).floor}%"
                     .persent_graph
                       %div{id: "graph_score#{5 - i}", class: 'persent_graph_front'}
                       .persent_graph_back
+                  -# 口コミ評価が0件なら、固定で'0%'を表示させる。
                 - else
                   %li.list_score
                     %span.evaluation

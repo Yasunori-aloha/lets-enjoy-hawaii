@@ -33,6 +33,9 @@ $transition: .2s ease-in-out;
     color: $linkColor;
   }
 }
+@mixin backgroundGradient {
+  background: linear-gradient(#ffffff, #e4e4e4);
+}
 *, :after, :before{
   box-sizing: border-box;
   margin: 0;
@@ -46,6 +49,12 @@ body{
 }
 div{
   display: block;
+}
+input:focus::placeholder{
+  color: transparent;
+}
+textarea:focus::placeholder{
+  color: transparent;
 }
 // a:link, a:visited{
 //   text-decoration: unset;
@@ -75,6 +84,9 @@ img {
   left: 0;
   height: 100%;
   width: 100%;
+}
+.hidden{
+  display: none;
 }
 .leh_header{
   .header_wrapper{
@@ -181,4 +193,11 @@ img {
 }
 .link_to{
   color: blue;
+}
+.link_hover{
+  text-decoration-line: underline!important;
+  color: #ffa500!important;
+}
+.btn_hover{
+  background-color: #ffa500!important;
 }

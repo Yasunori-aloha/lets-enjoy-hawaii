@@ -144,9 +144,6 @@ $userNameHeight: calc(100% / 4 * 3);
               @include user_image();
               cursor: pointer;
             }
-            .hidden{
-              display: none;
-            }
           }
           .update_button{
             margin: 17px 199px;

@@ -5,8 +5,9 @@ class ExperiencesController < ApplicationController
 
   def show
     @experience = Experience.find(params[:id])
-    @scores = []
-    Review.where(experience_id: @experience.id).each { |review| @scores << review.score }
+    # ハッシュ形式で各評価点がいくつ
+    @scores = @experience.reviews.group(:score).count
+    images_count(@experience)
     @evalutions = %w[不満 やや不満 普通 やや満足 満足]
   end
 
@@ -18,5 +19,14 @@ class ExperiencesController < ApplicationController
       Experience.includes(:genre).includes(:area).where(genre_id: genre.id).find_each { |exp| @experiences << exp }
     end
     render 'experiences/category'
+  end
+
+  private
+
+  def images_count(exp)
+    @images_count = 0
+    Review.where(experience_id: exp.id).find_each do |review|
+      @images_count += review.images.count
+    end
   end
 end

@@ -12,7 +12,7 @@
 .content_main
   .content_main_left
     .content_main_left_header
-      = image_tag '', alt: 'ショッピング', height: '35px', width: '35px', class: 'type_icon', id: 'category_icon'
+      %div{id: 'category_icon'}
       %h1.content_title 
         = "#{@category.name}スポット"
     .content_main_left_info
