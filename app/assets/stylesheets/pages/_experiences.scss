@@ -141,7 +141,15 @@ $colorBlack: #333333;
           }
           .tab_2line{
             @extend .tab;
+            position: relative;
             padding: 6px 0 0;
+            .reviews_index{
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 100%;
+              width: 100%;
+            }
           }
         }
       }
