@@ -15,6 +15,12 @@
   color: #ffffff;
   background-color: #ff4500;
 }
+@mixin titleIcon {
+  height: 22px;
+  width: 5px;
+  border-radius: 2px;
+  background-color: #ff4500;
+}
 .review_new_wrapper{
   width: 950px;
   margin: 0 auto 100px;
@@ -28,10 +34,7 @@
       &_title{
         display: flex;
         .head_icon{
-          height: 22px;
-          width: 5px;
-          border-radius: 2px;
-          background-color: #ff4500;
+          @include titleIcon();
         }
         .head_name{
           font-size: 18px;
@@ -114,10 +117,9 @@
         .review_title_info{
           display: flex;
           .title_icon{
+            @include titleIcon();
             height: 15px;
-            width: 4px;
             border-radius: 1px;
-            background-color: #ff4500;
           }
           .title_name{
             font-size: 14px;
@@ -269,5 +271,59 @@
     height: 1000px;
     width: 180px;
     // background-color: black;
+  }
+}
+.review_index_content{
+  @extend .show_left_main_content;
+  height: 1000px;
+  .review_index_title_area{
+    display: flex;
+    .review_index_title_icon{
+      @include titleIcon();
+      margin: 1px 5px 0 0;
+    }
+    .review_index_title{
+      @extend .experience_name;
+    }
+  }
+  .review_index_info{
+    display: flex;
+    justify-content: space-between;
+    word-spacing: 0;
+    color: $colorBlack;
+    border-bottom: 3px solid #eee;
+    padding-bottom: 6px;
+    .review_number{
+      display: flex;
+      .review_number_part{
+        font-size: 16px;
+      }
+      .review_number_all{
+        font-size: 12px;
+        margin: 4px 0 0 5px;
+      }
+    }
+    .review_sort{
+      display: flex;
+      font-size: 12px;
+      margin: 2px 64px 0 0;
+      li{
+        height: 12px;
+        line-height: 12px;
+        border-right: 1px solid $gray;
+        padding: 0 5px;
+      }
+      .sort_link{
+        color: #0000ff;
+        text-decoration: underline;
+        cursor: pointer;
+        &.active_sort{
+          color: #000000;
+          font-weight: bold;
+          text-decoration: none;
+          cursor: auto;
+        }
+      }
+    }
   }
 }

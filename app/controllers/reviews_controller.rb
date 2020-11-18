@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
   def index
     @reviews = Review.where(experience_id: params[:experience_id])
     images_count(params[:experience_id])
-    binding.pry
+    # binding.pry
   end
 
   def new
