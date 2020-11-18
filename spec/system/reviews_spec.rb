@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Reviews', type: :system do
@@ -58,7 +60,7 @@ RSpec.describe 'Reviews', type: :system do
     end
     it '未ログインユーザーは直接口コミ投稿ページへのリンクを打ち込んでもログイン画面へ遷移する' do
       visit new_experience_review_path(@experience.id)
-      binding.pry
+      expect(current_path).to eq new_user_session_path
     end
   end
 end

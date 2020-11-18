@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddColumnReviews < ActiveRecord::Migration[6.0]
   def up
     add_column :reviews, :title, :string
