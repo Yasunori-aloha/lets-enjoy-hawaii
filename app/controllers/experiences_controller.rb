@@ -5,7 +5,6 @@ class ExperiencesController < ApplicationController
 
   def show
     @experience = Experience.find(params[:id])
-    binding.pry
     # ハッシュ形式で各評価点がいくつあるかを格納する。
     @scores = @experience.reviews.group(:score).count
     images_count(@experience)
