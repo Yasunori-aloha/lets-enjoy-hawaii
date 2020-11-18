@@ -4,6 +4,12 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
   before_action :find_experience, only: %i[new create]
 
+  def index
+    @reviews = Review.where(experience_id: params[:experience_id])
+    find_experience
+    # binding.pry
+  end
+
   def new
     @review = Review.new
   end
