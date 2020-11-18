@@ -47,6 +47,8 @@ RSpec.describe "Histories", type: :system do
     end
     context 'DBに記録が保存も消去もできない場合' do
       it '未ログインユーザーは行ったボタンが表示されない。' do
+        visit experience_path(experience.id)
+        expect(page).to have_no_content('行った')
       end
     end
   end
