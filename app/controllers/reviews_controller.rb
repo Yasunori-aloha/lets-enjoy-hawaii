@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create]
   before_action :find_experience, only: %i[new create]
 
   def new

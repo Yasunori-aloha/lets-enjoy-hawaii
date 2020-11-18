@@ -53,8 +53,12 @@ RSpec.describe 'Reviews', type: :system do
   end
   context '口コミの新規投稿ができない場合' do
     it '未ログインユーザーは口コミ投稿ページへ遷移するボタンが表示されない' do
+      visit experience_path(@experience.id)
+      expect(page).to have_no_content('口コミ投稿')
     end
     it '未ログインユーザーは直接口コミ投稿ページへのリンクを打ち込んでもログイン画面へ遷移する' do
+      visit new_experience_review_path(@experience.id)
+      binding.pry
     end
   end
 end
