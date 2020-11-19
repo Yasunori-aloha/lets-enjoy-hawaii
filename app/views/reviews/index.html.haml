@@ -126,41 +126,43 @@
               投稿日
             %li.sort_link
               評価
-        .review_index_main_wrapper
-          .review_index_main_area
-            %h2.review_index_title
-              混雑がひどい
-            .review_index_score
-              .star_rating
-                %div{id: "star_rating1", class: 'star_rating_front'}
-                  ★★★★★
-                .star_rating_back
-                  ★★★★★
-              %span{class: 'rating_point exp_score'}
-                3.0
-            .triangle
-              ▲
-            .review_index_comment_area
-              %span.review_index_comment
-                行ったのは平日です。
-                %br/
-                いっときはコロナ対策のため、すいていて回りやすかったですが、いまやそれも過去の話…、9時のお仕事が始まった頃には、ピザ屋、すし屋、パン屋、ソーセージ屋、メガネ屋、はんこ屋など、受付終了が続出でした。
-                %br/
-                第一希望のお仕事はできたものの、第二、第三希望はかなわず。
-                %br/
-                お昼前には半数弱はお仕事受付終了、残り一時間の14時前の時点で、8割方のお仕事が受付終了になっていました。残っているお仕事に、子供と保護者が争うように殺到し、あっという間に長蛇の列ができては、次々と終了になっていっていました。
-                %br/
-                平日でこの状況って…。
-                %br/
-                なかなか、思うようにはお仕事ができず、待ち時間がけっこうありました。
-                %br/
-                あと、狭い通路で大声で喋ったり大笑いしている保護者がたくさんいて、うるさいのが気になりました。
-                %br/
-                詳細情報を見る
-            .review_index_user_area
-              .review_index_user_image
-              .review_index_user_name
-                ぺこりんさん
+        - @reviews.each_with_index do |review, index|
+          .review_index_main_wrapper
+            .review_index_main_area
+              %h2.review_index_title
+                = "#{review.title}"
+              .review_index_score
+                .star_rating
+                  %div{id: "star_rating#{index + 1}", class: 'star_rating_front'}
+                    ★★★★★
+                  .star_rating_back
+                    ★★★★★
+                %span{class: 'rating_point exp_score'}
+                  = "#{review.score.to_f}"
+              .triangle
+                ▲
+              .review_index_comment_area
+                %span.review_index_comment
+                  行ったのは平日です。
+                  %br/
+                  いっときはコロナ対策のため、すいていて回りやすかったですが、いまやそれも過去の話…、9時のお仕事が始まった頃には、ピザ屋、すし屋、パン屋、ソーセージ屋、メガネ屋、はんこ屋など、受付終了が続出でした。
+                  %br/
+                  第一希望のお仕事はできたものの、第二、第三希望はかなわず。
+                  %br/
+                  お昼前には半数弱はお仕事受付終了、残り一時間の14時前の時点で、8割方のお仕事が受付終了になっていました。残っているお仕事に、子供と保護者が争うように殺到し、あっという間に長蛇の列ができては、次々と終了になっていっていました。
+                  %br/
+                  平日でこの状況って…。
+                  %br/
+                  なかなか、思うようにはお仕事ができず、待ち時間がけっこうありました。
+                  %br/
+                  あと、狭い通路で大声で喋ったり大笑いしている保護者がたくさんいて、うるさいのが気になりました。
+                  %br/
+                  詳細情報を見る
+              .review_index_user_area
+                .review_index_user_image
+                  = review.user.image
+                .review_index_user_name
+                  = "#{review.user.name}さん"
   .show_content_right
 .footer
   = render 'shared/leh_footer'

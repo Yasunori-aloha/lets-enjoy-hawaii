@@ -14,6 +14,7 @@ $colorBlack: #333333;
 .show_content_wrapper{
   @extend .menu;
   display: flex;
+  margin-bottom: 30px;
   .show_content_left{
     width: $contentLeftWidth;
     margin-right: $contentLeftMargin;
@@ -251,7 +252,6 @@ $colorBlack: #333333;
         .business_info2{
           @extend .business_info;
           border-top: 0;
-          margin-bottom: 30px;
         }
       }
     }

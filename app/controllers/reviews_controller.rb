@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
   before_action :find_experience, only: %i[index new create]
 
   def index
-    @reviews = Review.where(experience_id: params[:experience_id])
+    @reviews = Review.includes(:user).where(experience_id: params[:experience_id])
     images_count(params[:experience_id])
     # binding.pry
   end
