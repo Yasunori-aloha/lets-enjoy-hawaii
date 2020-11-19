@@ -128,6 +128,14 @@ $colorBlack: #333333;
             line-height: 15px;
             text-align: center;
             cursor: pointer;
+            position: relative;
+            .exp_link{
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 100%;
+              width: 100%;
+            }
             .number{
               font-size: 11px;
             }
@@ -143,12 +151,8 @@ $colorBlack: #333333;
             @extend .tab;
             position: relative;
             padding: 6px 0 0;
-            .reviews_index{
-              position: absolute;
-              top: 0;
-              left: 0;
-              height: 100%;
-              width: 100%;
+            .exp_link{
+              @extend .exp_link;
             }
           }
         }

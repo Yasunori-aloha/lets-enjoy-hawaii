@@ -87,6 +87,7 @@
           %li.tab
             %span
               概要
+            = link_to '', experience_path(@experience.id), class: 'exp_link'
           %li{class: 'tab_2line active_tab'}
             %span
               口コミ
@@ -94,7 +95,6 @@
             -# 表示しているアクティビティに投稿されている口コミの件数を表示させる。
             %span{class: 'number', data:{name: 'review_count'}}
               = "(#{@experience.reviews.length.to_s(:delimited)}件)"
-            = link_to '', experience_reviews_path(@experience.id), class: 'reviews_index'
           %li.tab_2line
             %span
               写真
@@ -112,7 +112,7 @@
         .review_index_title_area
           .review_index_title_icon
           %h1.review_index_title
-            キッザニア甲子園の口コミ一覧
+            = "#{@experience.name}の口コミ一覧"
         .review_index_info
           .review_number
             %span.review_number_part
@@ -126,6 +126,10 @@
               投稿日
             %li.sort_link
               評価
+        .review_index_main_wrapper
+          .review_index_main_area
+            %h2.review_index_title
+              混雑がひどい
   .show_content_right
 .footer
   = render 'shared/leh_footer'

@@ -270,7 +270,6 @@
   .review_old_show{
     height: 1000px;
     width: 180px;
-    // background-color: black;
   }
 }
 .review_index_content{
@@ -323,6 +322,22 @@
           text-decoration: none;
           cursor: auto;
         }
+      }
+    }
+  }
+  .review_index_main_wrapper{
+    height: 500px;
+    .review_index_main_area{
+      height: 300px;
+      width: 99%;
+      margin: 0 auto;
+      // background-color: $gray;
+      .review_index_title{
+        font-size: 14px;
+        font-weight: bold;
+        color: #0000ff;
+        text-decoration: underline;
+        margin-top: 12px;
       }
     }
   }
