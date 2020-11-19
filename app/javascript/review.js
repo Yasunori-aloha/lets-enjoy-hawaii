@@ -28,4 +28,15 @@ $(function(){
     }
   });
 
+  $('#sort_score').on('click', function(){
+    const reviewList = $('.review_list li');
+    reviewList.sort(function(a,b){
+      const aScore = Number($(a).find('.exp_score').text());
+      const bScore = Number($(b).find('.exp_score').text());
+      return bScore - aScore;
+    });
+    $('.review_list').empty();
+    $('.review_list').append(reviewList);
+  });
+
 });
