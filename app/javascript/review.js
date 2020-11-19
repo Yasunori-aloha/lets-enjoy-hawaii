@@ -3,7 +3,8 @@
 $(function(){
 
   let clickedId = 0
-  let reviewList = null
+  // 口コミページ表示直後は投稿日順で表示されている為、2を変数に代入している。
+  let activeReviewSortId = 2
 
   // '★'をクリックした位置から左側の'★'がホバーを外しても表示が変更されたままで、クリックした位置から右側が非選択状態になる。
   $('[id^="review_score_"]').on('click', function(){
@@ -29,37 +30,24 @@ $(function(){
     }
   });
 
-  // 並び替えの'評価順'ボタンをクリックすると、アクティビティの評価点の降順に表示を変更する。
-  $('#sort_score').on('click', function(){
-    reviewList = $('.review_list li');
+  // 並び替えの'評価順・投稿日順'ボタンをクリックすると、アクティビティの評価点・投稿日の降順に表示を変更する。
+  $('[id^="review_sort_"]').on('click', function(){
+    const reviewSortId = this.id.match(/\d/)[0];
+    // 表示している口コミの要素一覧を変数に格納する。
+    const reviewList = $('.review_list li');
     reviewList.sort(function(a,b){
-      const aScore = Number($(a).find('.exp_score').text());
-      const bScore = Number($(b).find('.exp_score').text());
-      return bScore - aScore;
-    });
-    $('#sort_created_at').removeClass('active_sort')
-    $(this).addClass('active_sort') 
-    $('.review_list').empty();
-    $('.review_list').append(reviewList);
-    $('.review_list').addClass('active_fade');
-    setTimeout(function(){
-      $('.review_list').removeClass('active_fade');
-    }, 500);
-  });
-  // 並び替えの'投稿日順'ボタンをクリックすると、アクティビティの投稿日の降順に表示を変更する。
-  $('#sort_created_at').on('click', function(){
-    reviewList = $('.review_list li');
-    reviewList.sort(function(a,b){
-      const aTime = $(a).find('.review_created_at').text();
-      const bTime = $(b).find('.review_created_at').text();
-      if (aTime > bTime) {
+      const aText = $(a).find(`.review_sort_material${reviewSortId}`).text();
+      const bText = $(b).find(`.review_sort_material${reviewSortId}`).text();
+      if (aText > bText) {
         return -1
       } else {
         return 1
       }
     });
-    $('#sort_score').removeClass('active_sort')
-    $(this).addClass('active_sort')
+    $(`#review_sort_${activeReviewSortId}`).removeClass('active_sort');
+    // 選択した並び順のID数値を再代入している。
+    activeReviewSortId = reviewSortId;
+    $(this).addClass('active_sort');
     $('.review_list').empty();
     $('.review_list').append(reviewList);
     $('.review_list').addClass('active_fade');

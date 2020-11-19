@@ -126,9 +126,9 @@
             %ul.review_sort
               %li
                 並び替え
-              %li{id: 'sort_created_at', class: 'sort_link active_sort'}
+              %li{id: 'review_sort_2', class: 'sort_link active_sort'}
                 投稿日順
-              %li{id: 'sort_score', class: 'sort_link'}
+              %li{id: 'review_sort_1', class: 'sort_link'}
                 評価順
           %ul.review_list
             -# 口コミの数だけ口コミ表示処理を繰り返す。
@@ -143,7 +143,7 @@
                         ★★★★★
                       .star_rating_back
                         ★★★★★
-                    %span{class: 'rating_point exp_score'}
+                    %span{class: 'rating_point exp_score review_sort_material1'}
                       = review.score.to_f
                   .triangle
                     ▲
@@ -154,7 +154,7 @@
                     = user_image_attached?(review.user)
                     .review_index_user_name
                       = "#{review.user.name}さん"
-                  %span{class: 'review_created_at', style: 'display: none;'}
+                  %span{class: 'review_sort_material2', style: 'display: none;'}
                     = review.created_at
         -# 口コミが投稿されていない場合の表示
       - else
