@@ -346,6 +346,21 @@
           font-size: 16px;
         }
       }
+      .triangle{
+        color: #eee;
+        margin: -5px 0 0 27px;
+        font-size: 14px;
+      }
+      .review_index_comment_area{
+        margin-top: -7px;
+        padding: 8px;
+        border-radius: 6px;
+        background-color: #eee;
+        .review_index_comment{
+          color: $colorBlack;
+          font-size: 12px;
+        }
+      }
     }
   }
 }
