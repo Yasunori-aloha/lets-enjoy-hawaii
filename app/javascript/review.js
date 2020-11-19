@@ -32,28 +32,31 @@ $(function(){
 
   // 並び替えの'評価順・投稿日順'ボタンをクリックすると、アクティビティの評価点・投稿日の降順に表示を変更する。
   $('[id^="review_sort_"]').on('click', function(){
-    const reviewSortId = this.id.match(/\d/)[0];
-    // 表示している口コミの要素一覧を変数に格納する。
-    const reviewList = $('.review_list li');
-    reviewList.sort(function(a,b){
-      const aText = $(a).find(`.review_sort_material${reviewSortId}`).text();
-      const bText = $(b).find(`.review_sort_material${reviewSortId}`).text();
-      if (aText > bText) {
-        return -1
-      } else {
-        return 1
-      }
-    });
-    $(`#review_sort_${activeReviewSortId}`).removeClass('active_sort');
-    // 選択した並び順のID数値を再代入している。
-    activeReviewSortId = reviewSortId;
-    $(this).addClass('active_sort');
-    $('.review_list').empty();
-    $('.review_list').append(reviewList);
-    $('.review_list').addClass('active_fade');
-    setTimeout(function(){
-      $('.review_list').removeClass('active_fade');
-    }, 500);
+    const reviewSortId = Number(this.id.match(/\d/)[0]);
+    // すでに選択されている並び順では、動作しない様に否定文で分岐させる。
+    if (!(reviewSortId === activeReviewSortId)) {
+      // 表示している口コミの要素一覧を変数に格納する。
+      const reviewList = $('.review_list li');
+      reviewList.sort(function(a,b){
+        const aText = $(a).find(`.review_sort_material${reviewSortId}`).text();
+        const bText = $(b).find(`.review_sort_material${reviewSortId}`).text();
+        if (aText > bText) {
+          return -1
+        } else {
+          return 1
+        }
+      });
+      $(`#review_sort_${activeReviewSortId}`).removeClass('active_sort');
+      // 選択した並び順のID数値を再代入している。
+      activeReviewSortId = reviewSortId;
+      $(this).addClass('active_sort');
+      $('.review_list').empty();
+      $('.review_list').append(reviewList);
+      $('.review_list').addClass('active_fade');
+      setTimeout(function(){
+        $('.review_list').removeClass('active_fade');
+      }, 500);
+    }
   });
 
 });
