@@ -20,5 +20,4 @@ class ExperiencesController < ApplicationController
     end
     render 'experiences/category'
   end
-
 end
