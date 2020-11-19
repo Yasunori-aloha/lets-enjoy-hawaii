@@ -356,13 +356,14 @@
         border-radius: 6px;
         background-color: #eee;
         .review_index_comment{
-          font-size: 12px;
+          // font-size: 12px;
+          font-size: 20px;
         }
       }
       .review_index_user_area{
         display: flex;
         margin-top: 10px;
-        .review_index_user_image{
+        .user_image{
           height: 30px;
           width: 30px;
           margin-right: 9px;
