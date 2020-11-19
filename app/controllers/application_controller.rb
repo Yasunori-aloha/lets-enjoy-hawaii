@@ -13,4 +13,11 @@ class ApplicationController < ActionController::Base
   def redirect_experience(experience_id)
     redirect_to "/experiences/#{experience_id}"
   end
+
+  def images_count(exp_id)
+    @images_count = 0
+    Review.where(experience_id: exp_id).find_each do |review|
+      @images_count += review.images.count
+    end
+  end
 end

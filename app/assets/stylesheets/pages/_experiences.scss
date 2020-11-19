@@ -14,6 +14,7 @@ $colorBlack: #333333;
 .show_content_wrapper{
   @extend .menu;
   display: flex;
+  margin-bottom: 30px;
   .show_content_left{
     width: $contentLeftWidth;
     margin-right: $contentLeftMargin;
@@ -128,6 +129,14 @@ $colorBlack: #333333;
             line-height: 15px;
             text-align: center;
             cursor: pointer;
+            position: relative;
+            .exp_link{
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 100%;
+              width: 100%;
+            }
             .number{
               font-size: 11px;
             }
@@ -141,7 +150,11 @@ $colorBlack: #333333;
           }
           .tab_2line{
             @extend .tab;
+            position: relative;
             padding: 6px 0 0;
+            .exp_link{
+              @extend .exp_link;
+            }
           }
         }
       }
@@ -239,7 +252,6 @@ $colorBlack: #333333;
         .business_info2{
           @extend .business_info;
           border-top: 0;
-          margin-bottom: 30px;
         }
       }
     }

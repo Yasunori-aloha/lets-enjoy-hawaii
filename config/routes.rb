@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   }
   resources :users, only: [:show]
   resources :experiences, only: [:show], shallow: true do
-    resources :reviews, only: %i[new create]
+    resources :reviews, only: %i[index new create]
     resource :histories, only: %i[create destroy]
     resource :favorites, only: %i[create destroy]
   end

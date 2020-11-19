@@ -2,7 +2,13 @@
 
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  before_action :find_experience, only: %i[new create]
+  before_action :find_experience, only: %i[index new create]
+
+  def index
+    @reviews = Review.includes(:user).where(experience_id: params[:experience_id]).order('created_at DESC')
+    images_count(params[:experience_id])
+    # binding.pry
+  end
 
   def new
     @review = Review.new
@@ -13,8 +19,8 @@ class ReviewsController < ApplicationController
     if @review.valid?
       @review.save
       # 保存されている全口コミの評価点の平均を算出して、アクティビティの評価点を更新する。
-      find_experience.update(score: find_experience.reviews.average(:score).round(1))
-      redirect_to experience_path(params[:experience_id])
+      @experience.update(score: @experience.reviews.average(:score).round(1))
+      redirect_experience(params[:experience_id])
     else
       render action: :new
     end
