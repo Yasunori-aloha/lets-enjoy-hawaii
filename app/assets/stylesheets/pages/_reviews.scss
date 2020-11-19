@@ -331,7 +331,6 @@
       height: 300px;
       width: 99%;
       margin: 0 auto;
-      // background-color: $gray;
       .review_index_title{
         font-size: 14px;
         font-weight: bold;
@@ -359,6 +358,20 @@
         .review_index_comment{
           color: $colorBlack;
           font-size: 12px;
+        }
+      }
+      .review_index_user_area{
+        display: flex;
+        margin-top: 10px;
+        .review_index_user_image{
+          height: 30px;
+          width: 30px;
+          margin-right: 9px;
+          background-color: $gray;
+        }
+        .review_index_user_name{
+          font-size: 11px;
+          line-height: 32px;
         }
       }
     }
