@@ -339,6 +339,13 @@
         text-decoration: underline;
         margin-top: 12px;
       }
+      .review_index_score{
+        margin-top: 2px;
+        @include expScore;
+        .rating_point{
+          font-size: 16px;
+        }
+      }
     }
   }
 }

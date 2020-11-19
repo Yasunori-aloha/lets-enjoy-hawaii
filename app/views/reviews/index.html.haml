@@ -130,6 +130,14 @@
           .review_index_main_area
             %h2.review_index_title
               混雑がひどい
+            .review_index_score
+              .star_rating
+                %div{id: "star_rating1", class: 'star_rating_front'}
+                  ★★★★★
+                .star_rating_back
+                  ★★★★★
+              %span{class: 'rating_point exp_score'}
+                3.0
   .show_content_right
 .footer
   = render 'shared/leh_footer'
