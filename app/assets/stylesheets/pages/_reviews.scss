@@ -21,6 +21,10 @@
   border-radius: 2px;
   background-color: #ff4500;
 }
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
 .review_new_wrapper{
   width: 950px;
   margin: 0 auto 100px;
@@ -324,53 +328,57 @@
       }
     }
   }
-  .review_index_main_wrapper{
-    border-bottom: 3px solid #eee;
-    padding: 12px 0 15px;
-    color: $colorBlack;
-    .review_index_main_area{
-      width: 99%;
-      margin: 0 auto;
-      .review_index_title{
-        font-size: 14px;
-        font-weight: bold;
-        color: #0000ff;
-        text-decoration: underline;
-      }
-      .review_index_score{
-        margin-top: 2px;
-        @include expScore;
-        .rating_point{
-          font-size: 16px;
+  .review_list{
+    &.active_fade{
+      animation: fadeIn 0.5s;
+    }
+    .review_index_main_wrapper{
+      border-bottom: 3px solid #eee;
+      padding: 12px 0 15px;
+      color: $colorBlack;
+      .review_index_main_area{
+        width: 99%;
+        margin: 0 auto;
+        .review_index_title{
+          font-size: 14px;
+          font-weight: bold;
+          color: #0000ff;
+          text-decoration: underline;
         }
-      }
-      .triangle{
-        color: #eee;
-        margin: -5px 0 0 27px;
-        font-size: 14px;
-      }
-      .review_index_comment_area{
-        margin-top: -7px;
-        padding: 8px;
-        border-radius: 6px;
-        background-color: #eee;
-        .review_index_comment{
-          // font-size: 12px;
-          font-size: 20px;
+        .review_index_score{
+          margin-top: 2px;
+          @include expScore;
+          .rating_point{
+            font-size: 16px;
+          }
         }
-      }
-      .review_index_user_area{
-        display: flex;
-        margin-top: 10px;
-        .user_image{
-          height: 30px;
-          width: 30px;
-          margin-right: 9px;
-          background-color: $gray;
+        .triangle{
+          color: #eee;
+          margin: -5px 0 0 27px;
+          font-size: 14px;
         }
-        .review_index_user_name{
-          font-size: 11px;
-          line-height: 32px;
+        .review_index_comment_area{
+          margin-top: -7px;
+          padding: 8px;
+          border-radius: 6px;
+          background-color: #eee;
+          .review_index_comment{
+            font-size: 20px;
+          }
+        }
+        .review_index_user_area{
+          display: flex;
+          margin-top: 10px;
+          .user_image{
+            height: 30px;
+            width: 30px;
+            margin-right: 9px;
+            background-color: $gray;
+          }
+          .review_index_user_name{
+            font-size: 11px;
+            line-height: 32px;
+          }
         }
       }
     }

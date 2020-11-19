@@ -38,9 +38,13 @@ $(function(){
       return bScore - aScore;
     });
     $('#sort_created_at').removeClass('active_sort')
-    $('#sort_score').addClass('active_sort')
+    $(this).addClass('active_sort') 
     $('.review_list').empty();
     $('.review_list').append(reviewList);
+    $('.review_list').addClass('active_fade');
+    setTimeout(function(){
+      $('.review_list').removeClass('active_fade');
+    }, 500);
   });
   // 並び替えの'投稿日順'ボタンをクリックすると、アクティビティの投稿日の降順に表示を変更する。
   $('#sort_created_at').on('click', function(){
@@ -54,11 +58,14 @@ $(function(){
         return 1
       }
     });
-    console.log(reviewList);
     $('#sort_score').removeClass('active_sort')
-    $('#sort_created_at').addClass('active_sort')
+    $(this).addClass('active_sort')
     $('.review_list').empty();
     $('.review_list').append(reviewList);
+    $('.review_list').addClass('active_fade');
+    setTimeout(function(){
+      $('.review_list').removeClass('active_fade');
+    }, 500);
   });
 
 });
