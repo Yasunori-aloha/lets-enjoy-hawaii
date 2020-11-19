@@ -377,3 +377,7 @@
     }
   }
 }
+.not_review_index_content{
+  @extend .review_index_content;
+  height: calc(100vh - 489px);
+}
