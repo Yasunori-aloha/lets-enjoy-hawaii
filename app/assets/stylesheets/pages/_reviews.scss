@@ -400,6 +400,9 @@
       @extend .experience_name;
     }
   }
+  .experience_photo_info{
+    @extend .review_index_info;
+  }
 }
 .experience_content_right{
   height: 1000px;
