@@ -21,6 +21,14 @@
   border-radius: 2px;
   background-color: #ff4500;
 }
+@mixin contentNumberInfo {
+  display: flex;
+  justify-content: space-between;
+  word-spacing: 0;
+  color: $colorBlack;
+  border-bottom: 3px solid #eee;
+  padding-bottom: 6px;
+}
 @keyframes fadeIn {
   0% {opacity: 0;}
   100% {opacity: 1;}
@@ -288,12 +296,7 @@
     }
   }
   .review_index_info{
-    display: flex;
-    justify-content: space-between;
-    word-spacing: 0;
-    color: $colorBlack;
-    border-bottom: 3px solid #eee;
-    padding-bottom: 6px;
+    @include contentNumberInfo();
     .review_number{
       display: flex;
       .review_number_part{
@@ -401,7 +404,19 @@
     }
   }
   .experience_photo_info{
-    @extend .review_index_info;
+    @include contentNumberInfo();
+    margin-top: 5px;
+    border-bottom: none;
+    .experience_photo_number{
+      display: flex;
+      &_part{
+        font-size: 16px;
+      }
+      &_all{
+        font-size: 12px;
+        margin-top: 4px;
+      }
+    }
   }
 }
 .experience_content_right{

@@ -114,9 +114,9 @@
           -# 口コミ全数に対して、何件表示しているかを表示する。
           .experience_photo_number
             %span.experience_photo_number_part
-              = "1 - 30件"
+              = "1 - #{@images.length}件目"
             %span.experience_photo_number_all
-              = "（全107件中）"
+              = "（全#{@images.length.to_s(:delemited)}件中）"
   .experience_content_right
   = @images.length
 .footer
