@@ -111,13 +111,15 @@
           %h1.experience_photo_title
             = "#{@experience.name}の写真一覧"
         .experience_photo_info
-          -# 口コミ全数に対して、何件表示しているかを表示する。
+          -# 写真を何件表示しているかを表示する。
           .experience_photo_number
             %span.experience_photo_number_part
               = "1 - #{@images.length}件目"
             %span.experience_photo_number_all
               = "（全#{@images.length.to_s(:delemited)}件中）"
+        %ul.experience_photo_list
+          -# 写真の件数分処理を繰り返す。
+          = image_tag @images[0], height: '100px', width: '100px', class: ''
   .experience_content_right
-  = @images.length
 .footer
   = render 'shared/leh_footer'
