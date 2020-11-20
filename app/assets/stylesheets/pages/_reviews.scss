@@ -285,6 +285,9 @@
 }
 .review_index_content{
   @extend .show_left_main_content;
+  min-height: 302px;
+  height: auto !important;
+  height: 302px;
   .review_index_title_area{
     display: flex;
     .review_index_title_icon{
@@ -392,6 +395,9 @@
 }
 .experience_photo_content{
   @extend .show_left_main_content;
+  min-height: 302px;
+  height: auto !important;
+  height: 302px;
   .experience_photo_title_area{
     display: flex;
     .experience_photo_title_icon{
@@ -431,7 +437,4 @@
       margin-right: 0;
     }
   }
-}
-.experience_content_right{
-  height: 1000px;
 }
