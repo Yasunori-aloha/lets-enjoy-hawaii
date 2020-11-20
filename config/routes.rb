@@ -17,5 +17,5 @@ Rails.application.routes.draw do
     get 'search'
   end
   get '/:name', to: 'experiences#edit'
-  get '/experience/:experience_id/photos', to: 'reviews#edit'
+  get '/experiences/:experience_id/photos', to: 'reviews#edit'
 end
