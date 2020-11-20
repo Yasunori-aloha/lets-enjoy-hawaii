@@ -418,6 +418,19 @@
       }
     }
   }
+  .experience_photo_list{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3px;
+    .experience_photo_area{
+      margin: 0 22px 26px 0;
+      border: 1px solid $gray;
+    }
+    .experience_photo_area_right{
+      @extend .experience_photo_area;
+      margin-right: 0;
+    }
+  }
 }
 .experience_content_right{
   height: 1000px;
