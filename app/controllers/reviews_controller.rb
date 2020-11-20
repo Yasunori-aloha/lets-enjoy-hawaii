@@ -27,7 +27,9 @@ class ReviewsController < ApplicationController
 
   def edit
     @images = []
-    Review.where
+    Review.includes([:images_attachments]).where(experience_id: params[:experience_id]).to_a.each do |review|
+      review.images.each { |image| @images << image }
+    end
     render 'reviews/experience_photos'
   end
 
