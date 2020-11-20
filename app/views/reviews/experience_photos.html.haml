@@ -105,9 +105,12 @@
           %li.tab
             %span
               周辺情報
-      .show_left_main_content
-        %h1.experience_name
-  .show_content_right
+      .experience_photo_content
+        .experience_photo_title_area
+          .experience_photo_title_icon
+          %h1.experience_photo_title
+            = "#{@experience.name}の写真一覧"
+  .experience_content_right
   = @images.length
 .footer
   = render 'shared/leh_footer'
