@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HistoriesController < ApplicationController
   def create
     current_user.histories.create(experience_id: params[:experience_id])

@@ -21,6 +21,14 @@
   border-radius: 2px;
   background-color: #ff4500;
 }
+@mixin contentNumberInfo {
+  display: flex;
+  justify-content: space-between;
+  word-spacing: 0;
+  color: $colorBlack;
+  border-bottom: 3px solid #eee;
+  padding-bottom: 6px;
+}
 @keyframes fadeIn {
   0% {opacity: 0;}
   100% {opacity: 1;}
@@ -209,7 +217,6 @@
           margin-block-end: 0;
         }
         .picture_main_wrapper{
-          // height: 266px;
           margin-top: 10px;
           border-radius: 4px;
           background-color: #eee;
@@ -278,6 +285,9 @@
 }
 .review_index_content{
   @extend .show_left_main_content;
+  min-height: 302px;
+  height: auto !important;
+  height: 302px;
   .review_index_title_area{
     display: flex;
     .review_index_title_icon{
@@ -289,12 +299,7 @@
     }
   }
   .review_index_info{
-    display: flex;
-    justify-content: space-between;
-    word-spacing: 0;
-    color: $colorBlack;
-    border-bottom: 3px solid #eee;
-    padding-bottom: 6px;
+    @include contentNumberInfo();
     .review_number{
       display: flex;
       .review_number_part{
@@ -387,4 +392,49 @@
 .not_review_index_content{
   @extend .review_index_content;
   height: calc(100vh - 489px);
+}
+.experience_photo_content{
+  @extend .show_left_main_content;
+  min-height: 302px;
+  height: auto !important;
+  height: 302px;
+  .experience_photo_title_area{
+    display: flex;
+    .experience_photo_title_icon{
+      @include titleIcon();
+      margin: 1px 5px 0 0;
+      // @extend .review_index_title_icon;
+    }
+    .experience_photo_title{
+      @extend .experience_name;
+    }
+  }
+  .experience_photo_info{
+    @include contentNumberInfo();
+    margin-top: 5px;
+    border-bottom: none;
+    .experience_photo_number{
+      display: flex;
+      &_part{
+        font-size: 16px;
+      }
+      &_all{
+        font-size: 12px;
+        margin-top: 4px;
+      }
+    }
+  }
+  .experience_photo_list{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3px;
+    .experience_photo_area{
+      margin: 0 22px 26px 0;
+      border: 1px solid $gray;
+    }
+    .experience_photo_area_right{
+      @extend .experience_photo_area;
+      margin-right: 0;
+    }
+  }
 }
