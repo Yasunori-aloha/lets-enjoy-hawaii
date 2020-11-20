@@ -2,12 +2,11 @@
 
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  before_action :find_experience, only: %i[index new create]
+  before_action :find_experience, only: %i[index new create edit]
+  before_action -> {images_count(params[:experience_id])}, only: %i[index edit]
 
   def index
     @reviews = Review.includes(:user).where(experience_id: params[:experience_id]).order('created_at DESC')
-    images_count(params[:experience_id])
-    # binding.pry
   end
 
   def new
@@ -24,6 +23,12 @@ class ReviewsController < ApplicationController
     else
       render action: :new
     end
+  end
+
+  def edit
+    @images = []
+    Review.where
+    render 'reviews/experience_photos'
   end
 
   private
