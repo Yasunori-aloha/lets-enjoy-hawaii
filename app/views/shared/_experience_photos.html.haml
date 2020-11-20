@@ -1,0 +1,159 @@
+.header
+  = render 'shared/leh_header'
+.menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
+  = link_to 'トップページ', root_path, id: 'change_link', style: 'color: blue'
+  %span
+    &nbsp;>&nbsp;
+  = link_to "#{@experience.genre.category.name}", '/shopping', id: 'change_link', style: 'color: blue'
+  %span
+    &nbsp;>&nbsp;
+  %strong
+    = @experience.name
+  %span{id: 'category_id', style: 'display:none'}
+    = @experience.genre.category.id
+.show_content_wrapper
+  .show_content_left
+    .show_left_info
+      .show_info_left
+        %ul
+          -# カテゴリーのアイコン画像とアクティビティの名称を表示させる。
+          %li.show_info_name
+            %div{id: 'category_icon'}
+            %h1.experience_name
+              = @experience.name
+          -# アクティビティの評価点とそれに対応した5段階評価を表示させる。
+          %li.show_info_score
+            .star_rating
+              %div{id: "star_rating0", class: 'star_rating_front'}
+                ★★★★★
+              .star_rating_back
+                ★★★★★
+            %span{class: 'rating_point exp_score'}
+              = @experience.score
+            %span.review_count
+              （
+            = link_to "口コミ#{@experience.reviews.count.to_s(:delimited)}件", experience_reviews_path(@experience.id), class: 'review_count review_link', data:{name: 'review_count'}
+            %span.review_count
+              ）
+          %li.black
+          -# アクティビティのエリア・ジャンルを表示させる。
+          %li.area_wrapper
+            %span.area
+              エリア
+            = link_to "#{@experience.area.island.name}",'#', id: 'change_link', class: 'link_to'
+            = link_to "#{@experience.area.name}",'#', id: 'change_link', class: 'link_to'
+          %li.genre_wrapper
+            %span.genre
+              ジャンル
+            = link_to "#{@experience.genre.category.name}","/#{@experience.genre.category.search}", id: 'change_link', class: 'link_to'
+            = link_to "#{@experience.genre.name}",'#', id: 'change_link', class: 'link_to'
+      .show_info_right
+        -# 未ログインユーザーなら'口コミ投稿'等のボタンが表示されない。
+        - if user_signed_in?
+          %ul
+            %li.post_reviews
+              = icon('far', 'comment-dots', class: 'fa-flip-horizontal')
+              口コミ投稿
+              = link_to '', new_experience_review_path(@experience.id), class: 'btn'
+            %li.share_act
+              = icon('fas', 'share')
+              シェアする
+              = link_to '','#', class: 'btn'
+          %ul.show_info_right_down
+            %li.favorite
+              -# お気に入りされていればお気に入り登録の解除ができて、まだならお気に入り登録ができる。
+              - if @experience.already_favorited?(current_user, @experience)
+                = icon("fas", "star")
+                = link_to '', experience_favorites_path(@experience.id), method: :delete, class: 'btn favorite_btn'
+              - else
+                = icon("far", "star")
+                = link_to '', experience_favorites_path(@experience.id), method: :post, class: 'btn favorite_btn'
+              = @experience.favorites.length.to_s(:delimited)
+            %li.have_been_place
+              - if @experience.already_histories?(current_user, @experience)
+                = icon('fas', 'check')
+                = link_to '', experience_histories_path(@experience.id), method: :delete, class: 'btn have_been_btn'
+              - else
+                = icon('fas', 'shoe-prints',class: 'fa-rotate-270')
+                = link_to '', experience_histories_path(@experience.id), method: :post, class: 'btn have_been_btn'
+              行った
+    .show_left_main
+      .show_left_main_tab
+        %ul.experience_tabs
+          %li.tab
+            %span
+              概要
+          %li.tab_2line
+            %span
+              口コミ
+            %br/
+            -# 表示しているアクティビティに投稿されている口コミの件数を表示させる。
+            %span{class: 'number', data:{name: 'review_count'}}
+              = "(#{@experience.reviews.length}件)"
+            = link_to '', experience_reviews_path(@experience.id), class: 'exp_link'
+          %li{class: 'tab_2line active_tab'}
+            %span
+              写真
+            %br/
+            -# 表示しているアクティビティに投稿されている写真の件数を表示させる。
+            %span.number
+              = "(#{@images_count}枚)"
+          %li.tab
+            %span
+              地図
+          %li.tab
+            %span
+              周辺情報
+      .show_left_main_content
+        %h1.experience_name
+          = @experience.name
+        .picture_score
+          -# アクティビティの画像を表示させる。
+          .content_picture
+            -# 画像表示部分
+            = @experience.image
+          .content_score
+            -# アクティビティの5段階評価の各点数ごとの割合を表示させる。
+            %ul.content_score_list
+              %li.list_title
+                評価分布
+              - 5.times do |i|
+                -# 口コミ評価があるなら、
+                - if @scores.count != 0
+                  %li.list_score
+                    %span.evaluation
+                      = @evalutions[4 - i]
+                    %span{id: "score_#{5 - i}", class: 'persent'}
+                      = "#{(@scores[5 - i].to_f / @experience.reviews.length * 100).floor}%"
+                    .persent_graph
+                      %div{id: "graph_score#{5 - i}", class: 'persent_graph_front'}
+                      .persent_graph_back
+                  -# 口コミ評価が0件なら、固定で'0%'を表示させる。
+                - else
+                  %li.list_score
+                    %span.evaluation
+                      = @evalutions[4 - i]
+                    %span{id: "score_#{5 - i}", class: 'persent'}
+                      0%
+                    .persent_graph
+                      %div{id: "graph_score#{5 - i}", class: 'persent_graph_front'}
+                      .persent_graph_back
+        .business_info
+          .business_info_title
+            %span
+              営業時間
+          .business_info_main
+            %span
+              = "平日: #{@experience.business_hours_start} 〜 #{@experience.business_hours_finish}"
+        .business_info2
+          .business_info_title
+            %span
+              所在地
+          .business_info_main
+            %span.business_info_main_postalcode
+              = @experience.address
+            %span.business_info_main_address
+            %span
+  .show_content_right
+.footer
+  = render 'shared/leh_footer'
