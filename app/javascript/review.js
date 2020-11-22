@@ -49,7 +49,7 @@ $(function(){
       $(`#review_sort_${activeReviewSortId}`).removeClass('active_sort').addClass('change_link');
       // 選択した並び順のID数値を再代入している。
       activeReviewSortId = reviewSortId;
-      $(this).addClass('active_sort').removeClass('change_link');
+      $(this).addClass('active_sort').removeClass('change_link').removeClass('link_hover');
       $('.review_list').empty();
       $('.review_list').append(reviewList);
       $('.review_list').addClass('active_fade');
