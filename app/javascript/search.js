@@ -38,8 +38,16 @@ $(window).on('load',function(){
 });
 
 $(function(){
+  // ページ内に'sort_link'クラスがあり、その要素が'active_sort'クラスを持っていなければ、
+  if($('.sort_link').length){
+    $('.sort_link').each(function(){
+      if (!($(this).hasClass('active_sort'))){
+        $(this).addClass('change_link');
+      }
+    });
+  };
   // 'id名'に'change'と入っている要素をホバーするとリンクの表示を変更させる。
-  $('[class*="change_link"]').on('mouseover',function(){
+  $(document).on('mouseover','[class*="change_link"]',function(){
     console.log('test');
     $(this).addClass('link_hover');
   });
@@ -54,5 +62,5 @@ $(function(){
     $(this).removeClass('btn_hover');
   });
 
-  $
+  $()
 });

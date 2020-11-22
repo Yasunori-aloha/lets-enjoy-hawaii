@@ -395,15 +395,10 @@
       }
 
       .sort_link {
-        color: $linkColor;
-        text-decoration: underline;
-        cursor: pointer;
+        @include sortLink();
 
         &.active_sort {
-          color: #000000;
-          font-weight: bold;
-          text-decoration: none;
-          cursor: auto;
+          @include activeSort();
         }
       }
     }

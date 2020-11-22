@@ -1,101 +1,139 @@
 $transition: .2s ease-in-out;
+
 @mixin expScore {
   display: flex;
-  .star_rating{
+
+  .star_rating {
     margin-right: 6px;
     width: 5em;
     line-height: 22px;
     font-size: 22px;
     position: relative;
-    &_front{
+
+    &_front {
       position: absolute;
       top: 0;
       left: 0;
       overflow: hidden;
       color: #ffa500;
     }
-    &_back{
+
+    &_back {
       color: $gray;
     }
   }
-  .rating_point{
+
+  .rating_point {
     color: black;
     font-weight: bold;
     line-height: 26px;
   }
-  .review_count{
+
+  .review_count {
     @extend .rating_point;
     font-weight: unset;
     font-size: 12px;
     line-height: 25px;
   }
-  .review_link{
+
+  .review_link {
     color: $linkColor;
   }
 }
+
 @mixin backgroundGradient {
   background: linear-gradient(#ffffff, #e4e4e4);
 }
-*, :after, :before{
+
+@mixin sortLink {
+  color: $linkColor;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@mixin activeSort {
+  color: #000000;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: auto;
+}
+
+*,
+:after,
+:before {
   box-sizing: border-box;
   margin: 0;
 }
-html{
+
+html {
   font-size: 16px;
   word-spacing: 1px;
 }
-body{
+
+body {
   color: rgb(102, 102, 102);
 }
-div{
+
+div {
   display: block;
 }
-input:focus::placeholder{
+
+input:focus::placeholder {
   color: transparent;
 }
-textarea:focus::placeholder{
+
+textarea:focus::placeholder {
   color: transparent;
 }
-p{
+
+p {
   display: block;
   margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 }
-ul{
+
+ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-li{
+
+li {
   display: list-item;
 }
+
 img {
   vertical-align: bottom;
 }
-.btn{
+
+.btn {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
 }
-.hidden{
+
+.hidden {
   display: none;
 }
-.leh_header{
-  .header_wrapper{
+
+.leh_header {
+  .header_wrapper {
     padding: 10px 190px 0 50px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    .leh_icon{
+
+    .leh_icon {
       height: 80px;
       width: 80px;
       margin-bottom: 5px;
       position: relative;
-      .root_link{
+
+      .root_link {
         position: absolute;
         top: 0;
         left: 0;
@@ -103,23 +141,28 @@ img {
         width: 100%;
       }
     }
-    .leh_sign_login{
+
+    .leh_sign_login {
       width: 420px;
       margin: 0;
       float: right;
       text-align: right;
-      .sign_login_wrapper{
+
+      .sign_login_wrapper {
         display: flex;
         flex-direction: column;
         justify-content: center;
         height: 45px;
-        .sign_login{
+
+        .sign_login {
           display: flex;
           align-items: center;
           justify-content: flex-end;
-          li{
+
+          li {
             margin-left: 10px;
-            .sl_name{
+
+            .sl_name {
               color: #008dde;
               font-size: 14px;
             }
@@ -129,7 +172,8 @@ img {
     }
   }
 }
-.button_cv{
+
+.button_cv {
   height: 50px;
   border: none;
   outline: 0;
@@ -140,60 +184,73 @@ img {
   background-color: #00b900;
   font-weight: 700;
 }
-.leh_footer{
+
+.leh_footer {
   background-color: whitesmoke;
   height: 90px;
   width: 100%;
   display: flex;
   justify-content: center;
-  .leh_footer_main{
+
+  .leh_footer_main {
     height: 100%;
     width: calc(#{$searchLeftWidth} + 25px + #{$searchRightWidth});
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .leh_footer_link{
+
+    .leh_footer_link {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      .leh_privacy{
+
+      .leh_privacy {
         margin-right: 10px;
-        .leh_privacy_link{
+
+        .leh_privacy_link {
           font-size: 12px;
           text-decoration: none;
           color: gray;
         }
       }
-      .leh_email{
+
+      .leh_email {
         font-size: 12px;
         text-decoration: none;
         color: gray;
       }
     }
-    .leh_copyright{
+
+    .leh_copyright {
       font-size: 10px;
       color: #808080;
     }
   }
 }
-#link_main{
+
+#link_main {
   padding: 10px 0 5px 0;
   border-bottom: 1px dotted #ccc;
-  a{
+
+  a {
     text-decoration-line: underline;
     outline: none;
   }
-  a:visited{
+
+  a:visited {
     color: #069;
   }
 }
-.link_to{
+
+.link_to {
   color: blue;
 }
-.link_hover{
-  text-decoration-line: underline!important;
-  color: #ffa500!important;
+
+.link_hover {
+  text-decoration-line: underline !important;
+  color: #ffa500 !important;
 }
-.btn_hover{
-  background-color: #ffa500!important;
+
+.btn_hover {
+  background-color: #ffa500 !important;
 }

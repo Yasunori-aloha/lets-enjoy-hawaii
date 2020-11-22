@@ -87,23 +87,14 @@ $gray: #ccc;
           display: flex;
           align-items: center;
 
-          .order_list {
+          .sort_link {
+            @include sortLink();
             margin-left: 5px;
             padding-right: 6px;
-            color: $linkColor;
-            cursor: pointer;
-            text-decoration: underline;
             border-right: 1px solid $gray;
 
-            &.active_order {
-              color: #333333;
-              font-weight: bold;
-              text-decoration: none;
-              cursor: auto;
-            }
-
-            &.order_none {
-              border: none;
+            &.active_sort {
+              @include activeSort();
             }
           }
         }
