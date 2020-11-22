@@ -37,25 +37,23 @@ $(function(){
     // すでに選択されている並び順では、動作しない様に否定文で分岐させる。
     if (!(sortId === activeSortId)) {
       // 表示している口コミの要素一覧を変数に格納する。
-      const reviewList = $('.review_list li');
-      reviewList.sort(function(a,b){
-        const aText = $(a).find(`.review_sort_material${sortId}`).text();
-        const bText = $(b).find(`.review_sort_material${sortId}`).text();
+      const sortList = $(`.${sortName}_list li`);
+      sortList.sort(function(a,b){
+        const aText = $(a).find(`.${sortName}_sort_material${sortId}`).text();
+        const bText = $(b).find(`.${sortName}_sort_material${sortId}`).text();
         if (aText > bText) {
           return -1
         } else {
           return 1
         }
       });
-      $(`#review_sort_${activeSortId}`).removeClass('active_sort').addClass('change_link');
+      $(`#${sortName}_sort_${activeSortId}`).removeClass('active_sort').addClass('change_link');
       // 選択した並び順のID数値を再代入している。
       activeSortId = sortId;
       $(this).addClass('active_sort').removeClass('change_link').removeClass('link_hover');
-      $('.review_list').empty();
-      $('.review_list').append(reviewList);
-      $('.review_list').addClass('active_fade');
+      $(`.${sortName}_list`).empty().append(sortList).addClass('active_fade');
       setTimeout(function(){
-        $('.review_list').removeClass('active_fade');
+        $(`.${sortName}_list`).removeClass('active_fade');
       }, 500);
     }
   });

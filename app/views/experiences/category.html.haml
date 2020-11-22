@@ -37,7 +37,7 @@
             口コミランク順
           %li{id: 'experience_sort_3', class: 'sort_link active_sort'}
             おすすめ順
-    %ul.content_main_left_main
+    %ul{class: 'content_main_left_main experience_list'}
       - @experiences.each_with_index do |exp,index|
         %li.content_main_left_main_list
           .content_main_header
