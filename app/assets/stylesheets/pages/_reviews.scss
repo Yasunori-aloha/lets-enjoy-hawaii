@@ -405,10 +405,6 @@
   }
 
   .review_list {
-    &.active_fade {
-      animation: fadeIn 0.5s;
-    }
-
     .review_index_main_wrapper {
       border-bottom: 3px solid #eee;
       padding: 12px 0 15px;

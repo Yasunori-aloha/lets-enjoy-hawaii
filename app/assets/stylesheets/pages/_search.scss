@@ -144,6 +144,7 @@ $gray: #ccc;
             margin-left: 11px;
             height: 100%;
             width: 100%;
+            position: relative;
 
             &_main {
               line-height: 18px;
@@ -173,9 +174,22 @@ $gray: #ccc;
               line-height: 12px;
             }
 
-            &_price {
-              color: #ff0000;
-              font-weight: bold;
+
+            &_favorite {
+              position: absolute;
+              right: 0;
+              bottom: 0;
+              color: #333333;
+              font-size: 22px;
+
+              .star_icon {
+                color: #ffa500;
+              }
+
+              .experience_favorites_number {
+                font-weight: bold;
+                line-height: 26px;
+              }
             }
           }
         }
