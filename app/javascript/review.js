@@ -46,10 +46,10 @@ $(function(){
           return 1
         }
       });
-      $(`#review_sort_${activeReviewSortId}`).removeClass('active_sort');
+      $(`#review_sort_${activeReviewSortId}`).removeClass('active_sort').addClass('change_link');
       // 選択した並び順のID数値を再代入している。
       activeReviewSortId = reviewSortId;
-      $(this).addClass('active_sort');
+      $(this).addClass('active_sort').removeClass('change_link');
       $('.review_list').empty();
       $('.review_list').append(reviewList);
       $('.review_list').addClass('active_fade');

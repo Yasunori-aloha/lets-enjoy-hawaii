@@ -4,10 +4,12 @@
   color: #ff4500;
   border-bottom: 3px solid #ff4500;
 }
+
 @mixin subTitle {
   font-weight: bold;
   font-size: 18px;
 }
+
 @mixin requiredItem {
   margin: 0 0 4px 5px;
   font-size: 11px;
@@ -15,12 +17,14 @@
   color: #ffffff;
   background-color: #ff4500;
 }
+
 @mixin titleIcon {
   height: 22px;
   width: 5px;
   border-radius: 2px;
   background-color: #ff4500;
 }
+
 @mixin contentNumberInfo {
   display: flex;
   justify-content: space-between;
@@ -29,54 +33,73 @@
   border-bottom: 3px solid #eee;
   padding-bottom: 6px;
 }
+
 @keyframes fadeIn {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
-.review_new_wrapper{
+
+.review_new_wrapper {
   width: 950px;
   margin: 0 auto 100px;
   display: flex;
   justify-content: space-between;
-  .review_new_form{
+
+  .review_new_form {
     width: 750px;
     color: $colorBlack;
-    &_name{
+
+    &_name {
       margin-top: 28px;
-      &_title{
+
+      &_title {
         display: flex;
-        .head_icon{
+
+        .head_icon {
           @include titleIcon();
         }
-        .head_name{
+
+        .head_name {
           font-size: 18px;
           font-weight: bold;
           margin-left: 8px;
         }
       }
-      &_info{
+
+      &_info {
         display: flex;
         margin-top: 27px;
-        .info_image{
+
+        .info_image {
           height: 107px;
           width: 160px;
           background-color: black;
         }
-        .info_name{
+
+        .info_name {
           margin-left: 15px;
-          .exp_icon_name{
+
+          .exp_icon_name {
             display: flex;
-            .exp_name{
+
+            .exp_name {
               font-weight: bold;
               margin: 5px 0 0 8px;
             }
           }
-          .exp_area{
+
+          .exp_area {
             margin-top: 9px;
             font-size: 11px;
             word-spacing: 0;
           }
-          .exp_address{
+
+          .exp_address {
             margin-top: 5px;
             font-size: 12px;
             word-spacing: 0;
@@ -84,102 +107,129 @@
         }
       }
     }
-    &_score{
+
+    &_score {
       margin-top: 25px;
-      .review_score_title{
+
+      .review_score_title {
         @include reviewTitle();
-        .score_title{
+
+        .score_title {
           @include subTitle();
         }
-        .score_info{
+
+        .score_info {
           font-size: 12px;
           margin-bottom: 3px;
         }
-        .required_item{
+
+        .required_item {
           @include requiredItem();
         }
       }
-      .review_score{
+
+      .review_score {
         display: flex;
         font-size: 30px;
         margin: 5px 0 0 1px;
-        .review_score_star{
+
+        .review_score_star {
           width: 42px;
           color: #ffa500;
           cursor: pointer;
         }
-        .review_btn{
+
+        .review_btn {
           display: none;
         }
       }
     }
-    &_content{
-      .review_content_title{
+
+    &_content {
+      .review_content_title {
         @include reviewTitle();
         margin-top: 40px;
-        .score_title{
+
+        .score_title {
           @include subTitle();
         }
-        .required_item{
+
+        .required_item {
           @include requiredItem();
         }
       }
-      .review_content_main{
+
+      .review_content_main {
         margin-top: 17px;
-        .review_title_info{
+
+        .review_title_info {
           display: flex;
-          .title_icon{
+
+          .title_icon {
             @include titleIcon();
             height: 15px;
             border-radius: 1px;
           }
-          .title_name{
+
+          .title_name {
             font-size: 14px;
             font-weight: bold;
             padding-left: 6px;
             line-height: 16px;
           }
         }
-        .review_main_info{
+
+        .review_main_info {
           @extend .review_title_info;
           margin-top: 12px;
-          .main_icon{
+
+          .main_icon {
             @extend .title_icon;
           }
-          .main_name{
-            @extend .title_name;  
+
+          .main_name {
+            @extend .title_name;
           }
         }
-        .review_title_main{
+
+        .review_title_main {
           padding-top: 6px;
-          .review_title{
+
+          .review_title {
             height: 24px;
             width: 752px;
             font-size: 13px;
           }
         }
-        .review_main{
+
+        .review_main {
           @extend .review_title_main;
           padding-top: 8px;
-          .review{
+
+          .review {
             @extend .review_title;
             resize: none;
             height: 182px;
-            input:focus::placeholder{
+
+            input:focus::placeholder {
               color: transparent;
             }
           }
         }
       }
-      .review_picture{
+
+      .review_picture {
         margin-top: 30px;
-        .review_picture_title{
+
+        .review_picture_title {
           @include reviewTitle();
-          .picture_title{
+
+          .picture_title {
             @include subTitle();
           }
         }
-        .picture_btn{
+
+        .picture_btn {
           @include backgroundGradient();
           position: relative;
           display: flex;
@@ -192,7 +242,8 @@
           border-radius: 3px;
           color: #787878;
           font-size: 19px;
-          .picture_add{
+
+          .picture_add {
             position: absolute;
             top: 0;
             left: 0;
@@ -205,23 +256,27 @@
             color: $colorBlack;
             cursor: pointer;
           }
-          .rev_picture{
+
+          .rev_picture {
             height: 100%;
             width: 100%;
           }
         }
-        .picture_info{
+
+        .picture_info {
           font-size: 12px;
           text-align: right;
           margin-block-start: 1px;
           margin-block-end: 0;
         }
-        .picture_main_wrapper{
+
+        .picture_main_wrapper {
           margin-top: 10px;
           border-radius: 4px;
           background-color: #eee;
           display: flex;
-          .picture_show_area{
+
+          .picture_show_area {
             display: flex;
             flex-wrap: wrap;
             height: 215px;
@@ -229,22 +284,27 @@
             margin: 20px auto;
             border: 3px dotted $gray;
             background-color: #ffffff;
-            .preview_wrap{
+
+            .preview_wrap {
               margin: 20px 0 10px 20px;
-              .preview{
+
+              .preview {
                 height: 156px;
                 width: 209px;
               }
-              .picture_delete{
+
+              .picture_delete {
                 margin-top: 5px;
                 font-size: 12px;
                 width: 67px;
                 cursor: pointer;
-                i{
+
+                i {
                   color: #9a9a9a;
                   font-size: 11px;
                 }
-                .delete_btn{
+
+                .delete_btn {
                   margin-left: 3px;
                   color: #0000ff;
                   text-decoration: underline;
@@ -254,13 +314,15 @@
           }
         }
       }
-      .review_submit{
+
+      .review_submit {
         margin-top: 31px;
         height: 100px;
         border-top: 1px solid $gray;
         display: flex;
         justify-content: center;
-        .submit{
+
+        .submit {
           display: flex;
           align-items: center;
           justify-content: center;
@@ -278,53 +340,66 @@
       }
     }
   }
-  .review_old_show{
+
+  .review_old_show {
     height: 1000px;
     width: 180px;
   }
 }
-.review_index_content{
+
+.review_index_content {
   @extend .show_left_main_content;
   min-height: 302px;
   height: auto !important;
   height: 302px;
-  .review_index_title_area{
+
+  .review_index_title_area {
     display: flex;
-    .review_index_title_icon{
+
+    .review_index_title_icon {
       @include titleIcon();
       margin: 1px 5px 0 0;
     }
-    .review_index_title{
+
+    .review_index_title {
       @extend .experience_name;
     }
   }
-  .review_index_info{
+
+  .review_index_info {
     @include contentNumberInfo();
-    .review_number{
+
+    .review_number {
       display: flex;
-      .review_number_part{
+
+      .review_number_part {
         font-size: 16px;
       }
-      .review_number_all{
+
+      .review_number_all {
         font-size: 12px;
         margin: 4px 0 0 5px;
       }
     }
-    .review_sort{
+
+    .review_sort {
       display: flex;
       font-size: 12px;
       margin: 2px 64px 0 0;
-      li{
+
+      li {
         height: 12px;
         line-height: 12px;
         border-right: 1px solid $gray;
         padding: 0 5px;
       }
-      .sort_link{
-        color: #0000ff;
+
+      .sort_link {
+        color: $linkColor;
         text-decoration: underline;
         cursor: pointer;
-        &.active_sort{
+
+        &.active_sort {
           color: #000000;
           font-weight: bold;
           text-decoration: none;
@@ -333,54 +408,66 @@
       }
     }
   }
-  .review_list{
-    &.active_fade{
+
+  .review_list {
+    &.active_fade {
       animation: fadeIn 0.5s;
     }
-    .review_index_main_wrapper{
+
+    .review_index_main_wrapper {
       border-bottom: 3px solid #eee;
       padding: 12px 0 15px;
       color: $colorBlack;
-      .review_index_main_area{
+
+      .review_index_main_area {
         width: 99%;
         margin: 0 auto;
-        .review_index_title{
+
+        .review_index_title {
           font-size: 14px;
           font-weight: bold;
           color: #0000ff;
           text-decoration: underline;
         }
-        .review_index_score{
+
+        .review_index_score {
           margin-top: 2px;
           @include expScore;
-          .rating_point{
+
+          .rating_point {
             font-size: 16px;
           }
         }
-        .triangle{
+
+        .triangle {
           color: #eee;
           margin: -5px 0 0 27px;
           font-size: 14px;
         }
-        .review_index_comment_area{
+
+        .review_index_comment_area {
           margin-top: -7px;
           padding: 8px;
           border-radius: 6px;
           background-color: #eee;
-          .review_index_comment{
+
+          .review_index_comment {
             font-size: 20px;
           }
         }
-        .review_index_user_area{
+
+        .review_index_user_area {
           display: flex;
           margin-top: 10px;
-          .user_image{
+
+          .user_image {
             height: 30px;
             width: 30px;
             margin-right: 9px;
             background-color: $gray;
           }
-          .review_index_user_name{
+
+          .review_index_user_name {
             font-size: 11px;
             line-height: 32px;
           }
@@ -389,50 +476,62 @@
     }
   }
 }
-.not_review_index_content{
+
+.not_review_index_content {
   @extend .review_index_content;
   height: calc(100vh - 489px);
 }
-.experience_photo_content{
+
+.experience_photo_content {
   @extend .show_left_main_content;
   min-height: 302px;
   height: auto !important;
   height: 302px;
-  .experience_photo_title_area{
+
+  .experience_photo_title_area {
     display: flex;
-    .experience_photo_title_icon{
+
+    .experience_photo_title_icon {
       @include titleIcon();
       margin: 1px 5px 0 0;
       // @extend .review_index_title_icon;
     }
-    .experience_photo_title{
+
+    .experience_photo_title {
       @extend .experience_name;
     }
   }
-  .experience_photo_info{
+
+  .experience_photo_info {
     @include contentNumberInfo();
     margin-top: 5px;
     border-bottom: none;
-    .experience_photo_number{
+
+    .experience_photo_number {
       display: flex;
-      &_part{
+
+      &_part {
         font-size: 16px;
       }
-      &_all{
+
+      &_all {
         font-size: 12px;
         margin-top: 4px;
       }
     }
   }
-  .experience_photo_list{
+
+  .experience_photo_list {
     display: flex;
     flex-wrap: wrap;
     padding: 3px;
-    .experience_photo_area{
+
+    .experience_photo_area {
       margin: 0 22px 26px 0;
       border: 1px solid $gray;
     }
-    .experience_photo_area_right{
+
+    .experience_photo_area_right {
       @extend .experience_photo_area;
       margin-right: 0;
     }

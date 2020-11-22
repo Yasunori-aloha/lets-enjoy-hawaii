@@ -39,10 +39,11 @@ $(window).on('load',function(){
 
 $(function(){
   // 'id名'に'change'と入っている要素をホバーするとリンクの表示を変更させる。
-  $('[id^="change"]').on('mouseover',function(){
+  $('[class*="change_link"]').on('mouseover',function(){
+    console.log('test');
     $(this).addClass('link_hover');
   });
-  $('[id^="change"]').on('mouseout',function(){
+  $('[class*="change_link"]').on('mouseout',function(){
     $(this).removeClass('link_hover');
   });
   // 'ボタン'にホバーすると表示色を変更させる。
@@ -52,4 +53,6 @@ $(function(){
   $('[id^="btn"]').on('mouseout',function(){
     $(this).removeClass('btn_hover');
   });
+
+  $
 });

@@ -1,23 +1,28 @@
 $upHeight: 29px;
-$linkColor: blue;
+$linkColor: #0000ff;
 $gray: #ccc;
-.content_header{
+
+.content_header {
   margin: 0 245px;
   font-size: 10px;
 }
-.content_main{
+
+.content_main {
   height: 100%;
   width: calc(100% - 490px);
   margin: 0 245px;
   display: flex;
-  &_left{
+
+  &_left {
     width: 740px;
-    &_header{
+
+    &_header {
       @extend .content_main_left;
       display: flex;
       padding-top: 5px;
       margin-bottom: 23px;
-      .content_title{
+
+      .content_title {
         font-size: 24px;
         font-weight: bold;
         color: #333333;
@@ -25,32 +30,39 @@ $gray: #ccc;
         padding-left: 3px;
       }
     }
-    &_info{
+
+    &_info {
       @extend .content_main_left;
       height: 50px;
       color: #333333;
       margin-bottom: 10px;
-      &_up{
+
+      &_up {
         height: $upHeight;
         display: flex;
         justify-content: space-between;
-        .ul_number{
+
+        .ul_number {
           display: flex;
           align-items: flex-end;
-          .number{
+
+          .number {
             word-spacing: 0px;
           }
-          .all_number{
+
+          .all_number {
             @extend .number;
             font-size: 12px;
             margin-bottom: 2px;
           }
         }
-        .ul_list{
+
+        .ul_list {
           @extend .ul_number;
           width: 100px;
           justify-content: flex-end;
-          .list{
+
+          .list {
             width: 24px;
             margin: 0 0 5px 8px;
             text-align: center;
@@ -58,99 +70,119 @@ $gray: #ccc;
             background-color: #969696;
             color: white;
             cursor: pointer;
-            &.list_active{
+
+            &.list_active {
               background-color: #333333;
             }
           }
         }
       }
-      &_down{
+
+      &_down {
         height: 14px;
         font-size: 12px;
         padding-top: 5px;
-        .order{
+
+        .order {
           display: flex;
           align-items: center;
-          .order_list{
+
+          .order_list {
             margin-left: 5px;
             padding-right: 6px;
             color: $linkColor;
             cursor: pointer;
             text-decoration: underline;
             border-right: 1px solid $gray;
-            &.text_active{
+
+            &.active_order {
               color: #333333;
               font-weight: bold;
               text-decoration: none;
               cursor: auto;
             }
-            &.order_none{
+
+            &.order_none {
               border: none;
             }
           }
         }
       }
     }
-    &_main{
+
+    &_main {
       cursor: pointer;
-      &_list{
+
+      &_list {
         // height: 320px;
         margin-bottom: 15px;
         border-radius: 10px;
         border: 1px solid $gray;
-        .content_main_header{
+
+        .content_main_header {
           height: 87px;
           padding: 10px 0;
           margin: 0 10px;
           border-bottom: 2px dotted $gray;
-          &_name{
-            .show_experiences{
+
+          &_name {
+            .show_experiences {
               font-size: 18px;
               color: $linkColor;
               font-weight: bold;
             }
           }
-          .experience_score{
+
+          .experience_score {
             @include expScore;
           }
-          &_place{
+
+          &_place {
             margin-top: -4px;
             font-size: 12px;
             word-spacing: 0;
           }
         }
-        .content_main_outline{
+
+        .content_main_outline {
           height: 161px;
           margin: 20px 11px 10px;
           display: flex;
-          .content_outline{
+
+          .content_outline {
             margin-left: 11px;
             height: 100%;
             width: 100%;
-            &_main{
+
+            &_main {
               line-height: 18px;
               color: $linkColor;
               font-weight: bold;
               font-size: 14px;
               margin-bottom: 5px;
             }
-            &_sub{
+
+            &_sub {
               font-size: 11px;
               line-height: 15px;
               margin-bottom: 8px;
             }
-            &_category{
+
+            &_category {
               font-size: 11px;
               margin-bottom: 10px;
-              .category_icon{
+
+              .category_icon {
                 color: #ffa500;
               }
             }
-            &_age{
+
+            &_age {
               font-size: 12px;
               line-height: 12px;
             }
-            &_price{
+
+            &_price {
               color: #ff0000;
               font-weight: bold;
             }
@@ -159,15 +191,18 @@ $gray: #ccc;
       }
     }
   }
-  &_right{
+
+  &_right {
     width: calc(100% - 740px);
-    .right_content_area{
+
+    .right_content_area {
       width: 180px;
       margin: 74px 0 0 auto;
       border: 1px solid $gray;
       border-radius: 4px;
       padding-top: 4px;
-      &_title{
+
+      &_title {
         color: #333333;
         font-size: 12px;
         font-weight: bold;
@@ -175,28 +210,33 @@ $gray: #ccc;
         margin: 4px 0 9px 5px;
         padding: 0 3px;
       }
-      .right_content{
+
+      .right_content {
         height: 38px;
         margin: 3px 0 7px;
         padding: 0 5px;
         display: flex;
-        .fav_image{
+
+        .fav_image {
           margin-right: 4px;
         }
-        .fav_name{
+
+        .fav_name {
           font-size: 12px;
           font-weight: bold;
           color: $linkColor;
           margin-top: 10px;
         }
       }
-      .content_sub{
+
+      .content_sub {
         @extend .right_content;
         height: 47px;
         margin-top: 7px;
         border-top: 1px dotted $gray;
         padding-top: 9px;
-        .name_sub{
+
+        .name_sub {
           font-size: 12px;
           font-weight: bold;
           color: $linkColor;
