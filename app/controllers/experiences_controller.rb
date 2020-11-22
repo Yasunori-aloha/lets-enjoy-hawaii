@@ -16,7 +16,7 @@ class ExperiencesController < ApplicationController
     @category = Category.find_by(search: params[:name])
     @experiences = []
     Genre.where(category_id: @category.id).find_each do |genre|
-      Experience.includes(:genre).includes(:area).where(genre_id: genre.id).find_each { |exp| @experiences << exp }
+      Experience.includes(:favorites).includes(:genre).includes(:area).where(genre_id: genre.id).find_each { |exp| @experiences << exp }
     end
     render 'experiences/category'
   end

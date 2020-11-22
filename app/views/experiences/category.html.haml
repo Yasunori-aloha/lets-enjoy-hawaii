@@ -2,7 +2,7 @@
   = render 'shared/leh_header'
 .content_header
   .menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
-    = link_to 'トップページ', root_path, id: 'change_link', style: 'color: blue'
+    = link_to 'トップページ', root_path, class: 'change_link', style: 'color: blue'
     %span
       &nbsp;>&nbsp;
     %strong
@@ -31,25 +31,23 @@
         %ul.order
           %li
             並び順：
-          %li{id: 'change_link', class: 'order_list'}
-            安い順
-          %li{id: 'change_link', class: 'order_list'}
+          %li{id: 'experience_sort_1', class: 'sort_link change_link'}
             口コミランク順
-          %li{class: 'order_list text_active order_none'}
+          %li{id: 'experience_sort_2', class: 'sort_link active_sort'}
             おすすめ順
-    %ul.content_main_left_main
+    %ul{class: 'content_main_left_main experience_list'}
       - @experiences.each_with_index do |exp,index|
         %li.content_main_left_main_list
           .content_main_header
             .content_main_header_name
-              = link_to "#{exp.name}", "experiences/#{exp.id}", id: 'change_link', class: 'show_experiences'
+              = link_to "#{exp.name}", "experiences/#{exp.id}", class: 'show_experiences change_link'
             .experience_score
               .star_rating
                 %div{id: "star_rating#{index}", class: 'star_rating_front'}
                   ★★★★★
                 .star_rating_back
                   ★★★★★
-              %span{class: 'rating_point exp_score'}
+              %span{class: 'rating_point exp_score experience_sort_material1'}
                 = exp.score
               %span.review_count
                 （
@@ -70,10 +68,10 @@
               .content_outline_category
                 = icon('fas', 'flag', class: 'category_icon')
                 = exp.genre.name
-              .content_outline_age
-                対象年齢
-              .content_outline_price
-                平均費用〜
+              %div{class: 'content_outline_favorite experience_sort_material2'}
+                = icon('fas', 'star', class: 'star_icon')
+                %span.experience_favorites_number
+                  = exp.favorites.length
   .content_main_right
     - if user_signed_in? && current_user.favorites.exists?
       .right_content_area
@@ -81,7 +79,7 @@
           最近のお気に入りスポット
         .right_content
           = image_tag '', height: '38px', width: '51px', class: 'fav_image'
-          %p{id: 'change_link', class: 'fav_name'}
+          %p{class: 'fav_name change_link'}
             テスト
         .content_sub
           = image_tag '', height: '38px', width: '51px', class: 'fav_image'

@@ -1,10 +1,10 @@
 .header
   = render 'shared/leh_header'
 .menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
-  = link_to 'トップページ', root_path, id: 'change_link', style: 'color: blue'
+  = link_to 'トップページ', root_path, class: 'change_link', style: 'color: blue'
   %span
     &nbsp;>&nbsp;
-  = link_to "#{@experience.genre.category.name}", '/shopping', id: 'change_link', style: 'color: blue'
+  = link_to "#{@experience.genre.category.name}", '/shopping', class: 'change_link', style: 'color: blue'
   %span
     &nbsp;>&nbsp;
   %strong
@@ -40,13 +40,13 @@
           %li.area_wrapper
             %span.area
               エリア
-            = link_to "#{@experience.area.island.name}",'#', id: 'change_link', class: 'link_to'
-            = link_to "#{@experience.area.name}",'#', id: 'change_link', class: 'link_to'
+            = link_to "#{@experience.area.island.name}",'#', class: 'link_to change_link'
+            = link_to "#{@experience.area.name}",'#', class: 'link_to change_link'
           %li.genre_wrapper
             %span.genre
               ジャンル
-            = link_to "#{@experience.genre.category.name}","/#{@experience.genre.category.search}", id: 'change_link', class: 'link_to'
-            = link_to "#{@experience.genre.name}",'#', id: 'change_link', class: 'link_to'
+            = link_to "#{@experience.genre.category.name}","/#{@experience.genre.category.search}", class: 'link_to change_link'
+            = link_to "#{@experience.genre.name}",'#', class: 'link_to change_link'
       .show_info_right
         -# 未ログインユーザーなら'口コミ投稿'等のボタンが表示されない。
         - if user_signed_in?
