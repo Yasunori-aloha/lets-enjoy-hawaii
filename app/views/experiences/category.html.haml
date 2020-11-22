@@ -31,11 +31,11 @@
         %ul.order
           %li
             並び順：
-          %li{id: '', class: 'sort_link change_link'}
+          %li{id: 'experience_sort_1', class: 'sort_link change_link'}
             安い順
-          %li{id: '', class: 'sort_link change_link'}
+          %li{id: 'experience_sort_2', class: 'sort_link change_link'}
             口コミランク順
-          %li{class: 'sort_link active_sort'}
+          %li{id: 'experience_sort_3', class: 'sort_link active_sort'}
             おすすめ順
     %ul.content_main_left_main
       - @experiences.each_with_index do |exp,index|
