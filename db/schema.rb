@@ -13,17 +13,22 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20_201_113_110_951) do
-  create_table 'active_storage_attachments', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+  create_table 'active_storage_attachments',
+               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8',
+               force: :cascade do |t|
     t.string 'name', null: false
     t.string 'record_type', null: false
     t.bigint 'record_id', null: false
     t.bigint 'blob_id', null: false
     t.datetime 'created_at', null: false
-    t.index ['blob_id'], name: 'index_active_storage_attachments_on_blob_id'
-    t.index %w[record_type record_id name blob_id], name: 'index_active_storage_attachments_uniqueness', unique: true
+    t.index %w[blob_id], name: 'index_active_storage_attachments_on_blob_id'
+    t.index %w[record_type record_id name blob_id],
+            name: 'index_active_storage_attachments_uniqueness', unique: true
   end
 
-  create_table 'active_storage_blobs', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+  create_table 'active_storage_blobs',
+               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8',
+               force: :cascade do |t|
     t.string 'key', null: false
     t.string 'filename', null: false
     t.string 'content_type'
@@ -31,17 +36,21 @@ ActiveRecord::Schema.define(version: 20_201_113_110_951) do
     t.bigint 'byte_size', null: false
     t.string 'checksum', null: false
     t.datetime 'created_at', null: false
-    t.index ['key'], name: 'index_active_storage_blobs_on_key', unique: true
+    t.index %w[key], name: 'index_active_storage_blobs_on_key', unique: true
   end
 
-  create_table 'areas', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+  create_table 'areas',
+               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8',
+               force: :cascade do |t|
     t.string 'name', default: '', null: false
     t.integer 'island_id', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table 'experiences', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+  create_table 'experiences',
+               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8',
+               force: :cascade do |t|
     t.string 'name', default: '', null: false
     t.text 'outline'
     t.string 'address', null: false
@@ -54,36 +63,44 @@ ActiveRecord::Schema.define(version: 20_201_113_110_951) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.float 'score'
-    t.index ['area_id'], name: 'index_experiences_on_area_id'
-    t.index ['genre_id'], name: 'index_experiences_on_genre_id'
+    t.index %w[area_id], name: 'index_experiences_on_area_id'
+    t.index %w[genre_id], name: 'index_experiences_on_genre_id'
   end
 
-  create_table 'favorites', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+  create_table 'favorites',
+               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8',
+               force: :cascade do |t|
     t.bigint 'user_id', null: false
     t.bigint 'experience_id', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.index ['experience_id'], name: 'index_favorites_on_experience_id'
-    t.index ['user_id'], name: 'index_favorites_on_user_id'
+    t.index %w[experience_id], name: 'index_favorites_on_experience_id'
+    t.index %w[user_id], name: 'index_favorites_on_user_id'
   end
 
-  create_table 'genres', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+  create_table 'genres',
+               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8',
+               force: :cascade do |t|
     t.string 'name', default: '', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.integer 'category_id', null: false
   end
 
-  create_table 'histories', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+  create_table 'histories',
+               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8',
+               force: :cascade do |t|
     t.bigint 'user_id', null: false
     t.bigint 'experience_id', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.index ['experience_id'], name: 'index_histories_on_experience_id'
-    t.index ['user_id'], name: 'index_histories_on_user_id'
+    t.index %w[experience_id], name: 'index_histories_on_experience_id'
+    t.index %w[user_id], name: 'index_histories_on_user_id'
   end
 
-  create_table 'reviews', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+  create_table 'reviews',
+               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8',
+               force: :cascade do |t|
     t.text 'comment', null: false
     t.integer 'score', null: false
     t.bigint 'user_id', null: false
@@ -91,20 +108,24 @@ ActiveRecord::Schema.define(version: 20_201_113_110_951) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.string 'title', null: false
-    t.index ['experience_id'], name: 'index_reviews_on_experience_id'
-    t.index ['user_id'], name: 'index_reviews_on_user_id'
+    t.index %w[experience_id], name: 'index_reviews_on_experience_id'
+    t.index %w[user_id], name: 'index_reviews_on_user_id'
   end
 
-  create_table 'sns_credentials', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+  create_table 'sns_credentials',
+               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8',
+               force: :cascade do |t|
     t.string 'provider'
     t.string 'uid'
     t.bigint 'user_id'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.index ['user_id'], name: 'index_sns_credentials_on_user_id'
+    t.index %w[user_id], name: 'index_sns_credentials_on_user_id'
   end
 
-  create_table 'users', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+  create_table 'users',
+               options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8',
+               force: :cascade do |t|
     t.string 'email', default: '', null: false
     t.string 'encrypted_password', default: '', null: false
     t.string 'reset_password_token'
@@ -115,11 +136,14 @@ ActiveRecord::Schema.define(version: 20_201_113_110_951) do
     t.string 'name', default: '', null: false
     t.text 'introduce'
     t.integer 'admin'
-    t.index ['email'], name: 'index_users_on_email', unique: true
-    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
+    t.index %w[email], name: 'index_users_on_email', unique: true
+    t.index %w[reset_password_token],
+            name: 'index_users_on_reset_password_token', unique: true
   end
 
-  add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
+  add_foreign_key 'active_storage_attachments',
+                  'active_storage_blobs',
+                  column: 'blob_id'
   add_foreign_key 'experiences', 'areas'
   add_foreign_key 'experiences', 'genres'
   add_foreign_key 'favorites', 'experiences'

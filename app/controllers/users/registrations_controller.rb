@@ -2,8 +2,8 @@
 
 module Users
   class RegistrationsController < Devise::RegistrationsController
-    before_action :configure_sign_up_params, only: [:create]
-    before_action :configure_account_update_params, only: [:update]
+    before_action :configure_sign_up_params, only: %i[create]
+    before_action :configure_account_update_params, only: %i[update]
 
     def new
       @user = User.new
@@ -51,7 +51,7 @@ module Users
     protected
 
     def configure_sign_up_params
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+      devise_parameter_sanitizer.permit(:sign_up, keys: %i[name])
     end
 
     def update_resource(resource, params)
@@ -59,7 +59,10 @@ module Users
     end
 
     def configure_account_update_params
-      devise_parameter_sanitizer.permit(:account_update, keys: %i[name introduce image])
+      devise_parameter_sanitizer.permit(
+        :account_update,
+        keys: %i[name introduce image]
+      )
     end
 
     def after_update_path_for(_resource)

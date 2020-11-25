@@ -5,7 +5,9 @@ require 'rails_helper'
 RSpec.describe 'Histories', type: :system do
   let(:user) { create(:user) }
   let(:experience) { create(:experience) }
-  let(:history) { build(:history, user_id: user.id, experience_id: experience.id) }
+  let(:history) do
+    build(:history, user_id: user.id, experience_id: experience.id)
+  end
 
   describe '行ったボタンクリック時の動作' do
     context '行った記録がクリックした際にDBに保存される場合' do
@@ -19,7 +21,9 @@ RSpec.describe 'Histories', type: :system do
         expect(page).to have_content('行った')
 
         # 行ったボタンをクリックするとHistoryモデルのレコード数が1上がり、足跡アイコンがチェックマークに変化する。
-        expect { find('.have_been_btn').click }.to change { History.count }.by(1)
+        expect { find('.have_been_btn').click }.to change { History.count }.by(
+          1
+        )
         expect(page).to have_selector('.fa-check')
       end
     end
@@ -35,7 +39,9 @@ RSpec.describe 'Histories', type: :system do
         expect(page).to have_content('行った')
 
         # 行ったボタンをクリックするとHistoryモデルのレコード数が1下がり、チェックマークが足跡アイコンに変化する。
-        expect { find('.have_been_btn').click }.to change { History.count }.by(-1)
+        expect { find('.have_been_btn').click }.to change { History.count }.by(
+          -1
+        )
         expect(page).to have_selector('.fa-shoe-prints')
       end
     end
