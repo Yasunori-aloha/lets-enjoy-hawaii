@@ -4,14 +4,11 @@ class FavoritesController < ApplicationController
   def create
     # 『お気に入り』ボタンをクリックしたログインユーザーの'id'とボタンが設置されていた'experience'の'id'を引数にインスタンスを生成する。
     current_user.favorites.create(experience_id: params[:experience_id])
-    # redirect_experience(params[:experience_id])
+    @experience = Experience.find(params[:experience_id])
   end
 
   def destroy
-    favorite =
-      current_user.favorites.find_by(experience_id: params[:experience_id])
-        .destroy
-    # render json: { favorite: favorite }
-    # redirect_experience(params[:experience_id])
+    current_user.favorites.find_by(experience_id: params[:experience_id]).destroy
+    @experience = Experience.find(params[:experience_id])
   end
 end

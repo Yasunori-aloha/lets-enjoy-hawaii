@@ -12,7 +12,6 @@ require("preview.js")
 require("top_page.js")
 require("search.js")
 require("review.js")
-require("experience.js")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
