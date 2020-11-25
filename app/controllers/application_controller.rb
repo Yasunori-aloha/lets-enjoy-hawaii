@@ -20,4 +20,8 @@ class ApplicationController < ActionController::Base
       @images_count += review.images.count
     end
   end
+
+  def find_exp_id(exp_id)
+    @experience = Experience.find(exp_id)
+  end
 end
