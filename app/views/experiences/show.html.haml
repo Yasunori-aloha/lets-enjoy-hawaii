@@ -64,10 +64,10 @@
               -# お気に入りされていればお気に入り登録の解除ができて、まだならお気に入り登録ができる。
               - if @experience.already_favorited?(current_user, @experience)
                 = icon("fas", "star")
-                = link_to '', experience_favorites_path(@experience.id), method: :delete, class: 'btn favorite_btn'
+                = link_to '', experience_favorites_path(@experience.id), method: :delete, class: 'btn favorite_btn', remote: true
               - else
                 = icon("far", "star")
-                = link_to '', experience_favorites_path(@experience.id), method: :post, class: 'btn favorite_btn'
+                = link_to '', experience_favorites_path(@experience.id), method: :post, class: 'btn favorite_btn', remote: true
               = @experience.favorites.length.to_s(:delimited)
             %li{id: 'have_been_place_btn', class: 'have_been_place'}
               - if @experience.already_histories?(current_user, @experience)
