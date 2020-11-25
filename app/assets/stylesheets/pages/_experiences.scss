@@ -105,6 +105,10 @@ $colorBlack: #333333;
           .have_been_place{
             @extend .favorite;
             margin-left: 5px;
+            .have_been{
+              float: right;
+              margin-right: 6px;
+            }
           }
         }
       }
@@ -194,13 +198,13 @@ $colorBlack: #333333;
                   width: 78px;
                   display: block;
                 }
-                .persent{
+                .percent{
                   width: 27px;
                   display: block;
                   text-align: end;
                   margin-right: 11px;
                 }
-                .persent_graph{
+                .percent_graph{
                   margin-top: 2px;
                   position: relative;
                   height: 14px;
@@ -241,7 +245,7 @@ $colorBlack: #333333;
             display: flex;
             font-size: 12px;
             padding: 8px 0 0 8px;
-            &_postalcode{
+            &_postal_code{
               margin-right: 16px;
             }
             &_address{
