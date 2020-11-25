@@ -60,7 +60,7 @@
               シェアする
               = link_to '','#', class: 'btn'
           %ul.show_info_right_down
-            %li.favorite
+            %li{id: 'favorite_btn', class: 'favorite'}
               -# お気に入りされていればお気に入り登録の解除ができて、まだならお気に入り登録ができる。
               - if @experience.already_favorited?(current_user, @experience)
                 = icon("fas", "star")
@@ -69,7 +69,7 @@
                 = icon("far", "star")
                 = link_to '', experience_favorites_path(@experience.id), method: :post, class: 'btn favorite_btn'
               = @experience.favorites.length.to_s(:delimited)
-            %li.have_been_place
+            %li{id: 'have_been_place_btn', class: 'have_been_place'}
               - if @experience.already_histories?(current_user, @experience)
                 = icon('fas', 'check')
                 = link_to '', experience_histories_path(@experience.id), method: :delete, class: 'btn have_been_btn'
