@@ -18,7 +18,8 @@ RSpec.describe Review, type: :model do
         expect(@review).to be_valid
       end
       it '画像は複数枚添付されていても投稿できる' do
-        @review.images << [fixture_file_upload('files/test_image.png', 'image/png')]
+        @review.images <<
+          [fixture_file_upload('files/test_image.png', 'image/png')]
         expect(@review).to be_valid
       end
     end
@@ -26,17 +27,23 @@ RSpec.describe Review, type: :model do
       it 'titleが入力されていないと投稿できない' do
         @review.title = nil
         @review.valid?
-        expect(@review.errors.full_messages).to include('Titleを入力してください')
+        expect(@review.errors.full_messages).to include(
+          'Titleを入力してください'
+        )
       end
       it 'commentが入力されていないと投稿できない' do
         @review.comment = nil
         @review.valid?
-        expect(@review.errors.full_messages).to include('Commentを入力してください')
+        expect(@review.errors.full_messages).to include(
+          'Commentを入力してください'
+        )
       end
       it 'scoreが選択されていないと投稿できない' do
         @review.score = nil
         @review.valid?
-        expect(@review.errors.full_messages).to include('Scoreを入力してください')
+        expect(@review.errors.full_messages).to include(
+          'Scoreを入力してください'
+        )
       end
     end
   end

@@ -7,8 +7,12 @@ RSpec.describe History, type: :model do
   let(:user_2) { create(:user) }
   let(:experience) { create(:experience) }
   let(:experience_2) { create(:experience) }
-  let(:history) { build(:history, user_id: user.id, experience_id: experience.id) }
-  let(:history_2) { build(:history, user_id: user.id, experience_id: experience.id) }
+  let(:history) do
+    build(:history, user_id: user.id, experience_id: experience.id)
+  end
+  let(:history_2) do
+    build(:history, user_id: user.id, experience_id: experience.id)
+  end
 
   describe '行ったボタンクリック履歴保存' do
     context '行った履歴がDBに保存される。' do
@@ -30,7 +34,9 @@ RSpec.describe History, type: :model do
       it 'すでにアクティビティをクリックしていれば保存されない。' do
         history.save
         history_2.valid?
-        expect(history_2.errors.full_messages).to include 'Userはすでに存在します'
+        expect(
+          history_2.errors.full_messages
+        ).to include 'Userはすでに存在します'
       end
     end
   end

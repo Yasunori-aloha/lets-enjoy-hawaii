@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!, only: %i[show]
 
   def show
     if current_user.id == params[:id].to_i

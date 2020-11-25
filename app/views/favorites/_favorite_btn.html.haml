@@ -1,0 +1,7 @@
+- if @experience.already_favorited?(current_user, @experience)
+  = icon("fas", "star")
+  = link_to '', experience_favorites_path(@experience.id), method: :delete, class: 'btn favorite_btn', remote: true
+- else
+  = icon("far", "star")
+  = link_to '', experience_favorites_path(@experience.id), method: :post, class: 'btn favorite_btn', remote: true
+= @experience.favorites.length.to_s(:delimited)

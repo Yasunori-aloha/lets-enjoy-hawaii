@@ -60,23 +60,11 @@
               シェアする
               = link_to '','#', class: 'btn'
           %ul.show_info_right_down
-            %li.favorite
+            %li{id: 'favorite_btn', class: 'favorite'}
               -# お気に入りされていればお気に入り登録の解除ができて、まだならお気に入り登録ができる。
-              - if @experience.already_favorited?(current_user, @experience)
-                = icon("fas", "star")
-                = link_to '', experience_favorites_path(@experience.id), method: :delete, class: 'btn favorite_btn'
-              - else
-                = icon("far", "star")
-                = link_to '', experience_favorites_path(@experience.id), method: :post, class: 'btn favorite_btn'
-              = @experience.favorites.length.to_s(:delimited)
-            %li.have_been_place
-              - if @experience.already_histories?(current_user, @experience)
-                = icon('fas', 'check')
-                = link_to '', experience_histories_path(@experience.id), method: :delete, class: 'btn have_been_btn'
-              - else
-                = icon('fas', 'shoe-prints',class: 'fa-rotate-270')
-                = link_to '', experience_histories_path(@experience.id), method: :post, class: 'btn have_been_btn'
-              行った
+              = render 'favorites/favorite_btn'
+            %li{id: 'have_been_place_btn', class: 'have_been_place'}
+              = render 'histories/history_btn'
     .show_left_main
       .show_left_main_tab
         %ul.experience_tabs
@@ -124,21 +112,21 @@
                   %li.list_score
                     %span.evaluation
                       = @evalutions[4 - i]
-                    %span{id: "score_#{5 - i}", class: 'persent'}
+                    %span{id: "score_#{5 - i}", class: 'percent'}
                       = "#{(@scores[5 - i].to_f / @experience.reviews.length * 100).floor}%"
-                    .persent_graph
-                      %div{id: "graph_score#{5 - i}", class: 'persent_graph_front'}
-                      .persent_graph_back
+                    .percent_graph
+                      %div{id: "graph_score#{5 - i}", class: 'percent_graph_front'}
+                      .percent_graph_back
                   -# 口コミ評価が0件なら、固定で'0%'を表示させる。
                 - else
                   %li.list_score
                     %span.evaluation
                       = @evalutions[4 - i]
-                    %span{id: "score_#{5 - i}", class: 'persent'}
+                    %span{id: "score_#{5 - i}", class: 'percent'}
                       0%
-                    .persent_graph
-                      %div{id: "graph_score#{5 - i}", class: 'persent_graph_front'}
-                      .persent_graph_back
+                    .percent_graph
+                      %div{id: "graph_score#{5 - i}", class: 'percent_graph_front'}
+                      .percent_graph_back
         .business_info
           .business_info_title
             %span
@@ -151,7 +139,7 @@
             %span
               所在地
           .business_info_main
-            %span.business_info_main_postalcode
+            %span.business_info_main_postal_code
               = @experience.address
             %span.business_info_main_address
             %span

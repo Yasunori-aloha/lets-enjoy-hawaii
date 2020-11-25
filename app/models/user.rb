@@ -3,8 +3,13 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable,
+         :omniauthable,
+         omniauth_providers: %i[facebook google_oauth2]
   validates :name, presence: true
 
   has_one_attached :image
@@ -17,12 +22,14 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     # SnsCredentialモデル内を検索して、アカウントがなければアカウント情報をテーブルに保存する。
-    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
+    sns =
+      SnsCredential.where(provider: auth.provider, uid: auth.uid)
+        .first_or_create
     # SNSのアカウント情報がなければ、emailからUserモデル内を検索して取得する、もしくは新たにインスタンスを生成する。
-    user = User.where(email: auth.info.email).first_or_initialize(
-      email: auth.info.email,
-      name: auth.info.name
-    )
+    user =
+      User.where(email: auth.info.email).first_or_initialize(
+        email: auth.info.email, name: auth.info.name
+      )
     if user.persisted?
       sns.user = user
       sns.save

@@ -1,0 +1,8 @@
+- if @experience.already_histories?(current_user, @experience)
+  = icon('fas', 'check', class: 'check_mark')
+  = link_to '', experience_histories_path(@experience.id), method: :delete, class: 'btn have_been_btn', remote: true
+- else
+  = icon('fas', 'shoe-prints',class: 'fa-rotate-270')
+  = link_to '', experience_histories_path(@experience.id), method: :post, class: 'btn have_been_btn', remote: true
+%span.have_been
+  行った

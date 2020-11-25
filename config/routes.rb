@@ -2,13 +2,14 @@
 
 Rails.application.routes.draw do
   root to: 'tops#index'
-  devise_for :users, controllers: {
-    omniauth_callbacks: 'users/omniauth_callbacks',
-    registrations: 'users/registrations',
-    sessions: 'users/sessions'
-  }
-  resources :users, only: [:show]
-  resources :experiences, only: [:show], shallow: true do
+  devise_for :users,
+             controllers: {
+               omniauth_callbacks: 'users/omniauth_callbacks',
+               registrations: 'users/registrations',
+               sessions: 'users/sessions'
+             }
+  resources :users, only: %i[show]
+  resources :experiences, only: %i[show], shallow: true do
     resources :reviews, only: %i[index new create]
     resource :histories, only: %i[create destroy]
     resource :favorites, only: %i[create destroy]
