@@ -16,7 +16,22 @@ $(function(){
           }
           break;
         case 'password':
-          console.log(this.value);
+          // パスワードが8文字以下の場合。
+          if (!(this.value.match(/.{8,}/))) {
+            $(this).parent().append('<span class="signin_up_error_message">パスワードは8文字以上必要です</span>');
+          } else {
+            // 数字が入っていない場合。
+            if (this.value.match(/^(?!.*[0-9]).*$/)) {
+            $(this).parent().append('<span class="signin_up_error_message">数字が挿入されておりません</span>');
+            // 英字が入っていない場合。
+            } else if (this.value.match(/^(?!.*[a-zA-Z]).*$/)) {
+            $(this).parent().append('<span class="signin_up_error_message">英字が挿入されておりません</span>');
+            } else if (this.value.match(/^(?!.*[!-\/:-@\[-`\{-~].*[!-\/:-@\[-`\{-~]).*$/)) {
+              $(this).parent().append('<span class="signin_up_error_message">記号は2回以上が必要です</span>');
+            }
+          }
+            // console.log('0-9')
+          // console.log(this.value);
           break;
         case 'password_confirmation':
           console.log('password_confirmation');
