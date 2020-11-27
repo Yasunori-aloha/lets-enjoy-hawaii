@@ -54,7 +54,6 @@ $regHeight: 881px;
                     appearance: none;
                     height: 50px;
                     width: $v100;
-                    transition: border .2s ease-out;
                     outline: 0;
                     border-radius: 6px;
                     padding: 15px;
@@ -62,9 +61,10 @@ $regHeight: 881px;
                   }
                   .signin_up_error_message{
                     font-size: 12px;
-                    color: red;
+                    color: #ff0000;
                     position: absolute;
-                    top: 53px;
+                    left: 0;
+                    top: 54px;
                   }
                 }
                 .remember_me_password{

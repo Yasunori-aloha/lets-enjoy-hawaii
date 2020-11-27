@@ -10,7 +10,12 @@ class User < ApplicationRecord
          :validatable,
          :omniauthable,
          omniauth_providers: %i[facebook google_oauth2]
-  validates :name, presence: true
+  with_options presence: true do
+    validates :name
+    validates :email, format: { with: /@/ }
+    # 半角英数字8以上で、記号を2回以上使用すること
+    validates :password, format: { with: /\A(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!-\/:-@\[-`\{-~].*[!-\/:-@\[-`\{-~])([a-zA-Z0-9!-\/:-@\[-`\{-~]{8,})\z/ }
+  end
 
   has_one_attached :image
   has_many :reviews, dependent: :destroy
