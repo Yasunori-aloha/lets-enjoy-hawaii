@@ -16,7 +16,7 @@ $(function(){
           }
           break;
         case 'password':
-          console.log('password');
+          console.log(this.value);
           break;
         case 'password_confirmation':
           console.log('password_confirmation');
