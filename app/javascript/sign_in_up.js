@@ -30,11 +30,11 @@ $(function(){
               $(this).parent().append('<span class="signin_up_error_message">記号は2回以上が必要です</span>');
             }
           }
-            // console.log('0-9')
-          // console.log(this.value);
           break;
         case 'password_confirmation':
-          console.log('password_confirmation');
+          if (!(this.value === $('#user_password')[0].value)) {
+            $(this).parent().append('<span class="signin_up_error_message">パスワードと同じ内容を入力してください</span>');
+          }
           break;
       }
     }
