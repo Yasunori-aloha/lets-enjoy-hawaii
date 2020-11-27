@@ -11,7 +11,9 @@ $(function(){
       // フォーカスが外れた際に、その入力フォームのid名の'user_'以降の文字列によって分岐させる。
       switch (this.id.match(/(?<=user_).*$/)[0]) {
         case 'email':
-          console.log('email');
+          if (!(this.value.match(/@/))) {
+            $(this).parent().append('<span class="signin_up_error_message">メールアドレスに「@」が挿入されておりません</span>');
+          }
           break;
         case 'password':
           console.log('password');

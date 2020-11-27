@@ -10,7 +10,11 @@ class User < ApplicationRecord
          :validatable,
          :omniauthable,
          omniauth_providers: %i[facebook google_oauth2]
-  validates :name, presence: true
+  with_options presence: true do
+    validates :name
+    validates :email, format: { with: /@/ }
+
+  end
 
   has_one_attached :image
   has_many :reviews, dependent: :destroy

@@ -5,10 +5,11 @@
       .signin_up_main_wrapper
         .signin_up_main
           .signin_up_main_content
+            -# = render "devise/shared/error_messages", resource: @user
             %span.register_text 会員登録
             .signin_up_form
               / 入力フォーム
-              = form_with model: @user, url: user_registration_path, local: true, class: 'signin_up_user' do |f|
+              = form_with model: @user, url: user_registration_path, html: { novalidate: true, class: 'signin_up_user' }, local: true do |f|
                 .signin_up_form_input
                   = f.text_field :name, placeholder: '氏名（例：畑中三郎）', autocomplete: 'name', class: 'signin_up_input'
                 .signin_up_form_input
