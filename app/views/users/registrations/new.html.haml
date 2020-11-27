@@ -12,20 +12,19 @@
                 = render "devise/shared/error_messages", resource: @user
                 .signin_up_form_input
                   = f.text_field :name, placeholder: '氏名（例：畑中三郎）', autocomplete: 'name', class: 'signin_up_input'
-                  %span{style: 'display:none'}, class: 'signin_up_error_message'}この項目は必須です
                 .signin_up_form_input
                   = f.email_field :email, placeholder: 'メールアドレス', autocomplete: "email", autocorrect: 'off', autocapitalize: 'off', class: 'signin_up_input'
-                  %span{style: 'display:none'}, class: 'signin_up_error_message'}この項目は必須です
+                  %span{style: 'display:none', class: 'signin_up_error_message'}この項目は必須です
                 -# SNS認証での新規登録ならパスワード入力欄を消去し、登録ボタンを押した際にsns_auth: true というparamsを送信する。
                 - if @sns_id.present?
                   = hidden_field_tag :sns_auth, true
                 - else
                   .signin_up_form_input
                     = f.password_field :password, placeholder: 'パスワード（8～20文字・半角英数字・記号を2種以上）', maxlength: '20', autocomplete: "new-password", class: 'signin_up_input'
-                    %span{style: 'display:none'}, class: 'signin_up_error_message'}この項目は必須です
+                    %span{style: 'display:none', class: 'signin_up_error_message'}この項目は必須です
                   .signin_up_form_input
                     = f.password_field :password_confirmation, placeholder: '上記と同じパスワードを入力してください', autocomplete: "new-password", class: 'signin_up_input'
-                    %span{style: 'display:none'}, class: 'signin_up_error_message'}この項目は必須です
+                    %span{class: 'signin_up_error_message'}この項目は必須です
                 = f.submit "登録する", class: 'button_cv signin_up_button'
               / 入力フォーム
             .social_login
@@ -50,8 +49,8 @@
               .testuser_sign_in_form
                 %span.testuser_login_text ※アカウント登録せず、ユーザー機能を試したい方は
                 = form_with model: @user, url: user_session_path, local: true, class: 'testuser_login_form' do |f|
-                  = f.hidden_field :email, :value => 'test@test.com'
-                  = f.hidden_field :password, :value => 'testuser1'
+                  = f.hidden_field :email, :value => 'test@test.com', id: 'test_user_email'
+                  = f.hidden_field :password, :value => 'testuser1', id: 'test_user_password'
                   = f.submit "こちら", class: 'testuser_login_button'
               / テストユーザーとしてログインするためのフォーム
       / フッター
