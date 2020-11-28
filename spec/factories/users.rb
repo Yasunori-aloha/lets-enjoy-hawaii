@@ -6,7 +6,7 @@ FactoryBot.define do
     email { Faker::Internet.free_email }
     introduce { Faker::Lorem.sentence }
     admin { 0 }
-    password { Faker::Internet.password }
+    password { '12345a!^' }
     password_confirmation { password }
   end
 end
