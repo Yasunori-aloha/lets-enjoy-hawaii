@@ -5,5 +5,7 @@ class Area < ApplicationRecord
   belongs_to_active_hash :island
   has_many :experiences
 
-  validates :island, presence: true
+  with_options presence: true do
+    validates :name, :island_id
+  end
 end
