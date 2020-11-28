@@ -29,7 +29,7 @@ RSpec.describe 'Reviews', type: :system do
         # フォームを送信すると、Reviewモデルのレコード数が1上がり、アクティビティの評価点が更新されて詳細ページへリダイレクトされる。
         expect { click_on('投稿する') }.to change { Review.count }.by(1)
         expect(experience.reload.score).to eq experience.reviews.average(:score)
-             .round(1)
+                                                        .round(1)
         expect(current_path).to eq experience_path(experience.id)
 
         # 詳細ページの口コミ件数が1件増えているか確認する。

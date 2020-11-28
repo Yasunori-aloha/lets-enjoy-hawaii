@@ -9,6 +9,6 @@ class HistoriesController < ApplicationController
   def destroy
     find_exp_id(params[:experience_id])
     current_user.histories.find_by(experience_id: params[:experience_id])
-      .destroy
+                .destroy
   end
 end
