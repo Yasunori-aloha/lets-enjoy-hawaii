@@ -28,9 +28,7 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     # SnsCredentialモデル内を検索して、アカウントがなければアカウント情報をテーブルに保存する。
-    sns =
-      SnsCredential.where(provider: auth.provider, uid: auth.uid)
-                   .first_or_create
+    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
     # SNSのアカウント情報がなければ、emailからUserモデル内を検索して取得する、もしくは新たにインスタンスを生成する。
     user =
       User.where(email: auth.info.email).first_or_initialize(
