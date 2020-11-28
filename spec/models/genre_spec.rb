@@ -8,6 +8,8 @@ RSpec.describe Genre, type: :model do
   describe 'ジャンル登録' do
     context 'ジャンル登録ができる場合' do
       it 'name・category_idが入力されていると登録できる' do
+        expect(genre).to be_valid
+        # binding.pry
       end
     end
     context 'ジャンル登録ができない場合' do
