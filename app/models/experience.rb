@@ -10,6 +10,10 @@ class Experience < ApplicationRecord
   has_many :favorites
   has_many :fav_users, through: :favorites, source: :user
 
+  with_options presence: true do
+    validates :name, :address, :latitude, :longitude, :area_id, :genre_id
+  end
+
   # インスタンス変数に対してメソッドを使用することで、1つのexperienceに対して'user_id'を探すことができる。
   def already_favorited?(user, exp)
     Favorite.exists?(user_id: user.id, experience_id: exp.id)
