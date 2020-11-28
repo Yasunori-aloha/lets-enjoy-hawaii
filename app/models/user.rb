@@ -12,8 +12,9 @@ class User < ApplicationRecord
          omniauth_providers: %i[facebook google_oauth2]
   with_options presence: true do
     validates :name
+    # '@'がメールアドレスに入っていること。
     validates :email, format: { with: /@/ }
-    # 半角英数字8以上で、記号を2回以上使用すること
+    # 半角英数字記号含め8文字以上で、記号を2回以上使用すること。
     validates :password, format: { with: /\A(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!-\/:-@\[-`\{-~].*[!-\/:-@\[-`\{-~])([a-zA-Z0-9!-\/:-@\[-`\{-~]{8,})\z/ }
   end
 
