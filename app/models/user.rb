@@ -11,11 +11,11 @@ class User < ApplicationRecord
          :omniauthable,
          omniauth_providers: %i[facebook google_oauth2]
   with_options presence: true do
-    validates :name
+    validates :name, :password_confirmation
     # '@'がメールアドレスに入っていること。
     validates :email, format: { with: /@/ }
     # 半角英数字記号含め8文字以上で、記号を2回以上使用すること。
-    validates :password, format: { with: /\A(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!-\/:-@\[-`\{-~].*[!-\/:-@\[-`\{-~])([a-zA-Z0-9!-\/:-@\[-`\{-~]{8,})\z/ }
+    validates :password, format: { with: %r{\A(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!-/:-@\[-`{-~].*[!-/:-@\[-`{-~])([a-zA-Z0-9!-/:-@\[-`{-~]{8,})\z} }
   end
 
   has_one_attached :image
@@ -30,7 +30,7 @@ class User < ApplicationRecord
     # SnsCredentialモデル内を検索して、アカウントがなければアカウント情報をテーブルに保存する。
     sns =
       SnsCredential.where(provider: auth.provider, uid: auth.uid)
-        .first_or_create
+                   .first_or_create
     # SNSのアカウント情報がなければ、emailからUserモデル内を検索して取得する、もしくは新たにインスタンスを生成する。
     user =
       User.where(email: auth.info.email).first_or_initialize(
