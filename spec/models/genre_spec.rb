@@ -15,10 +15,12 @@ RSpec.describe Genre, type: :model do
       it 'nameが入力されていないと登録できない' do
         genre.name = nil
         genre.valid?
-        binding.pry
+        expect(genre.errors.full_messages).to include 'Nameを入力してください'
       end
       it 'category_idが選択されていないと登録できない' do
-        # genre.ca
+        genre.category_id = nil
+        genre.valid?
+        expect(genre.errors.full_messages).to include 'Categoryを入力してください'
       end
     end
   end
