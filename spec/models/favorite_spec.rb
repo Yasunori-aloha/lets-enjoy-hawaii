@@ -4,10 +4,13 @@ require 'rails_helper'
 
 RSpec.describe Favorite, type: :model do
   let(:favorite) { build(:favorite) }
+  let(:another_favorite) { build(:favorite) }
 
   describe 'アクティビティお気に入り登録' do
     context 'お気に入り登録ができる場合' do
       it 'ユーザーがまだお気に入り登録していないアクティビティなら登録できる' do
+        expect(favorite).to be_valid
+        # binding.pry
       end
     end
     context 'お気に入り登録ができない場合' do
