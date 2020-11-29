@@ -31,6 +31,6 @@ class ExperiencesController < ApplicationController
       end
       # binding.pry
     end
-    render 'experiences/category'
+    render 'experiences/activity'
   end
 end
