@@ -58,9 +58,9 @@ $(function () {
   });
 
   $('.search_btn').on('click', function(e){
-    // e.preventDefault();
+    e.preventDefault();
     const address = this.href;
-
-    console.log(this.href);
+    // const searchName = this
+    console.log($(this).attr('class').match(/^.*(?= search_btn)/)[0]);
   });
 });
