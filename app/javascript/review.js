@@ -49,15 +49,10 @@ $(function () {
           return 1;
         }
       });
-      $(`#${sortName}_sort_${activeSortId}`)
-        .removeClass("active_sort")
-        .addClass("change_link");
+      $(`#${sortName}_sort_${activeSortId}`).removeClass("active_sort").addClass("change_link");
       // 選択した並び順のID数値を再代入している。
       activeSortId = sortId;
-      $(this)
-        .addClass("active_sort")
-        .removeClass("change_link")
-        .removeClass("link_hover");
+      $(this).addClass("active_sort").removeClass("change_link").removeClass("link_hover");
       $(`.${sortName}_list`).empty().append(sortList).addClass("active_fade");
       setTimeout(function () {
         $(`.${sortName}_list`).removeClass("active_fade");

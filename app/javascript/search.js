@@ -17,6 +17,14 @@ $(window).on("load", function () {
     url == "/rentacar" ||
     url == "/dinner" ||
     url == "/hotel" ||
+    url == "/niihau" ||
+    url == "/kauai" ||
+    url == "/oahu" ||
+    url == "/molokai" ||
+    url == "/lanai" ||
+    url == "/kahoolawe" ||
+    url == "/maui" ||
+    url == "/hawaii" ||
     /\/experiences\/[0-9]{1,}/.test(url);
   if (conditions) {
     // 'category_id'を取得して、その'id'に対応したアイコン画像用のクラスを配列から取得して追加させる。
@@ -35,10 +43,7 @@ $(window).on("load", function () {
     });
   }
   // 詳細ページの5段階評価ごとの'%'を取得して数値に対応したグラフを表示させる。
-  if (
-    /\/experiences\/[0-9]{1,}/.test(url) &&
-    !/\/experiences\/[0-9]{1,}\//.test(url)
-  ) {
+  if (/\/experiences\/[0-9]{1,}/.test(url) && !/\/experiences\/[0-9]{1,}\//.test(url)) {
     const showScoreArray = Array.from($('[id*="score_"]'));
     showScoreArray.reverse().forEach((element, index) => {
       const percent = element.innerText.match(/\d+/)[0];
@@ -47,7 +52,7 @@ $(window).on("load", function () {
   }
 });
 
-$(function ($) {
+$(function () {
   // 'id名'に'change'と入っている要素をホバーしている時だけリンクの表示を変更させる。
   $(document).on("mouseover mouseout", '[class*="change_link"]', function () {
     $(this).toggleClass("link_hover");
