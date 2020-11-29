@@ -5,16 +5,25 @@
     = link_to 'トップページ', root_path, class: 'change_link', style: 'color: blue'
     %span
       &nbsp;>&nbsp;
-    %strong
-      = @category.name
-    %span{id: 'category_id', style: 'display:none'}
-      = @category.id
+    - if @category
+      %strong
+        = @category.name
+      %span{id: 'category_id', style: 'display:none'}
+        = @category.id
+    -else
+      %strong
+        = @island.name
+      %span{id: 'category_id', style: 'display:none'}
+        = @island.id
 .content_main
   .content_main_left
     .content_main_left_header
       %div{id: 'category_icon'}
-      %h1.content_title 
-        = "#{@category.name}スポット"
+      %h1.content_title
+        - if @category
+          = "#{@category.name}スポット"
+        -else
+          = "#{@island.name}スポット"
     .content_main_left_info
       .content_main_left_info_up
         %ul.ul_number

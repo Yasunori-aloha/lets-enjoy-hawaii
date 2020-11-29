@@ -21,7 +21,6 @@ class ExperiencesController < ApplicationController
           genre_id: genre.id
         ).find_each { |exp| @experiences << exp }
       end
-      render 'experiences/category'
     elsif params[:class] == 'island'
       @island = Island.find_by(search: params[:name])
       @experiences = []
@@ -32,5 +31,6 @@ class ExperiencesController < ApplicationController
       end
       # binding.pry
     end
+    render 'experiences/category'
   end
 end
