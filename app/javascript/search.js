@@ -56,4 +56,8 @@ $(function () {
   $('[id^="btn"]').on("mouseover mouseout", function () {
     $(this).toggleClass("btn_hover");
   });
+
+  $('.search_btn').on('click', function(){
+    console.log('test');
+  });
 });

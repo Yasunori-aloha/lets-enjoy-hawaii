@@ -12,6 +12,7 @@ class ExperiencesController < ApplicationController
   end
 
   def edit
+    # binding.pry
     # クリックされたカテゴリーの'name'を基にCategoryモデルを探し、結果に紐づくお店やレジャー施設情報をインスタンスに格納。
     @category = Category.find_by(search: params[:name])
     @experiences = []
