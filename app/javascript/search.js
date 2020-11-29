@@ -58,8 +58,9 @@ $(function () {
   });
 
   $('.search_btn').on('click', function(e){
-    e.preventDefault();
+    // e.preventDefault();
     const address = this.href;
+
     console.log(this.href);
   });
 });
