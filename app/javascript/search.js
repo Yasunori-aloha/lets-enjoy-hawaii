@@ -47,7 +47,7 @@ $(window).on("load", function () {
   }
 });
 
-$(function () {
+$(function ($) {
   // 'id名'に'change'と入っている要素をホバーしている時だけリンクの表示を変更させる。
   $(document).on("mouseover mouseout", '[class*="change_link"]', function () {
     $(this).toggleClass("link_hover");
@@ -57,10 +57,23 @@ $(function () {
     $(this).toggleClass("btn_hover");
   });
 
+  // '目的別検索'か'島名別検索'なのかを判断するためのクラス名をパラメーターに追加するための関数。
   $('.search_btn').on('click', function(e){
-    e.preventDefault();
     const address = this.href;
-    // const searchName = this
-    console.log($(this).attr('class').match(/^.*(?= search_btn)/)[0]);
+    // // '目的別'なのか'島名'での検索なのかを判断する為に付与しているクラス名を取得。
+    const searchName = $(this).attr('class').match(/^.*(?= search_btn)/)[0];
+
+    // CSRF対策のためのキーとトークンを取得する。
+    const csrfParam = $('meta[name=csrf-param]').attr('content');
+    const csrfToken = $('meta[name=csrf-token]').attr('content');
+
+    const formSearch = $(`<form method='post' action='${address}'/>`).appendTo($('body'));
+
+    // 'hidden属性'でクラス名とCSRF対策用トークンをパラメーターに追加する。
+    $(`<input type='hidden' name='class' value='${searchName}'/>`).appendTo(formSearch);
+    $(`<input type='hidden' name='${csrfParam}' value='${csrfToken}'/>`).appendTo(formSearch);
+
+    formSearch.submit();
+    return false
   });
 });
