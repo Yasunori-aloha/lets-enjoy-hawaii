@@ -57,7 +57,9 @@ $(function () {
     $(this).toggleClass("btn_hover");
   });
 
-  $('.search_btn').on('click', function(){
-    console.log('test');
+  $('.search_btn').on('click', function(e){
+    e.preventDefault();
+    const address = this.href;
+    console.log(this.href);
   });
 });
