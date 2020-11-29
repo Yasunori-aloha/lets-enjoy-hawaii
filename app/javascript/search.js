@@ -17,6 +17,14 @@ $(window).on("load", function () {
     url == "/rentacar" ||
     url == "/dinner" ||
     url == "/hotel" ||
+    url == "/niihau" ||
+    url == "/kauai" ||
+    url == "/oahu" ||
+    url == "/molokai" ||
+    url == "/lanai" ||
+    url == "/kahoolawe" ||
+    url == "/maui" ||
+    url == "/hawaii" ||
     /\/experiences\/[0-9]{1,}/.test(url);
   if (conditions) {
     // 'category_id'を取得して、その'id'に対応したアイコン画像用のクラスを配列から取得して追加させる。
@@ -35,10 +43,7 @@ $(window).on("load", function () {
     });
   }
   // 詳細ページの5段階評価ごとの'%'を取得して数値に対応したグラフを表示させる。
-  if (
-    /\/experiences\/[0-9]{1,}/.test(url) &&
-    !/\/experiences\/[0-9]{1,}\//.test(url)
-  ) {
+  if (/\/experiences\/[0-9]{1,}/.test(url) && !/\/experiences\/[0-9]{1,}\//.test(url)) {
     const showScoreArray = Array.from($('[id*="score_"]'));
     showScoreArray.reverse().forEach((element, index) => {
       const percent = element.innerText.match(/\d+/)[0];
@@ -55,5 +60,25 @@ $(function () {
   // 'ボタン'にホバーすると表示色を変更させる。
   $('[id^="btn"]').on("mouseover mouseout", function () {
     $(this).toggleClass("btn_hover");
+  });
+
+  // '目的別検索'か'島名別検索'なのかを判断するためのクラス名をパラメーターに追加するための関数。
+  $('.search_btn').on('click', function(e){
+    const address = this.href;
+    // '目的別'なのか'島名'での検索なのかを判断する為に付与しているクラス名を取得。
+    const searchName = $(this).attr('class').match(/^.*(?= search_btn)/)[0];
+
+    // CSRF対策のためのキーとトークンを取得する。
+    const csrfParam = $('meta[name=csrf-param]').attr('content');
+    const csrfToken = $('meta[name=csrf-token]').attr('content');
+
+    const formSearch = $(`<form method='post' action='${address}'/>`).appendTo($('body'));
+
+    // 'hidden属性'でクラス名とCSRF対策用トークンをパラメーターに追加する。
+    $(`<input type='hidden' name='class' value='${searchName}'/>`).appendTo(formSearch);
+    $(`<input type='hidden' name='${csrfParam}' value='${csrfToken}'/>`).appendTo(formSearch);
+
+    formSearch.submit();
+    return false
   });
 });
