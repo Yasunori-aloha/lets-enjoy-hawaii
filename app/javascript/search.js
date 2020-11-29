@@ -60,7 +60,7 @@ $(function ($) {
   // '目的別検索'か'島名別検索'なのかを判断するためのクラス名をパラメーターに追加するための関数。
   $('.search_btn').on('click', function(e){
     const address = this.href;
-    // // '目的別'なのか'島名'での検索なのかを判断する為に付与しているクラス名を取得。
+    // '目的別'なのか'島名'での検索なのかを判断する為に付与しているクラス名を取得。
     const searchName = $(this).attr('class').match(/^.*(?= search_btn)/)[0];
 
     // CSRF対策のためのキーとトークンを取得する。
