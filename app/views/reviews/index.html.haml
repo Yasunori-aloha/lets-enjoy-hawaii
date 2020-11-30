@@ -49,7 +49,7 @@
           %li.genre_wrapper
             %span.genre
               ジャンル
-            = link_to "#{@experience.genre.category.name}","/#{@experience.genre.category.search}", class: 'link_to change_link'
+            = link_to "#{@experience.genre.category.name}", '/shopping', class: 'category search_btn link_to change_link', method: :post
             = link_to "#{@experience.genre.name}",'#', class: 'link_to change_link'
       .show_info_right
         -# 未ログインユーザーなら'口コミ投稿'等のボタンが表示されない。
