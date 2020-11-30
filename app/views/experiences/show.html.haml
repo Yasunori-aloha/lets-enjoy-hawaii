@@ -66,83 +66,14 @@
             %li{id: 'have_been_place_btn', class: 'have_been_place'}
               = render 'histories/history_btn'
     .show_left_main
-      .show_left_main_tab
-        %ul.experience_tabs
-          %li{class: 'tab active_tab'}
-            %span
-              概要
-          %li.tab_2line
-            %span
-              口コミ
-            %br/
-            -# 表示しているアクティビティに投稿されている口コミの件数を表示させる。
-            %span{class: 'number', data:{name: 'review_count'}}
-              = "(#{@experience.reviews.length}件)"
-            = link_to '', experience_reviews_path(@experience.id), class: 'exp_link'
-          %li.tab_2line
-            %span
-              写真
-            %br/
-            -# 表示しているアクティビティに投稿されている写真の件数を表示させる。
-            %span.number
-              = "(#{@images_count}枚)"
-            = link_to '', "/experiences/#{@experience.id}/photos", class: 'exp_link'
-          %li.tab
-            %span
-              地図
-          %li.tab
-            %span
-              周辺情報
-      .show_left_main_content
-        %h1.experience_name
-          = @experience.name
-        .picture_score
-          -# アクティビティの画像を表示させる。
-          .content_picture
-            -# 画像表示部分
-            = @experience.image
-          .content_score
-            -# アクティビティの5段階評価の各点数ごとの割合を表示させる。
-            %ul.content_score_list
-              %li.list_title
-                評価分布
-              - 5.times do |i|
-                -# 口コミ評価があるなら、
-                - if @scores.count != 0
-                  %li.list_score
-                    %span.evaluation
-                      = @evalutions[4 - i]
-                    %span{id: "score_#{5 - i}", class: 'percent'}
-                      = "#{(@scores[5 - i].to_f / @experience.reviews.length * 100).floor}%"
-                    .percent_graph
-                      %div{id: "graph_score#{5 - i}", class: 'percent_graph_front'}
-                      .percent_graph_back
-                  -# 口コミ評価が0件なら、固定で'0%'を表示させる。
-                - else
-                  %li.list_score
-                    %span.evaluation
-                      = @evalutions[4 - i]
-                    %span{id: "score_#{5 - i}", class: 'percent'}
-                      0%
-                    .percent_graph
-                      %div{id: "graph_score#{5 - i}", class: 'percent_graph_front'}
-                      .percent_graph_back
-        .business_info
-          .business_info_title
-            %span
-              営業時間
-          .business_info_main
-            %span
-              = "平日: #{@experience.business_hours_start} 〜 #{@experience.business_hours_finish}"
-        .business_info2
-          .business_info_title
-            %span
-              所在地
-          .business_info_main
-            %span.business_info_main_postal_code
-              = @experience.address
-            %span.business_info_main_address
-            %span
+      -# コントローラー名とアクション名によって、表示するテンプレートを変更する。
+      - if controller_name == 'experiences'
+        = render partial: 'shared/activity_info', locals: { exp: @experience }
+      - elsif controller_name == 'reviews' && action_name == 'index'
+        = render partial: 'shared/activity_reviews', locals: { exp: @experiences, reviews: @reviews }
+      - elsif controller_name == 'reviews' && action_name == 'edit'
+        = render partial: 'shared/activity_photos', locals: { exp: @experiences, images: @images }
+      -# コントローラー名とアクション名によって、表示するテンプレートを変更する。
   .show_content_right
 .footer
   = render 'shared/leh_footer'

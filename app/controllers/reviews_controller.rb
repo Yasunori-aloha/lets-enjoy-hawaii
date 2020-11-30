@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
       Review.includes(:user).where(experience_id: params[:experience_id]).order(
         'created_at DESC'
       )
+    render 'experiences/show'
   end
 
   def new
@@ -34,7 +35,7 @@ class ReviewsController < ApplicationController
     Review.includes(images_attachments: %i[blob]).where(
       experience_id: params[:experience_id]
     ).to_a.each { |review| review.images.each { |image| @images << image } }
-    render 'reviews/experience_photos'
+    render 'experiences/show'
   end
 
   private

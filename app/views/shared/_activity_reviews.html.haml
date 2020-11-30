@@ -1,0 +1,82 @@
+.show_left_main_tab
+  %ul.experience_tabs
+    %li.tab
+      %span
+        概要
+      = link_to '', experience_path(@experience.id), class: 'exp_link'
+    %li{class: 'tab_2line active_tab'}
+      %span
+        口コミ
+      %br/
+      -# 表示しているアクティビティに投稿されている口コミの件数を表示させる。
+      %span{class: 'number', data:{name: 'review_count'}}
+        = "(#{@experience.reviews.length.to_s(:delimited)}件)"
+    %li.tab_2line
+      %span
+        写真
+      %br/
+      -# 表示しているアクティビティに投稿されている写真の件数を表示させる。
+      %span.number
+        = "(#{@images_count}枚)"
+      = link_to '', "/experiences/#{@experience.id}/photos", class: 'exp_link'
+    %li.tab
+      %span
+        地図
+    %li.tab
+      %span
+        周辺情報
+-# 口コミが投稿されている場合の表示
+- if reviews.exists?
+  .review_index_content
+    .review_index_title_area
+      .review_index_title_icon
+      %h1.review_index_title
+        = "#{exp.name}の口コミ一覧"
+    .review_index_info
+      -# 口コミ全数に対して、何件表示しているかを表示する。
+      .review_number
+        %span.review_number_part
+          = "1 - #{reviews.length}件"
+        %span.review_number_all
+          = "（全#{reviews.length.to_s(:delimited)}件中）"
+      -# 口コミの並び替えを行える。
+      %ul.review_sort
+        %li
+          並び替え
+        %li{id: 'review_sort_2', class: 'sort_link active_sort'}
+          投稿日順
+        %li{id: 'review_sort_1', class: 'sort_link change_link'}
+          評価順
+    %ul.review_list
+      -# 口コミの数だけ口コミ表示処理を繰り返す。
+      - reviews.each_with_index do |review, index|
+        %li.review_index_main_wrapper
+          .review_index_main_area
+            %h2.review_index_title
+              = review.title
+            .review_index_score
+              .star_rating
+                %div{id: "star_rating#{index + 1}", class: 'star_rating_front'}
+                  ★★★★★
+                .star_rating_back
+                  ★★★★★
+              %span{class: 'rating_point exp_score review_sort_material1'}
+                = review.score.to_f
+            .triangle
+              ▲
+            .review_index_comment_area
+              %span.review_index_comment
+                = review.comment
+            .review_index_user_area
+              = user_image_attached?(review.user)
+              .review_index_user_name
+                = "#{review.user.name}さん"
+            %span{class: 'review_sort_material2', style: 'display: none;'}
+              = review.created_at
+  -# 口コミが投稿されていない場合の表示
+- else
+  .not_review_index_content
+    .review_index_title_area
+      .review_index_title_icon
+      %h1.review_index_title
+        = "#{exp.name}の口コミはまだありません"
