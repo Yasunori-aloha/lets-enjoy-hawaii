@@ -5,7 +5,7 @@ $(function () {
   // 表示ページに'並び替えボタン'があれば、初期選択されているボタンの'id'を'activeSortId'
   let activeSortId = null;
   if ($(".active_sort").length) {
-    activeSortId = $(".active_sort")[0].id.match(/\d/)[0];
+    activeSortId = Number($(".active_sort")[0].id.match(/\d/)[0]);
   }
 
   // '★'をクリックした位置から左側の'★'がホバーを外しても表示が変更されたままで、クリックした位置から右側が非選択状態になる。
