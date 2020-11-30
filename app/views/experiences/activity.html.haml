@@ -60,7 +60,7 @@
                 = exp.score
               %span.review_count
                 （
-              = link_to "口コミ#{exp.reviews.count.to_s(:delimited)}件", '#', class: 'review_count review_link'
+              = link_to "口コミ#{exp.reviews.count.to_s(:delimited)}件", experience_reviews_path(exp.id), class: 'change_link review_count review_link'
               %span.review_count
                 ）
             %p.content_main_header_place
@@ -83,16 +83,16 @@
                   = exp.favorites.length
   .content_main_right
     - if user_signed_in? && current_user.favorites.exists?
-      .right_content_area
-        %h2.right_content_area_title
-          最近のお気に入りスポット
-        .right_content
-          = image_tag '', height: '38px', width: '51px', class: 'fav_image'
-          %p{class: 'fav_name change_link'}
-            テスト
-        .content_sub
-          = image_tag '', height: '38px', width: '51px', class: 'fav_image'
-          %p.name_sub
-            テスト
+      -# .right_content_area
+        -# %h2.right_content_area_title
+        -#   最近のお気に入りスポット
+        -# .right_content
+        -#   = image_tag '', height: '38px', width: '51px', class: 'fav_image'
+        -#   %p{class: 'fav_name change_link'}
+        -#     テスト
+        -# .content_sub
+        -#   = image_tag '', height: '38px', width: '51px', class: 'fav_image'
+        -#   %p.name_sub
+        -#     テスト
 .footer
   = render 'shared/leh_footer'
