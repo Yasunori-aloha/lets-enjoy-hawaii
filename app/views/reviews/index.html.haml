@@ -4,7 +4,7 @@
   = link_to 'トップページ', root_path, class: 'change_link', style: 'color: blue'
   %span
     &nbsp;>&nbsp;
-  = link_to "#{@experience.genre.category.name}", '/shopping', class: 'change_link', style: 'color: blue'
+  = link_to "#{@experience.genre.category.name}", '/shopping', class: 'category search_btn link_to change_link', style: 'color: blue', method: :post
   %span
     &nbsp;>&nbsp;
   %strong
