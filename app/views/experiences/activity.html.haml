@@ -60,7 +60,7 @@
                 = exp.score
               %span.review_count
                 （
-              = link_to "口コミ#{exp.reviews.count.to_s(:delimited)}件", '#', class: 'review_count review_link'
+              = link_to "口コミ#{exp.reviews.count.to_s(:delimited)}件", experience_reviews_path(exp.id), class: 'change_link review_count review_link'
               %span.review_count
                 ）
             %p.content_main_header_place
