@@ -49,7 +49,7 @@
         .search_word_header_string
           %b キーワードから探す
       .search_word_main
-        = search_form_for @search, url: experiences_search_path, class: 'form' do |form|
+        = search_form_for @search, url: tops_search_path, class: 'form' do |form|
           .keyword
             = form.label :name_cont, 'キーワード', class: 'main_word', style: 'font-weight: bold;'
             = form.search_field :name_cont, placeholder: 'ホテル名・地名やイベント名など', class: 'text_field'

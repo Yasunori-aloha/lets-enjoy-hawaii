@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
 class ExperiencesController < ApplicationController
-  before_action :search_experiences, only: :search
-
-  def search
-    @experiences = @search.result
-  end
 
   def show
+    binding.pry
     @experience = Experience.find(params[:id])
     # ハッシュ形式で各評価点がいくつあるかを格納する。
     @scores = @experience.reviews.group(:score).count

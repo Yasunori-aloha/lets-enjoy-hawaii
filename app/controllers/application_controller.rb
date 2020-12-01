@@ -4,10 +4,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def search_experiences
-    @search = Experience.ransack(params[:q])
-  end
-
   def redirect_experience(experience_id)
     redirect_to "/experiences/#{experience_id}"
   end

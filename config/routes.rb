@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resource :histories, only: %i[create destroy]
     resource :favorites, only: %i[create destroy]
   end
-  get 'experiences/search'
+  get 'tops/search'
   post '/:name', to: 'experiences#edit'
   get '/experiences/:experience_id/photos', to: 'reviews#edit'
 end
