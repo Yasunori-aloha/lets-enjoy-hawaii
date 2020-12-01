@@ -1,6 +1,7 @@
 "use strict";
 
 $(window).on("load", function () {
+  console.log();
   const categoryIcons = [
     "hotel_icon",
     "lunch_icon",
@@ -10,22 +11,30 @@ $(window).on("load", function () {
     "shopping_icon",
   ];
   const url = location.pathname;
-  const conditions =
-    url == "/shopping" ||
-    url == "/landmark" ||
-    url == "/leisure" ||
-    url == "/rentacar" ||
-    url == "/dinner" ||
-    url == "/hotel" ||
-    url == "/niihau" ||
-    url == "/kauai" ||
-    url == "/oahu" ||
-    url == "/molokai" ||
-    url == "/lanai" ||
-    url == "/kahoolawe" ||
-    url == "/maui" ||
-    url == "/hawaii" ||
-    /\/experiences\/[0-9]{1,}/.test(url);
+  const starRatingTarget = [
+    "/shopping",
+    "/landmark",
+    "/leisure",
+    "/rentacar",
+    "/dinner",
+    "/hotel",
+    "/niihau",
+    "/kauai",
+    "/oahu",
+    "/molokai",
+    "/lanai",
+    "/kahoolawe",
+    "/maui",
+    "/hawaii",
+    "/restaurant",
+    "/card-shop",
+    "/aquarium",
+    "/convenience-store",
+    "/honolulu"
+  ];
+  // URLの中に配列に入っているパスが入っていれば、カテゴリーアイコンと5段階評価の表示を適用する。
+  const conditions = $.inArray(url, starRatingTarget) !== -1 || /\/experiences\/[0-9]{1,}/.test(url)
+  $.inArray(url, starRatingTarget) !== -1 || /\/experiences\/[0-9]{1,}/.test(url);
   if (conditions) {
     // 'category_id'を取得して、その'id'に対応したアイコン画像用のクラスを配列から取得して追加させる。
     const categoryIcon = $("#category_icon");
