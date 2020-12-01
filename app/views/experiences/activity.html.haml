@@ -18,11 +18,12 @@
 .content_main
   .content_main_left
     .content_main_left_header
-      %div{id: 'category_icon'}
-      %h1.content_title
-        - if @category
+      - if @category
+        %div{id: 'category_icon'}
+        %h1.content_title
           = "#{@category.name}スポット"
-        -else
+      -else
+        %h1.content_title
           = "#{@island.name}のスポット"
     .content_main_left_info
       .content_main_left_info_up
