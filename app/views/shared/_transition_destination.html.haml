@@ -18,3 +18,6 @@
     = @genre.name
   %span{id: 'category_id', style: 'display:none'}
     = @genre.id
+- elsif @search_word
+  %strong
+    = "'#{@search_word}' の検索結果"

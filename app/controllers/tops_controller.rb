@@ -7,6 +7,9 @@ class TopsController < ApplicationController
 
   def search
     @experiences = @search.result.includes([:favorites, :genre, :area])
+    # 検索ワード
+    @search_word = params[:q][:name_cont]
+    # binding.pry
     render 'experiences/activity'
   end
 

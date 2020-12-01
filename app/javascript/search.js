@@ -34,14 +34,13 @@ $(window).on("load", function () {
   ];
   // URLの中に配列に入っているパスが入っていれば、カテゴリーアイコンと5段階評価の表示を適用する。
   const conditions = $.inArray(url, starRatingTarget) !== -1 || /\/experiences\/[0-9]{1,}/.test(url)
-  $.inArray(url, starRatingTarget) !== -1 || /\/experiences\/[0-9]{1,}/.test(url);
   if (conditions) {
     // 'category_id'を取得して、その'id'に対応したアイコン画像用のクラスを配列から取得して追加させる。
     const categoryIcon = $("#category_icon");
     const categoryId = $("#category_id")[0].innerText;
     categoryIcon.addClass(`${categoryIcons[categoryId - 1]}`);
   }
-  if (conditions) {
+  if (conditions || /\/search/) {
     // exp_scoreクラスを複数取得して、ノードリストから配列へ変換し、各要素毎に処理をしていく。
     const expScoreArray = Array.from($(".exp_score"));
     expScoreArray.forEach((element, index) => {
