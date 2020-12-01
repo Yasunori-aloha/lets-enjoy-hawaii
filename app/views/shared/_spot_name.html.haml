@@ -1,0 +1,16 @@
+- if @category
+  %div{id: 'category_icon'}
+  %h1.content_title
+    = "#{@category.name}スポット"
+- elsif @island
+  %h1.content_title
+    = "#{@island.name}のスポット"
+- elsif @area
+  %h1.content_title
+    = "#{@area.name}のスポット"
+- elsif @genre
+  %h1.content_title
+    = "#{@genre.name}のスポット"
+- elsif @search_word
+  %h1.content_title
+    = "'#{@search_word}' が含まれるスポット"

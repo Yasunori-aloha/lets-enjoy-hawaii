@@ -1,0 +1,23 @@
+- if @category
+  %strong
+    = @category.name
+  %span{id: 'category_id', style: 'display:none'}
+    = @category.id
+- elsif @island
+  %strong
+    = @island.name
+  %span{id: 'category_id', style: 'display:none'}
+    = @island.id
+- elsif @area
+  %strong
+    = @area.name
+  %span{id: 'category_id', style: 'display:none'}
+    = @area.id
+- elsif @genre
+  %strong
+    = @genre.name
+  %span{id: 'category_id', style: 'display:none'}
+    = @genre.id
+- elsif @search_word
+  %strong
+    = "'#{@search_word}' の検索結果"

@@ -5,42 +5,11 @@
     = link_to 'トップページ', root_path, class: 'change_link', style: 'color: blue'
     %span
       &nbsp;>&nbsp;
-    - if @category
-      %strong
-        = @category.name
-      %span{id: 'category_id', style: 'display:none'}
-        = @category.id
-    - elsif @island
-      %strong
-        = @island.name
-      %span{id: 'category_id', style: 'display:none'}
-        = @island.id
-    - elsif @area
-      %strong
-        = @area.name
-      %span{id: 'category_id', style: 'display:none'}
-        = @area.id
-    - elsif @genre
-      %strong
-        = @genre.name
-      %span{id: 'category_id', style: 'display:none'}
-        = @genre.id
+    = render 'shared/transition_destination'
 .content_main
   .content_main_left
     .content_main_left_header
-      - if @category
-        %div{id: 'category_icon'}
-        %h1.content_title
-          = "#{@category.name}スポット"
-      - elsif @island
-        %h1.content_title
-          = "#{@island.name}のスポット"
-      - elsif @area
-        %h1.content_title
-          = "#{@area.name}のスポット"
-      - elsif @genre
-        %h1.content_title
-          = "#{@genre.name}のスポット"
+      = render 'shared/spot_name'
     .content_main_left_info
       .content_main_left_info_up
         %ul.ul_number
