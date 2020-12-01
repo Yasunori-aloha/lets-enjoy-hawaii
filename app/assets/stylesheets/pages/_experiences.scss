@@ -48,7 +48,7 @@ $colorBlack: #333333;
           display: flex;
           font-size: 12px;
           margin-top: 12px;
-          .area{
+          .area_name{
             font-weight: bold;
             margin-right: 40px;
           }
@@ -59,7 +59,7 @@ $colorBlack: #333333;
         .genre_wrapper{
           @extend .area_wrapper;
           margin-top: 5px;
-          .genre{
+          .genre_name{
             font-weight: bold;
             margin-right: 29px;
           }

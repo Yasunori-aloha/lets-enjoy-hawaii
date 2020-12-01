@@ -4,7 +4,7 @@
   = link_to 'トップページ', root_path, class: 'change_link', style: 'color: blue'
   %span
     &nbsp;>&nbsp;
-  = link_to "#{@experience.genre.category.name}", '/shopping', class: 'category search_btn link_to change_link', style: 'color: blue', method: :post
+  = link_to "#{@experience.genre.category.name}", "/#{@experience.genre.category.search}", class: 'category search_btn link_to change_link', style: 'color: blue', method: :post
   %span
     &nbsp;>&nbsp;
   %strong
@@ -38,15 +38,15 @@
           %li.black
           -# アクティビティのエリア・ジャンルを表示させる。
           %li.area_wrapper
-            %span.area
+            %span.area_name
               エリア
-            = link_to "#{@experience.area.island.name}",'#', class: 'link_to change_link'
-            = link_to "#{@experience.area.name}",'#', class: 'link_to change_link'
+            = link_to "#{@experience.area.island.name}", "/#{@experience.area.island.search}", class: 'island search_btn link_to change_link', method: :post
+            = link_to "#{@experience.area.name}","/#{@experience.area.search}", class: 'area search_btn link_to change_link', method: :post
           %li.genre_wrapper
-            %span.genre
+            %span.genre_name
               ジャンル
-            = link_to "#{@experience.genre.category.name}", '/shopping', class: 'category search_btn link_to change_link', method: :post
-            = link_to "#{@experience.genre.name}",'#', class: 'link_to change_link'
+            = link_to "#{@experience.genre.category.name}", "/#{@experience.genre.category.search}", class: 'category search_btn link_to change_link', method: :post
+            = link_to "#{@experience.genre.name}", "/#{@experience.genre.search}", class: 'genre search_btn link_to change_link', method: :post
       .show_info_right
         -# 未ログインユーザーなら'口コミ投稿'等のボタンが表示されない。
         - if user_signed_in?
@@ -70,9 +70,9 @@
       - if controller_name == 'experiences'
         = render partial: 'shared/activity_info', locals: { exp: @experience }
       - elsif controller_name == 'reviews' && action_name == 'index'
-        = render partial: 'shared/activity_reviews', locals: { exp: @experiences, reviews: @reviews }
+        = render partial: 'shared/activity_reviews', locals: { exp: @experience, reviews: @reviews }
       - elsif controller_name == 'reviews' && action_name == 'edit'
-        = render partial: 'shared/activity_photos', locals: { exp: @experiences, images: @images }
+        = render partial: 'shared/activity_photos', locals: { exp: @experience, images: @images }
       -# コントローラー名とアクション名によって、表示するテンプレートを変更する。
   .show_content_right
 .footer
