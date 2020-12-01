@@ -13,7 +13,6 @@ class TopsController < ApplicationController
     exps_sort(@experiences)
     # 検索ワード
     @search_word = params[:q][:name_cont]
-    # binding.pry
     render 'experiences/activity'
   end
 
