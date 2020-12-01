@@ -43,7 +43,6 @@ class ExperiencesController < ApplicationController
         @experiences << exp
       end
     end
-    # アクティビティを'お気に入り'の多い順に配列を並び替え。
-    @experiences.sort_by! { |exp| exp.favorites.length }.reverse!
+    exps_sort(@experiences)
   end
 end

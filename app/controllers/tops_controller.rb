@@ -6,7 +6,11 @@ class TopsController < ApplicationController
   def index; end
 
   def search
-    @experiences = @search.result.includes([:favorites, :genre, :area])
+    @experiences = []
+    @search.result.includes([:favorites, :genre, :area]).each do |result|
+      @experiences << result
+    end
+    exps_sort(@experiences)
     # 検索ワード
     @search_word = params[:q][:name_cont]
     # binding.pry

@@ -18,4 +18,9 @@ class ApplicationController < ActionController::Base
   def find_exp_id(exp_id)
     @experience = Experience.find(exp_id)
   end
+
+  # アクティビティを'お気に入り'の多い順に配列を並び替え。
+  def exps_sort(exps)
+    exps.sort_by! { |exp| exp.favorites.length }.reverse!
+  end
 end
