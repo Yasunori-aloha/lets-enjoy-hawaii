@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 class ExperiencesController < ApplicationController
-  def search; end
+  before_action :search_experiences, only: :search
+
+  def search
+    @experiences = @search.result
+  end
 
   def show
     @experience = Experience.find(params[:id])
