@@ -38,15 +38,15 @@
           %li.black
           -# アクティビティのエリア・ジャンルを表示させる。
           %li.area_wrapper
-            %span.area
+            %span.area_name
               エリア
             = link_to "#{@experience.area.island.name}", "/#{@experience.area.island.search}", class: 'island search_btn link_to change_link', method: :post
-            = link_to "#{@experience.area.name}","/#{@experience.area.search}", class: 'area serch_btn link_to change_link', method: :post
+            = link_to "#{@experience.area.name}","/#{@experience.area.search}", class: 'area search_btn link_to change_link', method: :post
           %li.genre_wrapper
-            %span.genre
+            %span.genre_name
               ジャンル
             = link_to "#{@experience.genre.category.name}", "/#{@experience.genre.category.search}", class: 'category search_btn link_to change_link', method: :post
-            = link_to "#{@experience.genre.name}", "/#{@experience.genre.search}", class: 'link_to change_link', method: :post
+            = link_to "#{@experience.genre.name}", "/#{@experience.genre.search}", class: 'genre search_btn link_to change_link', method: :post
       .show_info_right
         -# 未ログインユーザーなら'口コミ投稿'等のボタンが表示されない。
         - if user_signed_in?
