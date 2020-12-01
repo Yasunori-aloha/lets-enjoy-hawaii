@@ -21,7 +21,6 @@ class ExperiencesController < ApplicationController
   private
 
   def find_experience_params_class(params)
-    binding.pry
     case params[:class]
     when 'category'
       @category = Category.find_by(search: params[:name])
@@ -35,15 +34,16 @@ class ExperiencesController < ApplicationController
       end
     when 'genre'
       @genre = Genre.find_by(search: params[:name])
-      @experiences = @genre.experiences
+      @genre.experiences.includes([:favorites, :area]).each do |exp|
+        @experiences << exp
+      end
     when 'area'
       @area = Area.find_by(search: params[:name])
-      @experiences = @area.experiences
+      @area.experiences.includes([:favorites, :genre]).each do |exp|
+        @experiences << exp
+      end
     end
     # アクティビティを'お気に入り'の多い順に配列を並び替え。
     @experiences.sort_by! { |exp| exp.favorites.length }.reverse!
-  end
-  Area.find_by(search: params[:name]).find_each do |area|
-    Experience.includes([:favorites, :genre, :area]).where(area_id: area.id).find_each { |exp| @experiences << exp}
   end
 end
