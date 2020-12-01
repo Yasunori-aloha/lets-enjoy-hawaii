@@ -6,8 +6,8 @@ class TopsController < ApplicationController
   def index; end
 
   def search
-    @experiences = @search.result
-    binding.pry
+    @experiences = @search.result.includes([:favorites, :genre, :area])
+    render 'experiences/activity'
   end
 
   private
