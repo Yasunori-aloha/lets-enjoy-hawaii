@@ -3,7 +3,7 @@
 class FavoritesController < ApplicationController
 
   def index
-    binding.pry
+    user_is_current_user?(params)
   end
 
   def create

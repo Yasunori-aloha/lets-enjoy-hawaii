@@ -1,5 +1,5 @@
+-# アクティビティの概要表示ページ
 - if controller_name == 'experiences'
-  -# アクティビティの概要表示ページ
   .show_left_main_tab
     %ul.experience_tabs
       %li{class: 'tab active_tab'}
@@ -77,8 +77,8 @@
           = exp.address
         %span.business_info_main_address
         %span
-- elsif controller_name == 'reviews' && action_name == 'edit'
-  -# アクティビティの口コミ一覧表示ページ
+-# アクティビティの口コミ一覧表示ページ
+- if controller_name == 'reviews' && action_name == 'edit'
   .show_left_main_tab
     %ul.experience_tabs
       %li.tab
@@ -126,8 +126,8 @@
           = image_tag image, height: '171px', width: '228px', class: 'experience_photo_area_right'
         - else
           = image_tag image, height: '171px', width: '228px', class: 'experience_photo_area'
-- elsif controller_name == 'reviews' && action_name == 'index'
-  -# アクティビティの写真一覧表示ページ
+-# アクティビティの写真一覧表示ページ
+- if controller_name == 'reviews' && action_name == 'index'
   .show_left_main_tab
     %ul.experience_tabs
       %li.tab

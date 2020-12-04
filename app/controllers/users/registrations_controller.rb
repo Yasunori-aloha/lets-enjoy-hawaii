@@ -26,8 +26,7 @@ module Users
 
     # GET /resource/edit
     def edit
-      @user = User.find(current_user.id)
-      render 'users/show'
+      user_is_current_user?(params)
     end
 
     # PUT /resource

@@ -5,10 +5,6 @@ class UsersController < ApplicationController
 
   def show
     # 自分のじゃないマイページに遷移しようとしていたらトップページへリダイレクトする。
-    if current_user.id == params[:id].to_i
-      @user = User.find(params[:id])
-    else
-      redirect_to root_path
-    end
+    user_is_current_user?(params)
   end
 end
