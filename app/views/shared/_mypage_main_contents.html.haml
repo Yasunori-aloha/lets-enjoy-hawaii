@@ -1,0 +1,41 @@
+-# マイページトップ
+- if controller_name == 'users' && action_name == 'show'
+  .mypage_contents_main_right
+    .mypage_user_info_head
+      .mypage_user_image
+        = user_image_attached?(user)
+      .mypage_user_name_area
+        .mypage_user_name1
+          = user.name
+        .mypage_user_name2
+          さんのマイページ
+    .mypage_user_info_main
+      .mypage_user_introduction
+        - if user.introduce.nil?
+          まだ自己紹介はありません。
+        - else
+          = user.introduce
+-# 会員情報変更ページ
+- elsif controller_name == 'registrations' && action_name == 'edit'
+  .mypage_contents_main_right
+    .user_edit_main
+      .menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
+        = link_to 'マイページトップ', "/users/#{current_user.id}"
+        &nbsp;>&nbsp;
+        %strong 会員情報の確認・変更
+      = form_with model: user, url: user_registration_path, local: true, class: 'edit_user' do |f|
+        .field
+          = f.label :name, 'お名前'
+          = f.text_field :name, placeholder: '氏名（例：畑中三郎）', autocomplete: 'name', class: 'edit_user_form'
+        .field
+          = f.label :email, 'メールアドレス'
+          = f.email_field :email, autocomplete: "email", autocorrect: 'off', autocapitalize: 'off', class: 'edit_user_form'
+        .field
+          = f.label :introduce, '自己紹介文', class: 'text_top'
+          = f.text_area :introduce, size: '64x8', class: 'edit_user_form'
+        .image_field
+          = f.label :image, 'アイコン画像', class: 'text_top'
+          = f.label :image do
+            = user_image_attached?(user)
+          = f.file_field :image, class: 'hidden'
+        = f.submit "更新する", class: 'button_cv update_button'
