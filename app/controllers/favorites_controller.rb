@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class FavoritesController < ApplicationController
+
+  def index
+    binding.pry
+  end
+
   def create
     find_exp_id(params[:experience_id])
     # 『お気に入り』ボタンをクリックしたログインユーザーの'id'とボタンが設置されていた'experience'の'id'を引数にインスタンスを生成する。

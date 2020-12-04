@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
   resources :experiences, only: %i[show], shallow: true do
     resources :reviews, only: %i[index new create]
+    # 'resources'の方だと、destroy時に'experience_id'で検索できる。
     resource :histories, only: %i[create destroy]
     resource :favorites, only: %i[create destroy]
   end
