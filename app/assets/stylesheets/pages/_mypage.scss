@@ -58,6 +58,9 @@ $userNameHeight: calc(100% / 4 * 3);
                 color: #fff;
                 font-size: 14px;
               }
+              .mypage_user_side_text:hover{
+                opacity: 0.7;
+              }
             }
           }
         }
@@ -116,6 +119,7 @@ $userNameHeight: calc(100% / 4 * 3);
           #link_main{
             font-size: 12px;
             border-bottom: 1px dotted black;
+            width: 100%;
           }
           .edit_user{
             padding-top: 17px;
