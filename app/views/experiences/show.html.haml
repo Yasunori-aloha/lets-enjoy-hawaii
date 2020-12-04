@@ -67,12 +67,7 @@
               = render 'histories/history_btn'
     .show_left_main
       -# コントローラー名とアクション名によって、表示するテンプレートを変更する。
-      - if controller_name == 'experiences'
-        = render partial: 'shared/activity_info', locals: { exp: @experience }
-      - elsif controller_name == 'reviews' && action_name == 'index'
-        = render partial: 'shared/activity_reviews', locals: { exp: @experience, reviews: @reviews }
-      - elsif controller_name == 'reviews' && action_name == 'edit'
-        = render partial: 'shared/activity_photos', locals: { exp: @experience, images: @images }
+      = render partial: 'shared/activity_contents', locals: { exp: @experience, reviews: @reviews, images: @images }
       -# コントローラー名とアクション名によって、表示するテンプレートを変更する。
   .show_content_right
 .footer
