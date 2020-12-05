@@ -169,6 +169,7 @@ $userNameHeight: calc(100% / 4 * 3);
         // ユーザーのお気に入り一覧ページ
         .user_favorites_main{
           @extend .user_edit_main;
+          width: 742px;
           .favorites_activity_show_area{
             // min-height: 100vh;
             padding-top: 17px;
@@ -231,15 +232,11 @@ $userNameHeight: calc(100% / 4 * 3);
                   font-size: 11px;
                   margin: 1px 0 0 1px;
                 }
-                .test1{
-                  font-size: 11px;
-                  margin-top: 10px;
-                  margin-bottom: 0px;
-                }
-                .test2{
-                  margin-top: 0px;
-                  margin-left: 2px;
-                  margin-bottom: 0px;
+                .favorites_number{
+                  font-size: 20px;
+                  .star_icon{
+                    color: #ffa500;
+                  }
                 }
                 .activity_comment_info{
                   font-size: 10px;

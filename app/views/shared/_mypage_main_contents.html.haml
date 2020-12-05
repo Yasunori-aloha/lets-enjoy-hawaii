@@ -68,10 +68,9 @@
                 = link_to "#{fav.experience.name}", experience_path(fav.experience.id), class: 'activity_name change_link'
                 %p.activity_place
                   = "#{fav.experience.area.island.name} > #{fav.experience.area.name}"
-                %p.test1
-                  最安料金(税抜)（目安）
-                %p.test2
-                  ￥2,500(税抜)～
+                %span.favorites_number
+                  = icon('fas', 'star', class: 'star_icon')
+                  = fav.experience.favorites.length
                 -# コメント入力欄
                 = form_with model: fav, url: user_favorite_path(user_id: current_user.id, id: fav.id), local: true do |f|
                   = f.label :comment, 'コメント ※個人情報は入力しないでください', class: 'activity_comment_info'
