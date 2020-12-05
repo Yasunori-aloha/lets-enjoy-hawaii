@@ -17,4 +17,9 @@ class FavoritesController < ApplicationController
     find_exp_id(params[:experience_id])
     current_user.favorites.find_by(experience_id: params[:experience_id]).destroy
   end
+
+  def update
+    Favorite.find(params[:id]).update( comment: params[:favorite][:comment])
+    redirect_to action: :index
+  end
 end
