@@ -60,13 +60,25 @@ $(function () {
     }
   });
 
-  // お気に入りアクティビティ一覧の右端以外に、'margin-right'を付与する。
   if ($('.favorites_activity_wrapper').length) {
+    // お気に入りアクティビティ一覧の右端以外に、'margin-right'を付与する。
     $('.favorites_activity_wrapper').each( function (index, element) {
       // 'id'の数値が3の倍数以外なら、付与する。
       if ((Number(element.id.match(/\d/)[0]) % 3) !== 0) {
         $(this).addClass('favorites_right_margin');
       }
     });
+    // コンテンツエリアの'height'が背景エリアの'height'を超えた場合は、'height'を上書きする。
+    const myPageContentsHeadHeight = Number($('.mypage_contents_head').css('height').match(/\d{1,}/)[0]);
+    const myPageContentsMainHeight = Number($('.mypage_contents_main').css('height').match(/\d{1,}/)[0]);
+    // 28pxは余白分
+    const myPageContentsHeiht = myPageContentsHeadHeight + myPageContentsMainHeight + 28;
+    const newMyPageContentsMainHeiht = myPageContentsMainHeight + 28;
+    console.log(myPageContentsHeiht);
+
+    $('.mypage_wrapper').css('height', `${myPageContentsHeiht}px`);
+    $('.mypage_main').css('height', `${myPageContentsHeiht}px`);
+    $('.mypage_contents_main_left').css('height', `${newMyPageContentsMainHeiht}px`);
+    // console.log();
   }
 });
