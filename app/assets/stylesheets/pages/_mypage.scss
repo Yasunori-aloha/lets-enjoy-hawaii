@@ -157,10 +157,31 @@ $userNameHeight: calc(100% / 4 * 3);
             background-color: #90b200;
           }
         }
+        // ユーザーのお気に入り一覧ページ
         .user_favorites_main{
           @extend .user_edit_main;
-          .favorites_activity{
-            min-height: 100vh;
+          .favorites_activity_show_area{
+            // min-height: 100vh;
+            padding-top: 17px;
+            // ↓削除予定
+            position: relative;
+            .favorites_activity_wrapper{
+              height: 485px;
+              width: 242px;
+              border: 1px solid #808080;
+              // ↓削除予定
+              position: absolute;
+              left: -25px;
+              background-color: #000000;
+              // ↓削除予定
+              .test{
+                height: 36px;
+              }
+              .activity_picture{
+                height: 181px;
+                background-color: #fff;
+              }
+            }
           }
         }
       }
