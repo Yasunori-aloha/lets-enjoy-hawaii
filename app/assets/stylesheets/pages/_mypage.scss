@@ -174,8 +174,11 @@ $userNameHeight: calc(100% / 4 * 3);
               position: absolute;
               left: -25px;
               // ↓削除予定
-              .test{
+              .favorite_time{
                 height: 36px;
+                font-size: 11px;
+                // ↓削除予定
+                padding: 0px 7px;
               }
               .activity_picture{
                 height: 181px;
