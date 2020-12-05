@@ -3,6 +3,15 @@ $userNameHeight: calc(100% / 4 * 3);
   border-radius: 10px;
   border: 1px solid gray;
 }
+@mixin btn_link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
 .mypage_wrapper{
   background-image: url('mypage_image.jpg');
   background-repeat: no-repeat;
@@ -187,12 +196,16 @@ $userNameHeight: calc(100% / 4 * 3);
                   height: 20px;
                   margin: auto 0px;
                   padding: 0 7px;
+                  position: relative;
                   .release_mark{
                     margin: 3px 5px 0 0;
                     color: #808080;
                   }
                   .release_message{
                     font-weight: bold;
+                  }
+                  .favorite_release{
+                    @include btn_link();
                   }
                 }
               }
@@ -261,13 +274,7 @@ $userNameHeight: calc(100% / 4 * 3);
                     font-weight: bold;
                   }
                   .save_submit{
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    height: 100%;
-                    width: 100%;
-                    opacity: 0;
-                    cursor: pointer;
+                    @include btn_link();
                   }
                 }
               }

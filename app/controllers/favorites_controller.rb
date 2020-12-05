@@ -8,6 +8,7 @@ class FavoritesController < ApplicationController
   end
 
   def create
+    # 非同期処理で表示させるJSファイルの判定でアクティビティ情報が必要。
     find_exp_id(params[:experience_id])
     # 『お気に入り』ボタンをクリックしたログインユーザーの'id'とボタンが設置されていた'experience'の'id'を引数にインスタンスを生成する。
     current_user.favorites.create(experience_id: params[:experience_id])

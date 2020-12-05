@@ -61,6 +61,7 @@
                   = icon('fas', 'times', class: 'release_mark')
                   %span.release_message
                     登録解除
+                  = link_to '', experience_favorites_path(experience_id: fav.experience.id), method: :delete, class: 'favorite_release', remote: true
               .activity_picture
               .activity_info_wrapper
                 = link_to "#{fav.experience.name}", '#', class: 'activity_name change_link'
