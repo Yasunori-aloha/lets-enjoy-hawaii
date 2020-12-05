@@ -25,9 +25,9 @@ module Users
     end
 
     # GET /resource/edit
-    # def edit
-    #   super
-    # end
+    def edit
+      find_user_show
+    end
 
     # PUT /resource
     # def update

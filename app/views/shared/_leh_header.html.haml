@@ -16,6 +16,6 @@
                 = link_to '会員登録', new_user_registration_path, rel: 'nofollow', class: 'sl_name change_link'
             - else
               %li
-                = link_to "#{current_user.name}さんのマイページ", "/users/#{current_user.id}", rel: 'nofollow', class: 'sl_name change_link'
+                = link_to "#{current_user.name}さんのマイページ", user_path(current_user.id), rel: 'nofollow', class: 'sl_name change_link'
               %li
                 = link_to 'ログアウト', destroy_user_session_path, method: :delete, rel: 'nofollow', class: 'sl_name change_link'

@@ -8,9 +8,12 @@ Rails.application.routes.draw do
                registrations: 'users/registrations',
                sessions: 'users/sessions'
              }
-  resources :users, only: %i[show]
+  resources :users, only: %i[show] do
+    resources :favorites, only: %i[index update]
+  end
   resources :experiences, only: %i[show], shallow: true do
     resources :reviews, only: %i[index new create]
+    # 'resources'の方だと、destroy時に'experience_id'で検索できる。
     resource :histories, only: %i[create destroy]
     resource :favorites, only: %i[create destroy]
   end

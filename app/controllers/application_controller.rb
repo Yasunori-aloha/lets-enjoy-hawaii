@@ -4,6 +4,23 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def user_is_current_user?(params)
+    # paramsが'id'か'user_id'かで分岐させる。
+    if controller_name == 'users'
+      if current_user.id == params[:id].to_i
+        find_user_show
+      else
+        redirect_to
+      end
+    else
+      if current_user.id == params[:user_id].to_i
+        find_user_show
+      else
+        redirect_to
+      end
+    end
+  end
+
   def redirect_experience(experience_id)
     redirect_to "/experiences/#{experience_id}"
   end
@@ -22,5 +39,10 @@ class ApplicationController < ActionController::Base
   # アクティビティを'お気に入り'の多い順に配列を並び替え。
   def exps_sort(exps)
     exps.sort_by! { |exp| exp.favorites.length }.reverse!
+  end
+
+  def find_user_show
+    @user = User.find(current_user.id)
+    render 'users/show'
   end
 end
