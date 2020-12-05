@@ -70,10 +70,12 @@
                   最安料金(税抜)（目安）
                 %p.test2
                   ￥2,500(税抜)～
-                %p.activity_comment_info
-                  コメント ※個人情報は入力しないでください
-                .test3
-                .save_btn
-                  = icon('fas', 'check', class: 'check_mark')
-                  %span.save_message
-                    保存する
+                -# コメント入力欄
+                = form_with model: fav, url: user_favorite_path(user_id: current_user.id, id: fav.id), local: true do |f|
+                  = f.label :comment, 'コメント ※個人情報は入力しないでください', class: 'activity_comment_info'
+                  = f.text_area :comment, maxlength: 30, placeholder: "ここにコメントをかくと便利です。（全角30文\n字以内・改行は受け付けません）",class: 'activity_comment'
+                  .save_btn
+                    = icon('fas', 'check', class: 'check_mark')
+                    %span.save_message
+                      保存する
+                    = f.submit '', class: 'save_submit'
