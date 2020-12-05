@@ -59,4 +59,14 @@ $(function () {
       }, 500);
     }
   });
+
+  // お気に入りアクティビティ一覧の右端以外に、'margin-right'を付与する。
+  if ($('.favorites_activity_wrapper').length) {
+    $('.favorites_activity_wrapper').each( function (index, element) {
+      // 'id'の数値が3の倍数以外なら、付与する。
+      if ((Number(element.id.match(/\d/)[0]) % 3) !== 0) {
+        $(this).addClass('favorites_right_margin');
+      }
+    });
+  }
 });

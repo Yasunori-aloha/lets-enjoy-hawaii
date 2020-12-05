@@ -169,113 +169,122 @@ $userNameHeight: calc(100% / 4 * 3);
         // ユーザーのお気に入り一覧ページ
         .user_favorites_main{
           @extend .user_edit_main;
-          width: 742px;
+          width: 776px;
           .favorites_activity_show_area{
             // min-height: 100vh;
             padding-top: 17px;
-            .favorites_activity_wrapper{
-              width: 242px;
-              border: 1px solid #808080;
-              border-radius: 5px;
-              word-spacing: 0px;
-              // ↓削除予定
-              background-color: #fff;
-              .favorite_info{
-                height: 36px;
-                padding: 0px 7px;
-                display: flex;
-                justify-content: space-between;
-                .favorite_time{
-                  font-size: 11px;
-                }
-                .favorite_release_btn{
-                  @include backgroundGradient();
-                  border: 1px solid #808080;
-                  border-radius: 3px;
-                  display: flex;
-                  font-size: 11px;
-                  height: 20px;
-                  margin: auto 0px;
-                  padding: 0 7px;
-                  position: relative;
-                  .release_mark{
-                    margin: 3px 5px 0 0;
-                    color: #808080;
-                  }
-                  .release_message{
-                    font-weight: bold;
-                  }
-                  .favorite_release{
-                    @include btn_link();
-                  }
-                }
+            .favorites_list{
+              display: flex;
+              width: 742px;
+              flex-wrap: wrap;
+              .favorites_right_margin{
+                margin-right: 8px;
               }
-              .activity_picture{
-                height: 181px;
-                position: relative;
+              .favorites_activity_wrapper{
+                width: 242px;
+                border: 1px solid #808080;
+                border-radius: 5px;
+                margin-bottom: 17px;
+                word-spacing: 0px;
                 // ↓削除予定
-                background-color: #000000;
-                &_link{
-                  @include btn_link();
-                }
-              }
-              .activity_info_wrapper{
-                padding: 5px 7px 6px;
-                .activity_name{
-                  font-size: 14px;
-                  font-weight: bold;
-                  color: #0088de;
-                  margin: 0;
-                  text-decoration: underline;
-                }
-                .activity_place{
-                  font-size: 11px;
-                  margin: 1px 0 0 1px;
-                }
-                .favorites_number{
-                  font-size: 20px;
-                  .star_icon{
-                    color: #ffa500;
+                background-color: #fff;
+                .favorite_info{
+                  height: 36px;
+                  padding: 0px 7px;
+                  display: flex;
+                  justify-content: space-between;
+                  .favorite_time{
+                    font-size: 11px;
+                  }
+                  .favorite_release_btn{
+                    @include backgroundGradient();
+                    border: 1px solid #808080;
+                    border-radius: 3px;
+                    display: flex;
+                    font-size: 11px;
+                    height: 20px;
+                    margin: auto 0px;
+                    padding: 0 7px;
+                    position: relative;
+                    .release_mark{
+                      margin: 3px 5px 0 0;
+                      color: #808080;
+                    }
+                    .release_message{
+                      font-weight: bold;
+                    }
+                    .favorite_release{
+                      @include btn_link();
+                    }
                   }
                 }
-                .activity_comment_info{
-                  font-size: 10px;
-                  margin: 0px;
-                  font-weight: bold;
-                  color: #808080;
-                }
-                .activity_comment{
-                  height: 35px;
-                  margin: 0;
-                  width: 100%;
-                  border: 1px solid #808080;
-                  font-size: 12px;
-                  resize: none;
-                }
-                ::placeholder{
-                  padding: 2px;
-                  font-size: 10px;
-                  line-height: -20px;
-                }
-                .save_btn{
-                  @include backgroundGradient();
-                  display: flex;
-                  height: 18px;
-                  width: 73px;
-                  margin: 6px 0px 0px auto;
-                  border: 1px solid #808080;
-                  border-radius: 3px;
-                  font-size: 11px;
+                .activity_picture{
+                  height: 181px;
                   position: relative;
-                  .check_mark{
-                    margin: 2px 3px 0px 6px;
+                  // ↓削除予定
+                  background-color: #000000;
+                  &_link{
+                    @include btn_link();
+                  }
+                }
+                .activity_info_wrapper{
+                  padding: 5px 7px 6px;
+                  .activity_name{
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #0088de;
+                    margin: 0;
+                    text-decoration: underline;
+                  }
+                  .activity_place{
+                    font-size: 11px;
+                    margin: 1px 0 0 1px;
+                  }
+                  .favorites_number{
+                    font-size: 20px;
+                    .star_icon{
+                      color: #ffa500;
+                    }
+                  }
+                  .activity_comment_info{
+                    font-size: 10px;
+                    margin: 0px;
+                    font-weight: bold;
                     color: #808080;
                   }
-                  .save_message{
-                    font-weight: bold;
+                  .activity_comment{
+                    height: 35px;
+                    margin: 0;
+                    width: 100%;
+                    border: 1px solid #808080;
+                    font-size: 12px;
+                    resize: none;
                   }
-                  .save_submit{
-                    @include btn_link();
+                  ::placeholder{
+                    padding: 2px;
+                    font-size: 10px;
+                    line-height: -20px;
+                  }
+                  .save_btn{
+                    @include backgroundGradient();
+                    display: flex;
+                    height: 18px;
+                    width: 73px;
+                    margin: 0px 0px 0px auto;
+                    border: 1px solid #808080;
+                    border-radius: 3px;
+                    font-size: 11px;
+                    position: relative;
+                    .check_mark{
+                      margin: 2px 3px 0px 6px;
+                      color: #808080;
+                    }
+                    .save_message{
+                      font-weight: bold;
+                    }
+                    .save_submit{
+                      @include btn_link();
+                    }
                   }
                 }
               }
