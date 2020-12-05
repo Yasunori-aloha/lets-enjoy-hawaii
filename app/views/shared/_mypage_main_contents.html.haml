@@ -49,11 +49,16 @@
         %strong お気に入りした場所
       .favorites_activity_show_area
         .favorites_activity_wrapper
-          %ul.favorite_time
-            %li
-              登録日：
-            %li.favorited_at
-              = '2020/12/02'
+          .favorite_info
+            %ul.favorite_time
+              %li
+                登録日：
+              %li.favorited_at
+                = '2020/12/02'
+            .favorite_release_btn
+              = icon('fas', 'times', class: 'release_mark')
+              %span.release_message
+                登録解除
           .activity_picture
           .activity_info_wrapper
             = link_to 'プラザホテル舞鶴', '#', class: 'activity_name change_link'
