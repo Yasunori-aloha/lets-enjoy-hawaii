@@ -131,6 +131,7 @@ $userNameHeight: calc(100% / 4 * 3);
                 vertical-align: top;
               }
               .edit_user_form{
+                resize: none;
                 width: calc(100% - 120px);
                 border: 1px solid gray;
                 border-radius: 6px;
