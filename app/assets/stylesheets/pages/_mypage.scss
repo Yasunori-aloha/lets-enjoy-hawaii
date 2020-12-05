@@ -156,6 +156,12 @@ $userNameHeight: calc(100% / 4 * 3);
             background-color: #90b200;
           }
         }
+        .user_favorites_main{
+          @extend .user_edit_main;
+          .favorites_activity{
+            min-height: 100vh;
+          }
+        }
       }
     }
   }

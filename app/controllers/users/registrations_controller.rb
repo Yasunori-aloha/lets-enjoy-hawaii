@@ -26,7 +26,7 @@ module Users
 
     # GET /resource/edit
     def edit
-      user_is_current_user?(params)
+      find_user_show
     end
 
     # PUT /resource

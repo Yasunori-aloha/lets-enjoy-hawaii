@@ -14,7 +14,7 @@
         .mypage_user_setting_wrapper
           %ul.mypage_user_side_list
             %li.mypage_user_side
-              = link_to '会員情報の確認・変更', edit_user_registration_path(user_id: @user.id) , class: 'mypage_user_side_text'
+              = link_to '会員情報の確認・変更', edit_user_registration_path , class: 'mypage_user_side_text'
             %li.mypage_user_side
               = link_to 'お気に入りした場所', user_favorites_path(current_user.id), class: 'mypage_user_side_text'
             %li.mypage_user_side

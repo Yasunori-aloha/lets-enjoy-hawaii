@@ -41,4 +41,10 @@
         = f.submit "更新する", class: 'button_cv update_button'
 -# ユーザーのお気に入り登録済みアクティビティ一覧表示ページ
 - if controller_name == 'favorites' && action_name == 'index'
-  お気に入り一覧
+  .mypage_contents_main_right
+    .user_favorites_main
+      %div.menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
+        = link_to 'マイページトップ', "/users/#{current_user.id}"
+        &nbsp;>&nbsp;
+        %strong お気に入りした場所
+      .favorites_activity
