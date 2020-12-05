@@ -22,6 +22,6 @@
             %li.mypage_user_side
               = link_to '行った場所', '#', class: 'mypage_user_side_text'
       -# マイページのメイン部分の表示をコントローラーとアクションによって変える。
-      = render partial: 'shared/mypage_main_contents', locals: { user: @user }
+      = render partial: 'shared/mypage_main_contents', locals: { user: @user, favorites: @favorites }
       -# マイページのメイン部分の表示をコントローラーとアクションによって変える。
 = render 'shared/leh_footer'

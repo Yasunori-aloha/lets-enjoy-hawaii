@@ -3,6 +3,7 @@
 class FavoritesController < ApplicationController
 
   def index
+    @favorites = Favorite.includes([experience: :area]).where(user_id: current_user.id).order('created_at DESC')
     user_is_current_user?(params)
   end
 

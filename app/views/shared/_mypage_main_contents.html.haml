@@ -48,30 +48,32 @@
         &nbsp;>&nbsp;
         %strong お気に入りした場所
       .favorites_activity_show_area
-        .favorites_activity_wrapper
-          .favorite_info
-            %ul.favorite_time
-              %li
-                登録日：
-              %li.favorited_at
-                = '2020/12/02'
-            .favorite_release_btn
-              = icon('fas', 'times', class: 'release_mark')
-              %span.release_message
-                登録解除
-          .activity_picture
-          .activity_info_wrapper
-            = link_to 'プラザホテル舞鶴', '#', class: 'activity_name change_link'
-            %p.activity_place
-              京都府 > 舞鶴
-            %p.test1
-              最安料金(税抜)（目安）
-            %p.test2
-              ￥2,500(税抜)～
-            %p.activity_comment_info
-              コメント ※個人情報は入力しないでください
-            .test3
-            .save_btn
-              = icon('fas', 'check', class: 'check_mark')
-              %span.save_message
-                保存する
+        %ul.favorites_list
+          - favorites.each do |fav|
+            %li.favorites_activity_wrapper
+              .favorite_info
+                %ul.favorite_time
+                  %li
+                    登録日：
+                  %li.favorited_at
+                    = "#{l fav.created_at, format: :day}"
+                .favorite_release_btn
+                  = icon('fas', 'times', class: 'release_mark')
+                  %span.release_message
+                    登録解除
+              .activity_picture
+              .activity_info_wrapper
+                = link_to "#{fav.experience.name}", '#', class: 'activity_name change_link'
+                %p.activity_place
+                  = "#{fav.experience.area.island.name} > #{fav.experience.area.name}"
+                %p.test1
+                  最安料金(税抜)（目安）
+                %p.test2
+                  ￥2,500(税抜)～
+                %p.activity_comment_info
+                  コメント ※個人情報は入力しないでください
+                .test3
+                .save_btn
+                  = icon('fas', 'check', class: 'check_mark')
+                  %span.save_message
+                    保存する

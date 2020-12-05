@@ -163,8 +163,6 @@ $userNameHeight: calc(100% / 4 * 3);
           .favorites_activity_show_area{
             // min-height: 100vh;
             padding-top: 17px;
-            // ↓削除予定
-            position: relative;
             .favorites_activity_wrapper{
               width: 242px;
               border: 1px solid #808080;
@@ -172,9 +170,6 @@ $userNameHeight: calc(100% / 4 * 3);
               word-spacing: 0px;
               // ↓削除予定
               background-color: #fff;
-              position: absolute;
-              left: -25px;
-              // ↓削除予定
               .favorite_info{
                 height: 36px;
                 padding: 0px 7px;
