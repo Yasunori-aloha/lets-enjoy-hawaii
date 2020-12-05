@@ -170,16 +170,26 @@ $userNameHeight: calc(100% / 4 * 3);
               width: 242px;
               border: 1px solid #808080;
               // ↓削除予定
+              background-color: #fff;
               position: absolute;
               left: -25px;
-              background-color: #000000;
+              // background-color: #000000;
               // ↓削除予定
               .test{
                 height: 36px;
               }
               .activity_picture{
                 height: 181px;
-                background-color: #fff;
+              }
+              .activity_name{
+                display: inline-block;
+                font-size: 14px;
+                font-weight: bold;
+                color: #0088de;
+                margin-top: 5px;
+                margin-left: 5px;
+                text-decoration: underline;
+                word-spacing: 0px;
               }
             }
           }
