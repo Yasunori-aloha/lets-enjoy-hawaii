@@ -211,8 +211,12 @@ $userNameHeight: calc(100% / 4 * 3);
               }
               .activity_picture{
                 height: 181px;
+                position: relative;
                 // ↓削除予定
                 background-color: #000000;
+                &_link{
+                  @include btn_link();
+                }
               }
               .activity_info_wrapper{
                 padding: 5px 7px 6px;

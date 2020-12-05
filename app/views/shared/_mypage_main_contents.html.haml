@@ -63,8 +63,9 @@
                     登録解除
                   = link_to '', experience_favorites_path(experience_id: fav.experience.id), method: :delete, class: 'favorite_release', remote: true
               .activity_picture
+                = link_to "", experience_path(fav.experience.id), class: 'activity_picture_link'
               .activity_info_wrapper
-                = link_to "#{fav.experience.name}", '#', class: 'activity_name change_link'
+                = link_to "#{fav.experience.name}", experience_path(fav.experience.id), class: 'activity_name change_link'
                 %p.activity_place
                   = "#{fav.experience.area.island.name} > #{fav.experience.area.name}"
                 %p.test1
