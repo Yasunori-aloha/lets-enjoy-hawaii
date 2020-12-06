@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :sns_credential do
     facebook_omniauth = Faker::Omniauth.facebook

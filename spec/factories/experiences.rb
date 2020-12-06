@@ -11,8 +11,8 @@ FactoryBot.define do
     business_hours_finish { "#{rand(13..24)}:#{rand(0..59)}" }
     score { rand(1..5) }
 
-    after(:build) do |user|
-      user.image.attach(io: File.open("#{Rails.root}/spec/fixtures/files/test_image.png"), filename: 'test_image.png')
+    after(:build) do |exp|
+      exp.image.attach(io: File.open("#{Rails.root}/spec/fixtures/files/test_image.png"), filename: 'test_image.png')
     end
 
     association :area

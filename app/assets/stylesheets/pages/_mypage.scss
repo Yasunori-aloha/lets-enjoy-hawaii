@@ -25,7 +25,7 @@ $userNameHeight: calc(100% / 4 * 3);
     position: absolute;
     top: 0;
     left: 0;
-    height: 100vh;
+    min-height: 100vh;
     width: 1440px;
     background-color: rgba($color: black, $alpha: 0.5);
     .mypage_contents_head{
@@ -49,7 +49,6 @@ $userNameHeight: calc(100% / 4 * 3);
       display: flex;
       .mypage_contents_main_left{
         height: calc(100vh - 94px);
-        // height: 1000px;
         width: 436px;
         border-right: 1px solid #646464;
         display: flex;
@@ -172,13 +171,12 @@ $userNameHeight: calc(100% / 4 * 3);
           @extend .user_edit_main;
           width: 776px;
           .favorites_activity_show_area{
-            // min-height: 100vh;
             padding-top: 17px;
             .favorites_list{
               display: flex;
               width: 742px;
               flex-wrap: wrap;
-              .favorites_right_margin{
+              .activity_right_margin{
                 margin-right: 8px;
               }
               .favorites_activity_wrapper{
@@ -187,7 +185,6 @@ $userNameHeight: calc(100% / 4 * 3);
                 border-radius: 5px;
                 margin-bottom: 17px;
                 word-spacing: 0px;
-                // ↓削除予定
                 background-color: #fff;
                 .favorite_info{
                   height: 36px;
@@ -286,6 +283,36 @@ $userNameHeight: calc(100% / 4 * 3);
                     .save_submit{
                       @include btn_link();
                     }
+                  }
+                }
+              }
+            }
+          }
+        }
+        // ユーザーの訪問記録一覧ページ
+        .user_histories_main{
+          @extend .user_favorites_main;
+          .histories_activity_show_area{
+            @extend .favorites_activity_show_area;
+            .histories_list{
+              @extend .favorites_list;
+              .histories_activity_wrapper{
+                @extend .favorites_activity_wrapper;
+                .history_info{
+                  @extend .favorite_info;
+                  .history_time{
+                    @extend .favorite_time;
+                  }
+                  .history_release_btn{
+                    @extend .favorite_release_btn;
+                    .history_release{
+                      @extend .favorite_release;
+                    }
+                  }
+                }
+                .activity_info_wrapper{
+                  .histories_number{
+                    @extend .favorites_number;
                   }
                 }
               }

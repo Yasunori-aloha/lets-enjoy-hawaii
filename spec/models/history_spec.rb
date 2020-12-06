@@ -12,6 +12,7 @@ RSpec.describe History, type: :model do
         expect(history).to be_valid
       end
     end
+
     context '行った履歴がDBに保存されない。' do
       it 'すでにアクティビティをクリックしていれば保存されない。' do
         history.save

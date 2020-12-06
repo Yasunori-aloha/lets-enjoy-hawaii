@@ -11,12 +11,14 @@ RSpec.describe Area, type: :model do
         expect(area).to be_valid
       end
     end
+
     context 'ジャンル登録ができない場合' do
       it 'nameが入力されていないと登録できない' do
         area.name = nil
         area.valid?
         expect(area.errors.full_messages).to include 'Nameを入力してください'
       end
+
       it 'category_idが選択されていないと登録できない' do
         area.island_id = nil
         area.valid?

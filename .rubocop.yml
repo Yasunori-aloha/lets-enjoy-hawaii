@@ -1,0 +1,68 @@
+inherit_from: .rubocop_todo.yml
+
+# rubocop関連のgemをrequireする。
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'app/models/*'
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'tmp/**/*'
+    - 'node_modules/**/*'
+    - 'lib/tasks/auto_annotate_models.rake'
+
+Rails:
+  Enabled: true
+
+# 日本語のコメントを許可する。
+Style/AsciiComments:
+  Enabled: false
+
+Style/PerlBackrefs:
+  AutoCorrect: false
+
+Style/Documentation:
+  Enabled: false
+
+RSpec/ContextWording:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - "Rakefile"
+    - "**/*.rake"
+    - "spec/**/*.rb"
+    - "Gemfile"
+    - "Guardfile"
+    - "config/environments/*.rb"
+    - "config/routes.rb"
+    - "config/routes/**/*.rb"
+    - "*.gemspec"
+
+Rails/FilePath:
+  Enabled: false
+
+# 1つの'it'に'expect'を10個まで許可する。
+RSpec/MultipleExpectations:
+  Max: 10
+
+# 'system.spec'では'example'内のコメントが多くても大丈夫にする。
+RSpec/ExampleLength:
+  Exclude:
+    - "spec/system/*"
+
+# 1行の最大文字数が130以下にする。
+Layout/LineLength:
+  Max: 130
+
+Style/MixinUsage:
+  Enabled: false
+
+RSpec/IteratedExpectation:
+  Enabled: false

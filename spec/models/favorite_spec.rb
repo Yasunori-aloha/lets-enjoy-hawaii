@@ -12,6 +12,7 @@ RSpec.describe Favorite, type: :model do
         expect(favorite).to be_valid
       end
     end
+
     context 'お気に入り登録ができない場合' do
       it 'ユーザーが既にお気に入り登録しているアクティビティなら登録できない' do
         favorite.save

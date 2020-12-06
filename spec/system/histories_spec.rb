@@ -21,12 +21,13 @@ RSpec.describe 'Histories', type: :system do
         expect(page).to have_content('行った')
 
         # 行ったボタンをクリックするとHistoryモデルのレコード数が1上がり、足跡アイコンがチェックマークに変化する。
-        expect { find('.have_been_btn').click }.to change { History.count }.by(
+        expect { find('.have_been_btn').click }.to change(History, :count).by(
           1
         )
         expect(page).to have_selector('.fa-check')
       end
     end
+
     context '行った記録がクリックした際にDBから消去される場合' do
       it 'ログインユーザーですでに記録が保存されているアクティビティではクリックするとDBから記録が消去される。' do
         # ログインする。
@@ -39,12 +40,13 @@ RSpec.describe 'Histories', type: :system do
         expect(page).to have_content('行った')
 
         # 行ったボタンをクリックするとHistoryモデルのレコード数が1下がり、チェックマークが足跡アイコンに変化する。
-        expect { find('.have_been_btn').click }.to change { History.count }.by(
+        expect { find('.have_been_btn').click }.to change(History, :count).by(
           -1
         )
         expect(page).to have_selector('.fa-shoe-prints')
       end
     end
+
     context 'DBに記録が保存も消去もできない場合' do
       it '未ログインユーザーは行ったボタンが表示されない。' do
         visit experience_path(experience.id)
