@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class HistoriesController < ApplicationController
+  before_action :authenticate_user!, only: %i[index create destroy update]
 
   def index
 
