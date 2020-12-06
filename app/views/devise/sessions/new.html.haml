@@ -23,7 +23,7 @@
                         = f.check_box :remember_me
                       %span ログイン状態を保持
                     = link_to "パスワードをお忘れの方", new_password_path(resource_name), target: '_blank', rel: 'noopner', class: 'password_reset'
-                = f.submit "ログイン", class: 'button_cv signin_up_button'
+                = f.submit "ログイン", class: 'button_cv signin_up_button btn_hover'
               / 入力フォーム
             .social_login
               %span{class: 'social_login_title'}こちらもご利用いただけます
@@ -39,7 +39,7 @@
                   %a{href: '#', class: 'social_login_link'}
               / SNSアカウントでログインできる
               = render "devise/shared/links"
-              / テストユーザーとしてログインするためのフォーム 
+              / テストユーザーとしてログインするためのフォーム
               .testuser_sign_in_form
                 %span.testuser_login_text ※アカウント登録せず、ユーザー機能を試したい方は
                 = form_with model: @user, url: user_session_path, local: true, class: 'testuser_login_form' do |f|

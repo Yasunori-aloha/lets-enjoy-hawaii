@@ -38,7 +38,7 @@
           = f.label :image do
             = user_image_attached?(user)
           = f.file_field :image, class: 'hidden'
-        = f.submit "更新する", class: 'button_cv update_button'
+        = f.submit "更新する", class: 'button_cv update_button btn_hover'
 -# ユーザーのお気に入り登録済みアクティビティ一覧表示ページ
 - if controller_name == 'favorites' && action_name == 'index'
   .mypage_contents_main_right
