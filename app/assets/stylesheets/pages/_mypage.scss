@@ -130,6 +130,10 @@ $userNameHeight: calc(100% / 4 * 3);
             font-size: 12px;
             border-bottom: 1px dotted black;
             width: 100%;
+            .mypage_top:hover{
+              text-decoration-line: underline;
+              color: #ffa500;
+            }
           }
           .edit_user{
             padding-top: 17px;
