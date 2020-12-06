@@ -10,6 +10,7 @@ Rails.application.routes.draw do
              }
   resources :users, only: %i[show] do
     resources :favorites, only: %i[index update]
+    resources :histories, only: %i[index update]
   end
   resources :experiences, only: %i[show], shallow: true do
     resources :reviews, only: %i[index new create]
