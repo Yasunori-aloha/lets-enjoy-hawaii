@@ -2,7 +2,7 @@
   = render 'shared/leh_header'
 .content_header
   .menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
-    = link_to 'トップページ', root_path, class: 'change_link', style: 'color: blue'
+    = link_to 'トップページ', root_path, class: 'link_hover', style: 'color: blue'
     %span
       &nbsp;>&nbsp;
     = render 'shared/transition_destination'
@@ -26,7 +26,7 @@
         %ul.order
           %li
             並び順：
-          %li{id: 'experience_sort_1', class: 'sort_link change_link'}
+          %li{id: 'experience_sort_1', class: 'sort_link link_hover'}
             口コミランク順
           %li{id: 'experience_sort_2', class: 'sort_link active_sort'}
             おすすめ順
@@ -35,7 +35,7 @@
         %li.content_main_left_main_list
           .content_main_header
             .content_main_header_name
-              = link_to "#{exp.name}", "experiences/#{exp.id}", class: 'show_experiences change_link'
+              = link_to "#{exp.name}", "experiences/#{exp.id}", class: 'show_experiences link_hover'
             .experience_score
               .star_rating
                 %div{id: "star_rating#{index}", class: 'star_rating_front'}
@@ -46,7 +46,7 @@
                 = exp.score
               %span.review_count
                 （
-              = link_to "口コミ#{exp.reviews.count.to_s(:delimited)}件", experience_reviews_path(exp.id), class: 'change_link review_count review_link'
+              = link_to "口コミ#{exp.reviews.count.to_s(:delimited)}件", experience_reviews_path(exp.id), class: 'link_hover review_count review_link'
               %span.review_count
                 ）
             %p.content_main_header_place
@@ -74,7 +74,7 @@
         -#   最近のお気に入りスポット
         -# .right_content
         -#   = image_tag '', height: '38px', width: '51px', class: 'fav_image'
-        -#   %p{class: 'fav_name change_link'}
+        -#   %p{class: 'fav_name link_hover'}
         -#     テスト
         -# .content_sub
         -#   = image_tag '', height: '38px', width: '51px', class: 'fav_image'

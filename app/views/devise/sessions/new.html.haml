@@ -22,8 +22,8 @@
                       %span{'aria-checked' => "true", class: 'checkbox_wrapper'}
                         = f.check_box :remember_me
                       %span ログイン状態を保持
-                    = link_to "パスワードをお忘れの方", new_password_path(resource_name), target: '_blank', rel: 'noopner', class: 'password_reset'
-                = f.submit "ログイン", class: 'button_cv signin_up_button'
+                    = link_to "パスワードをお忘れの方", new_password_path(resource_name), target: '_blank', rel: 'noopner', class: 'password_reset link_hover_not_underline'
+                = f.submit "ログイン", class: 'button_cv signin_up_button btn_hover'
               / 入力フォーム
             .social_login
               %span{class: 'social_login_title'}こちらもご利用いただけます
@@ -39,13 +39,13 @@
                   %a{href: '#', class: 'social_login_link'}
               / SNSアカウントでログインできる
               = render "devise/shared/links"
-              / テストユーザーとしてログインするためのフォーム 
+              / テストユーザーとしてログインするためのフォーム
               .testuser_sign_in_form
                 %span.testuser_login_text ※アカウント登録せず、ユーザー機能を試したい方は
                 = form_with model: @user, url: user_session_path, local: true, class: 'testuser_login_form' do |f|
                   = f.hidden_field :email, :value => 'test@test.com'
                   = f.hidden_field :password, :value => 'testuser1'
-                  = f.submit "こちら", class: 'testuser_login_button'
+                  = f.submit "こちら", class: 'testuser_login_button link_hover_not_underline'
               / テストユーザーとしてログインするためのフォーム
       / フッター
       .signin_up_footer

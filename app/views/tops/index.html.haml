@@ -56,7 +56,7 @@
           .select
             = form.label :score_gteq, '評価', class: 'main_select', style: 'font-weight: bold;'
             = form.collection_select :score_gteq, Score.all, :id, :name, {}, {class:'select_box', id:'score'}
-          = form.submit '検索', class: 'submit'
+          = form.submit '検索', class: 'submit btn_hover'
   .search_right
     .search_map
       .search_map_header

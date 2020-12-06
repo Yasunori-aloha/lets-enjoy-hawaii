@@ -61,14 +61,10 @@ $(window).on("load", function () {
 });
 
 $(function () {
-  // 'id名'に'change'と入っている要素をホバーしている時だけリンクの表示を変更させる。
-  $(document).on("mouseover mouseout", '[class*="change_link"]', function () {
-    $(this).toggleClass("link_hover");
-  });
-  // 'ボタン'にホバーすると表示色を変更させる。
-  $('[id^="btn"]').on("mouseover mouseout", function () {
-    $(this).toggleClass("btn_hover");
-  });
+  // // 'ボタン'にホバーすると表示色を変更させる。
+  // $('[id^="btn"]').on("mouseover mouseout", function () {
+  //   $(this).toggleClass("btn_hover");
+  // });
 
   // '目的別検索'か'島名別検索'なのかを判断するためのクラス名をパラメーターに追加するための関数。
   $('.search_btn').on('click', function(){

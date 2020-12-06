@@ -5,7 +5,6 @@
       .signin_up_main_wrapper
         .signin_up_main
           .signin_up_main_content
-            -# = render "devise/shared/error_messages", resource: @user
             %span.register_text 会員登録
             .signin_up_form
               / 入力フォーム
@@ -22,7 +21,7 @@
                     = f.password_field :password, placeholder: 'パスワード（8～20文字・半角英数字・記号を2種以上）', maxlength: '20', autocomplete: "new-password", class: 'signin_up_input'
                   .signin_up_form_input
                     = f.password_field :password_confirmation, placeholder: '上記と同じパスワードを入力してください', autocomplete: "new-password", class: 'signin_up_input'
-                = f.submit "登録する", id: 'btn', class: 'button_cv signin_up_button'
+                = f.submit "登録する", id: 'btn', class: 'button_cv signin_up_button btn_hover'
               / 入力フォーム
             .social_login
               %span{class: 'social_login_title'}こちらもご利用いただけます
@@ -39,7 +38,7 @@
               / SNSアカウントでログインできる
             %p.register_policy
               会員登録に伴い、
-              %a{href: '#', class: 'register_policy_link'}プライバシーポリシー
+              %a{href: '#', class: 'register_policy_link link_hover_not_underline'}プライバシーポリシー
               に同意したものとみなされます。
               = render "devise/shared/links"
               / テストユーザーとしてログインするためのフォーム
@@ -48,7 +47,7 @@
                 = form_with model: @user, url: user_session_path, local: true, class: 'testuser_login_form' do |f|
                   = f.hidden_field :email, :value => 'test@test.com', id: 'test_user_email'
                   = f.hidden_field :password, :value => 'testuser1', id: 'test_user_password'
-                  = f.submit "こちら", class: 'testuser_login_button'
+                  = f.submit "こちら", class: 'testuser_login_button link_hover_not_underline'
               / テストユーザーとしてログインするためのフォーム
       / フッター
       .signin_up_footer
