@@ -20,7 +20,7 @@
   .mypage_contents_main_right
     .user_edit_main
       .menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
-        = link_to 'マイページトップ', "/users/#{current_user.id}", class: 'mypage_top'
+        = link_to 'マイページトップ', "/users/#{current_user.id}", class: 'link_hover'
         &nbsp;>&nbsp;
         %strong 会員情報の確認・変更
       = form_with model: user, url: user_registration_path, local: true, class: 'edit_user' do |f|
@@ -44,7 +44,7 @@
   .mypage_contents_main_right
     .user_favorites_main
       %div.menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
-        = link_to 'マイページトップ', "/users/#{current_user.id}", class: 'mypage_top'
+        = link_to 'マイページトップ', "/users/#{current_user.id}", class: 'link_hover'
         &nbsp;>&nbsp;
         %strong お気に入りした場所
       .favorites_activity_show_area
@@ -65,7 +65,7 @@
               .activity_picture
                 = link_to "", experience_path(fav.experience.id), class: 'activity_picture_link'
               .activity_info_wrapper
-                = link_to "#{fav.experience.name}", experience_path(fav.experience.id), class: 'activity_name change_link'
+                = link_to "#{fav.experience.name}", experience_path(fav.experience.id), class: 'activity_name link_hover'
                 %p.activity_place
                   = "#{fav.experience.area.island.name} > #{fav.experience.area.name}"
                 %span.favorites_number

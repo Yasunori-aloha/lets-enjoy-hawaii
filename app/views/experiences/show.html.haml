@@ -1,10 +1,10 @@
 .header
   = render 'shared/leh_header'
 .menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
-  = link_to 'トップページ', root_path, class: 'change_link', style: 'color: blue'
+  = link_to 'トップページ', root_path, class: 'link_hover', style: 'color: blue'
   %span
     &nbsp;>&nbsp;
-  = link_to "#{@experience.genre.category.name}", "/#{@experience.genre.category.search}", class: 'category search_btn link_to change_link', style: 'color: blue', method: :post
+  = link_to "#{@experience.genre.category.name}", "/#{@experience.genre.category.search}", class: 'category search_btn link_to link_hover', style: 'color: blue', method: :post
   %span
     &nbsp;>&nbsp;
   %strong
@@ -32,7 +32,7 @@
               = @experience.score
             %span.review_count
               （
-            = link_to "口コミ#{@experience.reviews.count.to_s(:delimited)}件", experience_reviews_path(@experience.id), class: 'change_link review_count review_link', data:{name: 'review_count'}
+            = link_to "口コミ#{@experience.reviews.count.to_s(:delimited)}件", experience_reviews_path(@experience.id), class: 'link_hover review_count review_link', data:{name: 'review_count'}
             %span.review_count
               ）
           %li.black
@@ -40,13 +40,13 @@
           %li.area_wrapper
             %span.area_name
               エリア
-            = link_to "#{@experience.area.island.name}", "/#{@experience.area.island.search}", class: 'island search_btn link_to change_link', method: :post
-            = link_to "#{@experience.area.name}","/#{@experience.area.search}", class: 'area search_btn link_to change_link', method: :post
+            = link_to "#{@experience.area.island.name}", "/#{@experience.area.island.search}", class: 'island search_btn link_to link_hover', method: :post
+            = link_to "#{@experience.area.name}","/#{@experience.area.search}", class: 'area search_btn link_to link_hover', method: :post
           %li.genre_wrapper
             %span.genre_name
               ジャンル
-            = link_to "#{@experience.genre.category.name}", "/#{@experience.genre.category.search}", class: 'category search_btn link_to change_link', method: :post
-            = link_to "#{@experience.genre.name}", "/#{@experience.genre.search}", class: 'genre search_btn link_to change_link', method: :post
+            = link_to "#{@experience.genre.category.name}", "/#{@experience.genre.category.search}", class: 'category search_btn link_to link_hover', method: :post
+            = link_to "#{@experience.genre.name}", "/#{@experience.genre.search}", class: 'genre search_btn link_to link_hover', method: :post
       .show_info_right
         -# 未ログインユーザーなら'口コミ投稿'等のボタンが表示されない。
         - if user_signed_in?
