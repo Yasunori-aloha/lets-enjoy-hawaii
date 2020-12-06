@@ -12,6 +12,7 @@ RSpec.describe SnsCredential, type: :model do
         expect(omniauth).to be_valid
       end
     end
+
     context 'SNS認証登録ができない場合' do
       it '既に認証登録済みのユーザーとSNSの場合' do
         another_omniauth.uid = omniauth.uid

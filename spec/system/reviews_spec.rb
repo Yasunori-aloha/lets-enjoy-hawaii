@@ -19,7 +19,7 @@ RSpec.describe 'Reviews', type: :system do
 
         # 口コミ投稿ページへ移動してフォームに情報を入力する。
         visit new_experience_review_path(experience.id)
-        find_by_id("star_btn#{rand(1..5)}").click
+        find(id: "star_btn#{rand(1..5)}").click
         fill_in 'review_title', with: review.title
         fill_in 'review_comment', with: review.comment
         find('input[name="review[images][]"]', visible: false).set(
@@ -27,17 +27,16 @@ RSpec.describe 'Reviews', type: :system do
         )
 
         # フォームを送信すると、Reviewモデルのレコード数が1上がり、アクティビティの評価点が更新されて詳細ページへリダイレクトされる。
-        expect { click_on('投稿する') }.to change { Review.count }.by(1)
+        expect { click_on('投稿する') }.to change(Review, :count).by(1)
         expect(experience.reload.score).to eq experience.reviews.average(:score)
                                                         .round(1)
-        expect(current_path).to eq experience_path(experience.id)
+        expect(page).to have_current_path experience_path(experience.id), ignore_query: true
 
         # 詳細ページの口コミ件数が1件増えているか確認する。
         reviews = all(:css, '[data-name="review_count"]')
         reviews.each do |review|
           expect(review).to have_content(experience.reviews.length.to_s)
         end
-
         # 詳細ページの評価点・★の5段階評価が、更新された評価点に対応した表示になっているか確認する。
         expect(page).to have_selector(
           '.rating_point',
@@ -64,9 +63,10 @@ RSpec.describe 'Reviews', type: :system do
         visit experience_path(experience.id)
         expect(page).to have_no_content('口コミ投稿')
       end
+
       it '未ログインユーザーは直接口コミ投稿ページへのリンクを打ち込んでもログイン画面へ遷移する' do
         visit new_experience_review_path(experience.id)
-        expect(current_path).to eq new_user_session_path
+        expect(page).to have_current_path(new_user_session_path)
       end
     end
   end

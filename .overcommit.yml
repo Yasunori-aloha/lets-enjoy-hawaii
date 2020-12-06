@@ -18,7 +18,7 @@
 PreCommit:
   RuboCop:
     enabled: true
-    command: ['bundle', 'exec', 'rubocop', '-a', './.rubocop.yml']
+    command: ['bundle', 'exec', 'rubocop']
     on_warn: fail # Treat all warnings as failures
 #
 #  TrailingWhitespace:
