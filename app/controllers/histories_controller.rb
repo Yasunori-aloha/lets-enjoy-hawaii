@@ -5,8 +5,7 @@ class HistoriesController < ApplicationController
 
   # 訪問記録一覧取得
   def index
-    # @histories = History.includes([{experience: :histories}, {experience: :area}]).where(user_id: current_user.id).order('created_at DESC')
-    @histories = History.where(user_id: current_user.id).order('created_at DESC')
+    @histories = History.includes([{experience: :histories}, {experience: :area}]).where(user_id: current_user.id).order('created_at DESC')
     user_is_current_user?(params)
   end
 
