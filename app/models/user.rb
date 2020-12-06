@@ -15,7 +15,7 @@ class User < ApplicationRecord
     # '@'がメールアドレスに入っていること。
     validates :email, format: { with: /@/ }
     # 半角英数字記号含め8文字以上で、記号を2回以上使用すること。
-    validates :password, format: { with: %r{\A(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!-/:-@[-`{-~].*[!-/:-@[-`{-~])([a-zA-Z0-9!-/:-@\[-`{-~]{8,})\z} }
+    validates :password, format: { with: %r{\A(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!-/:-@\[-`{-~].*[!-/:-@\[-`{-~])([a-zA-Z0-9!-/:-@\[-`{-~]{8,})\z} }
   end
 
   has_one_attached :image

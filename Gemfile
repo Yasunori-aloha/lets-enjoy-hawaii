@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rubocop-rails', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rspec'
+  gem 'overcommit'
 end
 
 group :test do
