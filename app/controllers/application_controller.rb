@@ -10,13 +10,13 @@ class ApplicationController < ActionController::Base
       if current_user.id == params[:id].to_i
         find_user_show
       else
-        redirect_to
+        redirect_to root_path
       end
     else
       if current_user.id == params[:user_id].to_i
         find_user_show
       else
-        redirect_to
+        redirect_to root_path
       end
     end
   end
