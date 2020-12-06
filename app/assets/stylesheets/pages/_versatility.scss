@@ -242,11 +242,15 @@ img {
 }
 
 .link_to {
-  color: blue;
+  color: #069;
 }
 
 .link_hover:hover {
   text-decoration-line: underline !important;
+  color: #ffa500 !important;
+}
+
+.link_hover_not_underline:hover {
   color: #ffa500 !important;
 }
 
