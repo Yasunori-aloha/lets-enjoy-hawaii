@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ExperiencesController < ApplicationController
-
   def show
     @experience = Experience.find(params[:id])
     # ハッシュ形式で各評価点がいくつあるかを格納する。
@@ -24,21 +23,21 @@ class ExperiencesController < ApplicationController
     when 'category'
       @category = Category.find_by(search: params[:name])
       Genre.where(category_id: @category.id).find_each do |genre|
-        Experience.includes([:favorites, :genre, :area]).where(genre_id: genre.id).find_each { |exp| @experiences << exp }
+        Experience.includes(%i[favorites genre area]).where(genre_id: genre.id).find_each { |exp| @experiences << exp }
       end
     when 'island'
       @island = Island.find_by(search: params[:name])
       Area.where(island_id: @island.id).find_each do |area|
-        Experience.includes([:favorites, :genre, :area]).where(area_id: area.id).find_each { |exp| @experiences << exp }
+        Experience.includes(%i[favorites genre area]).where(area_id: area.id).find_each { |exp| @experiences << exp }
       end
     when 'genre'
       @genre = Genre.find_by(search: params[:name])
-      @genre.experiences.includes([:favorites, :area]).each do |exp|
+      @genre.experiences.includes(%i[favorites area]).each do |exp|
         @experiences << exp
       end
     when 'area'
       @area = Area.find_by(search: params[:name])
-      @area.experiences.includes([:favorites, :genre]).each do |exp|
+      @area.experiences.includes(%i[favorites genre]).each do |exp|
         @experiences << exp
       end
     end
