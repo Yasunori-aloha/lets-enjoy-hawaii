@@ -110,7 +110,7 @@
                 %p.activity_place
                   = "#{his.experience.area.island.name} > #{his.experience.area.name}"
                 %span.histories_number
-                  = icon('fas', 'star', class: 'star_icon')
+                  = icon('fas', 'shoe-prints',class: 'fa-rotate-270')
                   = his.experience.histories.length
                 -# コメント入力欄
                 = form_with model: his, url: user_history_path(user_id: current_user.id, id: his.id), local: true do |f|
