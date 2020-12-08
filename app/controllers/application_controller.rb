@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def find_exp_id(exp_id)
+  def find_exp(exp_id)
     @experience = Experience.find(exp_id)
   end
 

@@ -12,7 +12,7 @@
         -# 表示しているアクティビティに投稿されている口コミの件数を表示させる。
         %span{class: 'number', data:{name: 'review_count'}}
           = "(#{@experience.reviews.length}件)"
-        = link_to '', experience_reviews_path(@experience.id), class: 'exp_link'
+        = link_to '', reviews_experience_path(@experience.id), class: 'exp_link'
       %li.tab_2line
         %span
           写真
@@ -77,7 +77,7 @@
           = exp.address
         %span.business_info_main_address
         %span
--# アクティビティの口コミ一覧表示ページ
+-# アクティビティの写真一覧表示ページ
 - if controller_name == 'reviews' && action_name == 'edit'
   .show_left_main_tab
     %ul.experience_tabs
@@ -92,7 +92,7 @@
         -# 表示しているアクティビティに投稿されている口コミの件数を表示させる。
         %span{class: 'number', data:{name: 'review_count'}}
           = "(#{@experience.reviews.length}件)"
-        = link_to '', experience_reviews_path(@experience.id), class: 'exp_link'
+        = link_to '', reviews_experience_path(@experience.id), class: 'exp_link'
       %li{class: 'tab_2line active_tab'}
         %span
           写真
@@ -126,8 +126,8 @@
           = image_tag image, height: '171px', width: '228px', class: 'experience_photo_area_right'
         - else
           = image_tag image, height: '171px', width: '228px', class: 'experience_photo_area'
--# アクティビティの写真一覧表示ページ
-- if controller_name == 'reviews' && action_name == 'index'
+-# アクティビティの口コミ一覧表示ページ
+- if controller_name == 'reviews' && action_name == 'exp_index'
   .show_left_main_tab
     %ul.experience_tabs
       %li.tab
