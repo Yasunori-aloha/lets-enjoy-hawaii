@@ -61,7 +61,7 @@
                   = icon('fas', 'times', class: 'release_mark')
                   %span.release_message
                     登録解除
-                  = link_to '', experience_favorites_path(experience_id: fav.experience.id), method: :delete, class: 'favorite_release', remote: true
+                  = link_to '', favorites_path(fav.experience.id), method: :delete, class: 'favorite_release', remote: true
               .activity_picture
                 = link_to "", experience_path(fav.experience.id), class: 'activity_picture_link'
               .activity_info_wrapper
@@ -81,14 +81,14 @@
                       保存する
                     = f.submit '', class: 'save_submit'
 -# ユーザーの口コミ履歴一覧表示ページ
--# - if controller_name == 'reviews' && action_name == 'index'
--# test
+- if controller_name == 'reviews' && action_name == 'user_index'
+  test
 -# ユーザーの訪問記録登録済みアクティビティ一覧表示ページ
 - if controller_name == 'histories' && action_name == 'index'
   .mypage_contents_main_right
     .user_histories_main
       %div.menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
-        = link_to 'マイページトップ', "/users/#{current_user.id}", class: 'link_hover'
+        = link_to 'マイページトップ', user_path(current_user.id), class: 'link_hover'
         &nbsp;>&nbsp;
         %strong 行った場所
       .histories_activity_show_area
@@ -105,7 +105,7 @@
                   = icon('fas', 'times', class: 'release_mark')
                   %span.release_message
                     登録解除
-                  = link_to '', experience_histories_path(experience_id: his.experience.id), method: :delete, class: 'history_release', remote: true
+                  = link_to '', histories_path(his.experience.id), method: :delete, class: 'history_release', remote: true
               .activity_picture
                 = link_to "", experience_path(his.experience.id), class: 'activity_picture_link'
               .activity_info_wrapper

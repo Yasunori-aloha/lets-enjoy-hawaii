@@ -18,7 +18,7 @@
             %li.mypage_user_side
               = link_to 'お気に入りした場所', user_favorites_path(current_user.id), class: 'mypage_user_side_text'
             %li.mypage_user_side
-              = link_to '今までの口コミ', '#', class: 'mypage_user_side_text'
+              = link_to '今までの口コミ', reviews_user_path(current_user.id), class: 'mypage_user_side_text'
             %li.mypage_user_side
               = link_to '行った場所', user_histories_path(current_user.id), class: 'mypage_user_side_text'
       -# マイページのメイン部分の表示をコントローラーとアクションによって変える。

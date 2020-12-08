@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
   before_action -> { find_exp(params[:id]) }, only: %i[exp_index new create edit]
   before_action -> { images_count(params[:id]) }, only: %i[exp_index edit]
+  before_action :authenticate_user!, only: %i[user_index]
 
   def exp_index
     @reviews = Review.includes(:user).where(experience_id: params[:id]).order('created_at DESC')
@@ -11,7 +12,8 @@ class ReviewsController < ApplicationController
   end
 
   def user_index
-    # binding.pry
+    @reviews = Review.includes(:experience).where(experience_id: params[:id]).order('created_at DESC')
+    user_is_current_user?(params)
   end
 
   def new
