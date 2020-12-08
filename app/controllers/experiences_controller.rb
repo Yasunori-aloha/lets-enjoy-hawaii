@@ -31,13 +31,11 @@ class ExperiencesController < ApplicationController
         Experience.includes(%i[favorites genre area]).where(area_id: area.id).find_each { |exp| @experiences << exp }
       end
     when 'genre'
-      @genre = Genre.find_by(search: params[:name])
-      @genre.experiences.includes(%i[favorites area]).each do |exp|
+      Genre.find_by(search: params[:name]).experiences.includes(%i[favorites area]).each do |exp|
         @experiences << exp
       end
     when 'area'
-      @area = Area.find_by(search: params[:name])
-      @area.experiences.includes(%i[favorites genre]).each do |exp|
+      Area.find_by(search: params[:name]).experiences.includes(%i[favorites genre]).each do |exp|
         @experiences << exp
       end
     end

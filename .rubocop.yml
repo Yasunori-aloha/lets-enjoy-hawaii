@@ -72,3 +72,9 @@ Metrics/MethodLength:
   Max: 25
   Exclude:
     - "db/migrate/*.rb"
+
+Metrics/AbcSize:
+  Max: 40
+
+Rails/LexicallyScopedActionFilter:
+  Enabled: false

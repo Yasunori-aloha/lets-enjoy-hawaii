@@ -59,14 +59,11 @@ module Users
     end
 
     def configure_account_update_params
-      devise_parameter_sanitizer.permit(
-        :account_update,
-        keys: %i[name introduce image]
-      )
+      devise_parameter_sanitizer.permit(:account_update, keys: %i[name introduce image])
     end
 
     def after_update_path_for(_resource)
-      "/users/#{current_user.id}"
+      user_path(resource.id)
     end
 
     # The path used after sign up.
