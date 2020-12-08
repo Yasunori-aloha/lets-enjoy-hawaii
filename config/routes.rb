@@ -16,12 +16,15 @@ Rails.application.routes.draw do
     end
   end
   resources :experiences, only: %i[show], shallow: true do
-    resources :reviews, only: %i[index new create]
     # 'resources'の方だと、destroy時に'experience_id'で検索できる。
     resource :histories, only: %i[create destroy]
     resource :favorites, only: %i[create destroy]
+    resources :reviews, only: %i[index new create]
+    member do
+      get 'photos', to: 'reviews#edit'
+      get 'reviews', to: 'reviews#exp_index'
+    end
   end
   get '/search', to: 'tops#search'
   post '/:name', to: 'experiences#edit'
-  get '/experiences/:experience_id/photos', to: 'reviews#edit'
 end

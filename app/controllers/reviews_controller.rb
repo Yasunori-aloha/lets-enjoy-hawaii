@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
   before_action -> { images_count(params[:experience_id]) },
                 only: %i[index edit]
 
-  def index
+  def exp_index
     @reviews = Review.includes(:user).where(experience_id: params[:experience_id]).order('created_at DESC')
     render 'experiences/show'
   end
