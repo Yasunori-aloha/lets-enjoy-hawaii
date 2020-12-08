@@ -55,10 +55,10 @@
               = icon('far', 'comment-dots', class: 'fa-flip-horizontal')
               口コミ投稿
               = link_to '', new_review_path(@experience.id), class: 'btn'
-            %li.share_act
-              = icon('fas', 'share')
-              シェアする
-              = link_to '','#', class: 'btn'
+            -# %li.share_act
+            -#   = icon('fas', 'share')
+            -#   シェアする
+            -#   = link_to '','#', class: 'btn'
           %ul.show_info_right_down
             %li{id: 'favorite_btn', class: 'favorite'}
               -# お気に入りされていればお気に入り登録の解除ができて、まだならお気に入り登録ができる。
