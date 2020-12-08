@@ -7,11 +7,12 @@ class ReviewsController < ApplicationController
                 only: %i[index edit]
 
   def index
-    @reviews =
-      Review.includes(:user).where(experience_id: params[:experience_id]).order(
-        'created_at DESC'
-      )
+    @reviews = Review.includes(:user).where(experience_id: params[:experience_id]).order('created_at DESC')
     render 'experiences/show'
+  end
+
+  def user_index
+    # binding.pry
   end
 
   def new
