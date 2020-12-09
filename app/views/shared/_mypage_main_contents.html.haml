@@ -82,7 +82,14 @@
                     = f.submit '', class: 'save_submit'
 -# ユーザーの口コミ履歴一覧表示ページ
 - if controller_name == 'reviews' && action_name == 'user_index'
-  test
+  .mypage_contents_main_right
+    .user_reviews_main
+      %div.menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
+        = link_to 'マイページトップ', user_path(current_user.id), class: 'link_hover'
+        &nbsp;>&nbsp;
+        %strong 今までの口コミ
+      .reviews_activity_show_area
+        %ul.reviews_list
 -# ユーザーの訪問記録登録済みアクティビティ一覧表示ページ
 - if controller_name == 'histories' && action_name == 'index'
   .mypage_contents_main_right

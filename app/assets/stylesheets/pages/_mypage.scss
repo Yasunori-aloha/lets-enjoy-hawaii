@@ -319,6 +319,15 @@ $userNameHeight: calc(100% / 4 * 3);
             }
           }
         }
+        .user_reviews_main{
+          @extend .user_favorites_main;
+          .reviews_activity_show_area{
+            @extend .favorites_activity_show_area;
+            .reviews_list{
+              @extend .favorites_list;
+            }
+          }
+        }
       }
     }
   }
