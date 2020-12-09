@@ -119,6 +119,7 @@ $userNameHeight: calc(100% / 4 * 3);
           color: black;
           padding: 25px 17px;
         }
+        // ユーザー情報更新ページ
         .user_edit_main{
           @extend .mypage_user_info_head;
           height: 100%;
@@ -337,12 +338,51 @@ $userNameHeight: calc(100% / 4 * 3);
             }
           }
         }
+        // ユーザーの口コミ一覧ページ
         .user_reviews_main{
           @extend .user_favorites_main;
           .reviews_activity_show_area{
             @extend .favorites_activity_show_area;
             .reviews_list{
               @extend .favorites_list;
+              .review_wrapper{
+                width: 100%;
+                border-bottom: 3px solid #eee;
+                padding: 12px 0 15px;
+                color: #000000;
+                .review_main_area{
+                  width: 99%;
+                  margin: 0 auto;
+                  .review_title{
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #0000ff;
+                    text-decoration: underline;
+                  }
+                  .review_score{
+                    margin-top: 2px;
+                    @include expScore;
+                    .rating_point {
+                      // ↓削除予定
+                      font-size: 16px;
+                    }
+                  }
+                  .triangle {
+                    color: #eee;
+                    margin: -5px 0 0 27px;
+                    font-size: 14px;
+                  }
+                  .review_index_comment_area {
+                    margin-top: -7px;
+                    padding: 8px;
+                    border-radius: 6px;
+                    background-color: #eee;
+                    .review_index_comment {
+                      font-size: 20px;
+                    }
+                  }
+                }
+              }
             }
           }
         }
