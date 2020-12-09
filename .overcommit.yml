@@ -23,7 +23,7 @@ PreCommit:
   RailsBestPractices:
     enabled: ture
     description: 'Analyze with RailsBestPractices'
-    command: ['bundle','exec', 'rails_best_practices']
+    command: ['bundle','exec', 'rails_best_practices', '-f', 'html', '.']
 PrePush:
   Brakeman:
     enabled: true
