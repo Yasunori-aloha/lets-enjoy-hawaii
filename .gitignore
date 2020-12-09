@@ -30,3 +30,6 @@
 yarn-debug.log*
 .yarn-integrity
 .env
+
+# Ignore Rails best practices output file
+rails_best_practices_output.html

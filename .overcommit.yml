@@ -20,6 +20,18 @@ PreCommit:
     enabled: true
     command: ['bundle', 'exec', 'rubocop']
     on_warn: fail # Treat all warnings as failures
+  RailsBestPractices:
+    enabled: ture
+    description: 'Analyze with RailsBestPractices'
+    command: ['bundle','exec', 'rails_best_practices']
+PrePush:
+  Brakeman:
+    enabled: true
+  Rspec:
+    enabled: true
+PostCheckout:
+  BundleInstall:
+    enabled: true
 #
 #  TrailingWhitespace:
 #    enabled: true
