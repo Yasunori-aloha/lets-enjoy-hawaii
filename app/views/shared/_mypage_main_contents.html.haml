@@ -109,8 +109,7 @@
                             ★★★★★
                         %span{class: 'rating_point exp_score review_sort_material1'}
                           = review.score.to_f
-                  %span.activity_name
-                    = "#{review.experience.name}"
+                  = link_to "#{review.experience.name}", experience_path(review.experience.id), class: 'activity_name link_to link_hover'
                   .triangle
                     ▲
                   .review_index_comment_area
