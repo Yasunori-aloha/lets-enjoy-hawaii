@@ -342,7 +342,6 @@ $userNameHeight: calc(100% / 4 * 3);
         .user_reviews_main{
           @extend .user_favorites_main;
           .reviews_activity_show_area{
-            @extend .favorites_activity_show_area;
             .reviews_list{
               @extend .favorites_list;
               .review_wrapper{
@@ -362,10 +361,6 @@ $userNameHeight: calc(100% / 4 * 3);
                   .review_score{
                     margin-top: 2px;
                     @include expScore;
-                    .rating_point {
-                      // ↓削除予定
-                      font-size: 16px;
-                    }
                   }
                   .triangle {
                     color: #eee;
