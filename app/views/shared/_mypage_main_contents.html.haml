@@ -95,23 +95,27 @@
             - reviews.each_with_index do |review, index|
               %li.review_wrapper
                 .review_main_area
-                  %h2.review_title
-                    = review.title
-                  .review_score
-                    .star_rating
-                      %div{id: "star_rating#{index}", class: 'star_rating_front'}
-                        ★★★★★
-                      .star_rating_back
-                        ★★★★★
-                    %span{class: 'rating_point exp_score review_sort_material1'}
-                      = review.score.to_f
+                  %ul.review_info_wrapper
+                    %li
+                      .activity_picture
+                    %li
+                      %h2.review_title
+                        = review.title
+                      .review_score
+                        .star_rating
+                          %div{id: "star_rating#{index}", class: 'star_rating_front'}
+                            ★★★★★
+                          .star_rating_back
+                            ★★★★★
+                        %span{class: 'rating_point exp_score review_sort_material1'}
+                          = review.score.to_f
+                  %span.activity_name
+                    = "#{review.experience.name}"
                   .triangle
                     ▲
                   .review_index_comment_area
                     %span.review_index_comment
                       = review.comment
-                  .review_index_user_name
-                    = "#{review.experience.name}さん"
             -# 口コミが投稿されていない場合の表示
         - else
           test2

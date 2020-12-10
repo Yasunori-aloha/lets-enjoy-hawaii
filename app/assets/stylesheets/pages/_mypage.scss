@@ -342,16 +342,27 @@ $userNameHeight: calc(100% / 4 * 3);
         .user_reviews_main{
           @extend .user_favorites_main;
           .reviews_activity_show_area{
+            padding: 17px 0 1px;
             .reviews_list{
-              @extend .favorites_list;
               .review_wrapper{
-                width: 100%;
-                border-bottom: 3px solid #eee;
                 padding: 12px 0 15px;
                 color: #000000;
+                border: 1px solid #808080;
+                border-radius: 5px;
+                background-color: #fff;
+                margin-bottom: 17px;
                 .review_main_area{
-                  width: 99%;
+                  width: 97%;
                   margin: 0 auto;
+                  .review_info_wrapper{
+                    display: flex;
+                    .activity_picture{
+                      height: 60px;
+                      width: 80px;
+                      background-color: #000000;
+                      margin-right: 30px;
+                    }
+                  }
                   .review_title{
                     font-size: 14px;
                     font-weight: bold;
@@ -361,6 +372,10 @@ $userNameHeight: calc(100% / 4 * 3);
                   .review_score{
                     margin-top: 2px;
                     @include expScore;
+                  }
+                  .activity_name{
+                    display: inline-block;
+                    margin: 2px 0;
                   }
                   .triangle {
                     color: #eee;
