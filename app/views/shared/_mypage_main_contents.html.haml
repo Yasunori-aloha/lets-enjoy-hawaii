@@ -11,7 +11,7 @@
           さんのマイページ
     .mypage_user_info_main
       .mypage_user_introduction
-        - if user.introduce.nil?
+        - unless user.introduce?
           まだ自己紹介はありません。
         - else
           = user.introduce
@@ -48,76 +48,132 @@
         &nbsp;>&nbsp;
         %strong お気に入りした場所
       .favorites_activity_show_area
-        %ul.favorites_list
-          - favorites.each_with_index do |fav, index|
-            %li{id: "favorites_activity_wrapper#{index + 1}", class: "favorites_activity_wrapper"}
-              .favorite_info
-                %ul.favorite_time
-                  %li
-                    登録日：
-                  %li.favorited_at
-                    = "#{l fav.created_at, format: :day}"
-                .favorite_release_btn
-                  = icon('fas', 'times', class: 'release_mark')
-                  %span.release_message
-                    登録解除
-                  = link_to '', experience_favorites_path(experience_id: fav.experience.id), method: :delete, class: 'favorite_release', remote: true
-              .activity_picture
-                = link_to "", experience_path(fav.experience.id), class: 'activity_picture_link'
-              .activity_info_wrapper
-                = link_to "#{fav.experience.name}", experience_path(fav.experience.id), class: 'activity_name link_hover'
-                %p.activity_place
-                  = "#{fav.experience.area.island.name} > #{fav.experience.area.name}"
-                %span.favorites_number
-                  = icon('fas', 'star', class: 'star_icon')
-                  = fav.experience.favorites.length
-                -# コメント入力欄
-                = form_with model: fav, url: user_favorite_path(user_id: current_user.id, id: fav.id), local: true do |f|
-                  = f.label :comment, 'コメント ※個人情報は入力しないでください', class: 'activity_comment_info'
-                  = f.text_area :comment, maxlength: 30, placeholder: "ここにコメントを書くと便利です。（全角30文\n字以内・改行は受け付けません）",class: 'activity_comment'
-                  .save_btn
-                    = icon('fas', 'check', class: 'check_mark')
-                    %span.save_message
-                      保存する
-                    = f.submit '', class: 'save_submit'
+        -# お気に入り登録したアクティビティがある場合の表示
+        - if favorites.exists?
+          %ul.favorites_list
+            - favorites.each_with_index do |fav, index|
+              %li{id: "favorites_activity_wrapper#{index + 1}", class: "favorites_activity_wrapper"}
+                .favorite_info
+                  %ul.favorite_time
+                    %li
+                      登録日：
+                    %li.favorited_at
+                      = "#{l fav.created_at, format: :day}"
+                  .favorite_release_btn
+                    = icon('fas', 'times', class: 'release_mark')
+                    %span.release_message
+                      登録解除
+                    = link_to '', favorites_path(fav.experience.id), method: :delete, class: 'favorite_release', remote: true
+                .activity_picture
+                  = link_to "", experience_path(fav.experience.id), class: 'activity_picture_link'
+                .activity_info_wrapper
+                  = link_to "#{fav.experience.name}", experience_path(fav.experience.id), class: 'activity_name link_hover'
+                  %p.activity_place
+                    = "#{fav.experience.area.island.name} > #{fav.experience.area.name}"
+                  %span.favorites_number
+                    = icon('fas', 'star', class: 'star_icon')
+                    = fav.experience.favorites.length
+                  -# コメント入力欄
+                  = form_with model: fav, url: user_favorite_path(user_id: current_user.id, id: fav.id), local: true do |f|
+                    = f.label :comment, 'コメント ※個人情報は入力しないでください', class: 'activity_comment_info'
+                    = f.text_area :comment, maxlength: 30, placeholder: "ここにコメントを書くと便利です。（全角30文\n字以内・改行は受け付けません）",class: 'activity_comment'
+                    .save_btn
+                      = icon('fas', 'check', class: 'check_mark')
+                      %span.save_message
+                        保存する
+                      = f.submit '', class: 'save_submit'
+        - else
+          %span.not_contents
+            まだお気に入りしたアクティビティはありません。
+-# ユーザーの口コミ履歴一覧表示ページ
+- if controller_name == 'reviews' && action_name == 'user_index'
+  .mypage_contents_main_right
+    .user_reviews_main
+      %div.menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
+        = link_to 'マイページトップ', user_path(current_user.id), class: 'link_hover'
+        &nbsp;>&nbsp;
+        %strong 今までの口コミ
+      .reviews_activity_show_area
+        -# 口コミが投稿されている場合の表示
+        - if reviews.exists?
+          %ul.reviews_list
+            - reviews.each_with_index do |review, index|
+              %li.review_wrapper
+                .review_main_area
+                  %ul.review_info_wrapper
+                    %li
+                      .activity_picture
+                    %li
+                      = link_to "#{review.experience_name}", experience_path(review.experience.id), class: 'activity_name link_to link_hover'
+                      %p.activity_place
+                        = "#{review.experience.area.island.name} > #{review.experience.area.name}"
+                    %li.reviewed_at_wrapper
+                      %p{style: 'margin: 0;'}
+                        投稿日：
+                      = "#{l review.created_at, format: :day}"
+                  .review_info
+                    %h2.review_title
+                      = review.title
+                    .review_score
+                      .star_rating
+                        %div{id: "star_rating#{index}", class: 'star_rating_front'}
+                          ★★★★★
+                        .star_rating_back
+                          ★★★★★
+                      %span{class: 'rating_point exp_score review_sort_material1'}
+                        = review.score.to_f
+                  .triangle
+                    ▲
+                  .review_index_comment_area
+                    %span.review_index_comment
+                      = review.comment
+            -# 口コミが投稿されていない場合の表示
+        - else
+          %span.not_contents
+            まだ口コミを投稿していません。
 -# ユーザーの訪問記録登録済みアクティビティ一覧表示ページ
 - if controller_name == 'histories' && action_name == 'index'
   .mypage_contents_main_right
     .user_histories_main
       %div.menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
-        = link_to 'マイページトップ', "/users/#{current_user.id}", class: 'link_hover'
+        = link_to 'マイページトップ', user_path(current_user.id), class: 'link_hover'
         &nbsp;>&nbsp;
         %strong 行った場所
       .histories_activity_show_area
-        %ul.histories_list
-          - histories.each_with_index do |his, index|
-            %li{id: "histories_activity_wrapper#{index + 1}", class: "histories_activity_wrapper"}
-              .history_info
-                %ul.history_time
-                  %li
-                    登録日：
-                  %li.historied_at
-                    = "#{l his.created_at, format: :day}"
-                .history_release_btn
-                  = icon('fas', 'times', class: 'release_mark')
-                  %span.release_message
-                    登録解除
-                  = link_to '', experience_histories_path(experience_id: his.experience.id), method: :delete, class: 'history_release', remote: true
-              .activity_picture
-                = link_to "", experience_path(his.experience.id), class: 'activity_picture_link'
-              .activity_info_wrapper
-                = link_to "#{his.experience.name}", experience_path(his.experience.id), class: 'activity_name link_hover'
-                %p.activity_place
-                  = "#{his.experience.area.island.name} > #{his.experience.area.name}"
-                %span.histories_number
-                  = icon('fas', 'shoe-prints',class: 'fa-rotate-270')
-                  = his.experience.histories.length
-                -# コメント入力欄
-                = form_with model: his, url: user_history_path(user_id: current_user.id, id: his.id), local: true do |f|
-                  = f.label :comment, 'コメント ※個人情報は入力しないでください', class: 'activity_comment_info'
-                  = f.text_area :comment, maxlength: 30, placeholder: "ここにコメントを書くと便利です。（全角30文\n字以内・改行は受け付けません）",class: 'activity_comment'
-                  .save_btn
-                    = icon('fas', 'check', class: 'check_mark')
-                    %span.save_message
-                      保存する
-                    = f.submit '', class: 'save_submit'
+        -# アクティビティ訪問記録がある場合の表示
+        - if histories.exists?
+          %ul.histories_list
+            - histories.each_with_index do |his, index|
+              %li{id: "histories_activity_wrapper#{index + 1}", class: "histories_activity_wrapper"}
+                .history_info
+                  %ul.history_time
+                    %li
+                      登録日：
+                    %li.historied_at
+                      = "#{l his.created_at, format: :day}"
+                  .history_release_btn
+                    = icon('fas', 'times', class: 'release_mark')
+                    %span.release_message
+                      登録解除
+                    = link_to '', histories_path(his.experience.id), method: :delete, class: 'history_release', remote: true
+                .activity_picture
+                  = link_to "", experience_path(his.experience.id), class: 'activity_picture_link'
+                .activity_info_wrapper
+                  = link_to "#{his.experience.name}", experience_path(his.experience.id), class: 'activity_name link_hover'
+                  %p.activity_place
+                    = "#{his.experience.area.island.name} > #{his.experience.area.name}"
+                  %span.histories_number
+                    = icon('fas', 'shoe-prints',class: 'fa-rotate-270')
+                    = his.experience.histories.length
+                  -# コメント入力欄
+                  = form_with model: his, url: user_history_path(user_id: current_user.id, id: his.id), local: true do |f|
+                    = f.label :comment, 'コメント ※個人情報は入力しないでください', class: 'activity_comment_info'
+                    = f.text_area :comment, maxlength: 30, placeholder: "ここにコメントを書くと便利です。（全角30文\n字以内・改行は受け付けません）",class: 'activity_comment'
+                    .save_btn
+                      = icon('fas', 'check', class: 'check_mark')
+                      %span.save_message
+                        保存する
+                      = f.submit '', class: 'save_submit'
+        - else
+          %span.not_contents
+            まだどこにも行ったことがありません。

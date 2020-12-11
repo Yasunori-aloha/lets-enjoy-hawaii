@@ -11,14 +11,20 @@ Rails.application.routes.draw do
   resources :users, only: %i[show] do
     resources :favorites, only: %i[index update]
     resources :histories, only: %i[index update]
+    member do
+      get 'reviews', to: 'reviews#user_index'
+    end
   end
   resources :experiences, only: %i[show], shallow: true do
-    resources :reviews, only: %i[index new create]
-    # 'resources'の方だと、destroy時に'experience_id'で検索できる。
-    resource :histories, only: %i[create destroy]
-    resource :favorites, only: %i[create destroy]
+    member do
+      resources :reviews, only: %i[new create]
+      get 'photos', to: 'reviews#edit'
+      get 'reviews', to: 'reviews#exp_index'
+      # 'resources'の方だと、destroy時に'id'で検索できる。
+      resource :histories, only: %i[create destroy]
+      resource :favorites, only: %i[create destroy]
+    end
   end
   get '/search', to: 'tops#search'
   post '/:name', to: 'experiences#edit'
-  get '/experiences/:experience_id/photos', to: 'reviews#edit'
 end

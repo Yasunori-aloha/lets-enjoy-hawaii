@@ -32,7 +32,7 @@
               = @experience.score
             %span.review_count
               （
-            = link_to "口コミ#{@experience.reviews.count.to_s(:delimited)}件", experience_reviews_path(@experience.id), class: 'link_hover review_count review_link', data:{name: 'review_count'}
+            = link_to "口コミ#{@experience.reviews.count.to_s(:delimited)}件", reviews_experience_path(@experience.id), class: 'link_hover review_count review_link', data:{name: 'review_count'}
             %span.review_count
               ）
           %li.black
@@ -41,12 +41,12 @@
             %span.area_name
               エリア
             = link_to "#{@experience.area.island.name}", "/#{@experience.area.island.search}", class: 'island search_btn link_to link_hover', method: :post
-            = link_to "#{@experience.area.name}","/#{@experience.area.search}", class: 'area search_btn link_to link_hover', method: :post
+            = link_to "#{@experience.area_name}","/#{@experience.area_search}", class: 'area search_btn link_to link_hover', method: :post
           %li.genre_wrapper
             %span.genre_name
               ジャンル
             = link_to "#{@experience.genre.category.name}", "/#{@experience.genre.category.search}", class: 'category search_btn link_to link_hover', method: :post
-            = link_to "#{@experience.genre.name}", "/#{@experience.genre.search}", class: 'genre search_btn link_to link_hover', method: :post
+            = link_to "#{@experience.genre_name}", "/#{@experience.genre_search}", class: 'genre search_btn link_to link_hover', method: :post
       .show_info_right
         -# 未ログインユーザーなら'口コミ投稿'等のボタンが表示されない。
         - if user_signed_in?
@@ -54,11 +54,11 @@
             %li.post_reviews
               = icon('far', 'comment-dots', class: 'fa-flip-horizontal')
               口コミ投稿
-              = link_to '', new_experience_review_path(@experience.id), class: 'btn'
-            %li.share_act
-              = icon('fas', 'share')
-              シェアする
-              = link_to '','#', class: 'btn'
+              = link_to '', new_review_path(@experience.id), class: 'btn'
+            -# %li.share_act
+            -#   = icon('fas', 'share')
+            -#   シェアする
+            -#   = link_to '','#', class: 'btn'
           %ul.show_info_right_down
             %li{id: 'favorite_btn', class: 'favorite'}
               -# お気に入りされていればお気に入り登録の解除ができて、まだならお気に入り登録ができる。

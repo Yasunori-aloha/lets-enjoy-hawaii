@@ -10,6 +10,9 @@ class Experience < ApplicationRecord
   has_many :favorites
   has_many :fav_users, through: :favorites, source: :user
 
+  delegate :name, :search, to: :area, prefix: true
+  delegate :name, :search, to: :genre, prefix: true
+
   with_options presence: true do
     validates :name, :address, :latitude, :longitude, :area_id, :genre_id
   end

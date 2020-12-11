@@ -2,7 +2,7 @@
   = render 'shared/leh_header'
 .review_new_wrapper
   .review_new_form
-    = form_with model: @review, url: experience_reviews_path, class: 'review_form', local: true do |f|
+    = form_with model: @review, url: reviews_path, class: 'review_form', local: true do |f|
       .review_new_form_name
         .review_new_form_name_title
           .head_icon
@@ -18,7 +18,7 @@
               %span.exp_name
                 = @experience.name
             %li.exp_area
-              = "エリア ： #{@experience.area.island.name} ＞ #{@experience.area.name}"
+              = "エリア ： #{@experience.area.island.name} ＞ #{@experience.area_name}"
             %li.exp_address
               = @experience.address
       .review_new_form_score

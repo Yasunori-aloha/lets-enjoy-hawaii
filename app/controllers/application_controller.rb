@@ -5,18 +5,10 @@ class ApplicationController < ActionController::Base
 
   def user_is_current_user?(params)
     # paramsが'id'か'user_id'かで分岐させる。
-    if controller_name == 'users'
-      if current_user.id == params[:id].to_i
-        find_user_show
-      else
-        redirect_to root_path
-      end
+    if current_user.id == params[:id].to_i || current_user.id == params[:user_id].to_i
+      find_user_show
     else
-      if current_user.id == params[:user_id].to_i
-        find_user_show
-      else
-        redirect_to root_path
-      end
+      redirect_to root_path
     end
   end
 
@@ -31,7 +23,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def find_exp_id(exp_id)
+  def find_exp(exp_id)
     @experience = Experience.find(exp_id)
   end
 

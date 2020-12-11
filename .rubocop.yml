@@ -59,10 +59,22 @@ RSpec/ExampleLength:
 
 # 1行の最大文字数が130以下にする。
 Layout/LineLength:
-  Max: 130
+  Max: 200
 
 Style/MixinUsage:
   Enabled: false
 
 RSpec/IteratedExpectation:
+  Enabled: false
+
+# メソッド名が20文字以下なら許可する。※'migrationファイル'を除く。
+Metrics/MethodLength:
+  Max: 25
+  Exclude:
+    - "db/migrate/*.rb"
+
+Metrics/AbcSize:
+  Max: 40
+
+Rails/LexicallyScopedActionFilter:
   Enabled: false

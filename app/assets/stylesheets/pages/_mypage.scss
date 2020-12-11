@@ -119,6 +119,7 @@ $userNameHeight: calc(100% / 4 * 3);
           color: black;
           padding: 25px 17px;
         }
+        // ユーザー情報更新ページ
         .user_edit_main{
           @extend .mypage_user_info_head;
           height: 100%;
@@ -171,6 +172,7 @@ $userNameHeight: calc(100% / 4 * 3);
           @extend .user_edit_main;
           width: 776px;
           .favorites_activity_show_area{
+            min-height: calc(100vh - 184px);
             padding-top: 17px;
             .favorites_list{
               display: flex;
@@ -287,6 +289,10 @@ $userNameHeight: calc(100% / 4 * 3);
                 }
               }
             }
+            .not_contents{
+              font-size: 18px;
+              font-weight: bold;
+            }
           }
         }
         // ユーザーの訪問記録一覧ページ
@@ -299,14 +305,32 @@ $userNameHeight: calc(100% / 4 * 3);
               .histories_activity_wrapper{
                 @extend .favorites_activity_wrapper;
                 .history_info{
-                  @extend .favorite_info;
+                  height: 36px;
+                  padding: 0px 7px;
+                  display: flex;
+                  justify-content: space-between;
                   .history_time{
-                    @extend .favorite_time;
+                    font-size: 11px;
                   }
                   .history_release_btn{
-                    @extend .favorite_release_btn;
+                    @include backgroundGradient();
+                    border: 1px solid #808080;
+                    border-radius: 3px;
+                    display: flex;
+                    font-size: 11px;
+                    height: 20px;
+                    margin: auto 0px;
+                    padding: 0 7px;
+                    position: relative;
+                    .release_mark{
+                      margin: 3px 5px 0 0;
+                      color: #808080;
+                    }
+                    .release_message{
+                      font-weight: bold;
+                    }
                     .history_release{
-                      @extend .favorite_release;
+                      @include btn_link();
                     }
                   }
                 }
@@ -316,6 +340,79 @@ $userNameHeight: calc(100% / 4 * 3);
                   }
                 }
               }
+            }
+          }
+        }
+        // ユーザーの口コミ一覧ページ
+        .user_reviews_main{
+          @extend .user_favorites_main;
+          .reviews_activity_show_area{
+            padding: 17px 0 1px;
+            min-height: calc(100vh - 184px);
+            .reviews_list{
+                  .review_wrapper{
+                    padding: 12px 0 15px;
+                    color: #000000;
+                    border: 1px solid #808080;
+                    border-radius: 5px;
+                    background-color: #fff;
+                    margin-bottom: 17px;
+                    .review_main_area{
+                      width: 97%;
+                      margin: 0 auto;
+                      .review_info_wrapper{
+                        display: flex;
+                        li{
+                          .activity_picture{
+                            height: 60px;
+                            width: 80px;
+                            background-color: #000000;
+                            margin: 0 15px 5px 0;
+                          }
+                          .activity_name{
+                            display: inline-block;
+                            margin: 2px 0;
+                          }
+                          .activity_place{
+                            font-size: 11px;
+                            margin: 1px 0 0 1px;
+                          }
+                        }
+                        .reviewed_at_wrapper{
+                          font-size: 14px;
+                          margin: 0 0 0 auto;
+                        }
+                      }
+                      .review_info{
+                        .review_title{
+                          // font-size: 14px;
+                          font-weight: bold;
+                        }
+                        .review_score{
+                          margin-top: 2px;
+                          @include expScore;
+                        }
+                      }
+                      .triangle {
+                        color: #eee;
+                        margin: -5px 0 0 27px;
+                        font-size: 14px;
+                      }
+                      .review_index_comment_area {
+                        margin-top: -7px;
+                        padding: 8px;
+                        border-radius: 6px;
+                        background-color: #eee;
+                        .review_index_comment {
+                          font-size: 20px;
+                        }
+                      }
+                    }
+                  }
+            }
+            .not_contents{
+              font-size: 18px;
+              font-weight: bold;
             }
           }
         }
