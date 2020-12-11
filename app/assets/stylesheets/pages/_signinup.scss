@@ -115,6 +115,16 @@ $regHeight: 881px;
                 flex-wrap: wrap;
                 justify-content: center;
                 margin: 0 auto;
+                .google_login{
+                  position: relative;
+                  i{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 26px;
+                  }
+                }
                 .social_login_link{
                   height: 72px;
                   width: 72px;
