@@ -356,19 +356,25 @@ $userNameHeight: calc(100% / 4 * 3);
                   margin: 0 auto;
                   .review_info_wrapper{
                     display: flex;
-                    .activity_picture{
-                      height: 60px;
-                      width: 80px;
-                      background-color: #000000;
-                      margin: 0 15px 5px 0;
+                    li{
+                      .activity_picture{
+                        height: 60px;
+                        width: 80px;
+                        background-color: #000000;
+                        margin: 0 15px 5px 0;
+                      }
+                      .activity_name{
+                        display: inline-block;
+                        margin: 2px 0;
+                      }
+                      .activity_place{
+                        font-size: 11px;
+                        margin: 1px 0 0 1px;
+                      }
                     }
-                    .activity_name{
-                      display: inline-block;
-                      margin: 2px 0;
-                    }
-                    .activity_place{
-                      font-size: 11px;
-                      margin: 1px 0 0 1px;
+                    .reviewed_at_wrapper{
+                      font-size: 14px;
+                      margin: 0 0 0 auto;
                     }
                   }
                   .review_info{

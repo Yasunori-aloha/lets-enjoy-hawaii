@@ -102,6 +102,10 @@
                       = link_to "#{review.experience.name}", experience_path(review.experience.id), class: 'activity_name link_to link_hover'
                       %p.activity_place
                         = "#{review.experience.area.island.name} > #{review.experience.area.name}"
+                    %li.reviewed_at_wrapper
+                      %p{style: 'margin: 0;'}
+                        投稿日：
+                      = "#{l review.created_at, format: :day}"
                   .review_info
                     %h2.review_title
                       = review.title
