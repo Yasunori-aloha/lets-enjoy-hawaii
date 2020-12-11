@@ -360,7 +360,7 @@ $userNameHeight: calc(100% / 4 * 3);
                       height: 60px;
                       width: 80px;
                       background-color: #000000;
-                      margin-right: 30px;
+                      margin: 0 15px 5px 0;
                     }
                     .activity_name{
                       display: inline-block;
@@ -372,7 +372,6 @@ $userNameHeight: calc(100% / 4 * 3);
                     }
                   }
                   .review_info{
-                    display: flex;
                     .review_title{
                       // font-size: 14px;
                       font-weight: bold;
