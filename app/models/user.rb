@@ -12,7 +12,7 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :name
     # '@'がメールアドレスに入っていること。
-    validates :email, format: { with: /\A@\z/ }
+    validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
     # ユーザー新規登録時のみバリデーションを適用する。
     with_options on: :create do
       # 半角英数字記号含め8文字以上で、記号を2回以上使用すること。
