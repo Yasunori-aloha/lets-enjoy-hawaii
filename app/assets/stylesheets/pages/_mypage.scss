@@ -172,6 +172,7 @@ $userNameHeight: calc(100% / 4 * 3);
           @extend .user_edit_main;
           width: 776px;
           .favorites_activity_show_area{
+            min-height: calc(100vh - 184px);
             padding-top: 17px;
             .favorites_list{
               display: flex;
@@ -288,6 +289,10 @@ $userNameHeight: calc(100% / 4 * 3);
                 }
               }
             }
+            .not_contents{
+              font-size: 18px;
+              font-weight: bold;
+            }
           }
         }
         // ユーザーの訪問記録一覧ページ
@@ -343,66 +348,71 @@ $userNameHeight: calc(100% / 4 * 3);
           @extend .user_favorites_main;
           .reviews_activity_show_area{
             padding: 17px 0 1px;
+            min-height: calc(100vh - 184px);
             .reviews_list{
-              .review_wrapper{
-                padding: 12px 0 15px;
-                color: #000000;
-                border: 1px solid #808080;
-                border-radius: 5px;
-                background-color: #fff;
-                margin-bottom: 17px;
-                .review_main_area{
-                  width: 97%;
-                  margin: 0 auto;
-                  .review_info_wrapper{
-                    display: flex;
-                    li{
-                      .activity_picture{
-                        height: 60px;
-                        width: 80px;
-                        background-color: #000000;
-                        margin: 0 15px 5px 0;
+                  .review_wrapper{
+                    padding: 12px 0 15px;
+                    color: #000000;
+                    border: 1px solid #808080;
+                    border-radius: 5px;
+                    background-color: #fff;
+                    margin-bottom: 17px;
+                    .review_main_area{
+                      width: 97%;
+                      margin: 0 auto;
+                      .review_info_wrapper{
+                        display: flex;
+                        li{
+                          .activity_picture{
+                            height: 60px;
+                            width: 80px;
+                            background-color: #000000;
+                            margin: 0 15px 5px 0;
+                          }
+                          .activity_name{
+                            display: inline-block;
+                            margin: 2px 0;
+                          }
+                          .activity_place{
+                            font-size: 11px;
+                            margin: 1px 0 0 1px;
+                          }
+                        }
+                        .reviewed_at_wrapper{
+                          font-size: 14px;
+                          margin: 0 0 0 auto;
+                        }
                       }
-                      .activity_name{
-                        display: inline-block;
-                        margin: 2px 0;
+                      .review_info{
+                        .review_title{
+                          // font-size: 14px;
+                          font-weight: bold;
+                        }
+                        .review_score{
+                          margin-top: 2px;
+                          @include expScore;
+                        }
                       }
-                      .activity_place{
-                        font-size: 11px;
-                        margin: 1px 0 0 1px;
+                      .triangle {
+                        color: #eee;
+                        margin: -5px 0 0 27px;
+                        font-size: 14px;
+                      }
+                      .review_index_comment_area {
+                        margin-top: -7px;
+                        padding: 8px;
+                        border-radius: 6px;
+                        background-color: #eee;
+                        .review_index_comment {
+                          font-size: 20px;
+                        }
                       }
                     }
-                    .reviewed_at_wrapper{
-                      font-size: 14px;
-                      margin: 0 0 0 auto;
-                    }
                   }
-                  .review_info{
-                    .review_title{
-                      // font-size: 14px;
-                      font-weight: bold;
-                    }
-                    .review_score{
-                      margin-top: 2px;
-                      @include expScore;
-                    }
-                  }
-                  .triangle {
-                    color: #eee;
-                    margin: -5px 0 0 27px;
-                    font-size: 14px;
-                  }
-                  .review_index_comment_area {
-                    margin-top: -7px;
-                    padding: 8px;
-                    border-radius: 6px;
-                    background-color: #eee;
-                    .review_index_comment {
-                      font-size: 20px;
-                    }
-                  }
-                }
-              }
+            }
+            .not_contents{
+              font-size: 18px;
+              font-weight: bold;
             }
           }
         }
