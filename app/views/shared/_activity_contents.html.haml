@@ -200,7 +200,7 @@
               .review_index_user_area
                 = user_image_attached?(review.user)
                 .review_index_user_name
-                  = "#{review.user.name}さん"
+                  = "#{review.user_name}さん"
               %span{class: 'review_sort_material2', style: 'display: none;'}
                 = review.created_at
     -# 口コミが投稿されていない場合の表示

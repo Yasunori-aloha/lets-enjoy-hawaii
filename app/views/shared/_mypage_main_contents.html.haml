@@ -104,7 +104,7 @@
                     %li
                       .activity_picture
                     %li
-                      = link_to "#{review.experience.name}", experience_path(review.experience.id), class: 'activity_name link_to link_hover'
+                      = link_to "#{review.experience_name}", experience_path(review.experience.id), class: 'activity_name link_to link_hover'
                       %p.activity_place
                         = "#{review.experience.area.island.name} > #{review.experience.area.name}"
                     %li.reviewed_at_wrapper

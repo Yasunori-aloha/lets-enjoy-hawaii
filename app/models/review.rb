@@ -5,6 +5,9 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :experience
 
+  delegate :name, to: :experience, prefix: true
+  delegate :name, to: :user, prefix: true
+
   with_options presence: true do
     validates :title
     validates :comment
