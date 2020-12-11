@@ -485,7 +485,6 @@
     .experience_photo_title_icon {
       @include titleIcon();
       margin: 1px 5px 0 0;
-      // @extend .review_index_title_icon;
     }
 
     .experience_photo_title {
@@ -525,6 +524,24 @@
     .experience_photo_area_right {
       @extend .experience_photo_area;
       margin-right: 0;
+    }
+  }
+}
+
+.not_experience_photo_content{
+  @extend .review_index_content;
+  height: calc(100vh - 489px);
+
+  .experience_photo_title_area{
+    display: flex;
+
+    .experience_photo_title_icon{
+      @include titleIcon();
+      margin: 1px 5px 0 0;
+    }
+
+    .experience_photo_title{
+      @extend .experience_name;
     }
   }
 }
