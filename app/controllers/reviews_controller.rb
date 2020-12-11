@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create]
+  before_action :authenticate_user!, only: %i[user_index new create]
   before_action -> { find_exp(params[:id]) }, only: %i[exp_index new create edit]
   before_action -> { images_count(params[:id]) }, only: %i[exp_index edit]
-  before_action :authenticate_user!, only: %i[user_index]
 
   def exp_index
     @reviews = Review.includes(:user).where(experience_id: params[:id]).order('created_at DESC')
@@ -28,7 +27,7 @@ class ReviewsController < ApplicationController
       @experience.update(score: @experience.reviews.average(:score).round(1))
       redirect_experience(params[:id])
     else
-      render action: :new
+      render :new
     end
   end
 

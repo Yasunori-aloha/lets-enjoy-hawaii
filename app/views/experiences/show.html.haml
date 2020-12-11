@@ -41,12 +41,12 @@
             %span.area_name
               エリア
             = link_to "#{@experience.area.island.name}", "/#{@experience.area.island.search}", class: 'island search_btn link_to link_hover', method: :post
-            = link_to "#{@experience.area.name}","/#{@experience.area.search}", class: 'area search_btn link_to link_hover', method: :post
+            = link_to "#{@experience.area_name}","/#{@experience.area_search}", class: 'area search_btn link_to link_hover', method: :post
           %li.genre_wrapper
             %span.genre_name
               ジャンル
             = link_to "#{@experience.genre.category.name}", "/#{@experience.genre.category.search}", class: 'category search_btn link_to link_hover', method: :post
-            = link_to "#{@experience.genre.name}", "/#{@experience.genre.search}", class: 'genre search_btn link_to link_hover', method: :post
+            = link_to "#{@experience.genre_name}", "/#{@experience.genre_search}", class: 'genre search_btn link_to link_hover', method: :post
       .show_info_right
         -# 未ログインユーザーなら'口コミ投稿'等のボタンが表示されない。
         - if user_signed_in?

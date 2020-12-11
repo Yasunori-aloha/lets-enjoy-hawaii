@@ -40,7 +40,7 @@ module Users
         sign_in_and_redirect @user, event: :authentication
       else
         @sns_id = sns_info[:sns].id
-        render template: 'users/registrations/new'
+        render 'users/registrations/new'
       end
     end
 
