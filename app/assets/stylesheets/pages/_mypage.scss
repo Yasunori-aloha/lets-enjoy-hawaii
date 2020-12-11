@@ -362,18 +362,25 @@ $userNameHeight: calc(100% / 4 * 3);
                       background-color: #000000;
                       margin-right: 30px;
                     }
+                    .activity_name{
+                      display: inline-block;
+                      margin: 2px 0;
+                    }
+                    .activity_place{
+                      font-size: 11px;
+                      margin: 1px 0 0 1px;
+                    }
                   }
-                  .review_title{
-                    // font-size: 14px;
-                    font-weight: bold;
-                  }
-                  .review_score{
-                    margin-top: 2px;
-                    @include expScore;
-                  }
-                  .activity_name{
-                    display: inline-block;
-                    margin: 2px 0;
+                  .review_info{
+                    display: flex;
+                    .review_title{
+                      // font-size: 14px;
+                      font-weight: bold;
+                    }
+                    .review_score{
+                      margin-top: 2px;
+                      @include expScore;
+                    }
                   }
                   .triangle {
                     color: #eee;

@@ -99,17 +99,20 @@
                     %li
                       .activity_picture
                     %li
-                      %h2.review_title
-                        = review.title
-                      .review_score
-                        .star_rating
-                          %div{id: "star_rating#{index}", class: 'star_rating_front'}
-                            ★★★★★
-                          .star_rating_back
-                            ★★★★★
-                        %span{class: 'rating_point exp_score review_sort_material1'}
-                          = review.score.to_f
-                  = link_to "#{review.experience.name}", experience_path(review.experience.id), class: 'activity_name link_to link_hover'
+                      = link_to "#{review.experience.name}", experience_path(review.experience.id), class: 'activity_name link_to link_hover'
+                      %p.activity_place
+                        = "#{review.experience.area.island.name} > #{review.experience.area.name}"
+                  .review_info
+                    %h2.review_title
+                      = review.title
+                    .review_score
+                      .star_rating
+                        %div{id: "star_rating#{index}", class: 'star_rating_front'}
+                          ★★★★★
+                        .star_rating_back
+                          ★★★★★
+                      %span{class: 'rating_point exp_score review_sort_material1'}
+                        = review.score.to_f
                   .triangle
                     ▲
                   .review_index_comment_area
@@ -117,7 +120,7 @@
                       = review.comment
             -# 口コミが投稿されていない場合の表示
         - else
-          test2
+          まだ口コミを投稿していません。
           -#             .review_index_user_area
           -#               = user_image_attached?(review.user)
           -#             %span{class: 'review_sort_material2', style: 'display: none;'}
