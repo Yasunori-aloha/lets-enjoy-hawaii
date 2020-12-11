@@ -19,15 +19,12 @@ RSpec.describe 'Histories', type: :system do
         visit experience_path(experience.id)
         expect(page).to have_selector('.fa-shoe-prints')
         expect(page).to have_content('行った')
-        # binding.pry
 
         # 行ったボタンをクリックするとHistoryモデルのレコード数が1上がり、足跡アイコンがチェックマークに変化する。
-        # before_history = History.count
-        find('.have_been_btn').click
-        page.has_selector?('.fa-check')
-        # binding.pry
-        # expect(History.count).to eq 1
-        # expect { find('.have_been_btn').click }.to change(History, :count).by(1)
+        expect {
+          find('.have_been_btn').click
+          wait_for_selector('.fa-check')
+        }.to change(History, :count).by(1)
       end
     end
 
@@ -43,10 +40,10 @@ RSpec.describe 'Histories', type: :system do
         expect(page).to have_content('行った')
 
         # 行ったボタンをクリックするとHistoryモデルのレコード数が1下がり、チェックマークが足跡アイコンに変化する。
-        expect { find('.have_been_btn').click }.to change(History, :count).by(
-          -1
-        )
-        expect(page).to have_selector('.fa-shoe-prints')
+        expect {
+          find('.have_been_btn').click
+          wait_for_selector('.fa-shoe-prints')
+        }.to change(History, :count).by(-1)
       end
     end
 

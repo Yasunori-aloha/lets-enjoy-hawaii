@@ -78,3 +78,8 @@ Metrics/AbcSize:
 
 Rails/LexicallyScopedActionFilter:
   Enabled: false
+
+Style/BlockDelimiters:
+  AutoCorrect: false
+  Exclude:
+    - "spec/**/*"
