@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  rescue_from ActiveRecord::RecordNotFound, with: :redirect_root
+
+  def redirect_root
+    redirect_to root_path
+  end
+
   private
 
   def user_is_current_user?(params)
