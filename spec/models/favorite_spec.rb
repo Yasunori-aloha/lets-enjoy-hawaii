@@ -3,7 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe Favorite, type: :model do
-  let(:favorite) { build(:favorite) }
+  let(:experience) { create(:experience) }
+  let(:favorite) { build(:favorite, experience_id: experience.id) }
   let(:another_favorite) { build(:favorite) }
 
   describe 'アクティビティお気に入り登録' do

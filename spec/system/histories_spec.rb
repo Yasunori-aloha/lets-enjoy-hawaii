@@ -21,10 +21,10 @@ RSpec.describe 'Histories', type: :system do
         expect(page).to have_content('行った')
 
         # 行ったボタンをクリックするとHistoryモデルのレコード数が1上がり、足跡アイコンがチェックマークに変化する。
-        expect { find('.have_been_btn').click }.to change(History, :count).by(
-          1
-        )
-        expect(page).to have_selector('.fa-check')
+        expect {
+          find('.have_been_btn').click
+          wait_for_selector('.fa-check')
+        }.to change(History, :count).by(1)
       end
     end
 
@@ -40,10 +40,10 @@ RSpec.describe 'Histories', type: :system do
         expect(page).to have_content('行った')
 
         # 行ったボタンをクリックするとHistoryモデルのレコード数が1下がり、チェックマークが足跡アイコンに変化する。
-        expect { find('.have_been_btn').click }.to change(History, :count).by(
-          -1
-        )
-        expect(page).to have_selector('.fa-shoe-prints')
+        expect {
+          find('.have_been_btn').click
+          wait_for_selector('.fa-shoe-prints')
+        }.to change(History, :count).by(-1)
       end
     end
 

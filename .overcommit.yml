@@ -27,7 +27,7 @@ PreCommit:
 PrePush:
   Brakeman:
     enabled: true
-  Rspec:
+  RSpec:
     enabled: true
 PostCheckout:
   BundleInstall:

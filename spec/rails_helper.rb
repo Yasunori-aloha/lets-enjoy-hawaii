@@ -70,4 +70,7 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.before(:each, type: :system) { driven_by :selenium_chrome_headless }
   config.include SignInSupport
+  config.include WaitForLoaded
+  Rails.logger = Logger.new($stdout)
+  ActiveRecord::Base.logger = Logger.new($stdout)
 end

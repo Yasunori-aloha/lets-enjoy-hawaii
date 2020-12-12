@@ -18,7 +18,7 @@ RSpec.describe 'Reviews', type: :system do
         expect(page).to have_content('口コミ投稿')
 
         # 口コミ投稿ページへ移動してフォームに情報を入力する。
-        visit new_experience_review_path(experience.id)
+        visit new_review_path(experience.id)
         find(id: "star_btn#{rand(1..5)}").click
         fill_in 'review_title', with: review.title
         fill_in 'review_comment', with: review.comment
@@ -65,7 +65,7 @@ RSpec.describe 'Reviews', type: :system do
       end
 
       it '未ログインユーザーは直接口コミ投稿ページへのリンクを打ち込んでもログイン画面へ遷移する' do
-        visit new_experience_review_path(experience.id)
+        visit new_review_path(experience.id)
         expect(page).to have_current_path(new_user_session_path)
       end
     end

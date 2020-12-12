@@ -3,7 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe History, type: :model do
-  let(:history) { build(:history) }
+  let(:experience) { create(:experience) }
+  let(:history) { build(:history, experience_id: experience.id) }
   let(:another_history) { build(:history) }
 
   describe '行ったボタンクリック履歴保存' do
