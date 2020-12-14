@@ -105,6 +105,7 @@
                     %li
                       .activity_picture
                         = image_tag "https://maps.googleapis.com/maps/api/streetview?size=800x600&location=#{review.experience.latitude},#{review.experience.longitude}&heading=#{review.experience.heading}&pitch=#{review.experience.pitch}&fov=#{review.experience.fov}&zoom=#{review.experience.zoom}&key=#{ENV['GOOGLE_STREET_VIEW_KEY']}", class: 'content_picture'
+                        = link_to "", experience_path(review.experience.id), class: 'activity_picture_link'
                     %li
                       = link_to "#{review.experience_name}", experience_path(review.experience.id), class: 'activity_name link_to link_hover'
                       %p.activity_place
