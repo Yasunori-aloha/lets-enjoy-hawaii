@@ -32,7 +32,8 @@
       = exp.name
     .picture_score
       -# アクティビティの画像を表示させる。
-      = image_tag "https://maps.googleapis.com/maps/api/streetview?size=800x600&location=#{exp.latitude},#{exp.longitude}&heading=#{exp.heading}&pitch=#{exp.pitch}&fov=#{exp.fov}&zoom=#{exp.zoom}&key=#{ENV['GOOGLE_STREET_VIEW_KEY']}", class: 'content_picture'
+      = image_tag "https://maps.googleapis.com/maps/api/streetview?size=400x400&location=21.2813,-157.83114&heading=334.575134927103&pitch=-0.31941773651804795&fov=120&zoom=0.5849625007211563&key=#{ENV['GOOGLE_STREET_VIEW_KEY']}", class: 'content_picture'
+      -# = image_tag "https://maps.googleapis.com/maps/api/streetview?size=800x600&location=#{exp.latitude},#{exp.longitude}&heading=#{exp.heading}&pitch=#{exp.pitch}&fov=#{exp.fov}&zoom=#{exp.zoom}&key=#{ENV['GOOGLE_STREET_VIEW_KEY']}", class: 'content_picture'
       .content_score
         -# アクティビティの5段階評価の各点数ごとの割合を表示させる。
         %ul.content_score_list
