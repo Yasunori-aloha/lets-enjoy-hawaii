@@ -368,8 +368,11 @@ $userNameHeight: calc(100% / 4 * 3);
                           .activity_picture{
                             height: 60px;
                             width: 80px;
-                            // background-color: #000000;
                             margin: 0 15px 5px 0;
+                            .content_picture{
+                              height: 100%;
+                              width: 100%;
+                            }
                           }
                           .activity_name{
                             display: inline-block;
