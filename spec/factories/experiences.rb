@@ -10,6 +10,10 @@ FactoryBot.define do
     business_hours_start { "#{rand(0..12)}:#{rand(0..59)}" }
     business_hours_finish { "#{rand(13..24)}:#{rand(0..59)}" }
     score { rand(1..5) }
+    heading { 0.123456 }
+    pitch { 0.123456 }
+    fov { 0.123456 }
+    zoom { 0.123456 }
 
     after(:build) do |exp|
       exp.image.attach(io: File.open("#{Rails.root}/spec/fixtures/files/test_image.png"), filename: 'test_image.png')

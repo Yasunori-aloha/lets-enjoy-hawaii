@@ -36,6 +36,26 @@ RSpec.describe Experience, type: :model do
         expect(experience).to be_valid
       end
 
+      it 'headingが入力されていなくても登録できる' do
+        experience.heading = nil
+        expect(experience).to be_valid
+      end
+
+      it 'pitchが入力されていなくても登録できる' do
+        experience.pitch = nil
+        expect(experience).to be_valid
+      end
+
+      it 'fovが入力されていなくても登録できる' do
+        experience.fov = nil
+        expect(experience).to be_valid
+      end
+
+      it 'zoomが入力されていなくても登録できる' do
+        experience.zoom = nil
+        expect(experience).to be_valid
+      end
+
       it '画像が添付されていなくても登録できる' do
         experience.image = nil
         expect(experience).to be_valid
