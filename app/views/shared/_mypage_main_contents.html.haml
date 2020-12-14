@@ -65,6 +65,7 @@
                       登録解除
                     = link_to '', favorites_path(fav.experience.id), method: :delete, class: 'favorite_release', remote: true
                 .activity_picture
+                  = image_tag "https://maps.googleapis.com/maps/api/streetview?size=800x600&location=#{fav.experience.latitude},#{fav.experience.longitude}&heading=#{fav.experience.heading}&pitch=#{fav.experience.pitch}&fov=#{fav.experience.fov}&zoom=#{fav.experience.zoom}&key=#{ENV['GOOGLE_STREET_VIEW_KEY']}", class: 'content_picture'
                   = link_to "", experience_path(fav.experience.id), class: 'activity_picture_link'
                 .activity_info_wrapper
                   = link_to "#{fav.experience.name}", experience_path(fav.experience.id), class: 'activity_name link_hover'
