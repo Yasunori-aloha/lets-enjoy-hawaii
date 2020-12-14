@@ -140,6 +140,12 @@ $gray: #ccc;
           margin: 20px 11px 10px;
           display: flex;
 
+          .content_image{
+            height: 134px;
+            width: 178px;
+            border: 1px solid $gray;
+          }
+
           .content_outline {
             margin-left: 11px;
             height: 100%;

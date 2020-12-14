@@ -54,12 +54,12 @@
               \＞
               = exp.area.name
           .content_main_outline
-            = image_tag '', height: '134px', width: '178px', class: 'content_image'
+            = image_tag "https://maps.googleapis.com/maps/api/streetview?size=800x600&location=#{exp.latitude},#{exp.longitude}&heading=#{exp.heading}&pitch=#{exp.pitch}&fov=#{exp.fov}&zoom=#{exp.zoom}&key=#{ENV['GOOGLE_STREET_VIEW_KEY']}", height: '134px', width: '178px', class: 'content_image'
             .content_outline
               .content_outline_main
-                説明文
+                -# 説明文
               .content_outline_sub
-                説明文
+                -# 説明文
               .content_outline_category
                 = icon('fas', 'flag', class: 'category_icon')
                 = exp.genre.name

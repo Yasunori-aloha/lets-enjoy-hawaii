@@ -65,6 +65,7 @@
                       登録解除
                     = link_to '', favorites_path(fav.experience.id), method: :delete, class: 'favorite_release', remote: true
                 .activity_picture
+                  = image_tag "https://maps.googleapis.com/maps/api/streetview?size=800x600&location=#{fav.experience.latitude},#{fav.experience.longitude}&heading=#{fav.experience.heading}&pitch=#{fav.experience.pitch}&fov=#{fav.experience.fov}&zoom=#{fav.experience.zoom}&key=#{ENV['GOOGLE_STREET_VIEW_KEY']}", class: 'content_picture'
                   = link_to "", experience_path(fav.experience.id), class: 'activity_picture_link'
                 .activity_info_wrapper
                   = link_to "#{fav.experience.name}", experience_path(fav.experience.id), class: 'activity_name link_hover'
@@ -103,6 +104,8 @@
                   %ul.review_info_wrapper
                     %li
                       .activity_picture
+                        = image_tag "https://maps.googleapis.com/maps/api/streetview?size=800x600&location=#{review.experience.latitude},#{review.experience.longitude}&heading=#{review.experience.heading}&pitch=#{review.experience.pitch}&fov=#{review.experience.fov}&zoom=#{review.experience.zoom}&key=#{ENV['GOOGLE_STREET_VIEW_KEY']}", class: 'content_picture'
+                        = link_to "", experience_path(review.experience.id), class: 'activity_picture_link'
                     %li
                       = link_to "#{review.experience_name}", experience_path(review.experience.id), class: 'activity_name link_to link_hover'
                       %p.activity_place
@@ -157,6 +160,7 @@
                       登録解除
                     = link_to '', histories_path(his.experience.id), method: :delete, class: 'history_release', remote: true
                 .activity_picture
+                  = image_tag "https://maps.googleapis.com/maps/api/streetview?size=800x600&location=#{his.experience.latitude},#{his.experience.longitude}&heading=#{his.experience.heading}&pitch=#{his.experience.pitch}&fov=#{his.experience.fov}&zoom=#{his.experience.zoom}&key=#{ENV['GOOGLE_STREET_VIEW_KEY']}", class: 'content_picture'
                   = link_to "", experience_path(his.experience.id), class: 'activity_picture_link'
                 .activity_info_wrapper
                   = link_to "#{his.experience.name}", experience_path(his.experience.id), class: 'activity_name link_hover'

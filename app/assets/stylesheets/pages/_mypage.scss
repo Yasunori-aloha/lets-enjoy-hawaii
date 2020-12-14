@@ -221,8 +221,10 @@ $userNameHeight: calc(100% / 4 * 3);
                 .activity_picture{
                   height: 181px;
                   position: relative;
-                  // ↓削除予定
-                  background-color: #000000;
+                  .content_picture{
+                    height: 100%;
+                    width: 100%;
+                  }
                   &_link{
                     @include btn_link();
                   }
@@ -364,10 +366,20 @@ $userNameHeight: calc(100% / 4 * 3);
                         display: flex;
                         li{
                           .activity_picture{
+                            position: relative;
                             height: 60px;
                             width: 80px;
-                            background-color: #000000;
                             margin: 0 15px 5px 0;
+                            .content_picture{
+                              height: 100%;
+                              width: 100%;
+                            }
+                            &_link{
+                              position: absolute;
+                              top: 0;
+                              left: 0;height: 100%;
+                              width: 100%;
+                            }
                           }
                           .activity_name{
                             display: inline-block;
@@ -385,7 +397,6 @@ $userNameHeight: calc(100% / 4 * 3);
                       }
                       .review_info{
                         .review_title{
-                          // font-size: 14px;
                           font-weight: bold;
                         }
                         .review_score{
