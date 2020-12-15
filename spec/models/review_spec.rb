@@ -6,6 +6,10 @@ include ActionDispatch::TestProcess
 RSpec.describe Review, type: :model do
   let(:review) { build(:review) }
 
+  before do
+    sleep(0.1)
+  end
+
   describe '口コミ新規投稿' do
     context '新規投稿ができる' do
       it 'title・comment・scoreの値と画像添付されていれば投稿できる' do

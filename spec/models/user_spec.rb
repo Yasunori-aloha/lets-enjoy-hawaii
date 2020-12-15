@@ -6,6 +6,10 @@ RSpec.describe User, type: :model do
   let(:user) { build(:user) }
   let(:another_user) { build(:user) }
 
+  before do
+    sleep(0.1)
+  end
+
   describe 'ユーザー新規登録' do
     context 'ユーザーの新規登録ができる場合' do
       it 'name・email・passwordが正しく入力されていれば登録できる' do

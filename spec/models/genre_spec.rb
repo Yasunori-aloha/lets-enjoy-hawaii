@@ -5,6 +5,10 @@ require 'rails_helper'
 RSpec.describe Genre, type: :model do
   let(:genre) { build(:genre) }
 
+  before do
+    sleep(0.1)
+  end
+
   describe 'ジャンル登録' do
     context 'ジャンル登録ができる場合' do
       it 'name・category_idが入力されていると登録できる' do

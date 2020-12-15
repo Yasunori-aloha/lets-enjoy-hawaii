@@ -5,6 +5,10 @@ require 'rails_helper'
 RSpec.describe Area, type: :model do
   let(:area) { build(:area) }
 
+  before do
+    sleep(0.1)
+  end
+
   describe 'ジャンル登録' do
     context 'ジャンル登録ができる場合' do
       it 'name・category_idが入力されていると登録できる' do

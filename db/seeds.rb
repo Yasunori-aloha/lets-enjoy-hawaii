@@ -9,10 +9,7 @@
 # coding: utf-8
 
 User.create!([
-  {email: "test@test.com", encrypted_password: "$2a$12$d6lwjeVFTlDQtWS7plLfpuQO35uQoh4R/oyGpIMJwIEiqQUFHZ7U2", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, name: "テストユーザー", introduce: "テストユーザーになります。", admin: nil},
-  {email: "test@com", encrypted_password: "$2a$12$lg5KuEnCZQJQ0B7iL/PgAuC.4bIkOpzJz4BlmPrrNTBNBhDgvYVc6", reset_password_token: "08130c64aa6d8ab2451d17d304eb4ce168530f9532b44ff91e9852a3eda5b852", reset_password_sent_at: "2020-10-27 11:54:06", remember_created_at: nil, name: "テストユーザー2", introduce: nil, admin: nil},
-  {email: "gyarubaku@yahoo.ne.jp", encrypted_password: "$2a$12$cHC6EqjB/GkBgJD9ALcfquG.FhRbWxQJKbxlvGHSN872DDv7RXGk6", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, name: "山崎泰則", introduce: "テストユーザー？", admin: nil},
-  {email: "t@t", encrypted_password: "$2a$12$4lxfiZMKKlWsbk5ASjPvAOYDQ1AzODlcONaUq8ZMKRxP5yl5EFzFu", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, name: "test", introduce: "test34889", admin: nil}
+  {email: "test@test.com", encrypted_password: "$2a$12$2xmSdqGyKMtGnlfeITKzmetAT3JApe2a0c5BhE.ukMZoK6lAgQEe2", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, name: "テストユーザー", introduce: "テストユーザーです。", admin: nil}
 ])
 Genre.create!([
   {name: "観光地", category_id: 5, search: "landmark"},
@@ -38,29 +35,26 @@ Area.create!([
   {name: "カイルア コナ", island_id: 1, search: "kailua-kona"}
 ])
 History.create!([
-  {user_id: 1, experience_id: 7, comment: nil},
-  {user_id: 1, experience_id: 1, comment: nil}
+  {user_id: 11, experience_id: 4, comment: nil},
+  {user_id: 11, experience_id: 14, comment: nil},
+  {user_id: 11, experience_id: 13, comment: nil},
+  {user_id: 11, experience_id: 9, comment: nil},
+  {user_id: 11, experience_id: 2, comment: nil}
 ])
 Favorite.create!([
-  {user_id: 1, experience_id: 4, comment: ""},
-  {user_id: 1, experience_id: 6, comment: ""},
-  {user_id: 1, experience_id: 7, comment: nil},
-  {user_id: 10, experience_id: 1, comment: nil},
-  {user_id: 1, experience_id: 1, comment: nil},
-  {user_id: 1, experience_id: 5, comment: nil},
-  {user_id: 1, experience_id: 3, comment: nil}
-])
-SnsCredential.create!([
-  {provider: "facebook", uid: "154587356359318", user_id: 9}
+  {user_id: 11, experience_id: 4, comment: nil},
+  {user_id: 11, experience_id: 14, comment: nil},
+  {user_id: 11, experience_id: 9, comment: nil},
+  {user_id: 11, experience_id: 2, comment: nil}
 ])
 Experience.create!([
-  {name: "ハワイ出雲大社", outline: "", address: "215 N Kukui St, Honolulu, HI 96817", latitude: 21.315507, longitude: -157.860823, business_hours_start: "8:30", business_hours_finish: "16:00", area_id: 1, genre_id: 1, score: 3.4, heading: 0.7442534824221285, pitch: -0.005456512448489548, fov: 120.0, zoom: 0.5849625007211563},
+  {name: "ハワイ出雲大社", outline: "", address: "215 N Kukui St, Honolulu, HI 96817", latitude: 21.315507, longitude: -157.860823, business_hours_start: "8:30", business_hours_finish: "16:00", area_id: 1, genre_id: 1, score: 0.0, heading: 0.7442534824221285, pitch: -0.005456512448489548, fov: 120.0, zoom: 0.5849625007211563},
   {name: "ホノルル動物園", outline: "", address: "151 Kapahulu Ave. Honolulu HI 96815", latitude: 21.27102105001876, longitude: -157.8216668153002, business_hours_start: "9:00", business_hours_finish: "16:00", area_id: 1, genre_id: 8, score: 0.0, heading: 80.99776862736235, pitch: 7.007798373036664, fov: 90.0, zoom: 1.0},
   {name: "マウイ オーシャン センター", outline: nil, address: "192 Maalaea Rd, Wailuku, HI 96793", latitude: 20.79233488421192, longitude: -156.5126617064572, business_hours_start: "9:00", business_hours_finish: "17:00", area_id: 2, genre_id: 6, score: 0.0, heading: 81.54915568022477, pitch: -9.76361710778049, fov: 54.914331218834015, zoom: 1.7127422970167263},
-  {name: "ハウ・ツリー・ラナイ", outline: nil, address: "2863 Kalakaua Avenue, Lobby floor of the Kaimana Beach Hotel, Honolulu, HI 96815", latitude: 21.26328600546552, longitude: -157.8213162347674, business_hours_start: "10:00", business_hours_finish: "20:30", area_id: 1, genre_id: 9, score: 0.0, heading: 272.09314254471064, pitch: 2.722181929057328, fov: 107.3852589981389, zoom: 0.7452009414428279},
+  {name: "ハウ・ツリー・ラナイ", outline: nil, address: "2863 Kalakaua Avenue, Lobby floor of the Kaimana Beach Hotel, Honolulu, HI 96815", latitude: 21.26328600546552, longitude: -157.8213162347674, business_hours_start: "10:00", business_hours_finish: "20:30", area_id: 1, genre_id: 9, score: 4.0, heading: 272.09314254471064, pitch: 2.722181929057328, fov: 107.3852589981389, zoom: 0.7452009414428279},
   {name: "エッグスン シングス サラトガ本店", outline: nil, address: "343 Saratoga Road Honolulu, Hawaii 96815", latitude: 21.2812999, longitude: -157.8311402, business_hours_start: "6:00", business_hours_finish: "22:00", area_id: 1, genre_id: 9, score: 0.0, heading: 334.575134927103, pitch: -0.31941773651804795, fov: 120.0, zoom: 0.0},
   {name: "丸亀製麺 ワイキキ店", outline: nil, address: "2310 Kūhiō Ave. #124, Honolulu, HI 96815", latitude: 21.27949546958747, longitude: -157.8261752886107, business_hours_start: "11:00", business_hours_finish: "21:00", area_id: 3, genre_id: 11, score: 0.0, heading: 75.93652146751933, pitch: 3.491251860391557, fov: 95.12881483284178, zoom: 0.9200425970566853},
-  {name: "クカニロコ・バース・ストーン", outline: nil, address: "Kamehameha Hwy, Wahiawa, HI 96786", latitude: 21.5046715, longitude: -158.0360277, business_hours_start: "0:00", business_hours_finish: "24:00", area_id: 4, genre_id: 1, score: 4.0, heading: 283.3895592965079, pitch: 20.906770097302058, fov: 120.0, zoom: 0.5849625007211563},
+  {name: "クカニロコ・バース・ストーン", outline: nil, address: "Kamehameha Hwy, Wahiawa, HI 96786", latitude: 21.5046715, longitude: -158.0360277, business_hours_start: "0:00", business_hours_finish: "24:00", area_id: 4, genre_id: 1, score: 0.0, heading: 283.3895592965079, pitch: 20.906770097302058, fov: 120.0, zoom: 0.5849625007211563},
   {name: "ダイヤモンド ヘッド", outline: nil, address: "18th Ave., Waikiki, Honolulu, Oahu, HI 96815", latitude: 21.25351718830514, longitude: -157.8077901899815, business_hours_start: "日 ~ 土 : 6:00", business_hours_finish: "16:30", area_id: 1, genre_id: 1, score: 0.0, heading: 18.04706904979218, pitch: -21.937938517512563, fov: 120.0, zoom: 0.5849625007211563},
   {name: "アラモアナ・ショッピングセンター", outline: nil, address: "1450 Ala Moana Blvd, Honolulu, Oahu, HI 96814-4604", latitude: 21.2910515, longitude: -157.8436392, business_hours_start: nil, business_hours_finish: nil, area_id: 1, genre_id: 12, score: 0.0, heading: 24.888991930257877, pitch: 3.742514551486522, fov: 120.0, zoom: 0.5849625007211563},
   {name: "ヴィクトリアズ シークレット&ピンク", outline: nil, address: "2230 Kalakaua Ave, Honolulu, HI 96815", latitude: 21.279392, longitude: -157.828818, business_hours_start: "10:00", business_hours_finish: "23:00", area_id: 1, genre_id: 13, score: 0.0, heading: 72.50825996484618, pitch: -5.694193774813414, fov: 120.0, zoom: 0.5849625007211563},
@@ -73,42 +67,13 @@ Experience.create!([
   {name: "ヒルトン ハワイアン ビレッジ ワイキキ ビーチ リゾート", outline: nil, address: "2005 Kalia Rd, Honolulu, HI 96815", latitude: 21.2846084, longitude: -157.835938, business_hours_start: nil, business_hours_finish: nil, area_id: 1, genre_id: 5, score: 0.0, heading: 186.40876811328613, pitch: 25.98933449033754, fov: 74.96071828993425, zoom: 1.263790224160779}
 ])
 Review.create!([
-  {comment: "テスト", score: 4, user_id: 1, experience_id: 1, title: "テスト1"},
-  {comment: "テスト2", score: 3, user_id: 1, experience_id: 1, title: "テスト2"},
-  {comment: "test", score: 5, user_id: 1, experience_id: 1, title: "test"},
-  {comment: "test", score: 4, user_id: 1, experience_id: 7, title: "テスト"},
-  {comment: "テスト", score: 3, user_id: 1, experience_id: 1, title: "画像テスト"},
-  {comment: "tests", score: 2, user_id: 1, experience_id: 1, title: "test"}
+  {comment: "テスト", score: 4, user_id: 11, experience_id: 4, title: "テスト"}
 ])
 ActiveStorage::Blob.create!([
-  {key: "8tu2485eok9i1j74fdxgb3n9e9ut", filename: "IMG_8484.JPG", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 3358199, checksum: "Rnr7kelHrICPyRP+zc7HyQ=="},
-  {key: "z7ym6ypl4nv24p6m7ul5xc4vhuqr", filename: "IMG_8484.JPG", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 3358199, checksum: "Rnr7kelHrICPyRP+zc7HyQ=="},
-  {key: "ckogruq4rcuwov1vli9bamy3jm78", filename: "register_image.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 1683437, checksum: "aagyNRU851SLCvmhEzC0hQ=="},
-  {key: "7cxjgt3sk3mcuplwkaszw67no000", filename: "toppage.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 1793966, checksum: "ZjdvoPHNydMzAijOxXmviA=="},
-  {key: "lx8l2xshto0jx4unmg6v7djxw1ut", filename: "mypage_image.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 8275890, checksum: "6L+hNJPbt8f3C88RAAaAlA=="},
-  {key: "ai09n43jbcts4soei3lyl26p7ifz", filename: "mypage_image.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 8275890, checksum: "6L+hNJPbt8f3C88RAAaAlA=="},
-  {key: "fuqf448u4fjou199e0stkbdaabzx", filename: "toppage.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 1793966, checksum: "ZjdvoPHNydMzAijOxXmviA=="},
-  {key: "4toabtmlk5fvk3s6fgwm6jrxurai", filename: "mypage_image.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 8275890, checksum: "6L+hNJPbt8f3C88RAAaAlA=="},
-  {key: "qzkpgp916urmcgltshse0qu26lnp", filename: "register_image.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 1683437, checksum: "aagyNRU851SLCvmhEzC0hQ=="},
-  {key: "2dh6ah0qfl521ou38u5jvvruk5kn", filename: "toppage_header.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 1387275, checksum: "308eKUhXU4tdSRcbI9fv2g=="},
-  {key: "i296xhpygszcvz8gz8e1zi02mbcb", filename: "toppage.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 1793966, checksum: "ZjdvoPHNydMzAijOxXmviA=="},
-  {key: "eu72ru9psx0bfdkwx486ir3fwrte", filename: "テスト画像", content_type: "image/png", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 102589, checksum: "+CLbwxgZoBZ38D/bHi4pdQ=="},
-  {key: "kumqg1rir6rrjykzppk8ckg68q3k", filename: "テスト画像", content_type: "image/png", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 102589, checksum: "+CLbwxgZoBZ38D/bHi4pdQ=="},
-  {key: "du0g51hiodf98bvisuohhciudovk", filename: "テスト画像", content_type: "image/png", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 102589, checksum: "+CLbwxgZoBZ38D/bHi4pdQ=="},
-  {key: "p15a0pq5kvdws3auxmwy4g2gypno", filename: "テスト画像", content_type: "image/png", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 102589, checksum: "+CLbwxgZoBZ38D/bHi4pdQ=="},
-  {key: "a7cyi2gd41i2zwac81i8aup5oyr4", filename: "テスト画像", content_type: "image/png", metadata: {"identified"=>true}, byte_size: 102589, checksum: "+CLbwxgZoBZ38D/bHi4pdQ=="},
-  {key: "6fp7xiom4t1mqxf7rmtn133gu1b9", filename: "テスト画像", content_type: "image/png", metadata: {"identified"=>true}, byte_size: 102589, checksum: "+CLbwxgZoBZ38D/bHi4pdQ=="},
-  {key: "63o0z6htqdxbzri14zohhizrz2at", filename: "toppage_header.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 1387275, checksum: "308eKUhXU4tdSRcbI9fv2g=="}
+  {key: "sqjhz3mn3mes12s0szzt8e7xdogg", filename: "IMG_8990.JPG", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 2900245, checksum: "ye1vpObTD64MP664j/q4gg=="},
+  {key: "vo6e2nck14y1b0jsnxlz85hz1ew3", filename: "IMG_8995.JPG", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 1564988, checksum: "daXd6Sqqo8rJhyEN88yk4w=="}
 ])
 ActiveStorage::Attachment.create!([
-  {name: "images", record_type: "Review", record_id: 13, blob_id: 29},
-  {name: "images", record_type: "Review", record_id: 13, blob_id: 30},
-  {name: "images", record_type: "Review", record_id: 14, blob_id: 31},
-  {name: "images", record_type: "Review", record_id: 15, blob_id: 32},
-  {name: "images", record_type: "Review", record_id: 15, blob_id: 33},
-  {name: "images", record_type: "Review", record_id: 17, blob_id: 34},
-  {name: "images", record_type: "Review", record_id: 17, blob_id: 35},
-  {name: "images", record_type: "Review", record_id: 17, blob_id: 36},
-  {name: "images", record_type: "Review", record_id: 17, blob_id: 37},
-  {name: "image", record_type: "User", record_id: 10, blob_id: 44}
+  {name: "images", record_type: "Review", record_id: 17, blob_id: 45},
+  {name: "images", record_type: "Review", record_id: 17, blob_id: 46}
 ])

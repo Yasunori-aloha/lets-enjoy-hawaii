@@ -6,6 +6,10 @@ RSpec.describe SnsCredential, type: :model do
   let(:omniauth) { create(:sns_credential) }
   let(:another_omniauth) { build(:sns_credential) }
 
+  before do
+    sleep(0.1)
+  end
+
   describe 'SNS認証登録' do
     context 'SNSでの認証登録ができる場合' do
       it '初めてのSNSでの認証なら登録できる' do

@@ -54,9 +54,10 @@ $cd lets-enjoy-hawaii
 $bundle install
 $rails db:create
 $ rails db:migrate
+$ rails db:seed
 ```
 ## ER図
-https://i.gyazo.com/8540803756cd441cbcc2311c11cdc6dc.png
+https://i.gyazo.com/ddd77c78ede9a80e1b8fe9b7c0cd5ce3.png
 
 ## その他
 順次機能を実装しております。
