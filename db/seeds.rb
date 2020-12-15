@@ -9,7 +9,7 @@
 # coding: utf-8
 
 User.create!([
-  {email: "test@test.com", encrypted_password: "$2a$12$2xmSdqGyKMtGnlfeITKzmetAT3JApe2a0c5BhE.ukMZoK6lAgQEe2", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, name: "テストユーザー", introduce: "テストユーザーです。", admin: nil}
+  {email: "test@test.com", password: "testtest1!!", password_confirmation: "testtest1!!", encrypted_password: "$2a$12$2xmSdqGyKMtGnlfeITKzmetAT3JApe2a0c5BhE.ukMZoK6lAgQEe2", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, name: "テストユーザー", introduce: "テストユーザーです。", admin: nil}
 ])
 Genre.create!([
   {name: "観光地", category_id: 5, search: "landmark"},
@@ -34,19 +34,6 @@ Area.create!([
   {name: "ワヒアワ", island_id: 6, search: "wahiawa"},
   {name: "カイルア コナ", island_id: 1, search: "kailua-kona"}
 ])
-History.create!([
-  {user_id: 11, experience_id: 4, comment: nil},
-  {user_id: 11, experience_id: 14, comment: nil},
-  {user_id: 11, experience_id: 13, comment: nil},
-  {user_id: 11, experience_id: 9, comment: nil},
-  {user_id: 11, experience_id: 2, comment: nil}
-])
-Favorite.create!([
-  {user_id: 11, experience_id: 4, comment: nil},
-  {user_id: 11, experience_id: 14, comment: nil},
-  {user_id: 11, experience_id: 9, comment: nil},
-  {user_id: 11, experience_id: 2, comment: nil}
-])
 Experience.create!([
   {name: "ハワイ出雲大社", outline: "", address: "215 N Kukui St, Honolulu, HI 96817", latitude: 21.315507, longitude: -157.860823, business_hours_start: "8:30", business_hours_finish: "16:00", area_id: 1, genre_id: 1, score: 0.0, heading: 0.7442534824221285, pitch: -0.005456512448489548, fov: 120.0, zoom: 0.5849625007211563},
   {name: "ホノルル動物園", outline: "", address: "151 Kapahulu Ave. Honolulu HI 96815", latitude: 21.27102105001876, longitude: -157.8216668153002, business_hours_start: "9:00", business_hours_finish: "16:00", area_id: 1, genre_id: 8, score: 0.0, heading: 80.99776862736235, pitch: 7.007798373036664, fov: 90.0, zoom: 1.0},
@@ -65,15 +52,4 @@ Experience.create!([
   {name: "シェラトン ワイキキ ホテル", outline: nil, address: "2255 Kalakaua Ave, Honolulu, HI 96815", latitude: 21.27819282327562, longitude: -157.8296438212882, business_hours_start: nil, business_hours_finish: nil, area_id: 1, genre_id: 5, score: 0.0, heading: 259.0188596185164, pitch: 32.009801316369334, fov: 120.0, zoom: 0.5849625007211563},
   {name: "モアナ・サーフライダー・ウェスティン・リゾート&スパ", outline: nil, address: "2365 Kalakaua Ave, Honolulu, HI 96815", latitude: 21.2769027, longitude: -157.8263809, business_hours_start: nil, business_hours_finish: nil, area_id: 1, genre_id: 5, score: 0.0, heading: 179.2403805119354, pitch: 20.46194344275905, fov: 120.0, zoom: 0.5849625007211563},
   {name: "ヒルトン ハワイアン ビレッジ ワイキキ ビーチ リゾート", outline: nil, address: "2005 Kalia Rd, Honolulu, HI 96815", latitude: 21.2846084, longitude: -157.835938, business_hours_start: nil, business_hours_finish: nil, area_id: 1, genre_id: 5, score: 0.0, heading: 186.40876811328613, pitch: 25.98933449033754, fov: 74.96071828993425, zoom: 1.263790224160779}
-])
-Review.create!([
-  {comment: "テスト", score: 4, user_id: 11, experience_id: 4, title: "テスト"}
-])
-ActiveStorage::Blob.create!([
-  {key: "sqjhz3mn3mes12s0szzt8e7xdogg", filename: "IMG_8990.JPG", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 2900245, checksum: "ye1vpObTD64MP664j/q4gg=="},
-  {key: "vo6e2nck14y1b0jsnxlz85hz1ew3", filename: "IMG_8995.JPG", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 1564988, checksum: "daXd6Sqqo8rJhyEN88yk4w=="}
-])
-ActiveStorage::Attachment.create!([
-  {name: "images", record_type: "Review", record_id: 17, blob_id: 45},
-  {name: "images", record_type: "Review", record_id: 17, blob_id: 46}
 ])
