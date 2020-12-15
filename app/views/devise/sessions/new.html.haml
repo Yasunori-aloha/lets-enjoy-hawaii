@@ -41,7 +41,7 @@
                 %span.testuser_login_text ※アカウント登録せず、ユーザー機能を試したい方は
                 = form_with model: @user, url: user_session_path, local: true, class: 'testuser_login_form' do |f|
                   = f.hidden_field :email, :value => 'test@test.com'
-                  = f.hidden_field :password, :value => 'testuser1'
+                  = f.hidden_field :password, :value => 'testtest1!!'
                   = f.submit "こちら", class: 'testuser_login_button link_hover_not_underline'
               / テストユーザーとしてログインするためのフォーム
       / フッター
