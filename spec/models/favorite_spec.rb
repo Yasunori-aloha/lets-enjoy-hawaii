@@ -7,6 +7,10 @@ RSpec.describe Favorite, type: :model do
   let(:favorite) { build(:favorite, experience_id: experience.id) }
   let(:another_favorite) { build(:favorite) }
 
+  before do
+    sleep(0.1)
+  end
+
   describe 'アクティビティお気に入り登録' do
     context 'お気に入り登録ができる場合' do
       it 'ユーザーがまだお気に入り登録していないアクティビティなら登録できる' do

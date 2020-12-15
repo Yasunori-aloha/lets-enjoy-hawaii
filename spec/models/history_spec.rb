@@ -7,6 +7,10 @@ RSpec.describe History, type: :model do
   let(:history) { build(:history, experience_id: experience.id) }
   let(:another_history) { build(:history) }
 
+  before do
+    sleep(0.1)
+  end
+
   describe '行ったボタンクリック履歴保存' do
     context '行った履歴がDBに保存される。' do
       it 'ユーザーが初めて行ったボタンをクリックしたアクティビティなら保存される。' do

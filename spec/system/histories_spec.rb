@@ -9,6 +9,10 @@ RSpec.describe 'Histories', type: :system do
     build(:history, user_id: user.id, experience_id: experience.id)
   end
 
+  before do
+    sleep(0.1)
+  end
+
   describe '行ったボタンクリック時の動作' do
     context '行った記録がクリックした際にDBに保存される場合' do
       it 'ログインユーザーで、初めてクリックする場合はDBに保存される。' do

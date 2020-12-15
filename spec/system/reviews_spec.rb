@@ -7,6 +7,10 @@ RSpec.describe 'Reviews', type: :system do
   let(:experience) { create(:experience) }
   let(:review) { build(:review) }
 
+  before do
+    sleep(0.1)
+  end
+
   describe 'アクティビティの口コミ新規投稿' do
     context '口コミの新規投稿ができる場合' do
       it 'ログインしているユーザーで、正常な値を入力していれば新規投稿ができる' do
