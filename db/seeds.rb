@@ -9,9 +9,9 @@
 # coding: utf-8
 
 User.create!([
-  {id: 1,email: "test@test.com", password: "testtest1!!", password_confirmation: "testtest1!!", encrypted_password: "id: ,$2a$12$2xmSdqGyKMtGnlfeITKzmetAT3JApe2a0c5BhE.ukMZoK6lAgQEe2", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, nid: ,ame: "テストユーザー", introduce: "テストユーザーです。", admin: nil}
+  {id: 1,email: "test@test.com", password: "testtest1!!", password_confirmation: "testtest1!!", encrypted_password: "$2a$12$2xmSdqGyKMtGnlfeITKzmetAT3JApe2a0c5BhE.ukMZoK6lAgQEe2", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, name: "テストユーザー", introduce: "テストユーザーです。", admin: 1}
 ])
-Genid: ,re.create!([
+Genre.create!([
   {id: 1,name: "観光地", category_id: 5, search: "landmark"},
   {id: 2,name: "食事処", category_id: 2, search: "restaurant"},
   {id: 3,name: "レンタカー", category_id: 3, search: "rentacar"},
@@ -26,8 +26,8 @@ Genid: ,re.create!([
   {id: 12,name: "ショッピングモール", category_id: 6, search: "shopping-mall"},
   {id: 13,name: "ファッション", category_id: 6, search: "fashion"},
   {id: 14,name: "スーパー", category_id: 6, search: "supar"}
-])id: ,
-Areid: ,a.create!([
+])
+Area.create!([
   {id: 1,name: "ホノルル", island_id: 6, search: "honolulu"},
   {id: 2,name: "ワイルク", island_id: 2, search: "wailuku"},
   {id: 3,name: "ワイキキ", island_id: 6, search: "waikiki"},
