@@ -24,12 +24,14 @@
 /config/master.key
 
 /public/packs
+/public/assets/*
 /public/packs-test
 /node_modules
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
 .env
+tmp
 
 # Ignore Rails best practices output file
 rails_best_practices_output.html
