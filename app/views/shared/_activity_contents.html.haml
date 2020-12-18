@@ -120,7 +120,7 @@
             = "（全#{images.length.to_s(:delemited)}件中）"
       %ul.experience_photo_list
         -# 写真の件数分処理を繰り返す。
-        - images.each_with_index do |image, index|
+        - @images.each_with_index do |image, index|
           -# 写真が右端の列なら'margin-right'のプロパティを'0px'にする。
           - if (index + 1) % 3 == 0
             = image_tag image, height: '171px', width: '228px', class: 'experience_photo_area_right'

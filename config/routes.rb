@@ -27,5 +27,7 @@ Rails.application.routes.draw do
   end
   get '/search', to: 'tops#search'
   post '/:name', to: 'experiences#edit'
-  get '*path' => 'application#redirect_root'
+  get '*path', to: redirect('/'), constraints: lambda { |req|
+    req.path.exclude? 'rails/active_storage'
+  }
 end
