@@ -27,5 +27,5 @@ Rails.application.routes.draw do
   end
   get '/search', to: 'tops#search'
   post '/:name', to: 'experiences#edit'
-  get '*path' => 'application#redirect_root'
+  get '*path', to: redirect('/')
 end
