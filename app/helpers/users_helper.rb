@@ -10,7 +10,7 @@ module UsersHelper
                 id: 'user_image_set',
                 class: 'user_image'
     else
-      image_tag 'no_image.jpg',
+      image_tag asset_path('no_image.jpg'),
                 alt: 'no_image',
                 height: '150px',
                 width: '150px',
