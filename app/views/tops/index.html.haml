@@ -1,5 +1,4 @@
-.header
-  = render 'shared/leh_header'
+= render 'shared/leh_header'
 .top_main
   = image_tag asset_path("toppage.jpg"), alt: 'トップ画像', height: '616px', width: '1440px', class: 'top_image'
   .search_left
@@ -98,5 +97,4 @@
             = link_to 'マウイ島', '/maui', class: 'island search_btn island_name', data:{id: 5}, method: :post
           .name4
             = link_to 'ハワイ島', '/hawaii', class: 'island search_btn island_name', data:{id: 7}, method: :post
-.footer
 = render 'shared/leh_footer'
