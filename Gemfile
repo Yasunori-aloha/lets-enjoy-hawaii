@@ -76,3 +76,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'ransack'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+group :production, :staging do
+  gem 'unicorn'
+end

@@ -16,6 +16,7 @@ class ReviewsController < ApplicationController
   end
 
   def new
+    find_exp(params[:id])
     @review = Review.new
   end
 
