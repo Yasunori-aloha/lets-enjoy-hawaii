@@ -1,3 +1,4 @@
+
 .header
   = render 'shared/leh_header'
 .review_new_wrapper
@@ -9,7 +10,7 @@
           %h1.head_name
             口コミを投稿する
         .review_new_form_name_info
-          .info_image
+          = image_tag "https://maps.googleapis.com/maps/api/streetview?size=800x600&location=#{exp.latitude},#{exp.longitude}&heading=#{exp.heading}&pitch=#{exp.pitch}&fov=#{exp.fov}&zoom=#{exp.zoom}&key=#{ENV['GOOGLE_STREET_VIEW_KEY']}", height: '107px', width: '160px', class: 'info_image'
           %ul.info_name
             %li.exp_icon_name
               %div{id: 'category_icon'}
