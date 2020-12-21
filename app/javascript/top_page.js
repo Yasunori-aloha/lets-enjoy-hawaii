@@ -5,15 +5,15 @@ $(function(){
   const mapImage = $('#map_image')[0];
   // 地図の表示で使用する画像を配列で変数に格納。
   const images = [
-    'assets/hawaiian_islands_niihau.png',
-    'assets/hawaiian_islands_oahu.png',
-    'assets/hawaiian_islands_kahoolawe.png',
-    'assets/hawaiian_islands_lanai.png',
-    'assets/hawaiian_islands_molokai.png',
-    'assets/hawaiian_islands_maui.png',
-    'assets/hawaiian_islands_kauai.png',
-    'assets/hawaiian_islands_island_of_hawaii.png',
-    'assets/hawaiian_islands.png',
+    '/images/hawaiian_islands_niihau.png',
+    '/images/hawaiian_islands_oahu.png',
+    '/images/hawaiian_islands_kahoolawe.png',
+    '/images/hawaiian_islands_lanai.png',
+    '/images/hawaiian_islands_molokai.png',
+    '/images/hawaiian_islands_maui.png',
+    '/images/hawaiian_islands_kauai.png',
+    '/images/hawaiian_islands_island_of_hawaii.png',
+    '/images/hawaiian_islands.png',
   ];
   {
     $('map, .island_name').on('mouseover', function (){

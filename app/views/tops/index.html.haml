@@ -1,5 +1,4 @@
-.header
-  = render 'shared/leh_header'
+= render 'shared/leh_header'
 .top_main
   = image_tag asset_path("toppage.jpg"), alt: 'トップ画像', height: '616px', width: '1440px', class: 'top_image'
   .search_left
@@ -64,7 +63,7 @@
         .search_map_header_string
           %b 地図から探す
       .search_map_main
-        = image_tag asset_path('hawaiian_islands.png'), alt: 'hawaiian_islands', height: '359px', width: '540px', class: 'islands_image', usemap: "#ImageMap", id: 'map_image'
+        = image_tag '/images/hawaiian_islands.png', alt: 'hawaiian_islands', height: '359px', width: '540px', class: 'islands_image', usemap: "#ImageMap", id: 'map_image'
         %map{name: "ImageMap"}
           %area{data:{id: 0},id: 'map_niihau',class: 'island search_btn', href: "/niihau", alt: "ニイハウ島", coords: "18,45,15,46,13,47,11,48,10,50,9,52,9,56,8,57,6,55,4,54,3,53,3,50,4,48,5,45,7,42,8,40,11,38,13,37,14,35,16,33,21,33,21,34,20,36,18,39,18,45,20,48", shape: "poly"}/
           %area{data:{id: 1},id: 'map_oahu',class: 'island search_btn', href: "/oahu", alt: "オアフ島", coords: "223,99,221,100,219,101,218,102,217,102,216,103,214,103,213,101,211,98,209,95,207,93,206,90,204,88,203,86,201,84,200,83,200,80,199,78,199,77,198,77,195,75,197,74,199,73,201,73,207,73,210,70,211,69,213,67,214,66,215,64,216,63,218,61,220,59,221,58,222,57,224,57,225,59,226,60,228,63,228,66,228,67,230,67,231,69,231,71,232,72,233,73,235,73,236,75,237,78,235,78,235,82,239,86,241,88,243,89,244,88,243,85,244,85,245,85,246,85,247,87,248,89,249,90,249,91,250,93,251,94,251,96,252,97,254,97,255,99,254,101,254,103,254,104,253,105,251,105,250,105,249,104,247,104,245,105,244,106,242,107,241,108,240,106,239,106,239,104,238,103,237,103,236,101,236,100,235,99,230,98,230,99,229,99,228,99,228,99,227,98,229,97,228,94,227,94,227,93,222,93,221,94,220,94,219,96,220,96,222,97,223,98,223,98", shape: "poly"}/
@@ -98,5 +97,4 @@
             = link_to 'マウイ島', '/maui', class: 'island search_btn island_name', data:{id: 5}, method: :post
           .name4
             = link_to 'ハワイ島', '/hawaii', class: 'island search_btn island_name', data:{id: 7}, method: :post
-.footer
 = render 'shared/leh_footer'
