@@ -64,6 +64,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'active_hash'
+gem 'aws-sdk-s3', require: false
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
