@@ -158,14 +158,10 @@ $regHeight: 881px;
                 font-size: 14px;
                 margin-right: 5px;
               }
-              .testuser_login_form{
-                .testuser_login_button{
-                  font-size: 14px;
-                  color: #008dde;
-                  border-style: none;
-                  background-color: #fff;
-                  cursor: pointer;
-                }
+              .testuser_login_button{
+                font-size: 14px;
+                color: #008dde;
+                text-decoration: none;
               }
             }
             .login_link{
