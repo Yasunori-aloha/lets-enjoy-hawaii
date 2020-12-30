@@ -33,16 +33,16 @@
                 #facebook_login
                   = link_to image_tag("f_logo_RGB-Blue_58.png", height: '30px', width: '30px'), user_facebook_omniauth_authorize_path, method: :post, class: 'social_login_link'
               / SNSアカウントでログインできる
-            %p.register_policy
-              会員登録に伴い、
-              %a{href: '#', class: 'register_policy_link link_hover_not_underline'}プライバシーポリシー
-              に同意したものとみなされます。
-              = render "devise/shared/links"
-              / テストユーザーとしてログインするためのフォーム
-              .testuser_sign_in_form
-                %span.testuser_login_text ※アカウント登録せず、ユーザー機能を試したい方は
-                = link_to 'こちら', users_guest_sign_in_path, method: :post, class: 'testuser_login_button link_hover_not_underline'
-              / テストユーザーとしてログインするためのフォーム
+            -# %p.register_policy
+            -#   会員登録に伴い、
+            -#   %a{href: '#', class: 'register_policy_link link_hover_not_underline'}プライバシーポリシー
+            -#   に同意したものとみなされます。
+            = render "devise/shared/links"
+            / ゲストユーザーとしてログインするためのフォーム
+            .guestuser_sign_in_form
+              %span.guestuser_login_text ※アカウント登録せず、ユーザー機能を試したい方は
+              = link_to 'こちら', users_guest_sign_in_path, method: :post, class: 'guestuser_login_button link_hover_not_underline'
+            / ゲストユーザーとしてログインするためのフォーム
       / フッター
       .signin_up_footer
         %ul.signin_up_footer_list
