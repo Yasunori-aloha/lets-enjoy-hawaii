@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
   end
 
   def user_index
-    @reviews = Review.includes(:experience).where(experience_id: params[:id]).order('created_at DESC')
+    @reviews = Review.includes(:experience).where(user_id: params[:id]).order('created_at DESC')
     user_is_current_user?(params)
   end
 
