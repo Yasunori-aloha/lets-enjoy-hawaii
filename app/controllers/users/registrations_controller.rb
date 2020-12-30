@@ -4,6 +4,7 @@ module Users
   class RegistrationsController < Devise::RegistrationsController
     before_action :configure_sign_up_params, only: %i[create]
     before_action :configure_account_update_params, only: %i[update]
+    before_action :check_guest, only: %i[update]
 
     def new
       @user = User.new
@@ -27,6 +28,12 @@ module Users
     # GET /resource/edit
     def edit
       find_user_show
+    end
+
+    def check_guest
+      if resource.email = 'guest@sample.com'
+        redirect_to request.referer
+      end
     end
 
     # PUT /resource
