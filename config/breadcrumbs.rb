@@ -2,11 +2,11 @@ crumb :root do
   link "トップページ", root_path
 end
 
-crumb :activity do |activity|
-  link "#{activity.name}", "/#{params[:name]}"
+crumb :search do |search|
+  link "#{search.name}", "/#{params[:name]}"
 end
 
-crumb :search do |search_word|
+crumb :search_word do |search_word|
   if search_word.length == 0
     link "'  ' の検索結果", search_path
   else
