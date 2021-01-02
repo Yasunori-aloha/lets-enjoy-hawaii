@@ -7,7 +7,11 @@ crumb :activity do |activity|
 end
 
 crumb :search do |search_word|
-  link "'#{search_word}'の検索結果", search_path
+  if search_word.length == 0
+    link "'  ' の検索結果", search_path
+  else
+    link "'#{search_word}' の検索結果", search_path
+  end
 end
 
 # crumb :project_issues do |project|
