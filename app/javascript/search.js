@@ -1,7 +1,6 @@
 "use strict";
 
 $(window).on("load", function () {
-  console.log();
   const categoryIcons = [
     "hotel_icon",
     "lunch_icon",
@@ -57,6 +56,12 @@ $(window).on("load", function () {
       const percent = element.innerText.match(/\d+/)[0];
       $(`#graph_score${index + 1}`).css("width", `${percent}%`);
     });
+  }
+
+  // パンくずリストのカテゴリーへのリンクにクラス名とHTTPメソッドの'POST'を付与する。
+  if (/\/experiences\/[0-9]{1,}/.test(url)) {
+    $("#breadcrumbs a:nth-child(2)").addClass("category search_btn");
+    $("#breadcrumbs a:nth-child(2)")[0].dataset.method = 'post';
   }
 });
 
