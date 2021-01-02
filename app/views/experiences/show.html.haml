@@ -1,14 +1,8 @@
 .header
   = render 'shared/leh_header'
 .menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
-  = link_to 'トップページ', root_path, class: 'link_hover', style: 'color: blue'
-  %span
-    &nbsp;>&nbsp;
-  = link_to "#{@experience.genre.category.name}", "/#{@experience.genre.category.search}", class: 'category search_btn link_to link_hover', style: 'color: blue', method: :post
-  %span
-    &nbsp;>&nbsp;
-  %strong
-    = @experience.name
+  - breadcrumb :activity, @experience
+  = breadcrumbs separator: " &rsaquo; "
   %span{id: 'category_id', style: 'display:none'}
     = @experience.genre.category.id
 .show_content_wrapper
