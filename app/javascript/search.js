@@ -66,8 +66,9 @@ $(window).on("load", function () {
 });
 
 $(function () {
+  const searchBtnWrapper = '.search_type_main, .search_map_main, .name_main, .menu, .show_info_left';
   // '目的別検索'か'島名別検索'なのかを判断するためのクラス名をパラメーターに追加するための関数。
-    $('.search_type_main, .search_map_main, .name_main, .menu, .show_info_left').on('click', '.search_btn', function(){
+  $(searchBtnWrapper).on('click', '.search_btn', function(){
     const address = this.href;
 
     // '目的別'なのか'島名'での検索なのかを判断する為に付与しているクラス名を取得。
