@@ -14,10 +14,10 @@ crumb :search_word do |search_word|
   end
 end
 
-# crumb :project_issues do |project|
-#   link "Issues", project_issues_path(project)
-#   parent :project, project
-# end
+crumb :activity do |activity|
+  link "#{activity.name}", experience_path(activity.id)
+  parent :search
+end
 
 # crumb :issue do |issue|
 #   link issue.title, issue_path(issue)
