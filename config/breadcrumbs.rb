@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :search do |search|
-  link "#{search.name}", "/#{params[:name]}"
+  link "#{search.name}", "/#{search.search}"
 end
 
 crumb :search_word do |search_word|
@@ -16,7 +16,7 @@ end
 
 crumb :activity do |activity|
   link "#{activity.name}", experience_path(activity.id)
-  parent :search
+  parent :search, activity.genre.category
 end
 
 # crumb :issue do |issue|
