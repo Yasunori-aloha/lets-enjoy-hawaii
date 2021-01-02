@@ -7,7 +7,7 @@ crumb :activity do |activity|
 end
 
 crumb :search do |search_word|
-  link "#{search_word}", serach_path
+  link "'#{search_word}'の検索結果", search_path
 end
 
 # crumb :project_issues do |project|
