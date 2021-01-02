@@ -6,10 +6,9 @@ crumb :activity do |activity|
   link "#{activity.name}", "/#{params[:name]}"
 end
 
-# crumb :project do |project|
-#   link project.name, project_path(project)
-#   parent :projects
-# end
+crumb :search do |search_word|
+  link "#{search_word}", serach_path
+end
 
 # crumb :project_issues do |project|
 #   link "Issues", project_issues_path(project)
