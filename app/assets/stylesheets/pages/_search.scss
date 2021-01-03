@@ -8,6 +8,7 @@ $gray: #ccc;
 }
 
 .content_main {
+  min-height: calc(100vh - 95px - 31px - 90px);
   height: 100%;
   width: calc(100% - 490px);
   margin: 0 245px;
