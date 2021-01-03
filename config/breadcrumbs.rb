@@ -19,10 +19,21 @@ crumb :activity do |activity|
   parent :search, activity.genre.category
 end
 
-# crumb :issue do |issue|
-#   link issue.title, issue_path(issue)
-#   parent :project_issues, issue.project
-# end
+crumb :mypage_top do |user_id|
+  link 'マイページトップ', user_path(user_id)
+
+crumb :mypage_edit do
+  link '会員情報の確認・変更', edit_user_registration
+
+crumb :mypage_favorites do |user_id|
+  link 'お気に入りした場所', user_favorites_path(user_id)
+
+crumb :mypage_reviews do |user_id|
+  link '今までの口コミ', reviews_user_path(user_id)
+
+crumb :mypage_histories do |user_id|
+  link '行った場所', user_histories_path(user_id)
+end
 
 # If you want to split your breadcrumbs configuration over multiple files, you
 # can create a folder named `config/breadcrumbs` and put your configuration
