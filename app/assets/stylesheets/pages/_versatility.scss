@@ -235,9 +235,12 @@ img {
     text-decoration-line: underline;
     outline: none;
   }
+  a:hover{
+    color: #ffa500 !important;
+  }
 
   a:visited {
-    color: #069;
+    color: #0000ff;
   }
 }
 

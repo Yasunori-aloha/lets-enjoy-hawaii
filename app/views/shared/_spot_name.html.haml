@@ -13,4 +13,7 @@
     = "#{@genre.name}のスポット"
 - elsif @search_word
   %h1.content_title
-    = "'#{@search_word}' が含まれるスポット"
+    - if @search_word.length == 0
+      = "'  ' が含まれるスポット"
+    - else
+      = "'#{@search_word}' が含まれるスポット"
