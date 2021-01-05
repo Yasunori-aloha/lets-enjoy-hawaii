@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Favorite, type: :model do
+  let(:user) { create(:user) }
   let(:experience) { create(:experience) }
-  let(:favorite) { build(:favorite, experience_id: experience.id) }
-  let(:another_favorite) { build(:favorite) }
+  let(:favorite) { build(:favorite, user_id: user.id, experience_id: experience.id) }
 
   before do
     sleep(0.1)
