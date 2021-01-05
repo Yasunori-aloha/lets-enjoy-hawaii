@@ -25,6 +25,12 @@ RSpec.describe History, type: :model do
         another_history.valid?
         expect(another_history.errors.full_messages).to include 'ユーザーはすでに存在します'
       end
+      it '未ログインユーザーによる訪問記録登録' do
+      end
+      end
+      it '存在しないアクティビティに対しての訪問記録登録' do
+      end
+      end
     end
   end
 end
