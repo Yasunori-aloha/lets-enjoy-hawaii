@@ -17,21 +17,21 @@ ja:
         genre: ジャンル
       favorite:
         comment: コメント
-        user: ユーザー名
-        experience: アクティビティ名
+        user: ユーザー
+        experience: アクティビティ
       genre:
         name: ジャンル名
         category_id: カテゴリー
       history:
         comment: コメント
-        user: ユーザー名
-        expereience: アクティビティ名
+        user: ユーザー
+        expereience: アクティビティ
       review:
         title: 題名
         comment: 本文
         score: 評価点
-        user: ユーザー名
-        experience: アクティビティ名
+        user: ユーザー
+        experience: アクティビティ
       user:
         name: 名前
         email: メールアドレス
