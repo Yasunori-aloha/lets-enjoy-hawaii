@@ -3,7 +3,7 @@ ja:
     attributes:
       area:
         name: 地域名
-        island: 島名
+        island_id: 島名
       experiences:
         name: アクティビティ名
         outline: 説明文
@@ -21,7 +21,7 @@ ja:
         experience: アクティビティ名
       genres:
         name: ジャンル名
-        category: カテゴリー
+        category_id: カテゴリー
       histories:
         comment: コメント
         user: ユーザー名
