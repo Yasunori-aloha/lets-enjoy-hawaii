@@ -27,8 +27,14 @@ RSpec.describe Favorite, type: :model do
         expect(another_favorite.errors.full_messages).to include 'Userはすでに存在します'
       end
       it '未ログインユーザーによるお気に入り登録' do
+        favorite.user = nil
+        favorite.valid?
+        expect(favorite.errors.full_messages).to include 'ユーザー名を入力してください'
       end
       it '存在しないアクティビティに対してのお気に入り登録' do
+        favorite.experience = nil
+        favorite.valid?
+        expect(favorite.errors.full_messages).to include 'アクティビティ名を入力してください'
       end
     end
   end
