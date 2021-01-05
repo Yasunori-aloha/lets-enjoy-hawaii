@@ -20,13 +20,13 @@ RSpec.describe Area, type: :model do
       it '地域名が入力されていないと登録できない' do
         area.name = nil
         area.valid?
-        expect(area.errors.full_messages).to include 'Nameを入力してください'
+        expect(area.errors.full_messages).to include '地域名を入力してください'
       end
 
       it '島名が選択されていないと登録できない' do
         area.island_id = nil
         area.valid?
-        expect(area.errors.full_messages).to include 'Islandを入力してください'
+        expect(area.errors.full_messages).to include '島名を入力してください'
       end
     end
   end
