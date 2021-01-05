@@ -28,12 +28,12 @@ RSpec.describe Favorite, type: :model do
       it '未ログインユーザーによるお気に入り登録' do
         favorite.user = nil
         favorite.valid?
-        expect(favorite.errors.full_messages).to include 'ユーザー名を入力してください'
+        expect(favorite.errors.full_messages).to include 'ユーザーを入力してください'
       end
       it '存在しないアクティビティに対してのお気に入り登録' do
         favorite.experience = nil
         favorite.valid?
-        expect(favorite.errors.full_messages).to include 'アクティビティ名を入力してください'
+        expect(favorite.errors.full_messages).to include 'アクティビティを入力してください'
       end
     end
   end
