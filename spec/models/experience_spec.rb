@@ -66,37 +66,37 @@ RSpec.describe Experience, type: :model do
       it 'アクティビティ名が入力されていない' do
         experience.name = nil
         experience.valid?
-        expect(experience.errors.full_messages).to include 'Nameを入力してください'
+        expect(experience.errors.full_messages).to include 'アクティビティ名を入力してください'
       end
 
       it '住所が入力されていない' do
         experience.address = nil
         experience.valid?
-        expect(experience.errors.full_messages).to include 'Addressを入力してください'
+        expect(experience.errors.full_messages).to include '住所を入力してください'
       end
 
       it '緯度が入力されていない' do
         experience.latitude = nil
         experience.valid?
-        expect(experience.errors.full_messages).to include 'Latitudeを入力してください'
+        expect(experience.errors.full_messages).to include '緯度を入力してください'
       end
 
       it '経度が入力されていない' do
         experience.longitude = nil
         experience.valid?
-        expect(experience.errors.full_messages).to include 'Longitudeを入力してください'
+        expect(experience.errors.full_messages).to include '経度を入力してください'
       end
 
       it '地域が入力されていない' do
         experience.area_id = nil
         experience.valid?
-        expect(experience.errors.full_messages).to include 'Areaを入力してください'
+        expect(experience.errors.full_messages).to include '地域を入力してください'
       end
 
       it 'ジャンルが入力されていない' do
         experience.genre_id = nil
         experience.valid?
-        expect(experience.errors.full_messages).to include 'Genreを入力してください'
+        expect(experience.errors.full_messages).to include 'ジャンルを入力してください'
       end
     end
   end
