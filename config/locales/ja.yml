@@ -1,5 +1,43 @@
 ja:
   activerecord:
+    attributes:
+      area:
+        name: 地域名
+        island: 島名
+      experiences:
+        name: アクティビティ名
+        outline: 説明文
+        address: 住所
+        latitude: 緯度
+        longitude: 経度
+        business_hours_start: 営業開始時間
+        business_hours_finish: 営業終了時間
+        score: 評価点
+        area: 地域
+        genre: ジャンル
+      favorites:
+        comment: コメント
+        user: ユーザー名
+        experience: アクティビティ名
+      genres:
+        name: ジャンル名
+        category: カテゴリー
+      histories:
+        comment: コメント
+        user: ユーザー名
+        expereience: アクティビティ名
+      reviews:
+        title: 題名
+        comment: 本文
+        score: 評価点
+        user: ユーザー名
+        experience: アクティビティ名
+      user:
+        name: 名前
+        email: メールアドレス
+        introduce: 自己紹介
+        password: パスワード
+        password_confirmation: 確認用パスワード
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
