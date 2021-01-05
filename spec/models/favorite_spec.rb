@@ -21,10 +21,9 @@ RSpec.describe Favorite, type: :model do
     context 'お気に入り登録ができない場合' do
       it 'アクティビティに対しての2回目以上のお気に入り登録' do
         favorite.save
-        another_favorite.user_id = favorite.user_id
-        another_favorite.experience_id = favorite.experience_id
+        another_favorite = build(:favorite, user_id: user.id, experience_id: experience.id)
         another_favorite.valid?
-        expect(another_favorite.errors.full_messages).to include 'Userはすでに存在します'
+        expect(another_favorite.errors.full_messages).to include 'ユーザーはすでに存在します'
       end
       it '未ログインユーザーによるお気に入り登録' do
         favorite.user = nil
