@@ -11,22 +11,22 @@ RSpec.describe Genre, type: :model do
 
   describe 'ジャンル登録' do
     context 'ジャンル登録ができる場合' do
-      it 'name・category_idが入力されていると登録できる' do
+      it 'ジャンル名・カテゴリーが入力されていると登録できる' do
         expect(genre).to be_valid
       end
     end
 
     context 'ジャンル登録ができない場合' do
-      it 'nameが入力されていないと登録できない' do
+      it 'ジャンル名が入力されていないと登録できない' do
         genre.name = nil
         genre.valid?
-        expect(genre.errors.full_messages).to include 'Nameを入力してください'
+        expect(genre.errors.full_messages).to include 'ジャンル名を入力してください'
       end
 
-      it 'category_idが選択されていないと登録できない' do
+      it 'カテゴリーが選択されていないと登録できない' do
         genre.category_id = nil
         genre.valid?
-        expect(genre.errors.full_messages).to include 'Categoryを入力してください'
+        expect(genre.errors.full_messages).to include 'カテゴリーを入力してください'
       end
     end
   end
