@@ -14,7 +14,7 @@ class Experience < ApplicationRecord
   delegate :name, :search, to: :genre, prefix: true
 
   with_options presence: true do
-    validates :name, :address, :latitude, :longitude, :area_id, :genre_id
+    validates :name, :address, :latitude, :longitude
   end
 
   # インスタンス変数に対してメソッドを使用することで、1つのexperienceに対して'user_id'を探すことができる。

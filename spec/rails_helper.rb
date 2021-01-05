@@ -72,5 +72,4 @@ RSpec.configure do |config|
   config.include SignInSupport
   config.include WaitForLoaded
   Rails.logger = Logger.new($stdout)
-  ActiveRecord::Base.logger = Logger.new($stdout)
 end

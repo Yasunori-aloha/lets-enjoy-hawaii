@@ -4,6 +4,6 @@ class History < ApplicationRecord
   belongs_to :user
   belongs_to :experience
 
-  # 同じユーザーが複数回同じアクティビティを保存しようとしていないか確認する。
-  validates :user_id, uniqueness: { scope: :experience_id }
+  # 'user'が2回'experience'をお気に入りにしていないかを確認する。
+  validates_uniqueness_of :user, scope: :experience
 end

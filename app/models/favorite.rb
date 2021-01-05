@@ -3,6 +3,7 @@
 class Favorite < ApplicationRecord
   belongs_to :user
   belongs_to :experience
-  # 'user_id'が2回'experience_id'をお気に入りにいれていないかを確認する。
-  validates :user_id, uniqueness: { scope: :experience_id }
+
+  # 'user'が2回'experience'をお気に入りにしていないかを確認する。
+  validates_uniqueness_of :user, scope: :experience
 end

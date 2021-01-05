@@ -16,42 +16,42 @@ RSpec.describe Experience, type: :model do
         expect(experience).to be_valid
       end
 
-      it 'outlineが入力されていなくても登録できる' do
+      it '説明文が入力されていなくても登録できる' do
         experience.outline = nil
         expect(experience).to be_valid
       end
 
-      it 'business_hours_startが入力されていなくても登録できる' do
+      it '営業開始時間が入力されていなくても登録できる' do
         experience.business_hours_start = nil
         expect(experience).to be_valid
       end
 
-      it 'business_hours_finishが入力されていなくても登録できる' do
+      it '営業終了時間が入力されていなくても登録できる' do
         experience.business_hours_finish = nil
         expect(experience).to be_valid
       end
 
-      it 'scoreが入力されていなくても登録できる' do
+      it '評価点が入力されていなくても登録できる' do
         experience.score = nil
         expect(experience).to be_valid
       end
 
-      it 'headingが入力されていなくても登録できる' do
+      it '北を0度とした際の方向が入力されていなくても登録できる' do
         experience.heading = nil
         expect(experience).to be_valid
       end
 
-      it 'pitchが入力されていなくても登録できる' do
+      it 'カメラの垂直方向の向きが入力されていなくても登録できる' do
         experience.pitch = nil
         expect(experience).to be_valid
       end
 
-      it 'fovが入力されていなくても登録できる' do
+      it '水平方向の視野角が入力されていなくても登録できる' do
         experience.fov = nil
         expect(experience).to be_valid
       end
 
-      it 'zoomが入力されていなくても登録できる' do
+      it '拡大率が入力されていなくても登録できる' do
         experience.zoom = nil
         expect(experience).to be_valid
       end
@@ -63,40 +63,40 @@ RSpec.describe Experience, type: :model do
     end
 
     context 'アクティビティが登録できない場合' do
-      it 'nameが入力されていない' do
+      it 'アクティビティ名が入力されていない' do
         experience.name = nil
         experience.valid?
-        expect(experience.errors.full_messages).to include 'Nameを入力してください'
+        expect(experience.errors.full_messages).to include 'アクティビティ名を入力してください'
       end
 
-      it 'addressが入力されていない' do
+      it '住所が入力されていない' do
         experience.address = nil
         experience.valid?
-        expect(experience.errors.full_messages).to include 'Addressを入力してください'
+        expect(experience.errors.full_messages).to include '住所を入力してください'
       end
 
-      it 'latitudeが入力されていない' do
+      it '緯度が入力されていない' do
         experience.latitude = nil
         experience.valid?
-        expect(experience.errors.full_messages).to include 'Latitudeを入力してください'
+        expect(experience.errors.full_messages).to include '緯度を入力してください'
       end
 
-      it 'longitudeが入力されていない' do
+      it '経度が入力されていない' do
         experience.longitude = nil
         experience.valid?
-        expect(experience.errors.full_messages).to include 'Longitudeを入力してください'
+        expect(experience.errors.full_messages).to include '経度を入力してください'
       end
 
-      it 'area_idが入力されていない' do
+      it '地域が入力されていない' do
         experience.area_id = nil
         experience.valid?
-        expect(experience.errors.full_messages).to include 'Areaを入力してください'
+        expect(experience.errors.full_messages).to include '地域を入力してください'
       end
 
-      it 'genre_idが入力されていない' do
+      it 'ジャンルが入力されていない' do
         experience.genre_id = nil
         experience.valid?
-        expect(experience.errors.full_messages).to include 'Genreを入力してください'
+        expect(experience.errors.full_messages).to include 'ジャンルを入力してください'
       end
     end
   end
