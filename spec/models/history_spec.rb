@@ -21,10 +21,9 @@ RSpec.describe History, type: :model do
     context '行った履歴がDBに保存されない。' do
       it 'すでにアクティビティをクリックしていれば保存されない。' do
         history.save
-        another_history.user_id = history.user_id
-        another_history.experience_id = history.experience_id
+        another_history = build(:history, user_id: user.id, experience_id: experience.id)
         another_history.valid?
-        expect(another_history.errors.full_messages).to include 'Userはすでに存在します'
+        expect(another_history.errors.full_messages).to include 'ユーザーはすでに存在します'
       end
     end
   end
