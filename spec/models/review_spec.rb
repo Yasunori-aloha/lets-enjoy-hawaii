@@ -33,7 +33,7 @@ RSpec.describe Review, type: :model do
         review.title = nil
         review.valid?
         expect(review.errors.full_messages).to include(
-          'Titleを入力してください'
+          '題名を入力してください'
         )
       end
 
@@ -41,7 +41,7 @@ RSpec.describe Review, type: :model do
         review.comment = nil
         review.valid?
         expect(review.errors.full_messages).to include(
-          'Commentを入力してください'
+          '本文を入力してください'
         )
       end
 
@@ -49,7 +49,7 @@ RSpec.describe Review, type: :model do
         review.score = nil
         review.valid?
         expect(review.errors.full_messages).to include(
-          'Scoreを入力してください'
+          '評価点を入力してください'
         )
       end
     end
