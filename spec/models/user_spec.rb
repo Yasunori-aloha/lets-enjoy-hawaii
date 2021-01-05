@@ -36,7 +36,7 @@ RSpec.describe User, type: :model do
       it '名前が入力されていないと登録できない' do
         user.name = nil
         user.valid?
-        expect(user.errors.full_messages).to include 'Nameを入力してください'
+        expect(user.errors.full_messages).to include '名前を入力してください'
       end
 
       it 'メールアドレスが入力されていないと登録できない' do
