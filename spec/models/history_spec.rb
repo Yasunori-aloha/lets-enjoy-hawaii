@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe History, type: :model do
+  let(:user) { create(:user) }
   let(:experience) { create(:experience) }
-  let(:history) { build(:history, experience_id: experience.id) }
-  let(:another_history) { build(:history) }
+  let(:history) { build(:history, user_id: user.id, experience_id: experience.id) }
 
   before do
     sleep(0.1)
