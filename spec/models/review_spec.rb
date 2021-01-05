@@ -12,7 +12,7 @@ RSpec.describe Review, type: :model do
 
   describe '口コミ新規投稿' do
     context '新規投稿ができる' do
-      it 'title・comment・scoreの値と画像添付されていれば投稿できる' do
+      it '題名・本文・評価点の値と画像添付されていれば投稿できる' do
         expect(review).to be_valid
       end
 
@@ -29,7 +29,7 @@ RSpec.describe Review, type: :model do
     end
 
     context '新規投稿ができない' do
-      it 'titleが入力されていないと投稿できない' do
+      it '題名が入力されていないと投稿できない' do
         review.title = nil
         review.valid?
         expect(review.errors.full_messages).to include(
@@ -37,7 +37,7 @@ RSpec.describe Review, type: :model do
         )
       end
 
-      it 'commentが入力されていないと投稿できない' do
+      it '本文が入力されていないと投稿できない' do
         review.comment = nil
         review.valid?
         expect(review.errors.full_messages).to include(
@@ -45,7 +45,7 @@ RSpec.describe Review, type: :model do
         )
       end
 
-      it 'scoreが選択されていないと投稿できない' do
+      it '評価点が選択されていないと投稿できない' do
         review.score = nil
         review.valid?
         expect(review.errors.full_messages).to include(
