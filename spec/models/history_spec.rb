@@ -26,10 +26,14 @@ RSpec.describe History, type: :model do
         expect(another_history.errors.full_messages).to include 'ユーザーはすでに存在します'
       end
       it '未ログインユーザーによる訪問記録登録' do
+        history.user = nil
+        history.valid?
+        expect(history.errors.full_messages).to include 'ユーザーを入力してください'
       end
-      end
-      it '存在しないアクティビティに対しての訪問記録登録' do
-      end
+    it '存在しないアクティビティに対しての訪問記録登録' do
+      history.experience = nil
+      history.valid?
+      expect(history.errors.full_messages).to include 'アクティビティを入力してください'
       end
     end
   end
