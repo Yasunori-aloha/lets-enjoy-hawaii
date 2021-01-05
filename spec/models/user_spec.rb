@@ -64,7 +64,7 @@ RSpec.describe User, type: :model do
         expect(user.errors.full_messages).to include 'パスワードを入力してください'
       end
 
-      it 'pパスワードが7文字以下だと登録できない' do
+      it 'パスワードが7文字以下だと登録できない' do
         user.password = '1234567'
         user.valid?
         expect(user.errors.full_messages).to include 'パスワードは不正な値です'

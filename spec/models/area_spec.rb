@@ -9,14 +9,14 @@ RSpec.describe Area, type: :model do
     sleep(0.1)
   end
 
-  describe 'ジャンル登録' do
-    context 'ジャンル登録ができる場合' do
-      it 'name・category_idが入力されていると登録できる' do
+  describe '地域登録' do
+    context '地域登録ができる場合' do
+      it '地域名・島名が入力されていると登録できる' do
         expect(area).to be_valid
       end
     end
 
-    context 'ジャンル登録ができない場合' do
+    context '地域登録ができない場合' do
       it '地域名が入力されていないと登録できない' do
         area.name = nil
         area.valid?
