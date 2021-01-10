@@ -22,7 +22,7 @@ $userNameHeight: calc(100% / 4 * 3);
   background-attachment: fixed;
   .mypage_main{
     height: calc(100vh - 185px);
-    width: 1440px;
+    width: 100%;
     background-color: rgba($color: black, $alpha: 0.5);
     .mypage_contents_head{
       height: 94px;
