@@ -170,7 +170,7 @@ $userNameHeight: calc(100% / 4 * 3);
           @extend .user_edit_main;
           width: 776px;
           .favorites_activity_show_area{
-            min-height: calc(100vh - 184px);
+            // min-height: calc(100vh - 184px);
             padding-top: 17px;
             .favorites_list{
               display: flex;
