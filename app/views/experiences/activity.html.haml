@@ -5,78 +5,79 @@
     = render 'shared/transition_destination'
     = breadcrumbs separator: " &rsaquo; "
 .content_main
-  .content_main_left
-    .content_main_left_header
-      = render 'shared/spot_name'
-    .content_main_left_info
-      .content_main_left_info_up
-        %ul.ul_number
-          %li.number
-            = "1 - #{@experiences.length}件"
-          %li.all_number
-            = "（全#{@experiences.length}件中）"
-        -# %ul.ul_list
-        -#   %li{class: 'list list_active'}
-        -#     = icon('fas', 'list')
-        -#   %li.list
-        -#     = icon('fas', 'th')
-      .content_main_left_info_down
-        %ul.order
-          %li
-            並び順：
-          %li{id: 'experience_sort_1', class: 'sort_link link_hover'}
-            口コミランク順
-          %li{id: 'experience_sort_2', class: 'sort_link active_sort'}
-            おすすめ順
-    %ul{class: 'content_main_left_main experience_list'}
-      - @experiences.each_with_index do |exp,index|
-        %li.content_main_left_main_list
-          .content_main_header
-            .content_main_header_name
-              = link_to "#{exp.name}", "experiences/#{exp.id}", class: 'show_experiences link_hover'
-            .experience_score
-              .star_rating
-                %div{id: "star_rating#{index}", class: 'star_rating_front'}
-                  ★★★★★
-                .star_rating_back
-                  ★★★★★
-              %span{class: 'rating_point exp_score experience_sort_material1'}
-                = exp.score
-              %span.review_count
-                （
-              = link_to "口コミ#{exp.reviews.count.to_s(:delimited)}件", reviews_experience_path(exp.id), class: 'link_hover review_count review_link'
-              %span.review_count
-                ）
-            %p.content_main_header_place
-              = exp.area.island.name
-              \＞
-              = exp.area.name
-          .content_main_outline
-            = image_tag "https://maps.googleapis.com/maps/api/streetview?size=800x600&location=#{exp.latitude},#{exp.longitude}&heading=#{exp.heading}&pitch=#{exp.pitch}&fov=#{exp.fov}&zoom=#{exp.zoom}&key=#{ENV['GOOGLE_STREET_VIEW_KEY']}", height: '134px', width: '178px', class: 'content_image'
-            .content_outline
-              .content_outline_main
-                -# 説明文
-              .content_outline_sub
-                -# 説明文
-              .content_outline_category
-                = icon('fas', 'flag', class: 'category_icon')
-                = exp.genre.name
-              %div{class: 'content_outline_favorite experience_sort_material2'}
-                = icon('fas', 'star', class: 'star_icon')
-                %span.experience_favorites_number
-                  = exp.favorites.length
-  .content_main_right
-    - if user_signed_in? && current_user.favorites.exists?
-      -# .right_content_area
-        -# %h2.right_content_area_title
-        -#   最近のお気に入りスポット
-        -# .right_content
-        -#   = image_tag '', height: '38px', width: '51px', class: 'fav_image'
-        -#   %p{class: 'fav_name link_hover'}
-        -#     テスト
-        -# .content_sub
-        -#   = image_tag '', height: '38px', width: '51px', class: 'fav_image'
-        -#   %p.name_sub
-        -#     テスト
+  .content_main_wrapper
+    .content_main_left
+      .content_main_left_header
+        = render 'shared/spot_name'
+      .content_main_left_info
+        .content_main_left_info_up
+          %ul.ul_number
+            %li.number
+              = "1 - #{@experiences.length}件"
+            %li.all_number
+              = "（全#{@experiences.length}件中）"
+          -# %ul.ul_list
+          -#   %li{class: 'list list_active'}
+          -#     = icon('fas', 'list')
+          -#   %li.list
+          -#     = icon('fas', 'th')
+        .content_main_left_info_down
+          %ul.order
+            %li
+              並び順：
+            %li{id: 'experience_sort_1', class: 'sort_link link_hover'}
+              口コミランク順
+            %li{id: 'experience_sort_2', class: 'sort_link active_sort'}
+              おすすめ順
+      %ul{class: 'content_main_left_main experience_list'}
+        - @experiences.each_with_index do |exp,index|
+          %li.content_main_left_main_list
+            .content_main_header
+              .content_main_header_name
+                = link_to "#{exp.name}", "experiences/#{exp.id}", class: 'show_experiences link_hover'
+              .experience_score
+                .star_rating
+                  %div{id: "star_rating#{index}", class: 'star_rating_front'}
+                    ★★★★★
+                  .star_rating_back
+                    ★★★★★
+                %span{class: 'rating_point exp_score experience_sort_material1'}
+                  = exp.score
+                %span.review_count
+                  （
+                = link_to "口コミ#{exp.reviews.count.to_s(:delimited)}件", reviews_experience_path(exp.id), class: 'link_hover review_count review_link'
+                %span.review_count
+                  ）
+              %p.content_main_header_place
+                = exp.area.island.name
+                \＞
+                = exp.area.name
+            .content_main_outline
+              = image_tag "https://maps.googleapis.com/maps/api/streetview?size=800x600&location=#{exp.latitude},#{exp.longitude}&heading=#{exp.heading}&pitch=#{exp.pitch}&fov=#{exp.fov}&zoom=#{exp.zoom}&key=#{ENV['GOOGLE_STREET_VIEW_KEY']}", height: '134px', width: '178px', class: 'content_image'
+              .content_outline
+                .content_outline_main
+                  -# 説明文
+                .content_outline_sub
+                  -# 説明文
+                .content_outline_category
+                  = icon('fas', 'flag', class: 'category_icon')
+                  = exp.genre.name
+                %div{class: 'content_outline_favorite experience_sort_material2'}
+                  = icon('fas', 'star', class: 'star_icon')
+                  %span.experience_favorites_number
+                    = exp.favorites.length
+    .content_main_right
+      -# - if user_signed_in? && current_user.favorites.exists?
+        -# .right_content_area
+          -# %h2.right_content_area_title
+          -#   最近のお気に入りスポット
+          -# .right_content
+          -#   = image_tag '', height: '38px', width: '51px', class: 'fav_image'
+          -#   %p{class: 'fav_name link_hover'}
+          -#     テスト
+          -# .content_sub
+          -#   = image_tag '', height: '38px', width: '51px', class: 'fav_image'
+          -#   %p.name_sub
+          -#     テスト
 .footer
   = render 'shared/leh_footer'
