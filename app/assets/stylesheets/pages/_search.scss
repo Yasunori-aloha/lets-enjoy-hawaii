@@ -1,6 +1,8 @@
 $upHeight: 29px;
 $linkColor: #0000ff;
 $gray: #ccc;
+$content_main_left: 740px;
+$content_main_right: 210px;
 
 .content_header {
   margin: 0 245px;
@@ -8,14 +10,14 @@ $gray: #ccc;
 }
 
 .content_main {
-  min-height: calc(100vh - 95px - 31px - 90px);
+  min-height: calc(100vh - 216px);
   height: 100%;
-  width: calc(100% - 490px);
-  margin: 0 245px;
   display: flex;
   .content_main_wrapper{
+    display: flex;
+    margin: 0 auto;
     .content_main_left {
-      width: 740px;
+      width: $content_main_left;
 
       &_header {
         @extend .content_main_left;
@@ -204,7 +206,7 @@ $gray: #ccc;
       }
     }
     .content_main_right {
-      width: calc(100% - 740px);
+      width: $content_main_right;
 
       .right_content_area {
         width: 180px;
