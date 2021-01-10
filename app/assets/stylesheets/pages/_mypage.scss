@@ -170,7 +170,6 @@ $userNameHeight: calc(100% / 4 * 3);
           @extend .user_edit_main;
           width: 776px;
           .favorites_activity_show_area{
-            // min-height: calc(100vh - 184px);
             padding-top: 17px;
             .favorites_list{
               display: flex;
@@ -348,7 +347,7 @@ $userNameHeight: calc(100% / 4 * 3);
           @extend .user_favorites_main;
           .reviews_activity_show_area{
             padding: 17px 0 1px;
-            min-height: calc(100vh - 184px);
+            // min-height: calc(100vh - 184px);
             .reviews_list{
                   .review_wrapper{
                     padding: 12px 0 15px;
