@@ -13,29 +13,28 @@ $userNameHeight: calc(100% / 4 * 3);
   cursor: pointer;
 }
 .mypage_wrapper{
+  background-attachment: fixed;
   background-image: image-url('mypage_image.jpg');
-  background-repeat: no-repeat;
   background-position: center center;
+  background-repeat: no-repeat;
   background-size: cover;
   min-height: calc(100vh - 185px);
   width: 100%;
-  background-attachment: fixed;
   .mypage_main{
-    height: calc(100vh - 185px);
-    width: 100%;
     background-color: rgba($color: black, $alpha: 0.5);
+    height: calc(100vh - 185px);
     .mypage_contents_head{
-      height: 94px;
       border-bottom: 1px solid #646464;
       display: flex;
-      justify-content: flex-end;
+      height: 94px;
+      justify-content: center;
       .mypage_contents_number_list{
-        height: 100%;
-        margin-right: 245px;
-        padding-top: 12px;
         color: white;
         font-size: 16px;
+        height: 100%;
+        padding-top: 12px;
         text-align: end;
+        width: 950px;
         .mypage_contents_number{
           margin-bottom: 2px;
         }
@@ -43,6 +42,7 @@ $userNameHeight: calc(100% / 4 * 3);
     }
     .mypage_contents_main{
       display: flex;
+      justify-content: center;
       .mypage_contents_main_left{
         height: calc(100vh - 279px);
         width: 436px;
@@ -71,8 +71,7 @@ $userNameHeight: calc(100% / 4 * 3);
         }
       }
       .mypage_contents_main_right{
-        // height: 100%;
-        width: calc(100% - 436px);
+        width: 1004px;
         padding: 0 243px 0 28px;
         .mypage_user_info_head{
           height: 185px;
