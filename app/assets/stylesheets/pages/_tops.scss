@@ -30,7 +30,11 @@ $searchNameHeight: $searchHeight - 443px - 10px;
   background-color: whitesmoke;
 }
 .top_main{
-  height: 616px;
+  background: image-url('toppage.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: calc(100vh - 175px);
   width: 100%;
   position: relative;
   .search_left{
