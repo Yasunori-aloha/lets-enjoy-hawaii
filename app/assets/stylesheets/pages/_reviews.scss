@@ -343,7 +343,7 @@
 
 .review_index_content {
   @extend .show_left_main_content;
-  min-height: 302px;
+  min-height: calc(100vh - 495px);
   height: auto !important;
   height: 302px;
 
@@ -464,12 +464,11 @@
 
 .not_review_index_content {
   @extend .review_index_content;
-  height: calc(100vh - 489px);
 }
 
 .experience_photo_content {
   @extend .show_left_main_content;
-  min-height: 302px;
+  min-height: calc(100vh - 495px);
   height: auto !important;
   height: 302px;
 
@@ -524,7 +523,6 @@
 
 .not_experience_photo_content{
   @extend .review_index_content;
-  height: calc(100vh - 489px);
 
   .experience_photo_title_area{
     display: flex;

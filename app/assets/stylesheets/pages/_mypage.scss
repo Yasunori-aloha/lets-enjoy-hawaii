@@ -13,33 +13,29 @@ $userNameHeight: calc(100% / 4 * 3);
   cursor: pointer;
 }
 .mypage_wrapper{
-  background-image: image-url('mypage_image.jpg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  min-height: 100vh;
-  width: 100%;
-  position: relative;
   background-attachment: fixed;
+  background-image: image-url('mypage_image.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  min-height: calc(100vh - 185px);
+  width: 100%;
   .mypage_main{
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-height: 100vh;
-    width: 1440px;
     background-color: rgba($color: black, $alpha: 0.5);
+    min-height: calc(100vh - 185px);
     .mypage_contents_head{
-      height: 94px;
       border-bottom: 1px solid #646464;
       display: flex;
-      justify-content: flex-end;
+      height: 94px;
+      justify-content: center;
       .mypage_contents_number_list{
-        height: 100%;
-        margin-right: 245px;
-        padding-top: 12px;
         color: white;
         font-size: 16px;
+        height: 100%;
+        padding-top: 12px;
         text-align: end;
+        width: 950px;
         .mypage_contents_number{
           margin-bottom: 2px;
         }
@@ -47,10 +43,10 @@ $userNameHeight: calc(100% / 4 * 3);
     }
     .mypage_contents_main{
       display: flex;
+      justify-content: center;
       .mypage_contents_main_left{
-        height: calc(100vh - 94px);
+        height: calc(100vh - 279px);
         width: 436px;
-        border-right: 1px solid #646464;
         display: flex;
         justify-content: flex-end;
         .mypage_user_setting_wrapper{
@@ -75,15 +71,17 @@ $userNameHeight: calc(100% / 4 * 3);
         }
       }
       .mypage_contents_main_right{
+        border-left: 1px solid #646464;
+        min-height: calc(100vh - 279px);
         height: 100%;
-        width: calc(100% - 436px);
+        width: 1004px;
         padding: 0 243px 0 28px;
         .mypage_user_info_head{
           height: 185px;
           width: 100%;
           background-color: rgba($color: #ffffff, $alpha: 0.75);
           display: flex;
-          margin-top: 28px;
+          margin: 28px 0;
           border-radius: 5px;
           .mypage_user_image{
             height: 150px;
@@ -172,7 +170,6 @@ $userNameHeight: calc(100% / 4 * 3);
           @extend .user_edit_main;
           width: 776px;
           .favorites_activity_show_area{
-            min-height: calc(100vh - 184px);
             padding-top: 17px;
             .favorites_list{
               display: flex;
@@ -350,7 +347,7 @@ $userNameHeight: calc(100% / 4 * 3);
           @extend .user_favorites_main;
           .reviews_activity_show_area{
             padding: 17px 0 1px;
-            min-height: calc(100vh - 184px);
+            // min-height: calc(100vh - 184px);
             .reviews_list{
                   .review_wrapper{
                     padding: 12px 0 15px;

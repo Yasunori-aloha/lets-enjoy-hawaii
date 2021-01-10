@@ -18,10 +18,6 @@ $searchNameHeight: $searchHeight - 443px - 10px;
   font-size: 22px;
   margin-left: 5px;
 }
-@mixin search_main {
-  position: absolute;
-  top: 20px;
-}
 @mixin back_translucent {
   background-color: $backColor;
   backdrop-filter: blur(5px);
@@ -30,166 +26,56 @@ $searchNameHeight: $searchHeight - 443px - 10px;
   background-color: whitesmoke;
 }
 .top_main{
-  height: 616px;
-  width: 100%;
+  background: image-url('toppage.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  height: calc(100vh - 185px);
   position: relative;
-  .search_left{
-    @include search-main();
-    height: $searchHeight;
-    width: $searchLeftWidth;
-    left: 190px;
-    .search_type{
-      @include back_translucent();
-      height: $searchTypeHeight;
-      .search_type_header{
-        @include search_header;
-        .search_type_header_string{
-          @include header_string;
-        }
-      }
-      .search_type_main{
-        height: calc(#{$searchTypeHeight} - 44px);
-        display: flex;
-        @for $i from 1 through 2 {
-          .type_main#{$i}{
-            width: calc(#{$searchLeftWidth} / 2);
-            padding: 11px 0;
-            @for $n from 1 through 3 {
-              .type#{$n}{
-                height: calc((#{$searchTypeHeight} - 44px) / 4);
-                border: 1px solid #000000;
-                border-radius: 8px;
-                margin: 11px 20px 11px 20px;
-                display: flex;
-                align-items: center;
-                cursor: pointer;
-                position: relative;
-                .category{
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  height: 100%;
-                  width: 100%;
-                }
-                .type_icon{
-                  margin: 0 10px;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    .search_word{
-      @include back_translucent();
-      margin-top: 10px;
-      height: $searchWordHeight;
-      .search_word_header{
-        @include search_header();
-        .search_word_header_string{
-          @include header_string();
-        }
-      }
-      .search_word_main{
-        height: calc(#{$searchWordHeight} - 44px);
-        width: 435px;
-        .form{
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          .keyword{
-            margin: 0 auto 10px 0;
-            padding-left: 20px;
-            .main_word{
-              margin-right: 10px;
-              color: #646464;
-            }
-            .text_field{
-              margin: 10px 0;
-              padding-left: 5px;
-              height: 32px;
-              width: 300px;
-              border: 1px solid #808080;
-              border-radius: 4px;
-            }
-          }
-          .select{
-            margin-right: auto;
-            padding-left: 68px;
-            .main_select{
-              margin-right: 10px;
-              color: #646464;
-            }
-            .select_box{
-              margin: 10px 0;
-              height: 37px;
-              border: 1px solid #808080;
-              border-radius: 4px;
-            }
-          }
-          .submit{
-            margin-top: 10px;
-            height: 54px;
-            width: 300px;
-            cursor: pointer;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            background-color: #90b200;
-            font-size: 18px;
-          }
-        }
-      }
-    }
-  }
-  .search_right{
-    @include search_main();
-    height: $searchHeight;
-    width: $searchRightWidth;
-    left: 650px;
-      .search_map{
+  width: 100%;
+  .search_wrapper{
+    display: flex;
+    margin: auto;
+    .search_left{
+      height: $searchHeight;
+      margin-right: 25px;
+      width: $searchLeftWidth;
+      .search_type{
         @include back_translucent();
-        height: 443px;
-        width: 100%;
-        .search_map_header{
+        height: $searchTypeHeight;
+        .search_type_header{
           @include search_header;
-          .search_map_header_string{
+          .search_type_header_string{
             @include header_string;
           }
         }
-        .search_map_main{
-          height: calc(100% - 84px);
-          padding: 20px 30px;
-        }
-      }
-      .search_name{
-        @include back_translucent();
-        margin-top: 10px;
-        height: $searchNameHeight;
-        .name_header{
-          @include search_header();
-          margin-bottom: 7px;
-          .name_header_string{
-            @include header_string();
-          }
-        }
-        .name_main{
-          height: 123px;
-          padding: 0 20px;
-          @for $n from 1 through 2 {
-            .name_main#{$n}{
-              display: flex;
-              @for $i from 1 through 4 {
-                .name#{$i} {
-                  height: 39px;
-                  width: 140px;
+        .search_type_main{
+          height: calc(#{$searchTypeHeight} - 44px);
+          display: flex;
+          @for $i from 1 through 2 {
+            .type_main#{$i}{
+              width: calc(#{$searchLeftWidth} / 2);
+              padding: 11px 0;
+              @for $n from 1 through 3 {
+                .type#{$n}{
+                  height: calc((#{$searchTypeHeight} - 44px) / 4);
+                  border: 1px solid #000000;
+                  border-radius: 8px;
+                  margin: 11px 20px 11px 20px;
                   display: flex;
                   align-items: center;
-                  justify-content: center;
-                  .island_name{
-                    color: #000000;
-                    font-size: 18px;
-                    text-decoration: underline;
+                  cursor: pointer;
+                  position: relative;
+                  .category{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                  }
+                  .type_icon{
+                    margin: 0 10px;
                   }
                 }
               }
@@ -197,5 +83,121 @@ $searchNameHeight: $searchHeight - 443px - 10px;
           }
         }
       }
+      .search_word{
+        @include back_translucent();
+        margin-top: 10px;
+        height: $searchWordHeight;
+        .search_word_header{
+          @include search_header();
+          .search_word_header_string{
+            @include header_string();
+          }
+        }
+        .search_word_main{
+          height: calc(#{$searchWordHeight} - 44px);
+          width: 435px;
+          .form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .keyword{
+              margin: 0 auto 10px 0;
+              padding-left: 20px;
+              .main_word{
+                margin-right: 10px;
+                color: #646464;
+              }
+              .text_field{
+                margin: 10px 0;
+                padding-left: 5px;
+                height: 32px;
+                width: 300px;
+                border: 1px solid #808080;
+                border-radius: 4px;
+              }
+            }
+            .select{
+              margin-right: auto;
+              padding-left: 68px;
+              .main_select{
+                margin-right: 10px;
+                color: #646464;
+              }
+              .select_box{
+                margin: 10px 0;
+                height: 37px;
+                border: 1px solid #808080;
+                border-radius: 4px;
+              }
+            }
+            .submit{
+              margin-top: 10px;
+              height: 54px;
+              width: 300px;
+              cursor: pointer;
+              color: #fff;
+              border: none;
+              border-radius: 4px;
+              background-color: #90b200;
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+    .search_right{
+      height: $searchHeight;
+      width: $searchRightWidth;
+        .search_map{
+          @include back_translucent();
+          height: 443px;
+          width: 100%;
+          .search_map_header{
+            @include search_header;
+            .search_map_header_string{
+              @include header_string;
+            }
+          }
+          .search_map_main{
+            height: calc(100% - 84px);
+            padding: 20px 30px;
+          }
+        }
+        .search_name{
+          @include back_translucent();
+          margin-top: 10px;
+          height: $searchNameHeight;
+          .name_header{
+            @include search_header();
+            margin-bottom: 7px;
+            .name_header_string{
+              @include header_string();
+            }
+          }
+          .name_main{
+            height: 123px;
+            padding: 0 20px;
+            @for $n from 1 through 2 {
+              .name_main#{$n}{
+                display: flex;
+                @for $i from 1 through 4 {
+                  .name#{$i} {
+                    height: 39px;
+                    width: 140px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .island_name{
+                      color: #000000;
+                      font-size: 18px;
+                      text-decoration: underline;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+    }
   }
 }
