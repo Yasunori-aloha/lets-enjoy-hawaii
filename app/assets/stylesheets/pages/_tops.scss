@@ -18,10 +18,6 @@ $searchNameHeight: $searchHeight - 443px - 10px;
   font-size: 22px;
   margin-left: 5px;
 }
-@mixin search_main {
-  position: absolute;
-  top: 20px;
-}
 @mixin back_translucent {
   background-color: $backColor;
   backdrop-filter: blur(5px);
@@ -34,15 +30,17 @@ $searchNameHeight: $searchHeight - 443px - 10px;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  display: flex;
   height: calc(100vh - 175px);
-  width: 100%;
   position: relative;
+  width: 100%;
   .search_wrapper{
+    display: flex;
+    margin: auto;
     .search_left{
-      @include search-main();
       height: $searchHeight;
+      margin-right: 25px;
       width: $searchLeftWidth;
-      left: 190px;
       .search_type{
         @include back_translucent();
         height: $searchTypeHeight;
@@ -148,10 +146,8 @@ $searchNameHeight: $searchHeight - 443px - 10px;
       }
     }
     .search_right{
-      @include search_main();
       height: $searchHeight;
       width: $searchRightWidth;
-      left: 650px;
         .search_map{
           @include back_translucent();
           height: 443px;
