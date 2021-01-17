@@ -32,8 +32,7 @@ module Users
 
     def check_guest
       if resource.email = 'guest@sample.com'
-        redirect_to request.referer
-        flash[:alert] = "ゲストユーザーは情報を更新することができません"
+        redirect_to request.referer, alert: "ゲストユーザーは情報を更新することができません"
       end
     end
 
