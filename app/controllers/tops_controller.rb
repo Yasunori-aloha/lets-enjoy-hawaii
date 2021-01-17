@@ -7,7 +7,7 @@ class TopsController < ApplicationController
 
   def search
     @experiences = []
-    @search.result.includes(%i[favorites genre area]).each do |result|
+    @search.result.preload(:favorites).eager_load([:genre, :area]).each do |result|
       @experiences << result
     end
     exps_sort(@experiences)

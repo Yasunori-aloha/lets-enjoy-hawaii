@@ -6,12 +6,12 @@ class ReviewsController < ApplicationController
   before_action -> { images_count(params[:id]) }, only: %i[exp_index edit]
 
   def exp_index
-    @reviews = Review.includes(:user).where(experience_id: params[:id]).order('created_at DESC')
+    @reviews = Review.preload(:user).where(experience_id: params[:id]).order('created_at DESC')
     render 'experiences/show'
   end
 
   def user_index
-    @reviews = Review.includes(:experience).where(user_id: params[:id]).order('created_at DESC')
+    @reviews = Review.preload(experience: :area).where(user_id: params[:id]).order('created_at DESC')
     user_is_current_user?(params)
   end
 
@@ -34,9 +34,7 @@ class ReviewsController < ApplicationController
 
   def edit
     @images = []
-    Review.includes(images_attachments: %i[blob]).where(
-      experience_id: params[:id]
-    ).to_a.each { |review| review.images.each { |image| @images << image } }
+    Review.eager_load(images_attachments: :blob).where(experience_id: params[:id]).to_a.each { |review| review.images.each { |image| @images << image } }
     render 'experiences/show'
   end
 

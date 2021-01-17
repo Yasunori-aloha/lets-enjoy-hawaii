@@ -23,21 +23,21 @@ class ExperiencesController < ApplicationController
     when 'category'
       @category = Category.find_by(search: params[:name])
       Genre.where(category_id: @category.id).find_each do |genre|
-        Experience.includes(%i[favorites genre area]).where(genre_id: genre.id).find_each { |exp| @experiences << exp }
+        Experience.preload(:favorites).eager_load([:genre, :area]).where(genre_id: genre.id).find_each { |exp| @experiences << exp }
       end
     when 'island'
       @island = Island.find_by(search: params[:name])
       Area.where(island_id: @island.id).find_each do |area|
-        Experience.includes(%i[favorites genre area]).where(area_id: area.id).find_each { |exp| @experiences << exp }
+        Experience.preload(:favorites).eager_load([:genre, :area]).where(area_id: area.id).find_each { |exp| @experiences << exp }
       end
     when 'genre'
       @genre = Genre.find_by(search: params[:name])
-      @genre.experiences.includes(%i[favorites area]).each do |exp|
+      @genre.experiences.preload(:favorites).eager_load(:area).each do |exp|
         @experiences << exp
       end
     when 'area'
       @area = Area.find_by(search: params[:name])
-      @area.experiences.includes(%i[favorites genre]).each do |exp|
+      @area.experiences.preload(:favorites).eager_load(:genre).each do |exp|
         @experiences << exp
       end
     end
