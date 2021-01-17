@@ -22,6 +22,9 @@
       .menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
         - breadcrumb :mypage_edit, current_user.id
         = breadcrumbs separator: " &rsaquo; "
+      - if flash[:alert]
+        %p{class: 'guest_user_alert'}
+          = flash[:alert]
       = form_with model: user, url: user_registration_path, local: true, class: 'edit_user' do |f|
         .field
           = f.label :name, 'お名前'
