@@ -4,7 +4,7 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user!, only: %i[index create destroy update]
 
   def index
-    @favorites = Favorite.includes([{ experience: :favorites }, { experience: :area }]).where(user_id: current_user.id).order('created_at DESC')
+    @favorites = Favorite.preload([{ experience: :favorites }, { experience: :area }]).where(user_id: current_user.id).order('created_at DESC')
     user_is_current_user?(params)
   end
 
