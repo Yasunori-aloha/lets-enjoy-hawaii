@@ -129,6 +129,12 @@ $userNameHeight: calc(100% / 4 * 3);
             border-bottom: 1px dotted black;
             width: 100%;
           }
+          .guest_user_alert{
+            color: red;
+            margin: 0;
+            padding-top: 17px;
+            text-align: center;
+          }
           .edit_user{
             padding-top: 17px;
             text-align: end;
