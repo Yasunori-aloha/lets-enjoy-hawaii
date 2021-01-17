@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
   end
 
   def user_index
-    @reviews = Review.preload(:experience).where(user_id: params[:id]).order('created_at DESC')
+    @reviews = Review.preload(experience: :area).where(user_id: params[:id]).order('created_at DESC')
     user_is_current_user?(params)
   end
 
