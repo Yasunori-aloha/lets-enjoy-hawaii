@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
 
   def edit
     @images = []
-    Review.includes(images_attachments: %i[blob]).where(experience_id: params[:id]).to_a.each { |review| review.images.each { |image| @images << image } }
+    Review.eager_load(images_attachments: :blob).where(experience_id: params[:id]).to_a.each { |review| review.images.each { |image| @images << image } }
     render 'experiences/show'
   end
 
