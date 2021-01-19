@@ -2,6 +2,9 @@
 
 ハワイ諸島の人気アクティビティや人気店等の情報を日本語で掲載し、口コミや評価を手軽に投稿できるサイトです。
 
+## アプリURL
+https://www.lets-enjoy-hawaii.com/
+
 ## アプリ概要
  - ハワイ諸島にある様々な店舗・観光名所やホテル等の検索ができます。
  - お店や、観光場所等の口コミを点数付きで投稿する機能を実装予定
@@ -58,16 +61,45 @@ $ rails db:migrate
 $ rails db:seed
 ```
 ## ER図
-https://i.gyazo.com/ddd77c78ede9a80e1b8fe9b7c0cd5ce3.png
+[![Image from Gyazo](https://i.gyazo.com/df54895268d0fbfee3f13d7f0f7b3e3f.png)](https://gyazo.com/df54895268d0fbfee3f13d7f0f7b3e3f)
 
-## その他
+# 使用技術
+## フロントエンド
+* HTML
+* Haml
+* CSS
+* Scss
+* JavaScript
+* jQuery
+
+##バックエンド
+* Ruby
+* Ruby on Rails
+
+## データベース
+* MySQL
+
+## テスト
+* RSpec
+* FactoryBot
+* faker
+* rubocop
+
+## 開発環境
+* Visual Studio Code
+
+## 本番環境
+* AWS (VPC, EC2, S3, RDS, Route53, ACM, ALB)
+* https化
+* Nginx, Unicorn
+# その他
 順次機能を実装しております。
 
 実装予定の機能については、Issuesからご確認いただけます。
 
 https://github.com/Yasunori-aloha/lets-enjoy-hawaii/issues
 
-## 作者
+# 作者
 ### 山崎 泰則
 Twitter : https://twitter.com/yasunori_aloha
 

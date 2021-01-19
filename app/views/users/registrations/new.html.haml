@@ -28,8 +28,7 @@
               / SNSアカウントでログインできる
               .social_login_container
                 %div{id: 'google_login', class: 'google_login'}
-                  = link_to '', user_google_oauth2_omniauth_authorize_path, method: :post, class: 'social_login_link'
-                  = icon('fab', 'google')
+                  = link_to icon('fab', 'google'), user_google_oauth2_omniauth_authorize_path, method: :post, class: 'social_login_link'
                 #facebook_login
                   = link_to image_tag("f_logo_RGB-Blue_58.png", height: '30px', width: '30px'), user_facebook_omniauth_authorize_path, method: :post, class: 'social_login_link'
               / SNSアカウントでログインできる
