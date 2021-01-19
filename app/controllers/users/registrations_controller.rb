@@ -13,7 +13,7 @@ module Users
     def create
       # paramsの中に'sns_auth: true'があれば、SNS認証と判断してパスワードを自動生成する。
       if params[:sns_auth] == 'true'
-        pass = Devise.friendly_token
+        pass = SecureRandom.base64
         params[:user][:password] = pass
         params[:user][:password_confirmation] = pass
       end
