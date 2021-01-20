@@ -352,8 +352,7 @@ $userNameHeight: calc(100% / 4 * 3);
         .user_reviews_main{
           @extend .user_favorites_main;
           .reviews_activity_show_area{
-            padding: 17px 0 1px;
-            // min-height: calc(100vh - 184px);
+            padding-top: 17px;
             .reviews_list{
                   .review_wrapper{
                     padding: 12px 0 15px;
@@ -425,8 +424,11 @@ $userNameHeight: calc(100% / 4 * 3);
                   }
             }
             .not_contents{
+              display: block;
               font-size: 18px;
               font-weight: bold;
+              min-height: calc(100vh - 386px);
+              padding-bottom: 17px;
             }
           }
         }
