@@ -295,8 +295,11 @@ $userNameHeight: calc(100% / 4 * 3);
               }
             }
             .not_contents{
+              display: block;
               font-size: 18px;
               font-weight: bold;
+              min-height: calc(100vh - 386px);
+              padding-bottom: 17px;
             }
           }
         }
