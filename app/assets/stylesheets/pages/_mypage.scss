@@ -12,6 +12,13 @@ $userNameHeight: calc(100% / 4 * 3);
   opacity: 0;
   cursor: pointer;
 }
+@mixin not_contents($height:386px) {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  min-height: calc(100vh - $height);
+  padding-bottom: 17px;
+}
 .mypage_wrapper{
   background-attachment: fixed;
   background-image: image-url('mypage_image.jpg');
@@ -296,11 +303,7 @@ $userNameHeight: calc(100% / 4 * 3);
               }
             }
             .not_contents{
-              display: block;
-              font-size: 18px;
-              font-weight: bold;
-              min-height: calc(100vh - 386px);
-              padding-bottom: 17px;
+              @include not_contents();
             }
           }
         }
@@ -430,11 +433,8 @@ $userNameHeight: calc(100% / 4 * 3);
               }
             }
             .not_contents{
-              display: block;
-              font-size: 18px;
-              font-weight: bold;
-              min-height: calc(100vh - 386px);
-              padding-bottom: 17px;
+              @include not_contents();
+              margin-top: 17px;
             }
           }
         }
