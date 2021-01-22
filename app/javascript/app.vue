@@ -1,22 +1,13 @@
 <template>
   <div>
-    <router-view></router-view>
+    <Header class='leh__header' />
+    <router-view />
+    <Footer class='leh__footer' />
   </div>
 </template>
 
 <script>
-export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
-    }
-  }
-}
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
 </style>
