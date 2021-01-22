@@ -1,5 +1,4 @@
 <template>
-  <p>テスト</p>
 </template>
 
 <script>

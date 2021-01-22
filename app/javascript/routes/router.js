@@ -9,7 +9,7 @@ export default new Router({
   routes: [
     {
     path: '/users/4',
-    components: 'Home'
+    components: Home
   }
   ]
 });
