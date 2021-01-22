@@ -1,12 +1,21 @@
-import Vue from 'vue'
-import App from '../app.vue'
-import router from '../routes/router.js'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import VueRouter from 'vue-router';
+import store from '../store/store.js';
+import router from '../routes/router.js';
+import App from '../app.vue';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 
-document.addEventListener('DOMContentLoaded', () => {
+Vue.use(Vuex);
+Vue.use(VueRouter);
+Vue.use(VueAxios, axios);
+
+document.addEventListener("DOMContentLoaded", () => {
   const app = new Vue({
-    render: h => h(App)
-  }).$mount()
-  document.body.appendChild(app.$el)
-
-  console.log(app)
-})
+    store,
+    router,
+    render: (h) => h(App),
+  }).$mount();
+  document.body.appendChild(app.$el);
+});

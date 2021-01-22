@@ -1,6 +1,6 @@
 <template>
-  <div id="mypage">
-    <p>{{ message }}</p>
+  <div>
+    <router-view></router-view>
   </div>
 </template>
 
