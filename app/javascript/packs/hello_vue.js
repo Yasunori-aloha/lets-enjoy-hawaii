@@ -1,6 +1,6 @@
 import Vue from 'vue/dist/vue.esm'
 import App from '../app.vue'
-import router from '../router.js'
+import router from '../routes/router.js'
 
 document.addEventListener('DOMContentLoaded', () => {
   new Vue({

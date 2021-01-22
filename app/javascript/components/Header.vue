@@ -1,9 +1,11 @@
 <template>
-  <router-view></router-view>
+  <p>テスト</p>
 </template>
 
 <script>
+export default {
 
+};
 </script>
 
 <style scoped>
