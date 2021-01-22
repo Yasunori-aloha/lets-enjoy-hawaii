@@ -1,13 +1,13 @@
 <template>
   <div>
-    <Header class='leh__header' />
+    <Header />
     <router-view />
-    <Footer class='leh__footer' />
+    <Footer />
   </div>
 </template>
 
 <script>
 </script>
 
-<style scoped>
+<style>
 </style>
