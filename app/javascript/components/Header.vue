@@ -42,11 +42,4 @@ export default {
     font-size: 14px;
     margin-left: 10px
   }
-  .link__hover{
-    color: #0000ff;
-  }
-  .link__hover:hover{
-    text-decoration-line: underline;
-    color: #ffa500;
-  }
 </style>
