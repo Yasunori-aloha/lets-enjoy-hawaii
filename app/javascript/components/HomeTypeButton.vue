@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     getImagePath(searchTypeImage) {
-      return '/assets/' + searchTypeImage + '.png'
+      return `/assets/${searchTypeImage}.png`
     }
   },
 };
