@@ -63,32 +63,16 @@
           <SearchHeader searchHeaderName='島名から探す' />
           <div class="search__name__main">
             <ul class="search__name__main__list">
-              <li class="name">
-                <router-link to="/" class='island__name link__hover'>ニイハウ島</router-link>
-              </li>
-              <li class="name">
-                <router-link to="/" class='island__name link__hover'>カウアイ島</router-link>
-              </li>
-              <li class="name">
-                <router-link to="/" class='island__name link__hover'>オアフ島</router-link>
-              </li>
-              <li class="name">
-                <router-link to="/" class='island__name link__hover'>モロカイ島</router-link>
-              </li>
+              <HomeIslandName islandNameLink="/" islandName="ニイハウ" />
+              <HomeIslandName islandNameLink="/" islandName="カウアイ" />
+              <HomeIslandName islandNameLink="/" islandName="オアフ" />
+              <HomeIslandName islandNameLink="/" islandName="モロカイ" />
             </ul>
             <ul class="search__name__main__list">
-              <li class="name">
-                <router-link to="/" class='island__name link__hover'>ラナイ島</router-link>
-              </li>
-              <li class="name">
-                <router-link to="/" class='island__name link__hover'>カホオラウェ島</router-link>
-              </li>
-              <li class="name">
-                <router-link to="/" class='island__name link__hover'>マウイ島</router-link>
-              </li>
-              <li class="name">
-                <router-link to="/" class='island__name link__hover'>ハワイ島</router-link>
-              </li>
+              <HomeIslandName islandNameLink="/" islandName="ラナイ" />
+              <HomeIslandName islandNameLink="/" islandName="カホオラウェ" />
+              <HomeIslandName islandNameLink="/" islandName="マウイ" />
+              <HomeIslandName islandNameLink="/" islandName="ハワイ" />
             </ul>
           </div>
         </div>
@@ -99,11 +83,13 @@
 
 <script>
 import SearchHeader from '../components/SearchHeader.vue';
-import HomeTypeButton from '../components/HomeTypeButton';
+import HomeTypeButton from '../components/HomeTypeButton.vue';
+import HomeIslandName from '../components/HomeIslandName.vue';
 export default {
   components: {
     SearchHeader,
     HomeTypeButton,
+    HomeIslandName,
   }
 };
 </script>
@@ -232,16 +218,5 @@ export default {
   }
   .search__name__main__list{
     display: flex;
-  }
-  .name{
-    height: 39px;
-    width: 140px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .island__name{
-    color: black;
-    font-size: 18px;
   }
 </style>
