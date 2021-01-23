@@ -4,7 +4,42 @@
       <div class="search__left">
         <div class="search__type__wrapper">
           <SearchHeader name='目的から探す' />
-          <div class="search__type__main"></div>
+          <div class="search__type__main">
+            <ul class="search__type__main__list">
+              <li class="type">
+                <router-link to="/" class='type__link'></router-link>
+                <img src="/assets/hotel_icon.png" alt="ホテル" class="type__icon">
+                <p class="type__name">ホテル<br>コンドミニアム</p>
+              </li>
+              <li class="type">
+                <router-link to="/" class='type__link'></router-link>
+                <img src="/assets/lunch_icon.png" alt="食事" class="type__icon">
+                <p class="type__name">食事</p>
+              </li>
+              <li class="type">
+                <router-link to="/" class='type__link'></router-link>
+                <img src="/assets/car_icon.png" alt="レンタカー" class="type__icon">
+                <p class="type__name">レンタカー</p>
+              </li>
+            </ul>
+            <ul class="search__type__main__list">
+              <li class="type">
+                <router-link to="/" class='type__link'></router-link>
+                <img src="/assets/leisure_icon.png" alt="遊び・体験" class="type__icon">
+                <p class="type__name">遊び・体験</p>
+              </li>
+              <li class="type">
+                <router-link to="/" class='type__link'></router-link>
+                <img src="/assets/landmark_icon.png" alt="観光地" class="type__icon">
+                <p class="type__name">観光地</p>
+              </li>
+              <li class="type">
+                <router-link to="/" class='type__link'></router-link>
+                <img src="/assets/shopping_icon.png" alt="ショッピング" class="type__icon">
+                <p class="type__name">ショッピング</p>
+              </li>
+            </ul>
+          </div>
         </div>
         <div class="searh__word__wrapper">
           <SearchHeader name='キーワードから探す' />
@@ -96,11 +131,43 @@ export default {
     width: 435px;
     margin-right: 25px;
   }
+  /* 目的から探すらn */
   .search__type__wrapper{
     height: 325px;
     background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(5px);
   }
+  .search__type__main{
+    height: 281px;
+    display: flex;
+  }
+  .search__type__main__list{
+    width: 217.5px;
+    padding: 11px 0;
+  }
+  .type{
+    height: 68.25px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    margin: 11px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+  }
+  .type__link{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .type__icon{
+    height: 40px;
+    width: 40px;
+    margin: 0 10px;
+  }
+  /* キーワードから探す欄 */
   .searh__word__wrapper{
     height: 241px;
     background-color: rgba(255, 255, 255, 0.85);
@@ -111,6 +178,7 @@ export default {
     height: 576px;
     width: 600px;
   }
+  /* 地図から探す欄 */
   .search__map__wrapper{
     height: 443px;
     background-color: rgba(255, 255, 255, 0.85);
@@ -123,6 +191,7 @@ export default {
     height: 359px;
     width: 540px;
   }
+  /* 島名から探す欄 */
   .search__name__wrapper{
     height: 123px;
     background-color: rgba(255, 255, 255, 0.85);
