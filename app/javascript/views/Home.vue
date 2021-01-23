@@ -31,6 +31,36 @@
         </div>
         <div class="search__name__wrapper">
           <SearchHeader name='島名から探す' />
+          <div class="search__name__main">
+            <ul class="search__name__main__list">
+              <li class="name">
+                <router-link to="/" class='island__name link__hover'>ニイハウ島</router-link>
+              </li>
+              <li class="name">
+                <router-link to="/" class='island__name link__hover'>カウアイ島</router-link>
+              </li>
+              <li class="name">
+                <router-link to="/" class='island__name link__hover'>オアフ島</router-link>
+              </li>
+              <li class="name">
+                <router-link to="/" class='island__name link__hover'>モロカイ島</router-link>
+              </li>
+            </ul>
+            <ul class="search__name__main__list">
+              <li class="name">
+                <router-link to="/" class='island__name link__hover'>ラナイ島</router-link>
+              </li>
+              <li class="name">
+                <router-link to="/" class='island__name link__hover'>カホオラウェ島</router-link>
+              </li>
+              <li class="name">
+                <router-link to="/" class='island__name link__hover'>マウイ島</router-link>
+              </li>
+              <li class="name">
+                <router-link to="/" class='island__name link__hover'>ハワイ島</router-link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -98,5 +128,24 @@ export default {
     background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(5px);
     margin-top: 10px;
+  }
+  .search__name__main{
+    height: 123px;
+    padding: 0 20px;
+    margin-top: 7px;
+  }
+  .search__name__main__list{
+    display: flex;
+  }
+  .name{
+    height: 39px;
+    width: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .island__name{
+    color: black;
+    font-size: 18px;
   }
 </style>
