@@ -17,4 +17,7 @@
     text-decoration-line: underline;
     color: #ffa500;
   }
+  .btn__hover:hover{
+    background-color: #ffa500;
+  }
 </style>

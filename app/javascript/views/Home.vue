@@ -245,9 +245,6 @@ export default {
     background-color: #90b200;
     font-size: 18px;
   }
-  .btn__hover:hover{
-    background-color: #ffa500;
-  }
   .search__right{
     height: 576px;
     width: 600px;
