@@ -3,10 +3,7 @@
     <div>
       <div class="search__left">
         <div class="search__type__wrapper">
-          <div class="search__type__header">
-            <img src="/assets/glass_icon.png" alt="虫眼鏡アイコン" class="glass_icon">
-            <b class="search__type__name">目的から探す</b>
-          </div>
+          <SearchHeader name='目的から探す' />
           <div class="search__type__main"></div>
         </div>
         <div class="searh__word__wrapper"></div>
@@ -20,8 +17,11 @@
 </template>
 
 <script>
+import SearchHeader from '../components/SearchHeader.vue';
 export default {
-
+  components: {
+    SearchHeader
+  }
 };
 </script>
 
@@ -49,23 +49,6 @@ export default {
     height: 325px;
     background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(5px);
-  }
-  .search__type__header{
-    height: 30px;
-    width: 395px;
-    padding: 14px 0 0 20px;
-    display: flex;
-    align-items: center;
-  }
-  .glass_icon{
-    height: 20px;
-    width: 20px;
-  }
-  .search__type__name{
-    height: 30px;
-    color: #6e6e6e;
-    font-size: 22px;
-    margin-left: 5px;
   }
   .searh__word__wrapper{
     height: 241px;
