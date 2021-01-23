@@ -6,9 +6,6 @@
   </div>
 </template>
 
-<script>
-</script>
-
 <style>
   .link__hover{
     color: #0000ff;
