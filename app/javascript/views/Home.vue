@@ -3,46 +3,22 @@
     <div>
       <div class="search__left">
         <div class="search__type__wrapper">
-          <SearchHeader name='目的から探す' />
+          <SearchHeader searchHeaderName='目的から探す' />
           <div class="search__type__main">
             <ul class="search__type__main__list">
-              <li class="type">
-                <router-link to="/" class='type__link'></router-link>
-                <img src="/assets/hotel_icon.png" alt="ホテル" class="type__icon">
-                <p class="type__name">ホテル<br>コンドミニアム</p>
-              </li>
-              <li class="type">
-                <router-link to="/" class='type__link'></router-link>
-                <img src="/assets/lunch_icon.png" alt="食事" class="type__icon">
-                <p class="type__name">食事</p>
-              </li>
-              <li class="type">
-                <router-link to="/" class='type__link'></router-link>
-                <img src="/assets/car_icon.png" alt="レンタカー" class="type__icon">
-                <p class="type__name">レンタカー</p>
-              </li>
+              <HomeTypeButton searchTypeImage="hotel_icon" searchTypeLink="/" searchTypeName="ホテル" searchTypeName2="コンドミニアム" />
+              <HomeTypeButton searchTypeImage="lunch_icon" searchTypeLink="/" searchTypeName="食事" />
+              <HomeTypeButton searchTypeImage="car_icon" searchTypeLink="/" searchTypeName="レンタカー" />
             </ul>
             <ul class="search__type__main__list">
-              <li class="type">
-                <router-link to="/" class='type__link'></router-link>
-                <img src="/assets/leisure_icon.png" alt="遊び・体験" class="type__icon">
-                <p class="type__name">遊び・体験</p>
-              </li>
-              <li class="type">
-                <router-link to="/" class='type__link'></router-link>
-                <img src="/assets/landmark_icon.png" alt="観光地" class="type__icon">
-                <p class="type__name">観光地</p>
-              </li>
-              <li class="type">
-                <router-link to="/" class='type__link'></router-link>
-                <img src="/assets/shopping_icon.png" alt="ショッピング" class="type__icon">
-                <p class="type__name">ショッピング</p>
-              </li>
+              <HomeTypeButton searchTypeImage="leisure_icon" searchTypeLink="/" searchTypeName="遊び・体験" />
+              <HomeTypeButton searchTypeImage="landmark_icon" searchTypeLink="/" searchTypeName="観光地" />
+              <HomeTypeButton searchTypeImage="shopping_icon" searchTypeLink="/" searchTypeName="ショッピング" />
             </ul>
           </div>
         </div>
         <div class="searh__word__wrapper">
-          <SearchHeader name='キーワードから探す' />
+          <SearchHeader searchHeaderName='キーワードから探す' />
           <div class="search__word__main">
             <form action="/search" accept-charset='UTF-8' method='get' class="form">
               <div class="keyword">
@@ -66,7 +42,7 @@
       </div>
       <div class="search__right">
         <div class="search__map__wrapper">
-          <SearchHeader name='地図から探す' />
+          <SearchHeader searchHeaderName='地図から探す' />
           <div class="search__map__main">
             <img src="/images/hawaiian_islands.png" alt="ハワイ地図" class="islands__image" usemap="#ImageMap1">
             <router-link to="/">
@@ -84,7 +60,7 @@
           </div>
         </div>
         <div class="search__name__wrapper">
-          <SearchHeader name='島名から探す' />
+          <SearchHeader searchHeaderName='島名から探す' />
           <div class="search__name__main">
             <ul class="search__name__main__list">
               <li class="name">
@@ -123,9 +99,11 @@
 
 <script>
 import SearchHeader from '../components/SearchHeader.vue';
+import HomeTypeButton from '../components/HomeTypeButton';
 export default {
   components: {
-    SearchHeader
+    SearchHeader,
+    HomeTypeButton,
   }
 };
 </script>
@@ -163,28 +141,6 @@ export default {
   .search__type__main__list{
     width: 217.5px;
     padding: 11px 0;
-  }
-  .type{
-    height: 68.25px;
-    border: 1px solid #000000;
-    border-radius: 8px;
-    margin: 11px 20px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    position: relative;
-  }
-  .type__link{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-  }
-  .type__icon{
-    height: 40px;
-    width: 40px;
-    margin: 0 10px;
   }
   /* キーワードから探す欄 */
   .searh__word__wrapper{

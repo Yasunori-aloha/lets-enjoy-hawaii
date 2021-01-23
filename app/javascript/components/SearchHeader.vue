@@ -1,13 +1,13 @@
 <template>
   <div class='search__header'>
     <img src="/assets/glass_icon.png" alt="虫眼鏡アイコン" class="glass__icon">
-    <b class="header__name">{{ name }}</b>
+    <b class="header__name">{{ searchHeaderName }}</b>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['name']
+  props: ['searchHeaderName']
 };
 </script>
 
