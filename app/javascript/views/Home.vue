@@ -6,11 +6,17 @@
           <SearchHeader name='目的から探す' />
           <div class="search__type__main"></div>
         </div>
-        <div class="searh__word__wrapper"></div>
+        <div class="searh__word__wrapper">
+          <SearchHeader name='キーワードから探す' />
+        </div>
       </div>
       <div class="search__right">
-        <div class="search__map__wrapper"></div>
-        <div class="search__name__wrapper"></div>
+        <div class="search__map__wrapper">
+          <SearchHeader name='地図から探す' />
+        </div>
+        <div class="search__name__wrapper">
+          <SearchHeader name='島名から探す' />
+        </div>
       </div>
     </div>
   </div>

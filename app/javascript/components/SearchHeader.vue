@@ -1,7 +1,7 @@
 <template>
   <div class='search__header'>
     <img src="/assets/glass_icon.png" alt="虫眼鏡アイコン" class="glass__icon">
-    <b class="search__name">{{ name }}</b>
+    <b class="header__name">{{ name }}</b>
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
     height: 20px;
     width: 20px;
   }
-  .search__name{
+  .header__name{
     height: 30px;
     color: #6e6e6e;
     font-size: 22px;
