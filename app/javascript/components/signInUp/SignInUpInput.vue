@@ -88,6 +88,7 @@ export default {
           boderColor: '#ccc',
           errorFlag: false,
           errorMessage: '',
+          typeCheck: 'name',
         },
         {
           type: 'email',
@@ -103,6 +104,7 @@ export default {
           boderColor: '#ccc',
           errorFlag: false,
           errorMessage: '',
+          typeCheck: 'email',
         },
         {
           type: 'password',
@@ -118,6 +120,7 @@ export default {
           boderColor: '#ccc',
           errorFlag: false,
           errorMessage: '',
+          typeCheck: 'password',
         },
         {
           type: 'password',
@@ -133,6 +136,7 @@ export default {
           boderColor: '#ccc',
           errorFlag: false,
           errorMessage: '',
+          typeCheck: 'password_confirmation',
         },
       ],
     }
@@ -151,36 +155,41 @@ export default {
       form.backGroundColor = 'white';
       form.boderColor = '#ccc';
       if (!(form.input)) {
-        form.errorFlag = true;
         form.errorMessage = 'この項目は必須です';
+        form.errorFlag = true;
         form.backGroundColor = 'yellow';
         form.boderColor = 'red';
       } else {
-        switch (form.type) {
+        switch (form.typeCheck) {
           case 'email':
             if (!(form.input.match(/^[\w+\-.]+@[a-z\d\-.]+\.[a-z]+$/))) {
-              form.errorFlag = true;
               form.errorMessage = 'メールアドレスの形式で入力してください';
+              form.errorFlag = true;
               form.backGroundColor = 'yellow';
               form.boderColor = 'red';
             }
             break;
           case 'password':
             if (!(form.input.match(/.{8,}/))) {
-              form.errorFlag = true;
-              form.errorMessage = 'パスワードは8文字以上必要です';
-            } else {
-              if (form.input.match(/^(?!.*[0-9]).*$/)) {
-                form.errorFlag = true;
-                form.errorMessage = '数字が挿入されておりません';
-              } else if (form.input.match(/^(?!.*[a-zA-Z]).*$/)) {
-                form.errorFlag = true;
-                form.errorMessage = '英字が挿入されておりません';
-              } else if (form.input.match(/^(?!.*[!-\/:-@\[-`\{-~].*[!-\/:-@\[-`\{-~]).*$/)) {
-                form.errorFlag = true;
-                form.errorMessage = '記号は2回以上が必要です';
-              }
+              form.errorMessage = 'パスワードは8文字以上で入力してください';
+            } else if (form.input.length === 20) {
+              form.errorMessage = 'パスワードは20文字以下で入力してください';
+            } else if (form.input.match(/^(?!.*[0-9]).*$/)) {
+              form.errorMessage = '数字が挿入されておりません';
+            } else if (form.input.match(/^(?!.*[a-zA-Z]).*$/)) {
+              form.errorMessage = '英字が挿入されておりません';
+            } else if (form.input.match(/^(?!.*[!-\/:-@\[-`\{-~].*[!-\/:-@\[-`\{-~]).*$/)) {
+              form.errorMessage = '記号は2回以上が必要です';
             }
+            form.errorFlag = true;
+            form.backGroundColor = 'yellow';
+            form.boderColor = 'red';
+            break;
+          case 'password_confirmation':
+            if (form.input !== this.signUpForms[2].input) {
+              form.errorMessage = 'パスワードと同じ内容を入力してください';
+            }
+            form.errorFlag = true;
             form.backGroundColor = 'yellow';
             form.boderColor = 'red';
             break;
