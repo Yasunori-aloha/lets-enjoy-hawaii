@@ -76,8 +76,10 @@ export default {
     position: relative;
   }
   .sign__in__up__wrapper > div {
-    display: flex;
-    justify-content: center;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
   }
   .sign__in__up__main{
     width: 510px;
