@@ -49,10 +49,10 @@
           <SearchHeader searchHeaderName='島名から探す' />
           <div class="search__name__main">
             <ul class="search__name__main__list">
-              <HomeIslandName v-for="n in 4" :areaId="n - 1" />
+              <HomeIslandName v-for="(n, index) in 4" :areaId="index" />
             </ul>
             <ul class="search__name__main__list">
-              <HomeIslandName v-for="n in 4" :areaId="n + 3" />
+              <HomeIslandName v-for="(n, index) in 4" :areaId="index + 4" />
             </ul>
           </div>
         </div>

@@ -2,7 +2,6 @@
   <li class="name">
     <router-link to="/" class='island__name link__hover'>
       <span @mouseover="mapChange(areaId)" @mouseleave="mapReturn(8)">{{ areaNames[areaId] }}島</span>
-      <!-- <span @mouseover="hoverMap()">{{ areaNames[areaId] }}島</span> -->
     </router-link>
   </li>
 </template>
