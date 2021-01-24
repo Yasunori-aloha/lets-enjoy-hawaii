@@ -122,16 +122,6 @@ export default {
     width: 100%;
     font-size: 18px;
   }
-  .button_cv{
-  height: 50px;
-  border: none;
-  outline: 0;
-  border-radius: 6px;
-  cursor: pointer;
-  color: #fff;
-  background-color: #00b900;
-  font-weight: 700;
-  }
   .sign__in__up__footer__wrapper{
     height: 60px;
     width: 100%;
