@@ -7,11 +7,7 @@
     <div class="select">
       <label for="q_score_gteq" class="main__select">評価</label>
       <select name="q[score_gteq]" id="score" class="select__box">
-        <option value="0">------------</option>
-        <option value="1">★1.0以上</option>
-        <option value="2">★2.0以上</option>
-        <option value="3">★3.0以上</option>
-        <option value="4">★4.0以上</option>
+        <option v-for="(value, index) in optionTexts" :value="index">{{ value }}</option>
       </select>
     </div>
     <input type="submit" name="commit" value="検索" class="submit btn__hover">
@@ -20,7 +16,17 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      optionTexts: [
+        '------------',
+        '★1.0以上',
+        '★2.0以上',
+        '★3.0以上',
+        '★4.0以上',
+      ],
+    }
+  },
 };
 </script>
 
