@@ -21,6 +21,25 @@ export default {
 </script>
 
 <style scoped>
+.social__login{
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  margin-top: 30px;
+  padding-top: 15px;
+  position: relative;
+}
+.social__login__title{
+  width: 50%;
+  line-height: 20px;
+  font-size: 14px;
+  display: inline-block;
+  text-align: center;
+  margin: 0 -25%;
+  position: absolute;
+  top: -10px;
+  background-color: #fff;
+}
 .social__login__list{
   height: 92px;
   width: 100%;
