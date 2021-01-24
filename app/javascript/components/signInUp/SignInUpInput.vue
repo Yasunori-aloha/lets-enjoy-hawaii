@@ -1,13 +1,9 @@
 <template>
   <div class="sign__in__up__form">
     <form action="" class="sign__in__up__user">
-      <div class="sign__in__up__form__input">
-        <input placeholder="メールアドレス" autocomplete="email" autocorrect="off" autocapitalize="off" type="email" name="user[email]"  class="sign__in__up__input">
-        <span class="sign__in__up__error___message">この項目は必須です</span>
-      </div>
-      <div class="sign__in__up__form__input">
-        <input placeholder="パスワード（8～20文字・半角英数字・記号を2種以上）" maxlength="20" autocomplete="current-password" size="20" type="password" name="user[password]" class="sign__in__up__input">
-        <span class="sign__in__up__error___message">この項目は必須です</span>
+      <div v-for="form in SignInUpForm" class="sign__in__up__form__input">
+        <input :style="{'background-color': form.backGroundColor, 'border': `1px solid ${form.boderColor}`}" v-model="form.input" @blur="checkValidate(form)" :placeholder="form.placeholder" :autocomplete="form.autocomplete" :autocorrect="form.autocorrect" :autocapitalize="form.autocapitalize" :type="form.type" :name="form.name" :maxlength="form.maxlength" :size="form.size" class="sign__in__up__input">
+        <span v-if="form.errorFlag" class="sign__in__up__error___message">{{ form.errorMessage }}</span>
       </div>
       <div class="remember__password">
         <label class="remember__me">
@@ -25,7 +21,86 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      SignInUpForm: [
+        {
+          type: 'email',
+          placeholder: 'メールアドレス',
+          input: '',
+          name: 'user[email]',
+          autocomplete: 'email',
+          autocorrect: 'off',
+          autocapitalize: 'off',
+          maxlength: '',
+          size: '',
+          backGroundColor: 'white',
+          boderColor: '#ccc',
+          errorFlag: false,
+          errorMessage: '',
+        },
+        {
+          type: 'password',
+          placeholder: 'パスワード（8～20文字・半角英数字・記号を2種以上）',
+          input: '',
+          name: 'user[password]',
+          autocomplete: 'current-password',
+          autocorrect: '',
+          autocapitalize: '',
+          maxlength: '20',
+          size: '20',
+          backGroundColor: 'white',
+          boderColor: '#ccc',
+          errorFlag: false,
+          errorMessage: '',
+        },
+      ],
+    }
+  },
+  methods: {
+    checkValidate(form) {
+      form.errorFlag = false;
+      form.errorMessage = '';
+      form.backGroundColor = 'white';
+      form.boderColor = '#ccc';
+      if (!(form.input)) {
+        form.errorFlag = true;
+        form.errorMessage = 'この項目は必須です';
+        form.backGroundColor = 'yellow';
+        form.boderColor = 'red';
+      } else {
+        switch (form.type) {
+          case 'email':
+            if (!(form.input.match(/^[\w+\-.]+@[a-z\d\-.]+\.[a-z]+$/))) {
+              form.errorFlag = true;
+              form.errorMessage = 'メールアドレスの形式で入力してください';
+              form.backGroundColor = 'yellow';
+              form.boderColor = 'red';
+            }
+            break;
+          case 'password':
+            if (!(form.input.match(/.{8,}/))) {
+              form.errorFlag = true;
+              form.errorMessage = 'パスワードは8文字以上必要です';
+            } else {
+              if (form.input.match(/^(?!.*[0-9]).*$/)) {
+                form.errorFlag = true;
+                form.errorMessage = '数字が挿入されておりません';
+              } else if (form.input.match(/^(?!.*[a-zA-Z]).*$/)) {
+                form.errorFlag = true;
+                form.errorMessage = '英字が挿入されておりません';
+              } else if (form.input.match(/^(?!.*[!-\/:-@\[-`\{-~].*[!-\/:-@\[-`\{-~]).*$/)) {
+                form.errorFlag = true;
+                form.errorMessage = '記号は2回以上が必要です';
+              }
+            }
+            form.backGroundColor = 'yellow';
+            form.boderColor = 'red';
+            break;
+        }
+      }
+    },
+  },
 };
 </script>
 
