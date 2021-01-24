@@ -24,11 +24,7 @@
       </form>
     </div>
     <SocialLoginLink />
-    <div class="login__link__wrapper">
-      <span class="login__link__title">アカウントをお持ちではありませんか？</span>
-      <a href="/users/sign_up" class="login__text link__hover__not__underline">会員登録</a>
-      <br>
-    </div>
+    <SignInUpLink />
     <div class="guest__user__sign__in__form">
       <span class="guest__user__login__text">※アカウント登録せず、ユーザー機能を試したい方は</span>
       <a href="/users/guest_sign_in" rel="nofollow" data-method="post" class="guest__user__login__button link_hover_not_underline">こちら</a>
@@ -38,10 +34,12 @@
 
 <script>
 import SocialLoginLink from '../signInUp/SocialLoginLink.vue';
+import SignInUpLink from '../signInUp/SignInUpLink.vue';
 
 export default {
   components: {
     SocialLoginLink,
+    SignInUpLink,
   }
 };
 </script>
@@ -135,23 +133,6 @@ export default {
   position: absolute;
   top: -10px;
   background-color: #fff;
-}
-.login__link__wrapper{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  margin: 30px 0 -10px;
-}
-.login__link__title{
-  margin-right: 5px;
-}
-.login__text{
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  color: #008dde;
 }
 .link__hover__not__underline:hover {
   color: #ffa500;
