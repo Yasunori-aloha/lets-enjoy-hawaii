@@ -23,34 +23,26 @@
         <input type="submit" name="commit" value="ログイン" class="sign__in__up__button button_cv btn__hover">
       </form>
     </div>
-    <div class="social__login">
-      <span class="social__login__title">こちらもご利用いただけます</span>
-      <ul class="social__login__list">
-        <li id="google__login" class="google__login">
-          <a href="/users/auth/google_oauth2" rel="nofollow" data-method="post" class="social__login__link"><i class="fab fa-google"></i></a>
-        </li>
-        <li id="facebook__login">
-          <a href="/users/auth/facebook" rel="nofollow" data-method="post" class="social__login__link">
-            <img src="/assets/f_logo_RGB-Blue_58.png" height="30px" width="30px">
-          </a>
-        </li>
-      </ul>
-      <div class="login__link__wrapper">
-        <span class="login__link__title">アカウントをお持ちではありませんか？</span>
-        <a href="/users/sign_up" class="login__text link__hover__not__underline">会員登録</a>
-        <br>
-      </div>
-      <div class="guest__user__sign__in__form">
-        <span class="guest__user__login__text">※アカウント登録せず、ユーザー機能を試したい方は</span>
-        <a href="/users/guest_sign_in" rel="nofollow" data-method="post" class="guest__user__login__button link_hover_not_underline">こちら</a>
-      </div>
+    <SocialLoginLink />
+    <div class="login__link__wrapper">
+      <span class="login__link__title">アカウントをお持ちではありませんか？</span>
+      <a href="/users/sign_up" class="login__text link__hover__not__underline">会員登録</a>
+      <br>
+    </div>
+    <div class="guest__user__sign__in__form">
+      <span class="guest__user__login__text">※アカウント登録せず、ユーザー機能を試したい方は</span>
+      <a href="/users/guest_sign_in" rel="nofollow" data-method="post" class="guest__user__login__button link_hover_not_underline">こちら</a>
     </div>
   </div>
 </template>
 
 <script>
-export default {
+import SocialLoginLink from '../signInUp/SocialLoginLink.vue';
 
+export default {
+  components: {
+    SocialLoginLink,
+  }
 };
 </script>
 
@@ -143,38 +135,6 @@ export default {
   position: absolute;
   top: -10px;
   background-color: #fff;
-}
-.social__login__list{
-  height: 92px;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0 auto;
-}
-.google__login{
-  position: relative;
-}
-i{
-  color: #000000;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 26px;
-}
-.social__login__link{
-  height: 72px;
-  width: 72px;
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-  border: 1px solid #e5e5e5;
-  border-radius: 6px;
-  margin: 10px;
-}
-img{
-  margin: 0 auto;
 }
 .login__link__wrapper{
   display: flex;
