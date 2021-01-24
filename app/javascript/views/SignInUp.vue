@@ -73,6 +73,7 @@ export default {
     background-position: center center;
     background-size: cover;
     height: 100vh;
+    position: relative;
   }
   .sign__in__up__wrapper > div {
     display: flex;
@@ -236,6 +237,8 @@ export default {
     width: 100%;
     text-shadow: 1px 1px 1px black;
     text-align: center;
+    position: absolute;
+    bottom: 0;
   }
   .sign__in__up__footer__link{
     margin-bottom: 8px;
