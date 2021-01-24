@@ -234,6 +234,7 @@ export default {
   .sign__in__up__footer__wrapper{
     height: 60px;
     width: 100%;
+    text-shadow: 1px 1px 1px black;
     text-align: center;
   }
   .sign__in__up__footer__link{
