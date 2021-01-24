@@ -6,8 +6,8 @@ import router from '../routes/router.js';
 import App from '../app.vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
-import Header from '../components/Header.vue'
-import Footer from '../components/Footer.vue'
+import Header from '../components/Header.vue';
+import Footer from '../components/Footer.vue';
 
 Vue.use(Vuex);
 Vue.use(VueRouter);

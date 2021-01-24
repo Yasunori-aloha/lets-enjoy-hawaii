@@ -49,16 +49,10 @@
           <SearchHeader searchHeaderName='島名から探す' />
           <div class="search__name__main">
             <ul class="search__name__main__list">
-              <HomeIslandName islandNameLink="/" islandName="ニイハウ" />
-              <HomeIslandName islandNameLink="/" islandName="カウアイ" />
-              <HomeIslandName islandNameLink="/" islandName="オアフ" />
-              <HomeIslandName islandNameLink="/" islandName="モロカイ" />
+              <HomeIslandName v-for="n in 4" :areaId="n - 1" />
             </ul>
             <ul class="search__name__main__list">
-              <HomeIslandName islandNameLink="/" islandName="ラナイ" />
-              <HomeIslandName islandNameLink="/" islandName="カホオラウェ" />
-              <HomeIslandName islandNameLink="/" islandName="マウイ" />
-              <HomeIslandName islandNameLink="/" islandName="ハワイ" />
+              <HomeIslandName v-for="n in 4" :areaId="n + 3" />
             </ul>
           </div>
         </div>

@@ -1,10 +1,12 @@
 <template>
   <router-link to="/">
-    <area shape="poly" :coords="areas[areaId]" :alt="areaNames[areaId]"  @mouseover="hoverMap()" @mouseleave="hoverOutMap()">
+    <area shape="poly" :coords="areas[areaId]" :alt="areaNames[areaId]" @mouseover="mapChange(areaId)" @mouseleave="mapReturn(8)">
   </router-link>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
   props: {
     areaId: {
@@ -37,12 +39,7 @@ export default {
     }
   },
   methods: {
-    hoverMap() {
-      this.$emit("map-change", this.areaId);
-    },
-    hoverOutMap() {
-      this.$emit("map-return", 8);
-    },
+    ...mapMutations(["mapChange", "mapReturn"]),
   },
 };
 </script>

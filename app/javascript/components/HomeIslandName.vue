@@ -1,20 +1,38 @@
 <template>
   <li class="name">
-    <router-link :to="islandNameLink" class='island__name link__hover'>{{ islandName }}島</router-link>
+    <router-link to="/" class='island__name link__hover'>
+      <span @mouseover="mapChange(areaId)" @mouseleave="mapReturn(8)">{{ areaNames[areaId] }}島</span>
+      <!-- <span @mouseover="hoverMap()">{{ areaNames[areaId] }}島</span> -->
+    </router-link>
   </li>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
+  data() {
+    return {
+      areaNames: [
+        'ニイハウ',
+        'オアフ',
+        'カホオラウェ',
+        'ラナイ',
+        'モロカイ',
+        'マウイ',
+        'カウアイ',
+        'ハワイ',
+      ],
+    }
+  },
   props: {
-    islandNameLink: {
-      type: String,
+    areaId: {
+      type: Number,
       required: true,
-    },
-    islandName: {
-      type: String,
-      required: true,
-    },
+    }
+  },
+  methods: {
+    ...mapMutations(["mapChange", "mapReturn"]),
   },
 };
 </script>
