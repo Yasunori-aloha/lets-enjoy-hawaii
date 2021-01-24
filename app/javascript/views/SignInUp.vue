@@ -1,5 +1,6 @@
 <template>
   <div class="sign__in__up__wrapper">
+    <AppIcon class="sign__in__up__root__to"/>
     <div>
       <div class="sign__in__up__main">
         <span class="sign__in__up__text">ログイン</span>
@@ -61,8 +62,12 @@
 </template>
 
 <script>
-export default {
+import AppIcon from '../components/AppIcon.vue';
 
+export default {
+  components: {
+    AppIcon,
+  }
 };
 </script>
 
@@ -74,6 +79,11 @@ export default {
     background-size: cover;
     height: 100vh;
     position: relative;
+  }
+  .sign__in__up__root__to{
+    position: absolute;
+    top: 10px;
+    left: 50px;
   }
   .sign__in__up__wrapper > div {
     position:absolute;
