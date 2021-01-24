@@ -12,16 +12,10 @@
 </template>
 
 <script>
+import { pathCheck } from "../../pathCheck.js";
+
 export default {
-  methods: {
-    checkSignIn() {
-      if (this.$route.path === '/users/sign_in') {
-        return true;
-      }else{
-        return false;
-      }
-    },
-  },
+  mixins: [pathCheck],
 };
 </script>
 
