@@ -1,12 +1,12 @@
 <template>
   <div v-if="checkSignIn()" class="login__link__wrapper">
     <span class="login__link__title">アカウントをお持ちではありませんか？</span>
-    <a href="/users/sign_up" class="login__text link__hover__not__underline">会員登録</a>
+    <router-link to="/users/sign_up" class="login__text link__hover__not__underline">会員登録</router-link>
     <br>
   </div>
   <div v-else class="login__link__wrapper">
     <span class="login__link__title">すでにアカウントをお持ちですか？</span>
-    <a href="/users/sign_in" class="login__text link__hover__not__underline">ログイン</a>
+    <router-link to="/users/sign_in" class="login__text link__hover__not__underline">ログイン</router-link>
     <br>
   </div>
 </template>
