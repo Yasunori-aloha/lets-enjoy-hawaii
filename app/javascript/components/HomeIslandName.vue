@@ -48,4 +48,9 @@ export default {
     color: black;
     font-size: 18px;
   }
+  .island__name > span{
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
 </style>
