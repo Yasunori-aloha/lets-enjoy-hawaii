@@ -11,7 +11,7 @@ export default {
   methods: {
     // 会員登録・ログインページでは、ヘッダーとフッターを表示させない様にする。
     checkSignInUp() {
-      if (this.$route.path === '/users/sign_in' || this.$route.path === 'users/sign_up') {
+      if (this.$route.path === '/users/sign_in' || this.$route.path === '/users/sign_up') {
         return false;
       }else{
         return true;

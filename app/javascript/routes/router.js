@@ -8,7 +8,10 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   routes: [
+    // ホーム画面
     { path: '/', component: Home },
-    { path: '/users/sign_up', component: SignInUp},
+    // 会員登録・ログイン画面
+    { path: '/users/sign_up', component: SignInUp },
+    { path: '/users/sign_in', component: SignInUp },
   ]
 });
