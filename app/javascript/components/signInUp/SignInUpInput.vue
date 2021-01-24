@@ -1,7 +1,25 @@
 <template>
-  <div class="sign__in__up__form">
+  <div v-if="checkSignIn()" class="sign__in__up__form">
     <form action="" class="sign__in__up__user">
       <div v-for="form in signInForms" class="sign__in__up__form__input">
+        <input :style="{'background-color': form.backGroundColor, 'border': `1px solid ${form.boderColor}`}" v-model="form.input" @blur="checkValidate(form)" :placeholder="form.placeholder" :autocomplete="form.autocomplete" :autocorrect="form.autocorrect" :autocapitalize="form.autocapitalize" :type="form.type" :name="form.name" :maxlength="form.maxlength" :size="form.size" class="sign__in__up__input">
+        <span v-if="form.errorFlag" class="sign__in__up__error___message">{{ form.errorMessage }}</span>
+      </div>
+      <div class="remember__password">
+        <label class="remember__me">
+          <span aria-checked="true">
+            <input type="hidden" value="0" name="user[remember_me]">
+            <input type="checkbox" value="1" name="user[remember_me]">
+          </span>
+          <span>ログイン状態を保持</span>
+        </label>
+      </div>
+      <input type="submit" name="commit" value="ログイン" class="sign__in__up__button button_cv btn__hover">
+    </form>
+  </div>
+  <div v-else class="sign__in__up__form">
+    <form action="" class="sign__in__up__user">
+      <div v-for="form in signUpForms" class="sign__in__up__form__input">
         <input :style="{'background-color': form.backGroundColor, 'border': `1px solid ${form.boderColor}`}" v-model="form.input" @blur="checkValidate(form)" :placeholder="form.placeholder" :autocomplete="form.autocomplete" :autocorrect="form.autocorrect" :autocapitalize="form.autocapitalize" :type="form.type" :name="form.name" :maxlength="form.maxlength" :size="form.size" class="sign__in__up__input">
         <span v-if="form.errorFlag" class="sign__in__up__error___message">{{ form.errorMessage }}</span>
       </div>
@@ -55,10 +73,78 @@ export default {
           errorMessage: '',
         },
       ],
-      signUpForms: [],
+      signUpForms: [
+        {
+          type: 'text',
+          placeholder: '氏名（例：畑中三郎）',
+          input: '',
+          name: '氏名（例：畑中三郎）',
+          autocomplete: 'name',
+          autocorrect: '',
+          autocapitalize: '',
+          maxlength: '',
+          size: '',
+          backGroundColor: 'white',
+          boderColor: '#ccc',
+          errorFlag: false,
+          errorMessage: '',
+        },
+        {
+          type: 'email',
+          placeholder: 'メールアドレス',
+          input: '',
+          name: 'user[email]',
+          autocomplete: 'email',
+          autocorrect: 'off',
+          autocapitalize: 'off',
+          maxlength: '',
+          size: '',
+          backGroundColor: 'white',
+          boderColor: '#ccc',
+          errorFlag: false,
+          errorMessage: '',
+        },
+        {
+          type: 'password',
+          placeholder: 'パスワード（8～20文字・半角英数字・記号を2種以上）',
+          input: '',
+          name: 'user[password]',
+          autocomplete: 'current-password',
+          autocorrect: '',
+          autocapitalize: '',
+          maxlength: '20',
+          size: '20',
+          backGroundColor: 'white',
+          boderColor: '#ccc',
+          errorFlag: false,
+          errorMessage: '',
+        },
+        {
+          type: 'password',
+          placeholder: '上記と同じパスワードを入力してください',
+          input: '',
+          name: 'user[password_confirmation]',
+          autocomplete: 'new-password',
+          autocorrect: '',
+          autocapitalize: '',
+          maxlength: '20',
+          size: '20',
+          backGroundColor: 'white',
+          boderColor: '#ccc',
+          errorFlag: false,
+          errorMessage: '',
+        },
+      ],
     }
   },
   methods: {
+    checkSignIn() {
+      if (this.$route.path === '/users/sign_in') {
+        return true;
+      }else{
+        return false;
+      }
+    },
     checkValidate(form) {
       form.errorFlag = false;
       form.errorMessage = '';
