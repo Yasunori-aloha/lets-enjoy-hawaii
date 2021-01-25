@@ -7,7 +7,7 @@
     <SignInUpLink />
     <div class="guest__user__sign__in__form">
       <span class="guest__user__login__text">※アカウント登録せず、ユーザー機能を試したい方は</span>
-      <a href="/users/guest_sign_in" rel="nofollow" data-method="post" class="guest__user__login__button link_hover_not_underline">こちら</a>
+      <button class="guest__user__login__button link_hover_not_underline">こちら</button>
     </div>
   </div>
 </template>
@@ -65,6 +65,10 @@ export default {
 .guest__user__login__button{
   font-size: 14px;
   color: #008dde;
-  text-decoration: none;
+  padding: 0;
+  background-color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 </style>
