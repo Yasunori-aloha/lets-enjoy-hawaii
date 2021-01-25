@@ -138,49 +138,50 @@ export default {
     }
   },
   methods: {
+    errorIndication(form, errorMessage) {
+      form.errorMessage = errorMessage;
+      form.errorFlag = true;
+      form.backGroundColor = 'yellow';
+      form.boderColor = 'red';
+    },
     checkValidate(form) {
+      // 入力不備が無ければ、表示させない様にする
       form.errorFlag = false;
       form.errorMessage = '';
       form.backGroundColor = 'white';
       form.boderColor = '#ccc';
       if (!(form.input)) {
-        form.errorMessage = 'この項目は必須です';
-        form.errorFlag = true;
-        form.backGroundColor = 'yellow';
-        form.boderColor = 'red';
+        this.errorIndication(form, 'この項目は必須です');
       } else {
         switch (form.typeCheck) {
           case 'email':
             if (!(form.input.match(/^[\w+\-.]+@[a-z\d\-.]+\.[a-z]+$/))) {
-              form.errorMessage = 'メールアドレスの形式で入力してください';
-              form.errorFlag = true;
-              form.backGroundColor = 'yellow';
-              form.boderColor = 'red';
+              this.errorIndication(form, 'メールアドレスの形式で入力してください');
             }
             break;
           case 'password':
+            // パスワードが8文字以上か？
             if (!(form.input.match(/.{8,}/))) {
-              form.errorMessage = 'パスワードは8文字以上で入力してください';
+              this.errorIndication(form, 'パスワードは8文字以上で入力してください');
+              // パスワードが20文字以下か？
             } else if (form.input.length === 20) {
-              form.errorMessage = 'パスワードは20文字以下で入力してください';
+              this.errorIndication(form, 'パスワードは20文字以下で入力してください');
+              // パスワードに数字が入っているか？
             } else if (form.input.match(/^(?!.*[0-9]).*$/)) {
-              form.errorMessage = '数字が挿入されておりません';
+              this.errorIndication(form, '数字が挿入されておりません');
+              // パスワードに英字が入っているか？
             } else if (form.input.match(/^(?!.*[a-zA-Z]).*$/)) {
-              form.errorMessage = '英字が挿入されておりません';
+              this.errorIndication(form, '英字が挿入されておりません');
+              // パスワードに記号が2回以上が入っているか？
             } else if (form.input.match(/^(?!.*[!-\/:-@\[-`\{-~].*[!-\/:-@\[-`\{-~]).*$/)) {
-              form.errorMessage = '記号は2回以上が必要です';
+              this.errorIndication(form, '記号は2回以上が必要です');
             }
-            form.errorFlag = true;
-            form.backGroundColor = 'yellow';
-            form.boderColor = 'red';
             break;
           case 'password_confirmation':
+            // パスワードにと同じ内容か？
             if (form.input !== this.signUpForms[2].input) {
-              form.errorMessage = 'パスワードと同じ内容を入力してください';
+              this.errorIndication(form, 'パスワードと同じ内容を入力してください');
             }
-            form.errorFlag = true;
-            form.backGroundColor = 'yellow';
-            form.boderColor = 'red';
             break;
         }
       }
