@@ -50,6 +50,7 @@ export default {
           boderColor: '#ccc',
           errorFlag: false,
           errorMessage: '',
+          typeCheck: 'email',
         },
         {
           type: 'password',
@@ -65,6 +66,7 @@ export default {
           boderColor: '#ccc',
           errorFlag: false,
           errorMessage: '',
+          typeCheck: 'password',
         },
       ],
       signUpForms: [
@@ -183,7 +185,6 @@ export default {
         }
       }
     },
-    inputReturn() {},
   },
 };
 </script>
