@@ -1,6 +1,7 @@
 <template>
   <div class="sign__in__up__main">
-    <span class="sign__in__up__text">ログイン</span>
+    <span v-if="checkSignIn()" class="sign__in__up__text">ログイン</span>
+    <span v-else class="sign__in__up__text">会員登録</span>
     <SignInUpInput />
     <SocialLoginLink />
     <SignInUpLink />
@@ -15,8 +16,10 @@
 import SocialLoginLink from '../signInUp/SocialLoginLink.vue';
 import SignInUpLink from '../signInUp/SignInUpLink.vue';
 import SignInUpInput from '../signInUp/SignInUpInput.vue';
+import { pathCheck } from "../../pathCheck.js";
 
 export default {
+  mixins: [pathCheck],
   components: {
     SocialLoginLink,
     SignInUpLink,
@@ -33,13 +36,10 @@ export default {
   box-shadow: 0 1px 2px rgba(0,0,0, .05), 0 0 6px rgba(0,0,0,.15);
   color: #484848;
   background-color: white;
+  margin: 90px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position:absolute;
-  top: 50%;
-  left: 50%;
-  transform:translate(-50%,-50%);
 }
 .sign__in__up__text{
   margin-bottom: 30px;

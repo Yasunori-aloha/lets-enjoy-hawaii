@@ -23,16 +23,7 @@
         <input :style="{'background-color': form.backGroundColor, 'border': `1px solid ${form.boderColor}`}" v-model="form.input" @blur="checkValidate(form)" :placeholder="form.placeholder" :autocomplete="form.autocomplete" :autocorrect="form.autocorrect" :autocapitalize="form.autocapitalize" :type="form.type" :name="form.name" :maxlength="form.maxlength" :size="form.size" class="sign__in__up__input">
         <span v-if="form.errorFlag" class="sign__in__up__error___message">{{ form.errorMessage }}</span>
       </div>
-      <div class="remember__password">
-        <label class="remember__me">
-          <span aria-checked="true">
-            <input type="hidden" value="0" name="user[remember_me]">
-            <input type="checkbox" value="1" name="user[remember_me]">
-          </span>
-          <span>ログイン状態を保持</span>
-        </label>
-      </div>
-      <input type="submit" name="commit" value="ログイン" class="sign__in__up__button button_cv btn__hover">
+      <input type="submit" name="commit" value="登録する" class="sign__in__up__button button_cv btn__hover">
     </form>
   </div>
 </template>
@@ -192,6 +183,7 @@ export default {
         }
       }
     },
+    inputReturn() {},
   },
 };
 </script>

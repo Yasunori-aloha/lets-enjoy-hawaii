@@ -31,8 +31,11 @@ export default {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
+    display: grid;
+    place-content: center;
+    gap: 1ch;
   }
   .sign__in__up__root__to{
     position: absolute;
