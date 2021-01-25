@@ -11,6 +11,13 @@ Rails.application.routes.draw do
                registrations: 'users/registrations',
                sessions: 'users/sessions'
              }
+
+  namespace :api do
+    scope :v1 do
+      mount_devise_token_auth_for 'User', at: 'auth'
+    end
+  end
+
   resources :users, only: %i[show] do
     resources :favorites, only: %i[index update]
     resources :histories, only: %i[index update]

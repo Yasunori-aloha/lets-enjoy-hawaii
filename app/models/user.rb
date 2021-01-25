@@ -9,6 +9,9 @@ class User < ApplicationRecord
          :rememberable,
          :omniauthable,
          omniauth_providers: %i[facebook google_oauth2]
+
+  include DeviseTokenAuth::Concerns::User
+
   with_options presence: true do
     validates :name
     # '@'がメールアドレスに入っていること。

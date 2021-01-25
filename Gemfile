@@ -69,6 +69,7 @@ gem 'aws-sdk-s3', require: false
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'devise_token_auth'
 gem 'dotenv-rails'
 gem 'font-awesome-sass'
 gem 'haml-rails'

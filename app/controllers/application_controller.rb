@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  # include DeviseTokenAuth::Concerns::SetUserByToken
   rescue_from ActiveRecord::RecordNotFound, with: :redirect_root
 
   def redirect_root
