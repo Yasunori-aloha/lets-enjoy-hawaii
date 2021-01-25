@@ -8,6 +8,7 @@
     "@rails/webpacker": "4.3.0",
     "axios": "^0.21.1",
     "jquery": "^3.5.1",
+    "rails-ujs": "^5.2.4-4",
     "turbolinks": "^5.2.0",
     "vue": "^2.6.12",
     "vue-axios": "^3.2.2",
