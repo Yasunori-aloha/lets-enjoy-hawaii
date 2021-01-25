@@ -7,14 +7,17 @@ Rails.application.routes.draw do
   end
   devise_for :users,
              controllers: {
-               omniauth_callbacks: 'users/omniauth_callbacks',
                registrations: 'users/registrations',
                sessions: 'users/sessions'
              }
 
   namespace :api do
     scope :v1 do
-      mount_devise_token_auth_for 'User', at: 'auth'
+      mount_devise_token_auth_for 'User', at: 'auth', controllers: {
+        registrations: 'api/auth/registrations',
+        sessions: 'api/auth/sessions',
+        omniauth_callbacks: 'users/omniauth_callbacks'
+      }
     end
   end
 

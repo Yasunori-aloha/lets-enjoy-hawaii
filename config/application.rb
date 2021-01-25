@@ -36,6 +36,16 @@ module LetsEnjoyHawaii
     config.generators.system_tests = nil
     config.time_zone = 'Asia/Tokyo'
 
+    #'rails g'コマンドの際に生成しないものを設定
+    config.generators do |g|
+      g.assets false
+      g.skip_routes false
+      g.test_framework :rspec,    # RSpecを使用
+        controller_specs: false,  # controller specは作らない
+        view_specs: false,        # view specは作らない
+        helper_specs: false,      # helper specは作らない
+        routing_specs: false
+    end
 
     config.session_store :cookie_store, key: '_interslice_session'
     config.middleware.use ActionDispatch::Cookies # Required for all session management
