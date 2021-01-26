@@ -16,18 +16,26 @@ export default new Vuex.Store({
       email: null,
       introduce: null,
       admin: null,
+      accessToken: null,
+      client: null,
+      uid: null,
     },
   },
   getters: {
     mapImageIndex: state => state.mapImageIndex
   },
   mutations: {
-    updateUser(state, user) {
-      state.user.id = user.id;
-      state.user.name = user.name;
-      state.user.email = user.email;
-      state.user.introduce = user.introduce;
-      state.user.admin = user.admin;
+    updateUserData(state, userData) {
+      state.user.id = userData.id;
+      state.user.name = userData.name;
+      state.user.email = userData.email;
+      state.user.introduce = userData.introduce;
+      state.user.admin = userData.admin;
+    },
+    updateUserToken(state, userToken) {
+      state.user.accessToken = userToken['access-token'];
+      state.user.client = userToken.client;
+      state.user.uid = userToken.uid;
     },
     // ホーム画面の地図をホバーすると、ホバーした島の表示が変更される。
     mapChange(state, number) {
@@ -42,7 +50,8 @@ export default new Vuex.Store({
       axios.post(
         'http://localhost:3000/api/v1/auth/guest_sign_in',
         ).then(response => {
-          commit('updateUser', response.data.data);
+          commit('updateUserData', response.data.data, response.headers);
+          commit('updateUserToken', response.headers);
           console.log(this.state.user);
         });
     }
