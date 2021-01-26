@@ -7,7 +7,8 @@ module Users
     def new_guest
       user = User.guest
       sign_in user
-      redirect_root
+      # redirect_root
+      render json: user
     end
 
     # GET /resource/sign_in

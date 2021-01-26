@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   root to: 'tops#index'
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+    namespace :api do
+      scope :v1 do
+        post '/auth/guest_sign_in', to: 'auth/sessions#new_guest'
+      end
+    end
   end
   devise_for :users,
              controllers: {
@@ -16,7 +21,7 @@ Rails.application.routes.draw do
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
         registrations: 'api/auth/registrations',
         sessions: 'api/auth/sessions',
-        omniauth_callbacks: 'users/omniauth_callbacks'
+        omniauth_callbacks: 'users/omniauth_callbacks',
       }
     end
   end
