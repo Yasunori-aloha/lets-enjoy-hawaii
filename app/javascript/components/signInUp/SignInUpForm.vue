@@ -17,6 +17,10 @@ import SocialLoginLink from '../signInUp/SocialLoginLink.vue';
 import SignInUpLink from '../signInUp/SignInUpLink.vue';
 import SignInUpInput from '../signInUp/SignInUpInput.vue';
 import { pathCheck } from "../../pathCheck.js";
+import axios from 'axios';
+import { csrfToken } from "rails-ujs";
+
+axios.defaults.headers.common['X-CSRF-Token'] = csrfToken();
 
 export default {
   mixins: [pathCheck],
@@ -27,7 +31,6 @@ export default {
   },
   methods: {
     guestUserLogin() {
-      console.log('test');
     }
   },
 };
