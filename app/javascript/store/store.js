@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
-import { csrfToken } from "rails-ujs";
+import { csrfToken } from 'rails-ujs';
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken();
 
@@ -22,7 +22,9 @@ export default new Vuex.Store({
     },
   },
   getters: {
-    mapImageIndex: state => state.mapImageIndex
+    mapImageIndex: state => state.mapImageIndex,
+    userToken: state => state.user.accessToken,
+    userName: state => state.user.name,
   },
   mutations: {
     updateUserData(state, userData) {
@@ -52,7 +54,7 @@ export default new Vuex.Store({
         ).then(response => {
           commit('updateUserData', response.data.data, response.headers);
           commit('updateUserToken', response.headers);
-          console.log(this.state.user);
+          // console.log(this.state.user);
         });
     }
   }
