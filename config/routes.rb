@@ -2,20 +2,18 @@
 
 Rails.application.routes.draw do
   root to: 'tops#index'
+  devise_for :users,
+             controllers: {
+               registrations: 'users/registrations',
+             }
+
   devise_scope :user do
-    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
     namespace :api do
       scope :v1 do
         post '/auth/guest_sign_in', to: 'auth/sessions#new_guest'
       end
     end
   end
-  devise_for :users,
-             controllers: {
-               registrations: 'users/registrations',
-               sessions: 'users/sessions'
-             }
-
   namespace :api do
     scope :v1 do
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
