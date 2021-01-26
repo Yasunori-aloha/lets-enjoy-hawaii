@@ -17,24 +17,12 @@ import SocialLoginLink from '../signInUp/SocialLoginLink.vue';
 import SignInUpLink from '../signInUp/SignInUpLink.vue';
 import SignInUpInput from '../signInUp/SignInUpInput.vue';
 import { pathCheck } from "../../pathCheck.js";
-import axios from 'axios';
-import { csrfToken } from "rails-ujs";
+// import axios from 'axios';
+// import { csrfToken } from "rails-ujs";
 
-axios.defaults.headers.common['X-CSRF-Token'] = csrfToken();
+// axios.defaults.headers.common['X-CSRF-Token'] = csrfToken();
 
 export default {
-  data() {
-    return {
-      user: {
-        id: 'test',
-        name: '',
-        email: '',
-        introduce: '',
-        uid: '',
-        admin: '',
-      },
-    }
-  },
   mixins: [pathCheck],
   components: {
     SocialLoginLink,
@@ -43,16 +31,7 @@ export default {
   },
   methods: {
     guestUserLogin() {
-      axios.post(
-        'http://localhost:3000/api/v1/auth/guest_sign_in',
-        ).then(response => {
-          this.user.name = response.data.data.name;
-          this.user.email = response.data.data.email;
-          this.user.introduce = response.data.data.introduce;
-          this.user.uid = response.data.data.uid;
-          this.user.admin = response.data.data.admin;
-          console.log(this.user);
-        });
+      this.$store.dispatch('guestUserLogin');
     }
   },
 };
