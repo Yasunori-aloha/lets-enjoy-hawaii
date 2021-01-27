@@ -1,34 +1,53 @@
 <template>
-  <li class="type">
-    <router-link :to="searchTypeLink" class='type__link'></router-link>
-    <img :src="getImagePath(searchTypeImage)" alt="目的アイコン" class="type__icon">
-    <p class="type__name">{{ searchTypeName }}<br>{{ searchTypeName2 }}</p>
+  <li class="type search_type_main">
+    <!-- <router-link :to="typeUrl[typeId]" class='type__link'></router-link> -->
+    <a :href="typeUrl[typeId]" class="category search_btn type__link" rel="nofollow" data-method="post"></a>
+    <img :src="getImagePath(typeImage[typeId])" alt="目的アイコン" class="type__icon">
+    <p v-if="typeId === 0 " class="type__name">{{ typeName[typeId] }}<br>コンドミニアム</p>
+    <p v-else class="type__name">{{ typeName[typeId] }}</p>
   </li>
 </template>
 
 <script>
 export default {
   props: {
-    searchTypeLink: {
-      type: String,
+    typeId: {
+      type: Number,
       required: true,
-    },
-    searchTypeImage: {
-      type: String,
-      required: true,
-    },
-    searchTypeName: {
-      type: String,
-      required: true,
-    },
-    searchTypeName2: {
-      type: String,
-      required: false,
     },
   },
+  data() {
+    return {
+      typeImage: [
+        'hotel_icon',
+        'lunch_icon',
+        'car_icon',
+        'leisure_icon',
+        'landmark_icon',
+        'shopping_icon',
+      ],
+      typeName: [
+        'ホテル',
+        '食事',
+        'レンタカー',
+        '遊び・体験',
+        '観光地',
+        'ショッピング',
+        'コンドミニアム',
+      ],
+      typeUrl: [
+        '/hotel',
+        '/dinner',
+        '/rentacar',
+        '/leisure',
+        '/landmark',
+        '/shopping',
+      ],
+    }
+  },
   methods: {
-    getImagePath(searchTypeImage) {
-      return `/assets/${searchTypeImage}.png`
+    getImagePath(typeImage) {
+      return `/assets/${typeImage}.png`
     }
   },
 };

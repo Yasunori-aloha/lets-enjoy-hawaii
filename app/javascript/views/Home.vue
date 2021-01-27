@@ -6,14 +6,10 @@
           <SearchHeader searchHeaderName='目的から探す' />
           <div class="search__type__main">
             <ul class="search__type__main__list">
-              <HomeTypeButton searchTypeImage="hotel_icon" searchTypeLink="/" searchTypeName="ホテル" searchTypeName2="コンドミニアム" />
-              <HomeTypeButton searchTypeImage="lunch_icon" searchTypeLink="/" searchTypeName="食事" />
-              <HomeTypeButton searchTypeImage="car_icon" searchTypeLink="/" searchTypeName="レンタカー" />
+              <HomeTypeButton v-for="(n, index) in 3" :typeId="index"  />
             </ul>
             <ul class="search__type__main__list">
-              <HomeTypeButton searchTypeImage="leisure_icon" searchTypeLink="/" searchTypeName="遊び・体験" />
-              <HomeTypeButton searchTypeImage="landmark_icon" searchTypeLink="/" searchTypeName="観光地" />
-              <HomeTypeButton searchTypeImage="shopping_icon" searchTypeLink="/" searchTypeName="ショッピング" />
+              <HomeTypeButton v-for="(n, index) in 3" :typeId="index + 3" />
             </ul>
           </div>
         </div>
