@@ -1,5 +1,5 @@
 <template>
-  <div class="search__map__main">
+  <div class="search__map__main search_map_main">
     <img :src="mapImages[mapImageIndex]" alt="ハワイ地図" class="islands__image" usemap="#ImageMap1">
     <map name="ImageMap1">
       <IslandArea v-for="(n, index) in 8" :areaId="index" />

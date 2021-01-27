@@ -1,7 +1,7 @@
 <template>
-  <router-link to="/">
-    <area shape="poly" :coords="areas[areaId]" :alt="areaNames[areaId]" @mouseover="mapChange(areaId)" @mouseleave="mapReturn(8)">
-  </router-link>
+  <!-- <router-link to="/"> -->
+    <area :href="areaUrl[areaId]" class="island search_btn" shape="poly" :coords="areas[areaId]" :alt="areaNames[areaId]" @mouseover="mapChange(areaId)" @mouseleave="mapReturn(8)">
+  <!-- </router-link> -->
 </template>
 
 <script>
@@ -25,6 +25,16 @@ export default {
         'マウイ島',
         'カウアイ島',
         'ハワイ島',
+      ],
+      areaUrl: [
+        '/niihau' ,
+        '/oahu' ,
+        '/kahoolawe' ,
+        '/lanai' ,
+        '/molokai' ,
+        '/maui' ,
+        '/kauai' ,
+        '/hawaii' ,
       ],
       areas: [
         '18,45,15,46,13,47,11,48,10,50,9,52,9,56,8,57,6,55,4,54,3,53,3,50,4,48,5,45,7,42,8,40,11,38,13,37,14,35,16,33,21,33,21,34,20,36,18,39,18,45,20,48',
