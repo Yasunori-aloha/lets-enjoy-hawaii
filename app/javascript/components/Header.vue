@@ -1,20 +1,20 @@
 <template>
   <div class="leh__header">
     <AppIcon />
-    <ul v-if="!(userToken)" class="signup__login__wrapper">
-      <li>
-        <router-link to="/users/sign_in" class="sl__link link__hover">ログイン</router-link>
-      </li>
-      <li>
-        <a href="/users/sign_up" class="sl__link link__hover">会員登録</a>
-      </li>
-    </ul>
-    <ul v-else class="signup__login__wrapper">
+    <ul v-if="isAuthenticated" class="signup__login__wrapper">
       <li>
         <router-link to="/" class="sl__link link__hover">{{ userName }}さんのマイページ</router-link>
       </li>
       <li>
         <a href="/" class="sl__link link__hover">ログアウト</a>
+      </li>
+    </ul>
+    <ul v-else class="signup__login__wrapper">
+      <li>
+        <router-link to="/users/sign_in" class="sl__link link__hover">ログイン</router-link>
+      </li>
+      <li>
+        <a href="/users/sign_up" class="sl__link link__hover">会員登録</a>
       </li>
     </ul>
   </div>
@@ -29,8 +29,8 @@ export default {
     AppIcon,
   },
   computed: {
-    userToken() {
-      return this.$store.getters.userToken;
+    isAuthenticated() {
+      return this.$store.getters.userToken !== null;
     },
     userName() {
       return this.$store.getters.userName;
