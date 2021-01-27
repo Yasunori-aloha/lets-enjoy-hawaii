@@ -27,14 +27,12 @@ export default new Vuex.Store({
     userName: state => state.user.name,
   },
   mutations: {
-    updateUserData(state, userData) {
+    updateUser(state, { userData, userToken}) {
       state.user.id = userData.id;
       state.user.name = userData.name;
       state.user.email = userData.email;
       state.user.introduce = userData.introduce;
       state.user.admin = userData.admin;
-    },
-    updateUserToken(state, userToken) {
       state.user.accessToken = userToken['access-token'];
       state.user.client = userToken.client;
       state.user.uid = userToken.uid;
@@ -52,8 +50,7 @@ export default new Vuex.Store({
       await axios.post(
         'http://localhost:3000/api/v1/auth/guest_sign_in',
         ).then(response => {
-          commit('updateUserData', response.data.data);
-          commit('updateUserToken', response.headers);
+          commit('updateUser', { userData: response.data.data, userToken: response.headers });
           localStorage.setItem('id', response.data.data.id);
           localStorage.setItem('name', response.data.data.name);
           localStorage.setItem('email', response.data.data.email);
