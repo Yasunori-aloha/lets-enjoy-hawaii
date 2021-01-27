@@ -18,7 +18,7 @@
     </form>
   </div>
   <div v-else class="sign__in__up__form">
-    <form action="" class="sign__in__up__user">
+    <form @submit.prevent="userSignUp(signUpForms)" class="sign__in__up__user">
       <div v-for="form in signUpForms" class="sign__in__up__form__input">
         <input :style="{'background-color': form.backGroundColor, 'border': `1px solid ${form.boderColor}`}" v-model="form.input" @blur="checkValidate(form)" :placeholder="form.placeholder" :autocomplete="form.autocomplete" :autocorrect="form.autocorrect" :autocapitalize="form.autocapitalize" :type="form.type" :name="form.name" :maxlength="form.maxlength" :size="form.size" class="sign__in__up__input">
         <span v-if="form.errorFlag" class="sign__in__up__error___message">{{ form.errorMessage }}</span>
@@ -189,7 +189,11 @@ export default {
     userLogin: async function(loginForms) {
       await this.$store.dispatch('userLogin', loginForms);
       this.$router.replace({ path: '/' });
-    }
+    },
+    userSignUp: async function(signUpForms) {
+      await this.$store.dispatch('userSignUp', signUpForms);
+      this.$router.replace({ path: '/' });
+    },
   },
 };
 </script>
