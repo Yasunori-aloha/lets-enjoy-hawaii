@@ -22,7 +22,6 @@
 
 <script>
 import AppIcon from '../components/AppIcon.vue';
-import axios from 'axios';
 import { mapGetters } from "vuex";
 
 export default {
