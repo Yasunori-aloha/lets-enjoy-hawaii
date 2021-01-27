@@ -54,6 +54,14 @@ export default new Vuex.Store({
         ).then(response => {
           commit('updateUserData', response.data.data);
           commit('updateUserToken', response.headers);
+          localStorage.setItem('id', response.data.data.id);
+          localStorage.setItem('name', response.data.data.name);
+          localStorage.setItem('email', response.data.data.email);
+          localStorage.setItem('introduce', response.data.data.introduce);
+          localStorage.setItem('admin', response.data.data.admin);
+          localStorage.setItem('access-token', response.headers['access-token']);
+          localStorage.setItem('client', response.headers.client);
+          localStorage.setItem('uid', response.headers.uid);
         });
     }
   }
