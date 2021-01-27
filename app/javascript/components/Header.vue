@@ -14,7 +14,7 @@
         <router-link to="/users/sign_in" class="sl__link link__hover">ログイン</router-link>
       </li>
       <li>
-        <a href="/users/sign_up" class="sl__link link__hover">会員登録</a>
+        <router-link to="/users/sign_up" class="sl__link link__hover">会員登録</router-link>
       </li>
     </ul>
   </div>
