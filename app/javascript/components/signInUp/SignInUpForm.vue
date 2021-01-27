@@ -26,8 +26,8 @@ export default {
     SignInUpInput,
   },
   methods: {
-    guestUserLogin() {
-      this.$store.dispatch('guestUserLogin');
+    guestUserLogin: async function() {
+      await this.$store.dispatch('guestUserLogin');
       this.$router.push({ path: '/' });
     }
   },

@@ -48,13 +48,12 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    guestUserLogin({ commit }) {
-      axios.post(
+    guestUserLogin: async function({ commit }) {
+      await axios.post(
         'http://localhost:3000/api/v1/auth/guest_sign_in',
         ).then(response => {
-          commit('updateUserData', response.data.data, response.headers);
+          commit('updateUserData', response.data.data);
           commit('updateUserToken', response.headers);
-          // console.log(this.state.user);
         });
     }
   }
