@@ -17,6 +17,7 @@ Vue.component('Header', Header);
 Vue.component('Footer', Footer);
 
 document.addEventListener("DOMContentLoaded", () => {
+  store.dispatch('autoLogin');
   const app = new Vue({
     store,
     router,

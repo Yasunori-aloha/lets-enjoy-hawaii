@@ -46,6 +46,22 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    autoLogin({ commit }) {
+      const userData = {
+        id:  localStorage.getItem('id'),
+        name:  localStorage.getItem('name'),
+        email:  localStorage.getItem('email'),
+        introduce:  localStorage.getItem('introduce'),
+        admin:  localStorage.getItem('admin'),
+      };
+      const userTokens = {
+        'access-token':  localStorage.getItem('access-token'),
+        client:  localStorage.getItem('client'),
+        uid:  localStorage.getItem('uid'),
+      };
+      if (!userTokens) return;
+      commit('updateUser', { userData: userData, userToken: userTokens })
+    },
     guestUserLogin: async function({ commit }) {
       await axios.post(
         'http://localhost:3000/api/v1/auth/guest_sign_in',
