@@ -76,6 +76,41 @@ export default new Vuex.Store({
           localStorage.setItem('client', response.headers.client);
           localStorage.setItem('uid', response.headers.uid);
         });
-    }
+    },
+    logout({ commit }) {
+      axios.delete(
+        'http://localhost:3000/api/v1/auth/sign_out',
+        {
+          headers: {
+            'access-token': localStorage.getItem('access-token'),
+            'client': localStorage.getItem('client'),
+            'uid': localStorage.getItem('uid'),
+          }
+        }
+      )
+      .then(response => {
+        const userData = {
+          id: null,
+          name: null,
+          email: null,
+          introduce: null,
+          admin: null,
+        };
+        const userTokens = {
+          'access-token': null,
+          client: null,
+          uid: null,
+        };
+        commit('updateUser', { userData: userData, userToken: userTokens });
+        localStorage.removeItem('id');
+        localStorage.removeItem('name');
+        localStorage.removeItem('email');
+        localStorage.removeItem('introduce');
+        localStorage.removeItem('admin');
+        localStorage.removeItem('access-token');
+        localStorage.removeItem('client');
+        localStorage.removeItem('uid');
+      });
+    },
   }
 });

@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     userLogout() {
-      console.log('logout');
+      this.$store.dispatch('logout');
     },
   },
 };
@@ -60,6 +60,7 @@ export default {
   .signup__login__wrapper > li{
     font-size: 14px;
     margin-left: 10px;
+    color: blue;
     text-decoration: underline;
     cursor: pointer;
   }
