@@ -6,7 +6,7 @@
         <router-link to="/" class="sl__link link__hover">{{ userName }}さんのマイページ</router-link>
       </li>
       <li>
-        <a href="/" class="sl__link link__hover">ログアウト</a>
+        <span @click="userLogout()" class="sl__link link__hover">ログアウト</span>
       </li>
     </ul>
     <ul v-else class="signup__login__wrapper">
@@ -36,6 +36,11 @@ export default {
       return this.$store.getters.userName;
     },
   },
+  methods: {
+    userLogout() {
+      console.log('logout');
+    },
+  },
 };
 </script>
 
@@ -54,6 +59,8 @@ export default {
   }
   .signup__login__wrapper > li{
     font-size: 14px;
-    margin-left: 10px
+    margin-left: 10px;
+    text-decoration: underline;
+    cursor: pointer;
   }
 </style>
