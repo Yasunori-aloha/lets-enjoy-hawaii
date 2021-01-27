@@ -53,6 +53,7 @@ class User < ApplicationRecord
       user.introduce = 'ゲストユーザーです。'
       user.password = "#{SecureRandom.urlsafe_base64(7)}!!"
       user.password_confirmation = user.password
+      user.uid = user.email
     end
   end
 end
