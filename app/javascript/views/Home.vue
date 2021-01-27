@@ -55,7 +55,7 @@ export default {
     HomeIslandName,
     HomeIslandMap,
     SearchForm,
-  }
+  },
 };
 </script>
 

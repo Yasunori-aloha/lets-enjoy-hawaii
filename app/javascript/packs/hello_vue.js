@@ -17,7 +17,7 @@ Vue.use(VueAxios, { axios: axios, csrfToken: csrfToken });
 Vue.component('Header', Header);
 Vue.component('Footer', Footer);
 
-axios.defaults.baseURL = "http://localhost:3000";
+// axios.defaults.baseURL = "https://www.lets-enjoy-hawaii.com";
 
 document.addEventListener("DOMContentLoaded", () => {
   store.dispatch('autoLogin');
