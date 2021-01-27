@@ -28,6 +28,7 @@ export default {
   methods: {
     guestUserLogin() {
       this.$store.dispatch('guestUserLogin');
+      this.$router.push({ path: '/' });
     }
   },
 };
