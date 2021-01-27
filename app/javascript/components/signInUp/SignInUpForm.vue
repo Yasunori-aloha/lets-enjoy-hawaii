@@ -28,7 +28,7 @@ export default {
   methods: {
     guestUserLogin: async function() {
       await this.$store.dispatch('guestUserLogin');
-      this.$router.push({ path: '/' });
+      this.$router.replace({ path: '/' });
     }
   },
 };
