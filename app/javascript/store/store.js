@@ -59,6 +59,24 @@ export default new Vuex.Store({
       if (!userTokens) return;
       commit('updateUser', { userData: userData, userToken: userTokens })
     },
+    userLogin: async function({ commit }, loginForms) {
+      await axios.post('http://localhost:3000/api/v1/auth/sign_in',
+      {
+        email: loginForms[0].input,
+        password: loginForms[1].input,
+      })
+      .then(response => {
+        commit('updateUser', { userData: response.data.data, userToken: response.headers });
+        localStorage.setItem('id', response.data.data.id);
+        localStorage.setItem('name', response.data.data.name);
+        localStorage.setItem('email', response.data.data.email);
+        localStorage.setItem('introduce', response.data.data.introduce);
+        localStorage.setItem('admin', response.data.data.admin);
+        localStorage.setItem('access-token', response.headers['access-token']);
+        localStorage.setItem('client', response.headers.client);
+        localStorage.setItem('uid', response.headers.uid);
+      });
+    },
     guestUserLogin: async function({ commit }) {
       await axios.post(
         'http://localhost:3000/api/v1/auth/guest_sign_in',
