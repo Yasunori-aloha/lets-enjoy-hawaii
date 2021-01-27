@@ -17,6 +17,8 @@ Vue.use(VueAxios, { axios: axios, csrfToken: csrfToken });
 Vue.component('Header', Header);
 Vue.component('Footer', Footer);
 
+axios.defaults.baseURL = "http://localhost:3000";
+
 document.addEventListener("DOMContentLoaded", () => {
   store.dispatch('autoLogin');
   const app = new Vue({

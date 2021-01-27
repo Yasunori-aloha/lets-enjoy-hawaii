@@ -70,7 +70,7 @@ export default new Vuex.Store({
       commit('updateUser', { userData: userData, userToken: userTokens })
     },
     userSignUp: async function({ commit }, signUpForms) {
-      await axios.post('http://localhost:3000/api/v1/auth',
+      await axios.post('/api/v1/auth',
       {
         name: signUpForms[0].input,
         email: signUpForms[1].input,
@@ -83,7 +83,7 @@ export default new Vuex.Store({
       });
     },
     userLogin: async function({ commit }, loginForms) {
-      await axios.post('http://localhost:3000/api/v1/auth/sign_in',
+      await axios.post('/api/v1/auth/sign_in',
       {
         email: loginForms[0].input,
         password: loginForms[1].input,
@@ -95,7 +95,7 @@ export default new Vuex.Store({
     },
     guestUserLogin: async function({ commit }) {
       await axios.post(
-        'http://localhost:3000/api/v1/auth/guest_sign_in',
+        '/api/v1/auth/guest_sign_in',
         ).then(response => {
           commit('updateUser', { userData: response.data.data, userToken: response.headers });
           commit('updateLocalStorage', { userData: response.data.data, userToken: response.headers });
@@ -103,7 +103,7 @@ export default new Vuex.Store({
     },
     logout({ commit }) {
       axios.delete(
-        'http://localhost:3000/api/v1/auth/sign_out',
+        '/api/v1/auth/sign_out',
         {
           headers: {
             'access-token': localStorage.getItem('access-token'),
