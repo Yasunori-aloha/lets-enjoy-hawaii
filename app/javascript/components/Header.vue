@@ -23,18 +23,17 @@
 <script>
 import AppIcon from '../components/AppIcon.vue';
 import axios from 'axios';
+import { mapGetters } from "vuex";
 
 export default {
   components: {
     AppIcon,
   },
   computed: {
-    isAuthenticated() {
-      return this.$store.getters.userToken !== null;
-    },
-    userName() {
-      return this.$store.getters.userName;
-    },
+    ...mapGetters({
+      isAuthenticated: "userToken",
+      userName: "userName",
+    }),
   },
   methods: {
     userLogout() {
