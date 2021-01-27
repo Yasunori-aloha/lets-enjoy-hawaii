@@ -1,8 +1,10 @@
 <template>
-  <li class="name">
-    <router-link to="/" class='island__name link__hover'>
-      <span @mouseover="mapChange(areaId)" @mouseleave="mapReturn(8)">{{ areaNames[areaId] }}島</span>
-    </router-link>
+  <li class="name name_main">
+    <!-- <router-link to="/" class='island__name link__hover'> -->
+      <a :href="areaUrl[areaId]" class="island search_btn island_name island__name link__hover" :data-id="areaId" rel="nofollow" data-method="post">
+        <span @mouseover="mapChange(areaId)" @mouseleave="mapReturn(8)">{{ areaNames[areaId] }}島</span>
+      </a>
+    <!-- </router-link> -->
   </li>
 </template>
 
@@ -21,6 +23,16 @@ export default {
         'マウイ',
         'カウアイ',
         'ハワイ',
+      ],
+      areaUrl: [
+        '/niihau' ,
+        '/oahu' ,
+        '/kahoolawe' ,
+        '/lanai' ,
+        '/molokai' ,
+        '/maui' ,
+        '/kauai' ,
+        '/hawaii' ,
       ],
     }
   },
