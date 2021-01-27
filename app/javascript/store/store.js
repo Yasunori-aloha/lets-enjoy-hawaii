@@ -34,6 +34,16 @@ export default new Vuex.Store({
       state.user.client = userToken.client;
       state.user.uid = userToken.uid;
     },
+    updateLocalStorage(state, { userData, userToken }) {
+      localStorage.setItem('id', userData.id);
+      localStorage.setItem('name', userData.name);
+      localStorage.setItem('email', userData.email);
+      localStorage.setItem('introduce', userData.introduce);
+      localStorage.setItem('admin', userData.admin);
+      localStorage.setItem('access-token', userToken['access-token']);
+      localStorage.setItem('client', userToken.client);
+      localStorage.setItem('uid', userToken.uid);
+    },
     // ホーム画面の地図をホバーすると、ホバーした島の表示が変更される。
     mapChange(state, number) {
       state.mapImageIndex = number;
@@ -69,14 +79,7 @@ export default new Vuex.Store({
       })
       .then(response => {
         commit('updateUser', { userData: response.data.data, userToken: response.headers });
-        localStorage.setItem('id', response.data.data.id);
-        localStorage.setItem('name', response.data.data.name);
-        localStorage.setItem('email', response.data.data.email);
-        localStorage.setItem('introduce', response.data.data.introduce);
-        localStorage.setItem('admin', response.data.data.admin);
-        localStorage.setItem('access-token', response.headers['access-token']);
-        localStorage.setItem('client', response.headers.client);
-        localStorage.setItem('uid', response.headers.uid);
+        commit('updateLocalStorage', { userData: response.data.data, userToken: response.headers });
       });
     },
     userLogin: async function({ commit }, loginForms) {
@@ -87,14 +90,7 @@ export default new Vuex.Store({
       })
       .then(response => {
         commit('updateUser', { userData: response.data.data, userToken: response.headers });
-        localStorage.setItem('id', response.data.data.id);
-        localStorage.setItem('name', response.data.data.name);
-        localStorage.setItem('email', response.data.data.email);
-        localStorage.setItem('introduce', response.data.data.introduce);
-        localStorage.setItem('admin', response.data.data.admin);
-        localStorage.setItem('access-token', response.headers['access-token']);
-        localStorage.setItem('client', response.headers.client);
-        localStorage.setItem('uid', response.headers.uid);
+        commit('updateLocalStorage', { userData: response.data.data, userToken: response.headers });
       });
     },
     guestUserLogin: async function({ commit }) {
@@ -102,14 +98,7 @@ export default new Vuex.Store({
         'http://localhost:3000/api/v1/auth/guest_sign_in',
         ).then(response => {
           commit('updateUser', { userData: response.data.data, userToken: response.headers });
-          localStorage.setItem('id', response.data.data.id);
-          localStorage.setItem('name', response.data.data.name);
-          localStorage.setItem('email', response.data.data.email);
-          localStorage.setItem('introduce', response.data.data.introduce);
-          localStorage.setItem('admin', response.data.data.admin);
-          localStorage.setItem('access-token', response.headers['access-token']);
-          localStorage.setItem('client', response.headers.client);
-          localStorage.setItem('uid', response.headers.uid);
+          commit('updateLocalStorage', { userData: response.data.data, userToken: response.headers });
         });
     },
     logout({ commit }) {
