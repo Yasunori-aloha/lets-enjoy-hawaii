@@ -3,7 +3,7 @@
     <span v-if="checkSignIn()" class="sign__in__up__text">ログイン</span>
     <span v-else class="sign__in__up__text">会員登録</span>
     <SignInUpInput />
-    <SocialLoginLink />
+    <!-- <SocialLoginLink /> -->
     <SignInUpLink />
     <div class="guest__user__sign__in__form">
       <span class="guest__user__login__text">※アカウント登録せず、ユーザー機能を試したい方は</span>
