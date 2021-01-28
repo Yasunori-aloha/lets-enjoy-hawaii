@@ -60,6 +60,8 @@ export default {
     margin-left: 10px;
     color: blue;
     text-decoration: underline;
+  }
+  .sl__link{
     cursor: pointer;
   }
 </style>
