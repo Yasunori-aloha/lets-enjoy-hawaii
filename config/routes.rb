@@ -12,16 +12,16 @@ Rails.application.routes.draw do
       scope :v1 do
         post '/auth/check_email', to: 'auth/registrations#is_registerd?'
         post '/auth/guest_sign_in', to: 'auth/sessions#new_guest'
+        mount_devise_token_auth_for 'User', at: 'auth', controllers: {
+          registrations: 'api/auth/registrations',
+          sessions: 'api/auth/sessions',
+          omniauth_callbacks: 'users/omniauth_callbacks',
+        }
       end
     end
   end
   namespace :api do
     scope :v1 do
-      mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-        registrations: 'api/auth/registrations',
-        sessions: 'api/auth/sessions',
-        omniauth_callbacks: 'users/omniauth_callbacks',
-      }
     end
   end
 
