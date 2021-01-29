@@ -57,4 +57,9 @@ class User < ApplicationRecord
       user.provider = 'email'
     end
   end
+
+  def self.is_exists?(email)
+    User.exists?(email: email)
+  end
+
 end
