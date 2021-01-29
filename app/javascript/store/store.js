@@ -82,6 +82,11 @@ export default new Vuex.Store({
         commit('updateLocalStorage', { userData: response.data.data, userToken: response.headers });
       });
     },
+    isRegisterd: async function({}, email) {
+      return await axios.post('/api/v1/auth/check_email', {
+        email: email,
+      });
+    },
     userLogin: async function({ commit }, loginForms) {
       return await axios.post('/api/v1/auth/sign_in',
       {
