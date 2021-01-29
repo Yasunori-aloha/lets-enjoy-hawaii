@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     namespace :api do
       scope :v1 do
+        get '/auth/check_email', to: 'auth/registrations#is_registerd?'
         post '/auth/guest_sign_in', to: 'auth/sessions#new_guest'
       end
     end
