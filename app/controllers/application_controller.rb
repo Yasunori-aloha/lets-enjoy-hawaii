@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   include DeviseTokenAuth::Concerns::SetUserByToken
   # skip_before_action :verify_authenticity_token, if: :devise_controller?
   rescue_from ActiveRecord::RecordNotFound, with: :redirect_root
-  protect_from_forgery
 
   def redirect_root
     redirect_to root_path
