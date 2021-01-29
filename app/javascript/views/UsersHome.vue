@@ -88,6 +88,7 @@ export default {
   margin-bottom: 10px;
   color: #fff;
   font-size: 14px;
+  text-decoration: underline;
   cursor: pointer;
 }
 .my__page__side__menu:hover{
