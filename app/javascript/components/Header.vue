@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     toUsersPage: async function() {
-      await this.$store.dispatch('toUsersPage', this.userData.userId).then(() => {
+      await this.$store.dispatch('toUsersPage', this.userData.id).then(() => {
         this.$router.push({ path: `/users/${this.userData.id}`});
       });
     },
