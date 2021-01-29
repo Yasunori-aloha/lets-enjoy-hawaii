@@ -17,12 +17,14 @@ export default new Vuex.Store({
       client: null,
       uid: null,
     },
+    userReviews: null,
   },
   getters: {
     mapImageIndex: state => state.mapImageIndex,
     userToken: state => state.user.accessToken,
     userName: state => state.user.name,
     userId: state => state.user.id,
+    userReviews: state => state.userReviews.length
   },
   mutations: {
     updateUser(state, { userData, userToken}) {
@@ -140,6 +142,11 @@ export default new Vuex.Store({
         localStorage.removeItem('access-token');
         localStorage.removeItem('client');
         localStorage.removeItem('uid');
+      });
+    },
+    toUsersPage: async function({}, userId) {
+      await axios.get(`/users/${userId}`)
+      .then(response => {
       });
     },
   }
