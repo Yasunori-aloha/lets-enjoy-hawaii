@@ -23,12 +23,12 @@
           <div class="my__page__user__info__head">
             <img src="/assets/no_image.jpg" alt="no_image"  class="my__page__user__image">
             <div class="my__page__user__name__area">
-              <p class="my__page__user__name1">ゲストユーザー</p>
+              <p class="my__page__user__name1">{{ userData.name }}</p>
               <span class="my__page__user__name2">さんのマイページ</span>
             </div>
           </div>
           <div class="my__page__user__info__main">
-            <span>ゲストユーザーです。</span>
+            <span>{{ userData.introduce }}</span>
             </div>
         </div>
       </div>
@@ -38,7 +38,11 @@
 
 <script>
 export default {
-
+  computed: {
+    userData() {
+      return this.$store.getters.userData;
+    },
+  },
 };
 </script>
 

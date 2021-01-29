@@ -22,9 +22,8 @@ export default new Vuex.Store({
   getters: {
     mapImageIndex: state => state.mapImageIndex,
     userToken: state => state.user.accessToken,
-    userName: state => state.user.name,
-    userId: state => state.user.id,
-    userReviews: state => state.userReviews.length
+    userData: state => state.user,
+    userReviews: state => state.userReviews
   },
   mutations: {
     updateUser(state, { userData, userToken}) {

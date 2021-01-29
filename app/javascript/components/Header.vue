@@ -3,7 +3,7 @@
     <AppIcon />
     <ul v-if="isAuthenticated" class="signup__login__wrapper">
       <li>
-        <span @click="toUsersPage()" class="sl__link link__hover">{{ userName }}さんのマイページ</span>
+        <span @click="toUsersPage()" class="sl__link link__hover">{{ userData.name }}さんのマイページ</span>
       </li>
       <li>
         <span @click="userLogout()" class="sl__link link__hover">ログアウト</span>
@@ -29,15 +29,15 @@ export default {
     AppIcon,
   },
   computed: {
-    ...mapGetters(["userName", "userId"]),
+    ...mapGetters(["userData"]),
     isAuthenticated() {
       return this.$store.getters.userToken !== null;
     },
   },
   methods: {
     toUsersPage: async function() {
-      await this.$store.dispatch('toUsersPage', this.userId).then(() => {
-        this.$router.push({ path: `/users/${this.userId}`});
+      await this.$store.dispatch('toUsersPage', this.userData.userId).then(() => {
+        this.$router.push({ path: `/users/${this.userData.id}`});
       });
     },
     userLogout() {
