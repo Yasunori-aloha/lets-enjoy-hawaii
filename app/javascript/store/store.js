@@ -18,12 +18,16 @@ export default new Vuex.Store({
       uid: null,
     },
     userReviews: null,
+    userFavorites: null,
+    userHistories: null,
   },
   getters: {
     mapImageIndex: state => state.mapImageIndex,
     userToken: state => state.user.accessToken,
     userData: state => state.user,
-    userReviews: state => state.userReviews
+    userReviews: state => state.userReviews,
+    userFavorites: state => state.userFavorites,
+    userHistories: state => state.userHistories,
   },
   mutations: {
     updateUser(state, { userData, userToken}) {
@@ -147,6 +151,8 @@ export default new Vuex.Store({
       await axios.get(`/users/${userId}`)
       .then(response => {
         this.state.userReviews = response.data.reviews;
+        this.state.userFavorites = response.data.favorites;
+        this.state.userHistories = response.data.histories;
       });
     },
   }

@@ -3,9 +3,9 @@
     <div class="my__page__wrapper">
       <div class="my__page__head">
         <ul class="my__page__head__list">
-          <li class="my__page__head__number">お気に入りした場所 {{ 0 }}</li>
+          <li class="my__page__head__number">お気に入りした場所 {{ userFavoriteCounts }}</li>
           <li class="my__page__head__number">口コミ数 {{ userReviewCounts }}</li>
-          <li class="my__page__head__number">行った場所 {{ 0 }}</li>
+          <li class="my__page__head__number">行った場所 {{ userHistorieCounts }}</li>
         </ul>
       </div>
       <div class="my__page__main">
@@ -44,6 +44,12 @@ export default {
     ...mapGetters(["userData"]),
     userReviewCounts() {
       return this.$store.getters.userReviews.length;
+    },
+    userFavoriteCounts() {
+      return this.$store.getters.userFavorites.length;
+    },
+    userHistorieCounts() {
+      return this.$store.getters.userHistories.length;
     },
   },
 };
