@@ -2,8 +2,8 @@
 module Overrides
   class Api::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsController
 
-    def is_registerd?(email)
-      @user = User.is_exists?(email)
+    def is_registerd?
+      @user = User.is_exists?(params[:email])
       render json: @user
     end
 
