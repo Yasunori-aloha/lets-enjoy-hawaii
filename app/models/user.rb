@@ -24,6 +24,7 @@ class User < ApplicationRecord
     end
   end
 
+  include Rails.application.routes.url_helpers
   has_one_attached :image
   has_many :reviews, dependent: :destroy
   has_many :histories, dependent: :destroy
@@ -60,6 +61,10 @@ class User < ApplicationRecord
 
   def self.is_exists?(email)
     User.exists?(email: email)
+  end
+
+  def image_url
+    image.attached? ? url_for(image) : nil
   end
 
 end

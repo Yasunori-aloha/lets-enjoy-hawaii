@@ -43,5 +43,6 @@ class ApplicationController < ActionController::Base
   def find_user_show
     @user = User.find(current_user.id)
     render 'users/show'
+    # render json: @user, methods: [:image_url]
   end
 end
