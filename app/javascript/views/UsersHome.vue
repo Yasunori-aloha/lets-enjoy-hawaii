@@ -4,8 +4,8 @@
       <div class="my__page__head">
         <ul class="my__page__head__list">
           <li class="my__page__head__number">お気に入りした場所 {{ 0 }}</li>
-          <li class="my__page__head__number">口コミ数{{ 0 }}</li>
-          <li class="my__page__head__number">行った場所{{ 0 }}</li>
+          <li class="my__page__head__number">口コミ数 {{ userReviewCounts }}</li>
+          <li class="my__page__head__number">行った場所 {{ 0 }}</li>
         </ul>
       </div>
       <div class="my__page__main">
@@ -37,10 +37,13 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   computed: {
-    userData() {
-      return this.$store.getters.userData;
+    ...mapGetters(["userData"]),
+    userReviewCounts() {
+      return this.$store.getters.userReviews.length;
     },
   },
 };

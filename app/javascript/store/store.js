@@ -146,6 +146,7 @@ export default new Vuex.Store({
     toUsersPage: async function({}, userId) {
       await axios.get(`/users/${userId}`)
       .then(response => {
+        this.state.userReviews = response.data.reviews;
       });
     },
   }
