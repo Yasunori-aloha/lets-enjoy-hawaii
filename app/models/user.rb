@@ -54,6 +54,7 @@ class User < ApplicationRecord
       user.password = "#{SecureRandom.urlsafe_base64(7)}!!"
       user.password_confirmation = user.password
       user.uid = user.email
+      user.provider = 'email'
     end
   end
 end
