@@ -1,5 +1,6 @@
 <template>
   <div v-if="checkSignIn()" class="sign__in__up__form">
+    <p v-if="loginErrorMessage" class="login__error_message">{{ loginErrorMessage }}</p>
     <form @submit.prevent="userLogin(signInForms)" class="sign__in__up__user">
       <div v-for="form in signInForms" class="sign__in__up__form__input">
         <input :style="{'background-color': form.backGroundColor, 'border': `1px solid ${form.boderColor}`}" v-model="form.input" @blur="checkValidate(form)" :placeholder="form.placeholder" :autocomplete="form.autocomplete" :autocorrect="form.autocorrect" :autocapitalize="form.autocapitalize" :type="form.type" :name="form.name" :maxlength="form.maxlength" :size="form.size" class="sign__in__up__input">
@@ -35,6 +36,7 @@ export default {
   mixins: [pathCheck],
   data() {
     return {
+      loginErrorMessage: null,
       signInForms: [
         {
           type: 'email',
@@ -191,7 +193,7 @@ export default {
         this.$router.replace({ path: '/' });
       })
       .catch(error => {
-        console.log(error.response.data.errors);
+        this.$data.loginErrorMessage = `※${error.response.data.errors[0]}※`;
       });
     },
     userSignUp: async function(signUpForms) {
@@ -206,6 +208,12 @@ export default {
 <style scoped>
 .sign__in__up__form{
   width: 100%;
+}
+.login__error_message{
+    font-size: 13px;
+    color: red;
+    margin-bottom: 15px;
+    text-align: center;
 }
 .sign__in__up__user{
   display: flex;
