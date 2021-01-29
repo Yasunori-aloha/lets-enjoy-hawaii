@@ -187,12 +187,17 @@ export default {
       }
     },
     userLogin: async function(loginForms) {
-      await this.$store.dispatch('userLogin', loginForms);
-      this.$router.replace({ path: '/' });
+      await this.$store.dispatch('userLogin', loginForms).then(() => {
+        this.$router.replace({ path: '/' });
+      })
+      .catch(error => {
+        console.log(error.response.data.errors);
+      });
     },
     userSignUp: async function(signUpForms) {
-      await this.$store.dispatch('userSignUp', signUpForms);
-      this.$router.replace({ path: '/' });
+      await this.$store.dispatch('userSignUp', signUpForms).then(() => {
+        this.$router.replace({ path: '/' });
+      });
     },
   },
 };

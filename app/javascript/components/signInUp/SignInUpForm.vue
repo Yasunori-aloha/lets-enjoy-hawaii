@@ -27,8 +27,12 @@ export default {
   },
   methods: {
     guestUserLogin: async function() {
-      await this.$store.dispatch('guestUserLogin');
-      this.$router.replace({ path: '/' });
+      await this.$store.dispatch('guestUserLogin').then(() => {
+        this.$router.replace({ path: '/' });
+      })
+      .catch(error => {
+        console.log(error.response.data);
+      });
     }
   },
 };
