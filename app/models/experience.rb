@@ -25,4 +25,9 @@ class Experience < ApplicationRecord
   def already_histories?(user, exp)
     History.exists?(user_id: user.id, experience_id: exp.id)
   end
+
+  def image_url
+    image.attached? ? url_for(image) : nil
+  end
+
 end
