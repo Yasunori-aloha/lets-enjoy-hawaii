@@ -43,13 +43,25 @@ export default {
   computed: {
     ...mapGetters(["userData"]),
     userReviewCounts() {
-      return this.$store.getters.userReviews.length;
+      if (this.$store.getters.userReviews) {
+        return this.$store.getters.userReviews.length;
+      } else {
+        return 0;
+      }
     },
     userFavoriteCounts() {
-      return this.$store.getters.userFavorites.length;
+      if (this.$store.getters.userFavorites) {
+        return this.$store.getters.userFavorites.length;
+      } else {
+        return 0;
+      }
     },
     userHistorieCounts() {
-      return this.$store.getters.userHistories.length;
+      if (this.$store.getters.userHistories) {
+        return this.$store.getters.userHistories.length;
+      } else {
+        return 0;
+      }
     },
   },
 };
