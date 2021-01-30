@@ -165,5 +165,7 @@ export default new Vuex.Store({
         this.state.userFavoriteExperiences = response.data.included;
       });
     },
+    updateFavoriteComment: async function({}) {
+    },
   }
 });

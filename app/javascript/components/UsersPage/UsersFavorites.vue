@@ -31,7 +31,7 @@
               <i class="fas fa-star star__icon"></i>
               {{ experienceFavoriteCounts(index) }}
               </span>
-              <form action="">
+              <form @click.prevent="updateFavoriteComment()" >
                 <label for="favorite_comment" class="activity__comment__info">コメント ※個人情報は入力しないでください</label>
                 <textarea id="favorite_comment" name="favorite[comment]" maxlength="30" placeholder="ここにコメントを書くと便利です。（全角30文字以内・改行は受け付けません）" class="activity__comment" />
                 <div class="save__btn">
@@ -74,6 +74,9 @@ export default {
       } else {
         return 0;
       }
+    },
+    updateFavoriteComment: async function() {
+      await this.$store.dispatch('updateFavoriteComment',);
     },
   },
   created() {
