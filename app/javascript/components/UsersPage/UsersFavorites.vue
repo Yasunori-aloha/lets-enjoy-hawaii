@@ -12,7 +12,7 @@
               </ul>
               <div class="favorite__reloease__btn">
                 <i class="fas fa-times release__mark"></i><span class="release__message">登録解除</span>
-                <a class="favorite__release"></a>
+                <a :href="`/experiences/${userFavoriteExperiences[index].id}/favorites`" data-remote="true" rel="nofollow" data-method="delete" class="favorite__release"></a>
               </div>
             </div>
             <div class="activity_picture">
