@@ -50,7 +50,9 @@ export default {
   },
   methods: {
     favoriteTime(favorite) {
-      return favorite.attributes['created-at'].slice(0, 10).replace(/-/g, '/');
+      if (!(favorite.attributes === undefined)) {
+        return favorite.attributes['created-at'].slice(0, 10).replace(/-/g, '/');
+      }
     },
     favoriteActivityImage(index) {
       return `https://maps.googleapis.com/maps/api/streetview?size=800x600&location=${this.userFavoriteExperiences[index].attributes.latitude},${this.userFavoriteExperiences[index].attributes.longitude}&heading=${this.userFavoriteExperiences[index].attributes.heading}&pitch=${this.userFavoriteExperiences[index].attributes.pitch}&fov=${this.userFavoriteExperiences[index].attributes.fov}&zoom=${this.userFavoriteExperiences[index].attributes.zoom}&key=${process.env.GOOGLE_STREET_VIEW_KEY}`;
@@ -64,8 +66,8 @@ export default {
     },
   },
   created() {
-    // console.log(this.favoriteActivityImage(0));
-    // console.log(experienceFavoriteCounts(0));
+    // console.log(th4routeis.favoriteActivityImage(0));
+    console.log();
   },
 };
 </script>
