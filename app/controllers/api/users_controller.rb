@@ -6,5 +6,6 @@ class Api::UsersController < ApplicationController
   def show
     # 自分のじゃないマイページに遷移しようとしていたらトップページへリダイレクトする。
     user_is_current_user?(params)
+    render json: @user, methods: [:image_url]
   end
 end
