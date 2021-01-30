@@ -20,7 +20,7 @@
               <a :href="`/experiences/${userFavoriteExperiences[index].id}`" class="activity__picture__link"></a>
             </div>
             <div class="activity__info__wrapper">
-              <a :href="`/experiences/${userFavoriteExperiences[index].id}`" class="activity__name link__hover">{{ userFavoriteExperiences[index].name }}</a>
+              <a :href="`/experiences/${userFavoriteExperiences[index].id}`" class="activity__name link__hover">{{ userFavoriteExperiences[index].attributes.name }}</a>
               <p class="activity__place"></p>
               <span class="favorites__counts"><i class="star__icon"></i></span>
               <form action="">
@@ -44,14 +44,15 @@ export default {
   },
   methods: {
     favoriteTime(favorite) {
-      return favorite['created-at'].slice(0, 10).replace(/-/g, '/');
+      return favorite.attributes['created-at'].slice(0, 10).replace(/-/g, '/');
     },
     favoriteActivityImage(index) {
-      return `https://maps.googleapis.com/maps/api/streetview?size=800x600&location=${this.userFavoriteExperiences[index].latitude},${this.userFavoriteExperiences[index].longitude}&heading=${this.userFavoriteExperiences[index].heading}&pitch=${this.userFavoriteExperiences[index].pitch}&fov=${this.userFavoriteExperiences[index].fov}&zoom=${this.userFavoriteExperiences[index].zoom}&key=${process.env.GOOGLE_STREET_VIEW_KEY}`;
+      return `https://maps.googleapis.com/maps/api/streetview?size=800x600&location=${this.userFavoriteExperiences[index].attributes.latitude},${this.userFavoriteExperiences[index].attributes.longitude}&heading=${this.userFavoriteExperiences[index].attributes.heading}&pitch=${this.userFavoriteExperiences[index].attributes.pitch}&fov=${this.userFavoriteExperiences[index].attributes.fov}&zoom=${this.userFavoriteExperiences[index].attributes.zoom}&key=${process.env.GOOGLE_STREET_VIEW_KEY}`;
     },
   },
   created() {
-    console.log('ok');
+    // console.log(this.favoriteActivityImage(0));
+    console.log(this.userFavoriteExperiences);
   },
 };
 </script>
