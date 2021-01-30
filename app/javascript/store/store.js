@@ -152,12 +152,17 @@ export default new Vuex.Store({
     toUsersPage: async function({}, userId) {
       await axios.get(`/api/v1/users/${userId}`)
       .then(response => {
-        // console.log(response);
         this.state.userReviews = response.data.data.relationships.reviews.data;
         this.state.userFavorites = response.data.data.relationships.favorites.data;
-        this.state.userFavoriteExperiences = response.data.data.relationships['fav-exps'].data;
         this.state.userHistories = response.data.data.relationships.histories.data;
-        // console.log(this.state.userFavoriteExperiences);
+      });
+    },
+    toFavoritesLis: async function({}, userId) {
+      await axios.get(`/api/v1/users/${userId}/favorites`)
+      .then(response => {
+        // console.log(response.data.included);
+        this.state.userFavorites = response.data.data;
+        this.state.userFavoriteExperiences = response.data.included;
       });
     },
   }

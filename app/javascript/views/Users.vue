@@ -13,7 +13,7 @@
           <div class="my__page__side__menu__wrapper">
             <ul class="my__page__side__menu__list">
               <li class="my__page__side__menu">会員情報の確認・変更</li>
-              <router-link :to="`/users/${userData.id}/favorites`" tag="li" class="my__page__side__menu">お気に入りした場所</router-link>
+              <li @click="toFavoritesLis()" class="my__page__side__menu">お気に入りした場所</li>
               <router-link :to="`/users/${userData.id}/reviews`" tag="li" class="my__page__side__menu">今までの口コミ</router-link>
               <router-link :to="`/users/${userData.id}/histories`" tag="li" class="my__page__side__menu">行った場所</router-link>
             </ul>
@@ -59,6 +59,13 @@ export default {
       } else {
         return 0;
       }
+    },
+  },
+  methods: {
+    toFavoritesLis: async function() {
+      await this.$store.dispatch('toFavoritesLis', this.userData.id).then(() => {
+        this.$router.push({ path: `/users/${this.userData.id}/favorites`});
+      });
     },
   },
 };

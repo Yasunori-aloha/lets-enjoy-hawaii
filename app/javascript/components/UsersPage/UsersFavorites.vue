@@ -51,7 +51,7 @@ export default {
     },
   },
   created() {
-    console.log(this.userFavoriteExperiences[0]);
+    console.log('ok');
   },
 };
 </script>
