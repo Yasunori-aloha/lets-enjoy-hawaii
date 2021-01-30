@@ -3,12 +3,12 @@
     <div class="user__favorites__wrapper">
       <div class="user__page__menu"></div>
       <div class="user__favorites__show__area">
-        <ul class="user__favorites__list">
-          <li class="favorite__wrapper">
+        <ul v-if="true" class="user__favorites__list">
+          <li v-for="(favorite, index) in userFavorites" class="favorite__wrapper">
             <div class="favorite__info">
               <ul class="favorite__time">
-                <li></li>
-                <li class="favorited__at"></li>
+                <li>登録日：</li>
+                <li class="favorited__at">{{ favoriteTime(favorite) }}</li>
               </ul>
               <div class="favorite__reloease__btn">
                 <i class="release__mark"></i><span class="release__message"></span>
@@ -37,7 +37,20 @@
 
 <script>
 export default {
+  computed: {
+    userFavorites() {
+      return this.$store.getters.userFavorites;
+    },
+  },
+  methods: {
+    favoriteTime(favorite) {
+      return favorite['created-at'].slice(0, 10).replace(/-/g, '/');
+    },
+  },
+  created() {
 
+    console.log(this.userFavorites);
+  },
 };
 </script>
 
