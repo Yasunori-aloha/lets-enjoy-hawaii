@@ -17,10 +17,10 @@
             </div>
             <div class="activity_picture">
               <img :src="favoriteActivityImage(index)" alt="" class="content_picture">
-              <div class="activity__picture__link"></div>
+              <a :href="`/experiences/${userFavoriteExperiences[index].id}`" class="activity__picture__link"></a>
             </div>
             <div class="activity__info__wrapper">
-              <div class="activity__name link__hover"></div>
+              <a :href="`/experiences/${userFavoriteExperiences[index].id}`" class="activity__name link__hover">{{ userFavoriteExperiences[index].name }}</a>
               <p class="activity__place"></p>
               <span class="favorites__counts"><i class="star__icon"></i></span>
               <form action="">
@@ -51,7 +51,7 @@ export default {
     },
   },
   created() {
-    // console.log(this.favoriteActivityImage(0));
+    console.log(this.userFavoriteExperiences[0]);
   },
 };
 </script>
@@ -137,7 +137,6 @@ export default {
   width: 100%;
 }
 .activity__picture__link{
-
   position: absolute;
   top: 0;
   left: 0;
