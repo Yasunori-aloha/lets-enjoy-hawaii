@@ -77,7 +77,7 @@
                     = fav.experience.favorites.length
                   -# コメント入力欄
                   = form_with model: fav, url: user_favorite_path(user_id: current_user.id, id: fav.id), local: true do |f|
-                    = f.label :comment, 'コメント ※個人情報は入力しないでください', class: 'activity_comment_info'
+                    = f.llaabel :comment, 'コメント ※個人情報は入力しないでください', class: 'activity_comment_info'
                     = f.text_area :comment, maxlength: 30, placeholder: "ここにコメントを書くと便利です。（全角30文\n字以内・改行は受け付けません）",class: 'activity_comment'
                     .save_btn
                       = icon('fas', 'check', class: 'check_mark')
