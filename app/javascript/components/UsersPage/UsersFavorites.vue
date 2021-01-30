@@ -11,8 +11,8 @@
                 <li class="favorited__at">{{ favoriteTime(favorite) }}</li>
               </ul>
               <div class="favorite__reloease__btn">
-                <i class="release__mark"></i><span class="release__message"></span>
-                <div class="favorite__release"></div>
+                <i class="fas fa-times release__mark"></i><span class="release__message">登録解除</span>
+                <a class="favorite__release"></a>
               </div>
             </div>
             <div class="activity_picture">
@@ -36,11 +36,11 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   computed: {
-    userFavorites() {
-      return this.$store.getters.userFavorites;
-    },
+    ...mapGetters(["userFavorites", "userFavoriteExperiences"]),
   },
   methods: {
     favoriteTime(favorite) {
@@ -49,7 +49,7 @@ export default {
   },
   created() {
 
-    console.log(this.userFavorites);
+    console.log(this.userFavoriteExperiences);
   },
 };
 </script>

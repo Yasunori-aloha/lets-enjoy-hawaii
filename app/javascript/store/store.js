@@ -19,6 +19,7 @@ export default new Vuex.Store({
     },
     userReviews: null,
     userFavorites: null,
+    userFavoriteExperiences: null,
     userHistories: null,
   },
   getters: {
@@ -27,6 +28,7 @@ export default new Vuex.Store({
     userData: state => state.user,
     userReviews: state => state.userReviews,
     userFavorites: state => state.userFavorites,
+    userFavoriteExperiences: state => state.userFavoriteExperiences,
     userHistories: state => state.userHistories,
   },
   mutations: {
@@ -150,9 +152,12 @@ export default new Vuex.Store({
     toUsersPage: async function({}, userId) {
       await axios.get(`/api/v1/users/${userId}`)
       .then(response => {
+        // console.log(response.data.data);
         this.state.userReviews = response.data.data.relationships.reviews.data;
         this.state.userFavorites = response.data.data.relationships.favorites.data;
+        this.state.userFavoriteExperiences = response.data.data.relationships['fav-exps'].data;
         this.state.userHistories = response.data.data.relationships.histories.data;
+        // console.log(this.state.userFavoriteExperiences);
       });
     },
   }
