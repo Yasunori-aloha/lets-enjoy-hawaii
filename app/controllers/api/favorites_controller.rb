@@ -4,6 +4,7 @@ class Api::FavoritesController < ApplicationController
   def index
     @favorites = Favorite.preload([{ experience: :favorites }, { experience: :area }]).where(user_id: current_user.id).order('created_at DESC')
     user_is_current_user?(params)
+    render json: @favorites, include: ['experience']
   end
 
   def update

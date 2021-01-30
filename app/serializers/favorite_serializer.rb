@@ -1,6 +1,6 @@
 class FavoriteSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :created_at
 
   belongs_to :user
-  belongs_to :experinece
+  belongs_to :experience
 end
