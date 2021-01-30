@@ -27,7 +27,8 @@
                 {{ experienceFavoriteCounts(index) }}
                 </span>
               <form action="">
-                <label for="" class="activity__comment__info"></label><input type="text" class="activity__comment">
+                <label for="favorite_comment" class="activity__comment__info">コメント ※個人情報は入力しないでください</label>
+                <textarea id="favorite_comment" name="favorite[comment]" maxlength="30" placeholder="ここにコメントを書くと便利です。（全角30文字以内・改行は受け付けません）" class="activity__comment" />
                 <div class="save__btn"></div>
               </form>
             </div>
