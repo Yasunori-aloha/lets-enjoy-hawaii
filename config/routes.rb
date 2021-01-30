@@ -17,6 +17,13 @@ Rails.application.routes.draw do
           sessions: 'api/auth/sessions',
           omniauth_callbacks: 'users/omniauth_callbacks',
         }
+        resources :users, only: %i[show] do
+          resources :favorites, only: %i[index update]
+          resources :histories, only: %i[index update]
+          member do
+            get 'reviews', to: 'reviews#user_index'
+          end
+        end
       end
     end
   end
@@ -25,13 +32,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: %i[show] do
-    resources :favorites, only: %i[index update]
-    resources :histories, only: %i[index update]
-    member do
-      get 'reviews', to: 'reviews#user_index'
-    end
-  end
   resources :experiences, only: %i[show], shallow: true do
     member do
       resources :reviews, only: %i[new create]
