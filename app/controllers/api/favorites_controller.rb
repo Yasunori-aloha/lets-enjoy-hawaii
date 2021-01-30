@@ -10,7 +10,7 @@ class Api::FavoritesController < ApplicationController
 
   def update
     @favorite = Favorite.find(params[:id])
-    @favorite.update(comment: params[:comment])
+    @favorite.update(comment: params[:favorite][:comment])
 
     render json: @favorite
   end

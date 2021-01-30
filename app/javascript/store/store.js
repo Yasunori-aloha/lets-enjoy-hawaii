@@ -165,7 +165,15 @@ export default new Vuex.Store({
         this.state.userFavoriteExperiences = response.data.included;
       });
     },
-    updateFavoriteComment: async function({}) {
+    updateFavoriteComment: async function({}, params) {
+      await axios.patch(`/api/v1/users/${params.userId}/favorites/${params.favoriteId}`,{
+        favorite: {
+          comment: params.comment,
+        },
+      })
+      .then(response => {
+        this.state.userFavorites[params.index].attributes.comment = response.data.data.attributes.comment;
+      });
     },
   }
 });

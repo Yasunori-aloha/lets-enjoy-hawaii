@@ -31,13 +31,13 @@
               <i class="fas fa-star star__icon"></i>
               {{ experienceFavoriteCounts(index) }}
               </span>
-              <form @click.prevent="updateFavoriteComment()" >
+              <form >
                 <label for="favorite_comment" class="activity__comment__info">コメント ※個人情報は入力しないでください</label>
-                <textarea id="favorite_comment" name="favorite[comment]" maxlength="30" placeholder="ここにコメントを書くと便利です。（全角30文字以内・改行は受け付けません）" class="activity__comment" />
+                <textarea v-model="comment" id="favorite_comment" name="favorite[comment]" maxlength="30" placeholder="ここにコメントを書くと便利です。（全角30文字以内・改行は受け付けません）" class="activity__comment" />
                 <div class="save__btn">
                   <i class="fas fa-check check__mark" />
                   <span class="save__message">保存する</span>
-                  <button class="save__submit"></button>
+                  <button @click.prevent="updateFavoriteComment(favorite, index)" class="save__submit"></button>
                 </div>
               </form>
             </div>
@@ -53,6 +53,11 @@
 import { mapGetters } from "vuex";
 
 export default {
+  data() {
+    return {
+      comment: null,
+    }
+  },
   computed: {
     ...mapGetters(["userData", "userFavorites", "userFavoriteExperiences"]),
     favoriteIsExists() {
@@ -75,13 +80,12 @@ export default {
         return 0;
       }
     },
-    updateFavoriteComment: async function() {
-      await this.$store.dispatch('updateFavoriteComment',);
+    updateFavoriteComment: async function(favorite, index) {
+      await this.$store.dispatch('updateFavoriteComment', { userId: this.userData.id, favoriteId: favorite.id, comment: this.comment, index: index });
     },
   },
   created() {
     // console.log(th4routeis.favoriteActivityImage(0));
-    console.log(this.favoriteIsExists);
   },
 };
 </script>
