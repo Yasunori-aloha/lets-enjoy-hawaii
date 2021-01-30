@@ -1,12 +1,7 @@
 # frozen_string_literal: true
 
 class FavoritesController < ApplicationController
-  before_action :authenticate_user!, only: %i[index create destroy update]
-
-  def index
-    @favorites = Favorite.preload([{ experience: :favorites }, { experience: :area }]).where(user_id: current_user.id).order('created_at DESC')
-    user_is_current_user?(params)
-  end
+  before_action :authenticate_user!, only: %i[create destroy]
 
   def create
     # 非同期処理で表示させるJSファイルの判定でアクティビティ情報が必要。
@@ -20,8 +15,4 @@ class FavoritesController < ApplicationController
     current_user.favorites.find_by(experience_id: params[:id]).destroy
   end
 
-  def update
-    Favorite.find(params[:id]).update(comment: params[:favorite][:comment])
-    redirect_to action: :index
-  end
 end
