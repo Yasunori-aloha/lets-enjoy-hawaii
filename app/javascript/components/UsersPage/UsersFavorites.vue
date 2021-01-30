@@ -1,7 +1,12 @@
 <template>
   <div class="my__page__main__right">
     <div class="user__favorites__wrapper">
-      <div class="user__page__menu"></div>
+      <div class="user__page__menu">
+        <div class="breadcrumbs">
+          <router-link :to="`/users/${userData.id}`" class="link__hover" >マイページトップ</router-link>
+          <span class="current"> › お気に入りした場所</span>
+        </div>
+      </div>
       <div class="user__favorites__show__area">
         <ul v-if="favoriteIsExists" class="user__favorites__list">
           <li v-for="(favorite, index) in userFavorites" class="favorite__wrapper">
@@ -49,7 +54,7 @@ import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["userFavorites", "userFavoriteExperiences"]),
+    ...mapGetters(["userData", "userFavorites", "userFavoriteExperiences"]),
     favoriteIsExists() {
       return this.userFavorites !== null;
     },
@@ -90,6 +95,18 @@ export default {
   background-color: rgba(255, 255, 255, 0.75);
 }
 .user__page__menu{
+  text-align: left;
+  font-size: 12px;
+  border-bottom: 1px dotted black;
+  width: 100%;
+  padding: 10px 0 5px 0;
+  margin: 0 auto;
+}
+.breadcrumbs{
+
+}
+.current{
+
 }
 .user__favorites__show__area{
   min-height: calc(100vh - 369px);
@@ -100,7 +117,6 @@ export default {
   width: 742px;
   flex-wrap: wrap;
 }
-
 .activity_right_margin{
   margin-right: 8px;
 }
