@@ -21,8 +21,11 @@
             </div>
             <div class="activity__info__wrapper">
               <a :href="`/experiences/${userFavoriteExperiences[index].id}`" class="activity__name link__hover">{{ userFavoriteExperiences[index].attributes.name }}</a>
-              <p class="activity__place"></p>
-              <span class="favorites__counts"><i class="star__icon"></i></span>
+              <p class="activity__place">{{ userFavoriteExperiences[index].attributes.name }} > {{ userFavoriteExperiences[index].attributes.name }}</p>
+              <span class="favorites__counts">
+                <i class="fas fa-star star__icon"></i>
+                {{ experienceFavoriteCounts(index) }}
+                </span>
               <form action="">
                 <label for="" class="activity__comment__info"></label><input type="text" class="activity__comment">
                 <div class="save__btn"></div>
@@ -49,10 +52,17 @@ export default {
     favoriteActivityImage(index) {
       return `https://maps.googleapis.com/maps/api/streetview?size=800x600&location=${this.userFavoriteExperiences[index].attributes.latitude},${this.userFavoriteExperiences[index].attributes.longitude}&heading=${this.userFavoriteExperiences[index].attributes.heading}&pitch=${this.userFavoriteExperiences[index].attributes.pitch}&fov=${this.userFavoriteExperiences[index].attributes.fov}&zoom=${this.userFavoriteExperiences[index].attributes.zoom}&key=${process.env.GOOGLE_STREET_VIEW_KEY}`;
     },
+    experienceFavoriteCounts(index) {
+      if (this.userFavoriteExperiences[index].relationships.favorites.data) {
+        return this.userFavoriteExperiences[index].relationships.favorites.data.length;
+      } else {
+        return 0;
+      }
+    },
   },
   created() {
     // console.log(this.favoriteActivityImage(0));
-    console.log(this.userFavoriteExperiences);
+    // console.log(experienceFavoriteCounts(0));
   },
 };
 </script>
@@ -179,6 +189,11 @@ export default {
   border: 1px solid #808080;
   font-size: 12px;
   resize: none;
+}
+::placeholder{
+  padding: 2px;
+  font-size: 10px;
+  line-height: -20px;
 }
 .save__btn{
   @include backgroundGradient();
