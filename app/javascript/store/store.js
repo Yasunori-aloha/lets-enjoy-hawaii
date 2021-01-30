@@ -152,7 +152,7 @@ export default new Vuex.Store({
     toUsersPage: async function({}, userId) {
       await axios.get(`/api/v1/users/${userId}`)
       .then(response => {
-        // console.log(response.data.data);
+        // console.log(response);
         this.state.userReviews = response.data.data.relationships.reviews.data;
         this.state.userFavorites = response.data.data.relationships.favorites.data;
         this.state.userFavoriteExperiences = response.data.data.relationships['fav-exps'].data;

@@ -16,7 +16,7 @@
               </div>
             </div>
             <div class="activity_picture">
-              <img src="" alt="" class="content_picture">
+              <img :src="favoriteActivityImage(index)" alt="" class="content_picture">
               <div class="activity__picture__link"></div>
             </div>
             <div class="activity__info__wrapper">
@@ -46,10 +46,12 @@ export default {
     favoriteTime(favorite) {
       return favorite['created-at'].slice(0, 10).replace(/-/g, '/');
     },
+    favoriteActivityImage(index) {
+      return `https://maps.googleapis.com/maps/api/streetview?size=800x600&location=${this.userFavoriteExperiences[index].latitude},${this.userFavoriteExperiences[index].longitude}&heading=${this.userFavoriteExperiences[index].heading}&pitch=${this.userFavoriteExperiences[index].pitch}&fov=${this.userFavoriteExperiences[index].fov}&zoom=${this.userFavoriteExperiences[index].zoom}&key=${process.env.GOOGLE_STREET_VIEW_KEY}`;
+    },
   },
   created() {
-
-    console.log(this.userFavoriteExperiences);
+    // console.log(this.favoriteActivityImage(0));
   },
 };
 </script>
