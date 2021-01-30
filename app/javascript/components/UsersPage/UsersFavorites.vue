@@ -33,7 +33,7 @@
               </span>
               <form >
                 <label for="favorite_comment" class="activity__comment__info">コメント ※個人情報は入力しないでください</label>
-                <textarea v-model="comment" id="favorite_comment" name="favorite[comment]" maxlength="30" placeholder="ここにコメントを書くと便利です。（全角30文字以内・改行は受け付けません）" class="activity__comment" />
+                <textarea v-model="comment[index]" id="favorite_comment" name="favorite[comment]" maxlength="30" placeholder="ここにコメントを書くと便利です。（全角30文字以内・改行は受け付けません）" class="activity__comment" />
                 <div class="save__btn">
                   <i class="fas fa-check check__mark" />
                   <span class="save__message">保存する</span>
@@ -55,7 +55,7 @@ import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      comment: null,
+      comment: [],
     }
   },
   computed: {
@@ -85,7 +85,11 @@ export default {
     },
   },
   created() {
-    // console.log(th4routeis.favoriteActivityImage(0));
+    // お気に入りのコメントを抽出する。
+    this.userFavorites.forEach( e => {
+      this.comment.push(e.attributes.comment);
+      console.log(this.comment);
+    });
   },
 };
 </script>

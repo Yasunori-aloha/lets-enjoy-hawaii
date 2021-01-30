@@ -168,7 +168,7 @@ export default new Vuex.Store({
     updateFavoriteComment: async function({}, params) {
       await axios.patch(`/api/v1/users/${params.userId}/favorites/${params.favoriteId}`,{
         favorite: {
-          comment: params.comment,
+          comment: params.comment[params.index],
         },
       })
       .then(response => {
