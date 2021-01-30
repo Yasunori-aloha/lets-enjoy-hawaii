@@ -23,14 +23,16 @@
               <a :href="`/experiences/${userFavoriteExperiences[index].id}`" class="activity__name link__hover">{{ userFavoriteExperiences[index].attributes.name }}</a>
               <p class="activity__place">{{ userFavoriteExperiences[index].attributes.name }} > {{ userFavoriteExperiences[index].attributes.name }}</p>
               <span class="favorites__counts">
-                <i class="fas fa-star star__icon"></i>
-                {{ experienceFavoriteCounts(index) }}
-                </span>
-              <form action="">
-                <label for="favorite_comment" class="activity__comment__info">コメント ※個人情報は入力しないでください</label>
-                <textarea id="favorite_comment" name="favorite[comment]" maxlength="30" placeholder="ここにコメントを書くと便利です。（全角30文字以内・改行は受け付けません）" class="activity__comment" />
-                <div class="save__btn"></div>
-              </form>
+              <i class="fas fa-star star__icon"></i>
+              {{ experienceFavoriteCounts(index) }}
+              </span>
+              <label for="favorite_comment" class="activity__comment__info">コメント ※個人情報は入力しないでください</label>
+              <textarea id="favorite_comment" name="favorite[comment]" maxlength="30" placeholder="ここにコメントを書くと便利です。（全角30文字以内・改行は受け付けません）" class="activity__comment" />
+              <div class="save__btn">
+                <i class="fas fa-check check__mark" />
+                <span class="save__message">保存する</span>
+                <button class="save__submit"></button>
+              </div>
             </div>
           </li>
         </ul>
@@ -197,7 +199,7 @@ export default {
   line-height: -20px;
 }
 .save__btn{
-  @include backgroundGradient();
+  background: linear-gradient(#ffffff, #e4e4e4);
   display: flex;
   height: 18px;
   width: 73px;
