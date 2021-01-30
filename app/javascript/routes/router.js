@@ -19,10 +19,7 @@ export default new Router({
     { path: '/users/sign_up', component: SignInUp },
     { path: '/users/sign_in', component: SignInUp },
     // マイページ
-    { path: '/users/:id', components: {
-      default: Users,
-      usersMain: UsersMain,
-    },
+    { path: '/users/:id', component: Users,
     children: [
       { path: 'favorites', component: UsersFavorites },
       { path: 'reviews', component: UsersReviews },

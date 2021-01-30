@@ -19,7 +19,7 @@
             </ul>
           </div>
         </div>
-        <div class="my__page__main__right">
+        <div v-if="this.$route.path === `/users/${userData.id}`" class="my__page__main__right">
           <div class="my__page__user__info__head">
             <img src="/assets/no_image.jpg" alt="no_image"  class="my__page__user__image">
             <div class="my__page__user__name__area">
@@ -29,8 +29,9 @@
           </div>
           <div class="my__page__user__info__main">
             <span>{{ userData.introduce }}</span>
-            </div>
+          </div>
         </div>
+        <router-view></router-view>
       </div>
     </div>
   </div>
