@@ -3,7 +3,7 @@
     <div class="user__favorites__wrapper">
       <div class="user__page__menu"></div>
       <div class="user__favorites__show__area">
-        <ul v-if="true" class="user__favorites__list">
+        <ul v-if="favoriteIsExists" class="user__favorites__list">
           <li v-for="(favorite, index) in userFavorites" class="favorite__wrapper">
             <div class="favorite__info">
               <ul class="favorite__time">
@@ -38,6 +38,7 @@
             </div>
           </li>
         </ul>
+        <span v-else class="not__contents">まだお気に入りしたアクティビティはありません。</span>
       </div>
     </div>
   </div>
@@ -49,6 +50,9 @@ import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters(["userFavorites", "userFavoriteExperiences"]),
+    favoriteIsExists() {
+      return this.userFavorites !== null;
+    },
   },
   methods: {
     favoriteTime(favorite) {
@@ -69,7 +73,7 @@ export default {
   },
   created() {
     // console.log(th4routeis.favoriteActivityImage(0));
-    console.log();
+    console.log(this.favoriteIsExists);
   },
 };
 </script>
@@ -228,5 +232,12 @@ export default {
   width: 100%;
   opacity: 0;
   cursor: pointer;
+}
+.not__contents{
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  min-height: calc(100vh - 386);
+  padding-bottom: 17px;
 }
 </style>
