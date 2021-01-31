@@ -3,8 +3,10 @@ class Api::HistoriesController < ApplicationController
 
   # 訪問記録一覧取得
   def index
-    @histories = History.preload([{ experience: :histories }, { experience: :area }]).where(user_id: current_user.id).order('created_at DESC')
     user_is_current_user?(params)
+    @histories = History.preload([{ experience: :image_attachment }, { experience: :area }]).where(user_id: current_user.id).order('created_at DESC')
+
+    render json: ActiveModel::Serializer::CollectionSerializer.new(@histories, show_histories: true).to_json
   end
 
   # 訪問記録へのコメント保存
