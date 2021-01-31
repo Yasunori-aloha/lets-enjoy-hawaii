@@ -21,7 +21,7 @@
               </div>
             </div>
             <div class="activity_picture">
-              <img :src="favoriteActivityImage(index)" alt="" class="content_picture">
+              <img :src="favoriteActivityImage(favorite, index)" alt="" class="content_picture">
               <a :href="`/experiences/${userFavoriteExperiences[index].id}`" class="activity__picture__link"></a>
             </div>
             <div class="activity__info__wrapper">
@@ -67,12 +67,10 @@ export default {
   },
   methods: {
     favoriteTime(favorite) {
-      if (!(favorite.attributes === undefined)) {
-        return favorite.attributes['created-at'].slice(0, 10).replace(/-/g, '/');
-      }
+      return favorite['created_at'].slice(0, 10).replace(/-/g, '/');
     },
-    favoriteActivityImage(index) {
-      return `https://maps.googleapis.com/maps/api/streetview?size=800x600&location=${this.userFavoriteExperiences[index].attributes.latitude},${this.userFavoriteExperiences[index].attributes.longitude}&heading=${this.userFavoriteExperiences[index].attributes.heading}&pitch=${this.userFavoriteExperiences[index].attributes.pitch}&fov=${this.userFavoriteExperiences[index].attributes.fov}&zoom=${this.userFavoriteExperiences[index].attributes.zoom}&key=${process.env.GOOGLE_STREET_VIEW_KEY}`;
+    favoriteActivityImage(favorite, index) {
+      return `https://maps.googleapis.com/maps/api/streetview?size=800x600&location=${favorite.experience.latitude},${favorite.experience.longitude}&heading=${favorite.experience.heading}&pitch=${favorite.experience.pitch}&fov=${favorite.experience.fov}&zoom=${favorite.experience.zoom}&key=${process.env.GOOGLE_STREET_VIEW_KEY}`;
     },
     experienceFavoriteCounts(index) {
       if (this.userFavoriteExperiences[index].relationships.favorites.data) {
@@ -86,9 +84,10 @@ export default {
     },
   },
   created() {
+    // console.log(this.userFavorites);
     // お気に入りのコメントを抽出して右端以外のお気に入りに'margin-right'を付与する。
     this.userFavorites.forEach( (e, index) => {
-      this.comment.push(e.attributes.comment);
+      this.comment.push(e.comment);
       if ((index + 1) % 3 !== 0) {
         this.isNotRight.push(true);
       } else {
