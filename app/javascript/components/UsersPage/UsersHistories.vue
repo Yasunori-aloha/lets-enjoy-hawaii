@@ -16,7 +16,10 @@
                 <a href="" data-remote="true" rel="nofollow" data-method="delete" class="history__release"></a>
               </div>
             </div>
-            <div class="acitivity__picture"></div>
+            <div class="acitivity__picture">
+              <img src="" alt="" class="content__picture">
+              <a href="" class="activity__picture__link"></a>
+            </div>
             <div class="activity__info__wrapper"></div>
           </li>
         </ul>
@@ -63,58 +66,68 @@ export default {
     flex-wrap: wrap;
   }
   .history__wrapper{
-  width: 242px;
-  border: 1px solid #808080;
-  border-radius: 5px;
-  margin-bottom: 17px;
-  word-spacing: 0px;
-  background-color: #fff;
+    width: 242px;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    margin-bottom: 17px;
+    word-spacing: 0px;
+    background-color: #fff;
   }
   .history__info{
-  height: 36px;
-  padding: 0px 7px;
-  display: flex;
-  justify-content: space-between;
+    height: 36px;
+    padding: 0px 7px;
+    display: flex;
+    justify-content: space-between;
   }
   .history__time{
-  font-size: 11px;
-  }
-  .historied__at{
-
+    font-size: 11px;
   }
   .history__release__btn{
-  background: linear-gradient(#ffffff, #e4e4e4);
-  border: 1px solid #808080;
-  border-radius: 3px;
-  display: flex;
-  font-size: 11px;
-  height: 20px;
-  margin: auto 0px;
-  padding: 0 7px;
-  position: relative;
+    background: linear-gradient(#ffffff, #e4e4e4);
+    border: 1px solid #808080;
+    border-radius: 3px;
+    display: flex;
+    font-size: 11px;
+    height: 20px;
+    margin: auto 0px;
+    padding: 0 7px;
+    position: relative;
   }
   .release__mark{
-  margin: 3px 5px 0 0;
-  color: #808080;
+    margin: 3px 5px 0 0;
+    color: #808080;
   }
   .release__message{
-  font-weight: bold;
+    font-weight: bold;
   }
   .history__release{
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
   }
   .acitivity__picture{
-  height: 181px;
-  position: relative;
+    height: 181px;
+    position: relative;
+  }
+  .content__picture{
+    height: 100%;
+    width: 100%;
+  }
+  .activity__picture__link{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
   }
   .activity__info__wrapper{
-  padding: 5px 7px 6px;
+    padding: 5px 7px 6px;
   }
 /* 訪問記録がなかった場合の文字 */
   .not__contents{
