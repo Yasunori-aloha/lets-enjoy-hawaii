@@ -10,13 +10,13 @@
                 <li>登録日：</li>
                 <li class="favorited__at">{{ favoriteTime(favorite) }}</li>
               </ul>
-              <div class="favorite__reloease__btn">
+              <div class="favorite__release__btn">
                 <i class="fas fa-times release__mark"></i><span class="release__message">登録解除</span>
                 <a :href="`/experiences/${favorite.experience.id}/favorites`" data-remote="true" rel="nofollow" data-method="delete" class="favorite__release"></a>
               </div>
             </div>
-            <div class="activity_picture">
-              <img :src="favoriteActivityImage(favorite)" class="content_picture">
+            <div class="activity__picture">
+              <img :src="favoriteActivityImage(favorite)" class="content__picture">
               <a :href="`/experiences/${favorite.experience.id}`" class="activity__picture__link"></a>
             </div>
             <div class="activity__info__wrapper">
@@ -135,7 +135,7 @@ export default {
 }
 .favorited__at{
 }
-.favorite__reloease__btn{
+.favorite__release__btn{
   background: linear-gradient(#ffffff, #e4e4e4);
   border: 1px solid #808080;
   border-radius: 3px;
@@ -162,11 +162,11 @@ export default {
   opacity: 0;
   cursor: pointer;
 }
-.activity_picture{
+.activity__picture{
   height: 181px;
   position: relative;
 }
-.content_picture{
+.content__picture{
   height: 100%;
   width: 100%;
 }
