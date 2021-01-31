@@ -33,7 +33,7 @@
                 <div class="save__btn">
                   <i class="fas fa-check check__mark"></i>
                   <span class="save__message">保存する</span>
-                  <button class="save__submit"></button>
+                  <button @click.prevent="updateHistoryComment(history, index)" class="save__submit"></button>
                 </div>
               </form>
             </div>
@@ -68,6 +68,9 @@ export default {
   methods: {
     historyTime(history) {
       return history.created_at.slice(0, 10).replace(/-/g, '/');
+    },
+    updateHistoryComment: async function(history, index) {
+      await this.$store.dispatch('updateHistoryComment', { userId: this.userData.id, historyId: history.id, comment: this.comment, index: index });
     },
   },
   created() {

@@ -177,5 +177,15 @@ export default new Vuex.Store({
         this.state.userHistories = response.data;
       });
     },
+    updateHistoryComment: async function({}, params) {
+      await axios.patch(`/api/v1/users/${params.userId}/histories/${params.historyId}`,{
+        history: {
+          comment: params.comment[params.index],
+        },
+      })
+      .then(response => {
+        this.state.userHistories[params.index].attributes.comment = response.data.data.attributes.comment;
+      });
+    },
   }
 });
