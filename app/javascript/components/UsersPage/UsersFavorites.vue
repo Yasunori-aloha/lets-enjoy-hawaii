@@ -17,16 +17,16 @@
               </ul>
               <div class="favorite__reloease__btn">
                 <i class="fas fa-times release__mark"></i><span class="release__message">登録解除</span>
-                <a :href="`/experiences/${userFavoriteExperiences[index].id}/favorites`" data-remote="true" rel="nofollow" data-method="delete" class="favorite__release"></a>
+                <a :href="`/experiences/${favorite.experience.id}/favorites`" data-remote="true" rel="nofollow" data-method="delete" class="favorite__release"></a>
               </div>
             </div>
             <div class="activity_picture">
-              <img :src="favoriteActivityImage(favorite, index)" alt="" class="content_picture">
-              <a :href="`/experiences/${userFavoriteExperiences[index].id}`" class="activity__picture__link"></a>
+              <img :src="favoriteActivityImage(favorite)" class="content_picture">
+              <a :href="`/experiences/${favorite.experience.id}`" class="activity__picture__link"></a>
             </div>
             <div class="activity__info__wrapper">
-              <a :href="`/experiences/${userFavoriteExperiences[index].id}`" class="activity__name link__hover">{{ userFavoriteExperiences[index].attributes.name }}</a>
-              <p class="activity__place">{{ userFavoriteExperiences[index].attributes.name }} > {{ userFavoriteExperiences[index].attributes.name }}</p>
+              <a :href="`/experiences/${favorite.experience.id}`" class="activity__name link__hover">{{ favorite.experience.name }}</a>
+              <p class="activity__place">{{ favorite.experience.area.island.name }} > {{ favorite.experience.area.name }}</p>
               <span class="favorites__counts">
               <i class="fas fa-star star__icon"></i>
               {{ favorite.experience.favorite_counts }}
@@ -69,7 +69,7 @@ export default {
     favoriteTime(favorite) {
       return favorite['created_at'].slice(0, 10).replace(/-/g, '/');
     },
-    favoriteActivityImage(favorite, index) {
+    favoriteActivityImage(favorite) {
       return `https://maps.googleapis.com/maps/api/streetview?size=800x600&location=${favorite.experience.latitude},${favorite.experience.longitude}&heading=${favorite.experience.heading}&pitch=${favorite.experience.pitch}&fov=${favorite.experience.fov}&zoom=${favorite.experience.zoom}&key=${process.env.GOOGLE_STREET_VIEW_KEY}`;
     },
     updateFavoriteComment: async function(favorite, index) {
