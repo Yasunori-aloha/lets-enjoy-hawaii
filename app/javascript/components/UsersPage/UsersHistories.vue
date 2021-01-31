@@ -3,7 +3,23 @@
     <div class="user__histories__wrapper">
       <UsersPageMenu currentPage="行った場所" />
       <div class="user__histories__show__area">
-        <ul v-if="historyIsExists" class="user__histories__list"></ul>
+        <ul v-if="historyIsExists" class="user__histories__list">
+          <li class="history__wrapper">
+            <div class="history__info">
+              <ul class="history__time">
+                <li>登録日：</li>
+                <li class="historied__at">{{  }}</li>
+              </ul>
+              <div class="history__release__btn">
+                <i class="fas fa-times release__mark"></i>
+                <span class="release__message">登録解除</span>
+                <a href="" data-remote="true" rel="nofollow" data-method="delete" class="history__release"></a>
+              </div>
+            </div>
+            <div class="acitivity__picture"></div>
+            <div class="activity__info__wrapper"></div>
+          </li>
+        </ul>
         <span v-else class="not__contents">まだ訪問したアクティビティはありません。</span>
       </div>
     </div>
@@ -19,7 +35,7 @@ export default {
   },
   computed: {
     historyIsExists() {
-      return false;
+      return true;
     },
   },
 };
@@ -40,10 +56,65 @@ export default {
     min-height: calc(100vh - 369px);
     padding-top: 17px;
   }
+/* 訪問記録一覧 */
   .user__histories__list{
     display: flex;
     width: 742px;
     flex-wrap: wrap;
+  }
+  .history__wrapper{
+  width: 242px;
+  border: 1px solid #808080;
+  border-radius: 5px;
+  margin-bottom: 17px;
+  word-spacing: 0px;
+  background-color: #fff;
+  }
+  .history__info{
+  height: 36px;
+  padding: 0px 7px;
+  display: flex;
+  justify-content: space-between;
+  }
+  .history__time{
+  font-size: 11px;
+  }
+  .historied__at{
+
+  }
+  .history__release__btn{
+  background: linear-gradient(#ffffff, #e4e4e4);
+  border: 1px solid #808080;
+  border-radius: 3px;
+  display: flex;
+  font-size: 11px;
+  height: 20px;
+  margin: auto 0px;
+  padding: 0 7px;
+  position: relative;
+  }
+  .release__mark{
+  margin: 3px 5px 0 0;
+  color: #808080;
+  }
+  .release__message{
+  font-weight: bold;
+  }
+  .history__release{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+  }
+  .acitivity__picture{
+  height: 181px;
+  position: relative;
+  }
+  .activity__info__wrapper{
+  padding: 5px 7px 6px;
   }
 /* 訪問記録がなかった場合の文字 */
   .not__contents{
