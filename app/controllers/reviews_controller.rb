@@ -1,18 +1,13 @@
 # frozen_string_literal: true
 
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, only: %i[user_index new create]
+  before_action :authenticate_user!, only: %i[new create]
   before_action -> { find_exp(params[:id]) }, only: %i[exp_index new create edit]
   before_action -> { images_count(params[:id]) }, only: %i[exp_index edit]
 
   def exp_index
     @reviews = Review.preload(:user).where(experience_id: params[:id]).order('created_at DESC')
     render 'experiences/show'
-  end
-
-  def user_index
-    @reviews = Review.preload(experience: :area).where(user_id: params[:id]).order('created_at DESC')
-    user_is_current_user?(params)
   end
 
   def new
