@@ -47,15 +47,20 @@
 
 <script>
 import UsersPageMenu from '../UsersPage/UsersPageMenu.vue';
+import { mapGetters } from "vuex";
 
 export default {
   components: {
     UsersPageMenu,
   },
   computed: {
+    ...mapGetters(["userData", "userHistories"]),
     historyIsExists() {
-      return true;
+      return this.userHistories !== null;
     },
+  },
+  created() {
+    // console.log(this.userHistories);
   },
 };
 </script>

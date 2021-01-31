@@ -171,5 +171,11 @@ export default new Vuex.Store({
         this.state.userFavorites[params.index].attributes.comment = response.data.data.attributes.comment;
       });
     },
+    toHistoriesList: async function({}, userId) {
+      await axios.get(`/api/v1/users/${userId}/histories`)
+      .then(response => {
+        this.state.userHistories = response.data;
+      });
+    },
   }
 });
