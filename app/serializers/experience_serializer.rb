@@ -1,5 +1,5 @@
 class ExperienceSerializer < ActiveModel::Serializer
-  attributes :id, :name, :outline, :address, :latitude, :longitude, :business_hours_start, :business_hours_finish, :score, :heading, :pitch, :fov, :zoom, :image_url, :favorite_counts
+  attributes :id, :name, :outline, :address, :latitude, :longitude, :business_hours_start, :business_hours_finish, :score, :heading, :pitch, :fov, :zoom, :image_url, :favorite_counts, :histories_counts
 
   # has_many :reviews
   belongs_to :area
@@ -12,7 +12,11 @@ class ExperienceSerializer < ActiveModel::Serializer
   end
 
   def favorite_counts
-    Experience.find(object.id).favorites.length
+    object.favorites.length
+  end
+
+  def histories_counts
+    object.histories.length
   end
 
 end

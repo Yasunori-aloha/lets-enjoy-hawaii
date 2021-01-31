@@ -3,7 +3,7 @@ class Api::FavoritesController < ApplicationController
 
   def index
     user_is_current_user?(params)
-    @favorites = Favorite.preload([{ experience: :image_attachment }, { experience: :area }]).where(user_id: current_user.id).order('created_at DESC')
+    @favorites = Favorite.preload([{ experience: :favorites },{ experience: :image_attachment }, { experience: :area }]).where(user_id: current_user.id).order('created_at DESC')
 
     render json: ActiveModel::Serializer::CollectionSerializer.new(@favorites, show_favorites: true).to_json
   end
