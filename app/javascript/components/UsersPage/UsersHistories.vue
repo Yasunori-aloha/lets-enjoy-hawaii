@@ -13,15 +13,15 @@
               <div class="history__release__btn">
                 <i class="fas fa-times release__mark"></i>
                 <span class="release__message">登録解除</span>
-                <a href="" data-remote="true" rel="nofollow" data-method="delete" class="history__release"></a>
+                <a :href="`/experiences/${history.experience.id}/histories`" data-remote="true" rel="nofollow" data-method="delete" class="history__release"></a>
               </div>
             </div>
             <div class="acitivity__picture">
               <img src="" alt="" class="content__picture">
-              <a href="" class="activity__picture__link"></a>
+              <a :href="`/experiences/${history.experience.id}`" class="activity__picture__link"></a>
             </div>
             <div class="activity__info__wrapper">
-              <a href="" class="activity__name link__hover"></a>
+              <a :href="`/experiences/${history.experience.id}`" class="activity__name link__hover">{{ history.experience.name }}</a>
               <p class="activity__place">{{  }} > {{  }}</p>
               <span class="histories__counts">
                 <i class="fas fa-shoe-prints fa-rotate-270"></i>
