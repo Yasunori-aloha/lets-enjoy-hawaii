@@ -1,9 +1,14 @@
 class ExperienceSerializer < ActiveModel::Serializer
   attributes :id, :name, :outline, :address, :latitude, :longitude, :business_hours_start, :business_hours_finish, :score, :heading, :pitch, :fov, :zoom, :image_url
 
-  has_many :reviews
+  # has_many :reviews
   belongs_to :area
-  belongs_to :genre
-  has_many :histories
-  has_many :favorites
+  belongs_to :genre, if: :show_experiences?
+  has_many :histories, if: :show_experiences?
+  has_many :favorites, if: :show_experiences?
+
+  def show_experiences?
+    @instance_options.key?(:show_experiences)
+  end
+
 end
