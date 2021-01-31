@@ -8,7 +8,7 @@
             <div class="history__info">
               <ul class="history__time">
                 <li>登録日：</li>
-                <li class="historied__at">{{  }}</li>
+                <li class="historied__at">{{ historyTime(history) }}</li>
               </ul>
               <div class="history__release__btn">
                 <i class="fas fa-times release__mark"></i>
@@ -64,8 +64,13 @@ export default {
       return this.userHistories !== null;
     },
   },
+  methods: {
+    historyTime(history) {
+      return history.created_at.slice(0, 10).replace(/-/g, '/');
+    },
+  },
   created() {
-    console.log(this.userHistories);
+    // console.log(this.userHistories);
     this.userHistories.forEach((e, index) => {
       if ((index + 1) % 3 !== 0) {
         this.isNotRight.push(true);
