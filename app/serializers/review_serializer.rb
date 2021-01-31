@@ -9,7 +9,8 @@ class ReviewSerializer < ActiveModel::Serializer
   end
 
   def is_user_page?
-    @instance_options.key?(:is_user_page)
+    # binding.pry
+    @instance_options.key?(:is_user_page?)
   end
 
 end
