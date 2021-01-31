@@ -8,10 +8,12 @@ class ExperienceSerializer < ActiveModel::Serializer
              :fov,
              :zoom
 
-  # has_many :reviews
   belongs_to :area
 
+  # お気に入り一覧ページでのみ取得する。
   attribute  :favorite_counts,        unless: :user_histories_page?
+
+  # 訪問記録一覧ページでのみ取得する。
   attribute  :histories_counts,       unless: :user_favorites_page?
 
   # アクティビティ詳細ページでのみ取得する。
