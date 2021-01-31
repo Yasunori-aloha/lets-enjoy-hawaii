@@ -30,6 +30,11 @@
               <form>
                 <label for="favorite_comment" class="activity__comment__info">コメント ※個人情報は入力しないでください</label>
                 <textarea id="favorite_comment" name="favorite[comment]" maxlength="30" placeholder="ここにコメントを書くと便利です。（全角30文字以内・改行は受け付けません）" class="activity__comment"></textarea>
+                <div class="save__btn">
+                  <i class="fas fa-check check__mark"></i>
+                  <span class="save__message">保存する</span>
+                  <button class="save__submit"></button>
+                </div>
               </form>
             </div>
           </li>
@@ -176,6 +181,34 @@ export default {
     border: 1px solid #808080;
     font-size: 12px;
     resize: none;
+  }
+/* 訪問記録へのコメント保存ボタン */
+  .save__btn{
+  background: linear-gradient(#ffffff, #e4e4e4);
+  display: flex;
+  height: 18px;
+  width: 73px;
+  margin: 0px 0px 0px auto;
+  border: 1px solid #808080;
+  border-radius: 3px;
+  font-size: 11px;
+  position: relative;
+  }
+  .check__mark{
+    margin: 2px 3px 0px 6px;
+    color: #808080;
+  }
+  .save__message{
+    font-weight: bold;
+  }
+  .save__submit{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
   }
 /* 訪問記録がなかった場合の文字 */
   .not__contents{
