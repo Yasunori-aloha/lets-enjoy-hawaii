@@ -27,6 +27,10 @@
                 <i class="fas fa-shoe-prints fa-rotate-270"></i>
                 {{  }}
               </span>
+              <form>
+                <label for="favorite_comment" class="activity__comment__info">コメント ※個人情報は入力しないでください</label>
+                <textarea id="favorite_comment" name="favorite[comment]" maxlength="30" placeholder="ここにコメントを書くと便利です。（全角30文字以内・改行は受け付けません）" class="activity__comment"></textarea>
+              </form>
             </div>
           </li>
         </ul>
@@ -140,18 +144,38 @@ export default {
     padding: 5px 7px 6px;
   }
   .activity__name{
-  font-size: 14px;
-  font-weight: bold;
-  color: #0088de;
-  margin: 0;
-  text-decoration: underline;
+    font-size: 14px;
+    font-weight: bold;
+    color: #0088de;
+    margin: 0;
+    text-decoration: underline;
   }
   .activity__place{
-  font-size: 11px;
-  margin: 1px 0 0 1px;
+    font-size: 11px;
+    margin: 1px 0 0 1px;
   }
   .histories__counts{
-  font-size: 20px;
+    font-size: 20px;
+  }
+/* 訪問記録へのコメント欄 */
+  .activity__comment__info{
+    font-size: 10px;
+    margin: 0px;
+    font-weight: bold;
+    color: #808080;
+  }
+  ::placeholder{
+    padding: 2px;
+    font-size: 10px;
+    line-height: -20px;
+  }
+  .activity__comment{
+    height: 35px;
+    margin: 0;
+    width: 100%;
+    border: 1px solid #808080;
+    font-size: 12px;
+    resize: none;
   }
 /* 訪問記録がなかった場合の文字 */
   .not__contents{
