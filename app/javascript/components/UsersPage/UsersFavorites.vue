@@ -29,7 +29,7 @@
               <p class="activity__place">{{ userFavoriteExperiences[index].attributes.name }} > {{ userFavoriteExperiences[index].attributes.name }}</p>
               <span class="favorites__counts">
               <i class="fas fa-star star__icon"></i>
-              {{ experienceFavoriteCounts(index) }}
+              {{ favorite.experience.favorite_counts }}
               </span>
               <form >
                 <label for="favorite_comment" class="activity__comment__info">コメント ※個人情報は入力しないでください</label>
@@ -72,19 +72,12 @@ export default {
     favoriteActivityImage(favorite, index) {
       return `https://maps.googleapis.com/maps/api/streetview?size=800x600&location=${favorite.experience.latitude},${favorite.experience.longitude}&heading=${favorite.experience.heading}&pitch=${favorite.experience.pitch}&fov=${favorite.experience.fov}&zoom=${favorite.experience.zoom}&key=${process.env.GOOGLE_STREET_VIEW_KEY}`;
     },
-    experienceFavoriteCounts(index) {
-      if (this.userFavoriteExperiences[index].relationships.favorites.data) {
-        return this.userFavoriteExperiences[index].relationships.favorites.data.length;
-      } else {
-        return 0;
-      }
-    },
     updateFavoriteComment: async function(favorite, index) {
       await this.$store.dispatch('updateFavoriteComment', { userId: this.userData.id, favoriteId: favorite.id, comment: this.comment, index: index });
     },
   },
   created() {
-    // console.log(this.userFavorites);
+    // console.log(this.userFavorites[0].experience.favorite_counts);
     // お気に入りのコメントを抽出して右端以外のお気に入りに'margin-right'を付与する。
     this.userFavorites.forEach( (e, index) => {
       this.comment.push(e.comment);
