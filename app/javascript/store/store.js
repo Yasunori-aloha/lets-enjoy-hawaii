@@ -160,7 +160,6 @@ export default new Vuex.Store({
     toFavoritesLis: async function({}, userId) {
       await axios.get(`/api/v1/users/${userId}/favorites`)
       .then(response => {
-        // console.log(response.data.included);
         this.state.userFavorites = response.data.data;
         this.state.userFavoriteExperiences = response.data.included;
       });

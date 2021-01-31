@@ -9,7 +9,7 @@
       </div>
       <div class="user__favorites__show__area">
         <ul v-if="favoriteIsExists" class="user__favorites__list">
-          <li v-for="(favorite, index) in userFavorites" class="favorite__wrapper">
+          <li v-for="(favorite, index) in userFavorites" class="favorite__wrapper" :class="{favorite__margin__right: isNotRight[index] }">
             <div class="favorite__info">
               <ul class="favorite__time">
                 <li>登録日：</li>
@@ -56,6 +56,7 @@ export default {
   data() {
     return {
       comment: [],
+      isNotRight: [],
     }
   },
   computed: {
@@ -85,10 +86,14 @@ export default {
     },
   },
   created() {
-    // お気に入りのコメントを抽出する。
-    this.userFavorites.forEach( e => {
+    // お気に入りのコメントを抽出して右端以外のお気に入りに'margin-right'を付与する。
+    this.userFavorites.forEach( (e, index) => {
       this.comment.push(e.attributes.comment);
-      console.log(this.comment);
+      if ((index + 1) % 3 !== 0) {
+        this.isNotRight.push(true);
+      } else {
+        this.isNotRight.push(false);
+      }
     });
   },
 };
@@ -113,12 +118,6 @@ export default {
   padding: 10px 0 5px 0;
   margin: 0 auto;
 }
-.breadcrumbs{
-
-}
-.current{
-
-}
 .user__favorites__show__area{
   min-height: calc(100vh - 369px);
   padding-top: 17px;
@@ -138,6 +137,9 @@ export default {
   margin-bottom: 17px;
   word-spacing: 0px;
   background-color: #fff;
+}
+.favorite__margin__right{
+  margin-right: 8px;
 }
 .favorite__info{
   height: 36px;
