@@ -76,7 +76,6 @@ export default {
     },
   },
   created() {
-    // console.log(this.userFavorites[0].experience.favorite_counts);
     // お気に入りのコメントを抽出して右端以外のお気に入りに'margin-right'を付与する。
     this.userFavorites.forEach( (e, index) => {
       this.comment.push(e.comment);

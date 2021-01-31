@@ -29,7 +29,7 @@
               </span>
               <form>
                 <label for="favorite_comment" class="activity__comment__info">コメント ※個人情報は入力しないでください</label>
-                <textarea id="favorite_comment" name="favorite[comment]" maxlength="30" placeholder="ここにコメントを書くと便利です。（全角30文字以内・改行は受け付けません）" class="activity__comment"></textarea>
+                <textarea v-model="comment[index]" id="favorite_comment" name="favorite[comment]" maxlength="30" placeholder="ここにコメントを書くと便利です。（全角30文字以内・改行は受け付けません）" class="activity__comment"></textarea>
                 <div class="save__btn">
                   <i class="fas fa-check check__mark"></i>
                   <span class="save__message">保存する</span>
@@ -55,6 +55,7 @@ export default {
   },
   data() {
     return {
+      comment: [],
       isNotRight: [],
     }
   },
@@ -70,8 +71,8 @@ export default {
     },
   },
   created() {
-    // console.log(this.userHistories);
     this.userHistories.forEach((e, index) => {
+      this.comment.push(e.comment);
       if ((index + 1) % 3 !== 0) {
         this.isNotRight.push(true);
       } else {
