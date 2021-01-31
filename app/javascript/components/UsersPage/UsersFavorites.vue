@@ -110,9 +110,6 @@ export default {
   width: 742px;
   flex-wrap: wrap;
 }
-.activity_right_margin{
-  margin-right: 8px;
-}
 .favorite__wrapper{
   width: 242px;
   border: 1px solid #808080;
@@ -132,8 +129,6 @@ export default {
 }
 .favorite__time{
   font-size: 11px;
-}
-.favorited__at{
 }
 .favorite__release__btn{
   background: linear-gradient(#ffffff, #e4e4e4);
