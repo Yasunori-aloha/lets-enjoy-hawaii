@@ -19,7 +19,6 @@ export default new Vuex.Store({
     },
     userReviews: null,
     userFavorites: null,
-    userFavoriteExperiences: null,
     userHistories: null,
   },
   getters: {
@@ -28,7 +27,6 @@ export default new Vuex.Store({
     userData: state => state.user,
     userReviews: state => state.userReviews,
     userFavorites: state => state.userFavorites,
-    userFavoriteExperiences: state => state.userFavoriteExperiences,
     userHistories: state => state.userHistories,
   },
   mutations: {
@@ -160,8 +158,7 @@ export default new Vuex.Store({
     toFavoritesLis: async function({}, userId) {
       await axios.get(`/api/v1/users/${userId}/favorites`)
       .then(response => {
-        this.state.userFavorites = response.data.data;
-        this.state.userFavoriteExperiences = response.data.included;
+        this.state.userFavorites = response.data;
       });
     },
     updateFavoriteComment: async function({}, params) {

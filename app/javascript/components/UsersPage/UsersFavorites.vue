@@ -60,7 +60,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["userData", "userFavorites", "userFavoriteExperiences"]),
+    ...mapGetters(["userData", "userFavorites"]),
     favoriteIsExists() {
       return this.userFavorites !== null;
     },
