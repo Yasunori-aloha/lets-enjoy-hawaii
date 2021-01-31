@@ -12,7 +12,8 @@ class Api::HistoriesController < ApplicationController
   # 訪問記録へのコメント保存
   def update
     History.find(params[:id]).update(comment: params[:history][:comment])
-    redirect_to action: :index
+
+    render json: @favorite
   end
 
 end
