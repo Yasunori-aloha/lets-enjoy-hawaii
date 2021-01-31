@@ -20,7 +20,14 @@
               <img src="" alt="" class="content__picture">
               <a href="" class="activity__picture__link"></a>
             </div>
-            <div class="activity__info__wrapper"></div>
+            <div class="activity__info__wrapper">
+              <a href="" class="activity__name link__hover"></a>
+              <p class="activity__place">{{  }} > {{  }}</p>
+              <span class="histories__counts">
+                <i class="fas fa-shoe-prints fa-rotate-270"></i>
+                {{  }}
+              </span>
+            </div>
           </li>
         </ul>
         <span v-else class="not__contents">まだ訪問したアクティビティはありません。</span>
@@ -82,6 +89,7 @@ export default {
   .history__time{
     font-size: 11px;
   }
+/* 訪問記録登録解除ボタン */
   .history__release__btn{
     background: linear-gradient(#ffffff, #e4e4e4);
     border: 1px solid #808080;
@@ -109,6 +117,7 @@ export default {
     opacity: 0;
     cursor: pointer;
   }
+/* 訪問記録のアクティビティ画像部分 */
   .acitivity__picture{
     height: 181px;
     position: relative;
@@ -126,8 +135,23 @@ export default {
     opacity: 0;
     cursor: pointer;
   }
+/* アクティビティ情報欄 */
   .activity__info__wrapper{
     padding: 5px 7px 6px;
+  }
+  .activity__name{
+  font-size: 14px;
+  font-weight: bold;
+  color: #0088de;
+  margin: 0;
+  text-decoration: underline;
+  }
+  .activity__place{
+  font-size: 11px;
+  margin: 1px 0 0 1px;
+  }
+  .histories__counts{
+  font-size: 20px;
   }
 /* 訪問記録がなかった場合の文字 */
   .not__contents{
