@@ -22,10 +22,10 @@
             </div>
             <div class="activity__info__wrapper">
               <a :href="`/experiences/${history.experience.id}`" class="activity__name link__hover">{{ history.experience.name }}</a>
-              <p class="activity__place">{{  }} > {{  }}</p>
+              <p class="activity__place">{{ history.experience.area.island.name }} > {{ history.experience.area.name }}</p>
               <span class="histories__counts">
                 <i class="fas fa-shoe-prints fa-rotate-270"></i>
-                {{  }}
+                {{ history.experience.histories_counts }}
               </span>
               <form>
                 <label for="favorite_comment" class="activity__comment__info">コメント ※個人情報は入力しないでください</label>
