@@ -28,11 +28,11 @@
               </span>
               <form >
                 <label for="favorite_comment" class="activity__comment__info">コメント ※個人情報は入力しないでください</label>
-                <textarea v-model="comment[index]" id="favorite_comment" name="favorite[comment]" maxlength="30" placeholder="ここにコメントを書くと便利です。（全角30文字以内・改行は受け付けません）" class="activity__comment" />
+                <textarea v-model="favorite.comment" id="favorite_comment" name="favorite[comment]" maxlength="30" placeholder="ここにコメントを書くと便利です。（全角30文字以内・改行は受け付けません）" class="activity__comment" />
                 <div class="save__btn">
                   <i class="fas fa-check check__mark" />
                   <span class="save__message">保存する</span>
-                  <button @click.prevent="updateFavoriteComment(favorite, index)" class="save__submit"></button>
+                  <button @click.prevent="updateFavoriteComment(favorite)" class="save__submit"></button>
                 </div>
               </form>
             </div>
@@ -54,7 +54,6 @@ export default {
   },
   data() {
     return {
-      comment: [],
       isNotRight: [],
     }
   },
@@ -71,14 +70,15 @@ export default {
     favoriteActivityImage(favorite) {
       return `https://maps.googleapis.com/maps/api/streetview?size=800x600&location=${favorite.experience.latitude},${favorite.experience.longitude}&heading=${favorite.experience.heading}&pitch=${favorite.experience.pitch}&fov=${favorite.experience.fov}&zoom=${favorite.experience.zoom}&key=${process.env.GOOGLE_STREET_VIEW_KEY}`;
     },
-    updateFavoriteComment: async function(favorite, index) {
-      await this.$store.dispatch('updateFavoriteComment', { userId: this.userData.id, favoriteId: favorite.id, comment: this.comment, index: index });
+    updateFavoriteComment: async function(favorite) {
+      let formData = new FormData();
+      formData.append('favorite[comment]', favorite.comment);
+      await this.$store.dispatch('updateFavoriteComment', { userId: this.userData.id, favoriteId: favorite.id, comment: favorite.comment, formData });
     },
   },
   created() {
     // お気に入りのコメントを抽出して右端以外のお気に入りに'margin-right'を付与する。
     this.userFavorites.forEach( (e, index) => {
-      this.comment.push(e.comment);
       if ((index + 1) % 3 !== 0) {
         this.isNotRight.push(true);
       } else {

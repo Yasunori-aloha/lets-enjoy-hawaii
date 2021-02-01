@@ -33,7 +33,7 @@
                 <div class="save__btn">
                   <i class="fas fa-check check__mark"></i>
                   <span class="save__message">保存する</span>
-                  <button @click.prevent="updateHistoryComment(history, index)" class="save__submit"></button>
+                  <button @click.prevent="updateHistoryComment(history)" class="save__submit"></button>
                 </div>
               </form>
             </div>
@@ -55,7 +55,6 @@ export default {
   },
   data() {
     return {
-      comment: [],
       isNotRight: [],
     }
   },
@@ -72,7 +71,7 @@ export default {
     historyActivityImage(history) {
       return `https://maps.googleapis.com/maps/api/streetview?size=800x600&location=${history.experience.latitude},${history.experience.longitude}&heading=${history.experience.heading}&pitch=${history.experience.pitch}&fov=${history.experience.fov}&zoom=${history.experience.zoom}&key=${process.env.GOOGLE_STREET_VIEW_KEY}`;
     },
-    updateHistoryComment: async function(history, index) {
+    updateHistoryComment: async function(history) {
       let formData = new FormData();
       formData.append('history[comment]', history.comment);
       await this.$store.dispatch('updateHistoryComment', { userId: this.userData.id, historyId: history.id, formData });
