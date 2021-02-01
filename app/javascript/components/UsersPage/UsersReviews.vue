@@ -5,7 +5,23 @@
       <div class="user__reviews__show__area">
         <ul v-if="reviewsIsExists">
           <li class="reviews__wrapper">
-            <div class="review__main__area"></div>
+            <div class="review__main__area">
+              <ul class="review__info__wrapper">
+                <li>
+                  <a href="">
+                    <img src="" class="activity__picture">
+                  </a>
+                </li>
+                <li>
+                  <a href="" class="activity__name link__hover link__to">
+                    <span class="activity__place"></span>
+                  </a>
+                </li>
+                <li class="reviewed__at__wrapper">
+                    <p></p>
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
         <span v-else class="not__contents">まだ口コミを投稿していません。</span>
@@ -58,6 +74,25 @@ export default {
   .review__main__area{
     width: 97%;
     margin: 0 auto;
+  }
+/* 口コミのアクティビティ情報欄 */
+  .review__info__wrapper{
+    display: flex;
+  }
+  .activity__picture{
+    height: 60px;
+    width: 80px;
+    margin: 0 15px 5px 0;
+  }
+  .activity__name{
+
+  }
+  .activity__place{
+
+  }
+/* 口コミ投稿日情報欄 */
+  .reviewed__at__wrapper{
+
   }
 /* 訪問記録がなかった場合の文字 */
   .not__contents{
