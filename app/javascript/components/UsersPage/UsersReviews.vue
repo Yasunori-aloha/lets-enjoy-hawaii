@@ -4,16 +4,16 @@
       <UsersPageMenu currentPage="今までの口コミ" />
       <div class="user__reviews__show__area">
         <ul v-if="reviewsIsExists">
-          <li class="reviews__wrapper">
+          <li v-for="(review, index) in userReviews" class="reviews__wrapper">
             <div class="review__main__area">
               <ul class="review__info__wrapper">
                 <li>
-                  <a href="">
+                  <a :href="`/experiences/${review.experience.id}`">
                     <img src="" class="activity__picture">
                   </a>
                 </li>
                 <li>
-                  <a href="" class="activity__name link__hover">{{  }}</a>
+                  <a :href="`/experiences/${review.experience.id}`" class="activity__name link__hover">{{ review.experience.name }}</a>
                     <p class="activity__place">{{  }} > {{  }}</p>
                 </li>
                 <li class="reviewed__at__wrapper">
