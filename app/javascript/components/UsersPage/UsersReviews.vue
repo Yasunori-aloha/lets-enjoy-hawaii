@@ -164,5 +164,6 @@ export default {
     font-weight: bold;
     min-height: calc(100vh - 386);
     padding-bottom: 17px;
+    margin-top: 17px;
   }
 </style>
