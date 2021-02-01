@@ -21,6 +21,16 @@
                     {{  }}
                 </li>
               </ul>
+              <div>
+                <h2 class="review__title">{{  }}</h2>
+                <div class="review__score__wrapper">
+                  <div class="star__rating">
+                    <div class="star__rating__front">★★★★★</div>
+                    <div class="star__rating__back">★★★★★</div>
+                  </div>
+                  <span class="rating__point">{{  }}</span>
+                </div>
+              </div>
             </div>
           </li>
         </ul>
@@ -96,6 +106,37 @@ export default {
   .reviewed__at__wrapper{
     font-size: 14px;
     margin: 0 0 0 auto;
+  }
+/* 口コミタイトル表示欄 */
+  .review__title{
+    font-weight: bold;
+  }
+/* 口コミ点数表示欄 */
+  .review__score__wrapper{
+    margin-top: 2px;
+    display: flex;
+  }
+  .star__rating{
+    margin-right: 6px;
+    width: 5em;
+    line-height: 22px;
+    font-size: 22px;
+    position: relative;
+  }
+  .star__rating__front{
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      color: #ffa500;
+  }
+  .star__rating__back{
+      color: #808080;
+  }
+  .rating__point{
+    color: black;
+    font-weight: bold;
+    line-height: 26px;
   }
 /* 訪問記録がなかった場合の文字 */
   .not__contents{
