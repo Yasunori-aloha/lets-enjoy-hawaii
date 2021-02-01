@@ -22,7 +22,7 @@
                 </li>
               </ul>
               <div>
-                <h2 class="review__title">{{  }}</h2>
+                <h2 class="review__title">{{ review.title }}</h2>
                 <div class="review__score__wrapper">
                   <div class="star__rating">
                     <div class="star__rating__front">★★★★★</div>
@@ -33,7 +33,7 @@
               </div>
               <span class="triangle">▲</span>
               <div class="review__comment__area">
-                <span class="review__comment">{{  }}</span>
+                <span class="review__comment">{{ review.comment }}</span>
               </div>
             </div>
           </li>
