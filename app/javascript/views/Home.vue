@@ -61,7 +61,7 @@ export default {
 
 <style scoped>
   .search__wrapper{
-    background: url('/assets/toppage.jpg');
+    background-image: url('../../../public/images/toppage.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

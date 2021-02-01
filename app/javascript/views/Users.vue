@@ -68,7 +68,7 @@ export default {
 /* 背景 */
   .my__page__image{
     background-attachment: fixed;
-    background-image: url('/assets/mypage_image.jpg');
+    background-image: url('../../../public/images/mypage_image.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;

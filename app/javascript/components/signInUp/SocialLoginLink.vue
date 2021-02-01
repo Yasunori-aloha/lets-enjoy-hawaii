@@ -7,7 +7,7 @@
       </li>
       <li id="facebook__login">
         <a href="/users/auth/facebook" rel="nofollow" data-method="post" class="social__login__link">
-          <img src="/assets/f_logo_RGB-Blue_58.png" height="30px" width="30px">
+          <img :src="FBImage" height="30px" width="30px">
         </a>
       </li>
     </ul>
@@ -16,7 +16,11 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      FBImage: require('../../../assets/images/f_logo_RGB-Blue_58.png'),
+    }
+  },
 };
 </script>
 

@@ -1,13 +1,18 @@
 <template>
   <div class='search__header'>
-    <img src="/assets/glass_icon.png" alt="虫眼鏡アイコン" class="glass__icon">
+    <img :src="searchGlassImage" alt="虫眼鏡アイコン" class="glass__icon">
     <b class="header__name">{{ searchHeaderName }}</b>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['searchHeaderName']
+  props: ['searchHeaderName'],
+  data() {
+    return {
+      searchGlassImage: require('../../assets/images/glass_icon.png'),
+    }
+  },
 };
 </script>
 

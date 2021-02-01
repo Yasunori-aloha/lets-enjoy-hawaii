@@ -1,7 +1,7 @@
 <template>
   <div class="my__page__main__right">
     <div class="my__page__user__info__head">
-      <img src="/assets/no_image.jpg" alt="no_image"  class="my__page__user__image">
+      <img :src="getUserImage(userData.image_url)" alt="no_image"  class="my__page__user__image">
       <div class="my__page__user__name__area">
         <p class="my__page__user__name1">{{ userData.name }}</p>
         <span class="my__page__user__name2">さんのマイページ</span>
@@ -18,6 +18,20 @@ export default {
   computed: {
     userData() {
       return this.$store.getters.userData;
+    },
+  },
+  data() {
+    return {
+      noImage: require('../../../assets/images/no_image.jpg')
+    }
+  },
+  methods: {
+    getUserImage(imageUrl) {
+      if (imageUrl !== 'null') {
+        return imageUrl;
+      } else {
+        return this.noImage;
+      }
     },
   },
 };

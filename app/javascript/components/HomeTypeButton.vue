@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     getImagePath(typeImage) {
-      return `/assets/${typeImage}.png`
+      return require(`../../assets/images/${typeImage}.png`)
     }
   },
 };
