@@ -13,6 +13,7 @@ export default new Vuex.Store({
       email: null,
       introduce: null,
       admin: null,
+      image_url: null,
       accessToken: null,
       client: null,
       uid: null,
@@ -68,6 +69,7 @@ export default new Vuex.Store({
         email:  localStorage.getItem('email'),
         introduce:  localStorage.getItem('introduce'),
         admin:  localStorage.getItem('admin'),
+        image_url:  localStorage.getItem('image_url'),
       };
       const userTokens = {
         'access-token':  localStorage.getItem('access-token'),
