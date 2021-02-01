@@ -20,9 +20,9 @@
           <li class="image__field">
             <label for="user_image" class="text__top">アイコン画像</label>
             <label for="user_image">
-              <img :src="getUserImage(userData.image_url)" class="user__image">
+              <img :src="imageUrl" class="user__image">
             </label>
-            <input id="user_image" type="file" name="user[image]" class="hidden">
+            <input  @change="imagePreview()" ref="imagePreview" id="user_image" type="file" name="user[image]" class="hidden">
           </li>
         </ul>
         <button @click.prevent="updateUserData()" class="button__cv update__btn btn__hover">更新する</button>
@@ -40,21 +40,25 @@ export default {
   },
   data() {
     return {
-      noImage: require('../../../assets/images/no_image.jpg')
+      imageUrl: require('../../../assets/images/no_image.jpg'),
     }
   },
   computed: {
     userData() {
       return this.$store.getters.userData;
     },
+    getUserImageURL() {
+      if (this.userData.image_url !== 'null') {
+        return this.imageUrl = this.userData.image_url;
+      }
+    },
   },
   methods: {
-    getUserImage(imageUrl) {
-      if (imageUrl !== 'null') {
-        return imageUrl;
-      } else {
-        return this.noImage;
-      }
+    imagePreview() {
+      const image = this.$refs.imagePreview.files[0];
+      console.log(this.$refs.imagePreview.value);
+      this.imageUrl = URL.createObjectURL(image);
+      this.$refs.imagePreview.value = '';
     },
     updateUserData() {
       console.log('test');
