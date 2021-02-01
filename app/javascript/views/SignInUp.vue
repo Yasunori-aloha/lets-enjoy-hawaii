@@ -27,7 +27,7 @@ export default {
 
 <style scoped>
   .sign__in__up__wrapper{
-    background: url('/assets/register_image.jpg');
+    background-image: url('../../../public/images/register_image.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
