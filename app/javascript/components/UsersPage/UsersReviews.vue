@@ -1,14 +1,19 @@
 <template>
   <div class="my__page__main__right">
     <div class="user__reviews__wrapper">
+      <UsersPageMenu currentPage="今までの口コミ" />
       <div class="user__reviews__show__area"></div>
     </div>
   </div>
 </template>
 
 <script>
-export default {
+import UsersPageMenu from '../UsersPage/UsersPageMenu.vue';
 
+export default {
+  components: {
+    UsersPageMenu,
+  },
 };
 </script>
 
