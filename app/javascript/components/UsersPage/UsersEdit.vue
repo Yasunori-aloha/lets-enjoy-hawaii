@@ -9,7 +9,10 @@
             <label for="user_name">お名前</label>
             <input id="user_name" type="text" name="user[name]" autocomplete="name"  class="edit__user__form">
           </li>
-          <li class="input__field"></li>
+          <li class="input__field">
+            <label for="user_email">メールアドレス</label>
+            <input id="user_email" type="text" name="user[email]" autocomplete="email" autocorrect="off" autocapitalize="off" class="edit__user__form">
+          </li>
           <li class="input__field"></li>
         </ul>
       </form>
