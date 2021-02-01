@@ -14,8 +14,8 @@
             <ul class="my__page__side__menu__list">
               <router-link :to="`/users/${userData.id}/edit`" tag="li" class="my__page__side__menu">会員情報の確認・変更</router-link>
               <router-link tag="li" :to="`/users/${userData.id}/favorites`"class="my__page__side__menu">お気に入りした場所</router-link>
-              <router-link tag="li" :to="`/users/${userData.id}/histories`"class="my__page__side__menu">今までの口コミ</router-link>
-              <router-link tag="li" :to="`/users/${userData.id}/reviews`"class="my__page__side__menu">行った場所</router-link>
+              <router-link tag="li" :to="`/users/${userData.id}/reviews`"class="my__page__side__menu">今までの口コミ</router-link>
+              <router-link tag="li" :to="`/users/${userData.id}/histories`"class="my__page__side__menu">行った場所</router-link>
             </ul>
           </div>
         </div>
@@ -60,9 +60,6 @@ export default {
         return 0;
       }
     },
-  },
-  created() {
-    console.log(/\/users\/\d/.test(this.$route.path));
   },
 };
 </script>
