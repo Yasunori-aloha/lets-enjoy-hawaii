@@ -12,7 +12,7 @@
         <div class="my__page__main__left">
           <div class="my__page__side__menu__wrapper">
             <ul class="my__page__side__menu__list">
-              <li class="my__page__side__menu">会員情報の確認・変更</li>
+              <router-link :to="`/users/${userData.id}/edit`" tag="li" class="my__page__side__menu">会員情報の確認・変更</router-link>
               <li @click="toFavoritesList()" class="my__page__side__menu">お気に入りした場所</li>
               <li @click="toReviewsList()" class="my__page__side__menu">今までの口コミ</li>
               <li @click="toHistoriesList()" class="my__page__side__menu">行った場所</li>
