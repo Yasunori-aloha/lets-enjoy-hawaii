@@ -61,6 +61,9 @@ export default {
       }
     },
   },
+  created() {
+    console.log(/\/users\/\d/.test(this.$route.path));
+  },
 };
 </script>
 

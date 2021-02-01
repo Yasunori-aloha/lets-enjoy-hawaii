@@ -59,7 +59,7 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    autoLogin({ commit }) {
+    autoLogin({ commit, dispatch }) {
       const userData = {
         id:  localStorage.getItem('id'),
         name:  localStorage.getItem('name'),
@@ -73,7 +73,8 @@ export default new Vuex.Store({
         uid:  localStorage.getItem('uid'),
       };
       if (!userTokens) return;
-      commit('updateUser', { userData: userData, userToken: userTokens })
+      commit('updateUser', { userData: userData, userToken: userTokens });
+      dispatch('toUsersPage', userData.id);
     },
     userSignUp: async function({ commit }, signUpForms) {
       return await axios.post('/api/v1/auth',
