@@ -11,6 +11,7 @@ class Api::HistoriesController < ApplicationController
 
   # 訪問記録へのコメント保存
   def update
+    binding.pry
     History.find(params[:id]).update(comment: params[:history][:comment])
 
     render json: @favorite

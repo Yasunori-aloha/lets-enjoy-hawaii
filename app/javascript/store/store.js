@@ -167,11 +167,8 @@ export default new Vuex.Store({
       });
     },
     updateHistoryComment: async function({}, params) {
-      await axios.patch(`/api/v1/users/${params.userId}/histories/${params.historyId}`,{
-        history: {
-          comment: params.comment[params.index],
-        },
-      })
+      // console.log(params.formData);
+      await axios.patch(`/api/v1/users/${params.userId}/histories/${params.historyId}`, params.formData)
       .then(response => {
         this.state.userHistories[params.index].attributes.comment = response.data.data.attributes.comment;
       });

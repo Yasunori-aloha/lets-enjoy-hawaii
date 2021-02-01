@@ -28,8 +28,8 @@
                 {{ history.experience.histories_counts }}
               </span>
               <form>
-                <label for="favorite_comment" class="activity__comment__info">コメント ※個人情報は入力しないでください</label>
-                <textarea v-model="comment[index]" id="favorite_comment" name="favorite[comment]" maxlength="30" placeholder="ここにコメントを書くと便利です。（全角30文字以内・改行は受け付けません）" class="activity__comment"></textarea>
+                <label for="history_comment" class="activity__comment__info">コメント ※個人情報は入力しないでください</label>
+                <textarea v-model="history.comment" id="history_comment" name="history[comment]" maxlength="30" placeholder="ここにコメントを書くと便利です。（全角30文字以内・改行は受け付けません）" class="activity__comment"></textarea>
                 <div class="save__btn">
                   <i class="fas fa-check check__mark"></i>
                   <span class="save__message">保存する</span>
@@ -73,12 +73,13 @@ export default {
       return `https://maps.googleapis.com/maps/api/streetview?size=800x600&location=${history.experience.latitude},${history.experience.longitude}&heading=${history.experience.heading}&pitch=${history.experience.pitch}&fov=${history.experience.fov}&zoom=${history.experience.zoom}&key=${process.env.GOOGLE_STREET_VIEW_KEY}`;
     },
     updateHistoryComment: async function(history, index) {
-      await this.$store.dispatch('updateHistoryComment', { userId: this.userData.id, historyId: history.id, comment: this.comment, index: index });
+      let formData = new FormData();
+      formData.append('history[comment]', history.comment);
+      await this.$store.dispatch('updateHistoryComment', { userId: this.userData.id, historyId: history.id, formData });
     },
   },
   created() {
     this.userHistories.forEach((e, index) => {
-      this.comment.push(e.comment);
       if ((index + 1) % 3 !== 0) {
         this.isNotRight.push(true);
       } else {
