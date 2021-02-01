@@ -9,7 +9,7 @@
               <ul class="review__info__wrapper">
                 <li>
                   <a :href="`/experiences/${review.experience.id}`">
-                    <img src="" class="activity__picture">
+                    <img :src="reviewActivityImage(review)" class="activity__picture">
                   </a>
                 </li>
                 <li>
@@ -61,6 +61,9 @@ export default {
   methods: {
     reviewTime(review) {
       return review.created_at.slice(0, 10).replace(/-/g, '/');
+    },
+    reviewActivityImage(review) {
+      return `https://maps.googleapis.com/maps/api/streetview?size=800x600&location=${review.experience.latitude},${review.experience.longitude}&heading=${review.experience.heading}&pitch=${review.experience.pitch}&fov=${review.experience.fov}&zoom=${review.experience.zoom}&key=${process.env.GOOGLE_STREET_VIEW_KEY}`;
     },
     scoreToFixed(review) {
       return review.score.toFixed(1)
