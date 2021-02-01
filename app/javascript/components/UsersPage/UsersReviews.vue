@@ -25,7 +25,7 @@
                 <h2 class="review__title">{{ review.title }}</h2>
                 <div class="review__score__wrapper">
                   <div class="star__rating">
-                    <div class="star__rating__front">★★★★★</div>
+                    <div :style="starRatingWidth(review)" class="star__rating__front">★★★★★</div>
                     <div class="star__rating__back">★★★★★</div>
                   </div>
                   <span class="rating__point">{{ scoreToFixed(review) }}</span>
@@ -64,6 +64,11 @@ export default {
     },
     reviewActivityImage(review) {
       return `https://maps.googleapis.com/maps/api/streetview?size=800x600&location=${review.experience.latitude},${review.experience.longitude}&heading=${review.experience.heading}&pitch=${review.experience.pitch}&fov=${review.experience.fov}&zoom=${review.experience.zoom}&key=${process.env.GOOGLE_STREET_VIEW_KEY}`;
+    },
+    starRatingWidth(review) {
+      return {
+        '--width': `${review.score * 20}%`,
+      }
     },
     scoreToFixed(review) {
       return review.score.toFixed(1)
@@ -139,14 +144,16 @@ export default {
     position: relative;
   }
   .star__rating__front{
-      position: absolute;
-      top: 0;
-      left: 0;
-      overflow: hidden;
-      color: #ffa500;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    color: #ffa500;
+    /* 口コミの点数によって動的に変更される。 */
+    width: var(--width);
   }
   .star__rating__back{
-      color: #808080;
+    color: #808080;
   }
   .rating__point{
     color: black;
