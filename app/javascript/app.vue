@@ -32,7 +32,7 @@ export default {
   .btn__hover:hover{
     background-color: #ffa500;
   }
-  .button_cv{
+  .button__cv{
   height: 50px;
   border: none;
   outline: 0;

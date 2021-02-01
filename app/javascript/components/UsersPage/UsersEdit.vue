@@ -25,6 +25,7 @@
             <input id="user_image" type="file" name="user[image]" class="hidden">
           </li>
         </ul>
+        <button class="button__cv update__btn btn__hover">更新する</button>
       </form>
     </div>
   </div>
@@ -88,5 +89,15 @@ export default {
     border-radius: 10px;
     border: 1px solid gray;
     cursor: pointer;
+  }
+  .hidden{
+    display: none;
+  }
+  .update__btn{
+    height: 54px;
+    width: 300px;
+    font-size: 18px;
+    margin: 17px 199px;
+    background-color: #90b200;
   }
 </style>
