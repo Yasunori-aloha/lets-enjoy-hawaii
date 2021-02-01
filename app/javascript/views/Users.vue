@@ -14,7 +14,7 @@
             <ul class="my__page__side__menu__list">
               <li class="my__page__side__menu">会員情報の確認・変更</li>
               <li @click="toFavoritesList()" class="my__page__side__menu">お気に入りした場所</li>
-              <router-link :to="`/users/${userData.id}/reviews`" tag="li" class="my__page__side__menu">今までの口コミ</router-link>
+              <li @click="toReviewsList()" class="my__page__side__menu">今までの口コミ</li>
               <li @click="toHistoriesList()" class="my__page__side__menu">行った場所</li>
             </ul>
           </div>
@@ -70,6 +70,11 @@ export default {
     toHistoriesList: async function() {
       await this.$store.dispatch('toHistoriesList', this.userData.id).then(() => {
         this.$router.push({ path: `/users/${this.userData.id}/histories`});
+      });
+    },
+    toReviewsList: async function() {
+      await this.$store.dispatch('toReviewsList', this.userData.id).then(() => {
+        this.$router.push({ path: `/users/${this.userData.id}/reviews`});
       });
     },
   },
