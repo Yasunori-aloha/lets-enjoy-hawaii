@@ -17,7 +17,8 @@
                     <p class="activity__place">{{  }} > {{  }}</p>
                 </li>
                 <li class="reviewed__at__wrapper">
-                    <p></p>
+                    <p >投稿日：</p>
+                    {{  }}
                 </li>
               </ul>
             </div>
@@ -93,7 +94,8 @@ export default {
   }
 /* 口コミ投稿日情報欄 */
   .reviewed__at__wrapper{
-
+    font-size: 14px;
+    margin: 0 0 0 auto;
   }
 /* 訪問記録がなかった場合の文字 */
   .not__contents{
