@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 import Home from '../views/Home.vue'
 import SignInUp from '../views/SignInUp.vue'
 import Users from '../views/Users.vue'
+import UsersEdit from '../components/UsersPage/UsersEdit.vue'
 import UsersFavorites from '../components/UsersPage/UsersFavorites.vue'
 import UsersReviews from '../components/UsersPage/UsersReviews.vue'
 import UsersHistories from '../components/UsersPage/UsersHistories.vue'
@@ -22,6 +23,7 @@ export default new Router({
     // マイページ
     { path: '/users/:id', component: Users,
       children: [
+        { path: 'edit', component: UsersEdit },
         { path: 'favorites', component: UsersFavorites },
         { path: 'reviews', component: UsersReviews },
         { path: 'histories', component: UsersHistories },
