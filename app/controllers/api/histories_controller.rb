@@ -3,9 +3,10 @@ class Api::HistoriesController < ApplicationController
 
   # 訪問記録へのコメント保存
   def update
-    History.find(params[:id]).update(comment: params[:history][:comment])
+    @history = History.find(params[:id])
+    @history.update(comment: params[:history][:comment])
 
-    render json: @favorite
+    render json: @history
   end
 
 end
