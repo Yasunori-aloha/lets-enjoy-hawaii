@@ -3,7 +3,11 @@
     <div class="user__reviews__wrapper">
       <UsersPageMenu currentPage="今までの口コミ" />
       <div class="user__reviews__show__area">
-        <ul v-if="reviewsIsExists" class="user__reviews__list"></ul>
+        <ul v-if="reviewsIsExists">
+          <li class="reviews__wrapper">
+            <div class="review__main__area"></div>
+          </li>
+        </ul>
         <span v-else class="not__contents">まだ口コミを投稿していません。</span>
       </div>
     </div>
@@ -39,14 +43,21 @@ export default {
     background-color: rgba(255, 255, 255, 0.75);
   }
   .user__reviews__show__area{
-    min-height: calc(100vh - 369px);
-    padding-top: 17px;
+    min-height: calc(100vh - 386px);
+    padding-bottom: 17px;
   }
 /* 訪問記録一覧 */
-  .user__reviews__list{
-    display: flex;
-    width: 742px;
-    flex-wrap: wrap;
+  .reviews__wrapper{
+    padding: 12px 0 15px;
+    color: #000000;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-top: 17px;
+  }
+  .review__main__area{
+    width: 97%;
+    margin: 0 auto;
   }
 /* 訪問記録がなかった場合の文字 */
   .not__contents{
