@@ -31,6 +31,10 @@
                   <span class="rating__point">{{  }}</span>
                 </div>
               </div>
+              <span class="triangle">▲</span>
+              <div class="review__comment__area">
+                <span class="review__comment">{{  }}</span>
+              </div>
             </div>
           </li>
         </ul>
@@ -137,6 +141,21 @@ export default {
     color: black;
     font-weight: bold;
     line-height: 26px;
+  }
+/* 口コミ本文表示欄 */
+  .triangle{
+    color: #eee;
+    margin: -5px 0 0 27px;
+    font-size: 14px;
+  }
+  .review__comment__area{
+    margin-top: -7px;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: #eee;
+  }
+  .review__comment{
+    font-size: 20px;
   }
 /* 訪問記録がなかった場合の文字 */
   .not__contents{
