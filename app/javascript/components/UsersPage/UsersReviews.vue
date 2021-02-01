@@ -13,9 +13,8 @@
                   </a>
                 </li>
                 <li>
-                  <a href="" class="activity__name link__hover link__to">
-                    <span class="activity__place"></span>
-                  </a>
+                  <a href="" class="activity__name link__hover">{{  }}</a>
+                    <p class="activity__place">{{  }} > {{  }}</p>
                 </li>
                 <li class="reviewed__at__wrapper">
                     <p></p>
@@ -85,10 +84,12 @@ export default {
     margin: 0 15px 5px 0;
   }
   .activity__name{
-
+    display: inline-block;
+    margin: 2px 0;
   }
   .activity__place{
-
+    font-size: 11px;
+    margin: 1px 0 0 1px;
   }
 /* 口コミ投稿日情報欄 */
   .reviewed__at__wrapper{
