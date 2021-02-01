@@ -18,7 +18,7 @@
                 </li>
                 <li class="reviewed__at__wrapper">
                     <p >投稿日：</p>
-                    {{  }}
+                    {{ reviewTime(review) }}
                 </li>
               </ul>
               <div>
@@ -56,6 +56,11 @@ export default {
     ...mapGetters(["userReviews"]),
     reviewsIsExists() {
       return this.userReviews !== null;
+    },
+  },
+  methods: {
+    reviewTime(review) {
+      return review.created_at.slice(0, 10).replace(/-/g, '/');
     },
   },
 };
