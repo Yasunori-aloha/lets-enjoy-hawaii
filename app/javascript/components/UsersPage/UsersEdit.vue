@@ -7,15 +7,15 @@
         <ul>
           <li class="input__field">
             <label for="user_name">お名前</label>
-            <input id="user_name" type="text" name="user[name]" autocomplete="name"  class="edit__user__form">
+            <input v-model="userData.name" id="user_name" type="text" name="user[name]" autocomplete="name" class="edit__user__form">
           </li>
           <li class="input__field">
             <label for="user_email">メールアドレス</label>
-            <input id="user_email" type="text" name="user[email]" autocomplete="email" autocorrect="off" autocapitalize="off" class="edit__user__form">
+            <input v-model="userData.email" id="user_email" type="text" name="user[email]" autocomplete="email" autocorrect="off" autocapitalize="off" class="edit__user__form">
           </li>
           <li class="input__field">
             <label for="user_introduce" class="text__top">自己紹介</label>
-            <textarea id="user_introduce" name="user[introduce]" cols="64" rows="8" class="edit__user__form"></textarea>
+            <textarea v-model="userData.introduce" id="user_introduce" name="user[introduce]" cols="64" rows="8" class="edit__user__form"></textarea>
           </li>
           <li class="image__field">
             <label for="user_image" class="text__top">アイコン画像</label>
@@ -38,6 +38,11 @@ export default {
   components: {
     UsersPageMenu,
   },
+  computed: {
+    userData() {
+      return this.$store.getters.userData;
+    },
+  }
 };
 </script>
 
