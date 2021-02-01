@@ -1,6 +1,7 @@
 <template>
   <div class="my__page__main__right">
     <div class="user__edit__wrapper">
+      <UsersPageMenu currentPage="会員情報の確認・変更" />
       <p class="guest__user__alert"></p>
       <form action="" class="edit__user"></form>
     </div>
@@ -8,8 +9,12 @@
 </template>
 
 <script>
-export default {
+import UsersPageMenu from '../UsersPage/UsersPageMenu.vue';
 
+export default {
+  components: {
+    UsersPageMenu,
+  },
 };
 </script>
 
