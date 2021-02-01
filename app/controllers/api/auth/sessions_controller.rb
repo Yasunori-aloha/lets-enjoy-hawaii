@@ -13,5 +13,10 @@ module Overrides
       render_create_success
     end
 
+    protected
+
+    def render_create_success
+      render json: UserSerializer.new(@resource, login_or_signup?: true).to_json
+    end
   end
 end

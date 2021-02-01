@@ -48,6 +48,9 @@ export default {
       console.log('test');
     },
   },
+  created() {
+    console.log(this.userData);
+  },
 };
 </script>
 

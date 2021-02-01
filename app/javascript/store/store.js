@@ -36,6 +36,7 @@ export default new Vuex.Store({
       state.user.email = userData.email;
       state.user.introduce = userData.introduce;
       state.user.admin = userData.admin;
+      state.user.image_url = userData.image_url;
       state.user.accessToken = userToken['access-token'];
       state.user.client = userToken.client;
       state.user.uid = userToken.uid;
@@ -46,6 +47,7 @@ export default new Vuex.Store({
       localStorage.setItem('email', userData.email);
       localStorage.setItem('introduce', userData.introduce);
       localStorage.setItem('admin', userData.admin);
+      localStorage.setItem('image_url', userData.image_url);
       localStorage.setItem('access-token', userToken['access-token']);
       localStorage.setItem('client', userToken.client);
       localStorage.setItem('uid', userToken.uid);
@@ -72,9 +74,10 @@ export default new Vuex.Store({
         client:  localStorage.getItem('client'),
         uid:  localStorage.getItem('uid'),
       };
-      if (!userTokens) return;
-      commit('updateUser', { userData: userData, userToken: userTokens });
-      dispatch('toUsersPage', userData.id);
+      if (userTokens['access-token']) {
+        commit('updateUser', { userData: userData, userToken: userTokens });
+        dispatch('toUsersPage', userData.id);
+      }
     },
     userSignUp: async function({ commit }, signUpForms) {
       return await axios.post('/api/v1/auth',
@@ -85,8 +88,8 @@ export default new Vuex.Store({
         password_confirmation: signUpForms[3].input,
       })
       .then(response => {
-        commit('updateUser', { userData: response.data.data, userToken: response.headers });
-        commit('updateLocalStorage', { userData: response.data.data, userToken: response.headers });
+        commit('updateUser', { userData: response.data, userToken: response.headers });
+        commit('updateLocalStorage', { userData: response.data, userToken: response.headers });
       });
     },
     isRegisterd: async function({}, email) {
@@ -101,16 +104,16 @@ export default new Vuex.Store({
         password: loginForms[1].input,
       })
       .then(response => {
-        commit('updateUser', { userData: response.data.data, userToken: response.headers });
-        commit('updateLocalStorage', { userData: response.data.data, userToken: response.headers });
+        commit('updateUser', { userData: response.data, userToken: response.headers });
+        commit('updateLocalStorage', { userData: response.data, userToken: response.headers });
       });
     },
     guestUserLogin: async function({ commit }) {
       return await axios.post(
         '/api/v1/auth/guest_sign_in',
         ).then(response => {
-          commit('updateUser', { userData: response.data.data, userToken: response.headers });
-          commit('updateLocalStorage', { userData: response.data.data, userToken: response.headers });
+          commit('updateUser', { userData: response.data, userToken: response.headers });
+          commit('updateLocalStorage', { userData: response.data, userToken: response.headers });
         });
     },
     logout({ commit }) {
@@ -131,6 +134,10 @@ export default new Vuex.Store({
           email: null,
           introduce: null,
           admin: null,
+          image_url: null,
+          userReviews: null,
+          userFavorites: null,
+          userHistories: null,
         };
         const userTokens = {
           'access-token': null,
@@ -143,6 +150,7 @@ export default new Vuex.Store({
         localStorage.removeItem('email');
         localStorage.removeItem('introduce');
         localStorage.removeItem('admin');
+        localStorage.removeItem('image_url');
         localStorage.removeItem('access-token');
         localStorage.removeItem('client');
         localStorage.removeItem('uid');
