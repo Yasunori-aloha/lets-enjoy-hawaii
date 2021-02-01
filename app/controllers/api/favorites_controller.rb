@@ -1,13 +1,7 @@
 class Api::FavoritesController < ApplicationController
-  before_action :authenticate_user!, only: %i[index update]
+  before_action :authenticate_user!, only: :update
 
-  def index
-    user_is_current_user?(params)
-    @favorites = Favorite.preload([{ experience: :favorites }, { experience: :area }]).where(user_id: current_user.id).order('created_at DESC')
-
-    render json: ActiveModel::Serializer::CollectionSerializer.new(@favorites, user_favorites_page?: true).to_json
-  end
-
+  # お気に入り記録へのコメント保存
   def update
     @favorite = Favorite.find(params[:id])
     @favorite.update(comment: params[:favorite][:comment])
