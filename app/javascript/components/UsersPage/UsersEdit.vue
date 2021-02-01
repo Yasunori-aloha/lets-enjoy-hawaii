@@ -20,7 +20,7 @@
           <li class="image__field">
             <label for="user_image" class="text__top">アイコン画像</label>
             <label for="user_image">
-              <img src="" class="user__image">
+              <img :src="getUserImage(userData.image_url)" class="user__image">
             </label>
             <input id="user_image" type="file" name="user[image]" class="hidden">
           </li>
@@ -38,18 +38,27 @@ export default {
   components: {
     UsersPageMenu,
   },
+  data() {
+    return {
+      noImage: require('../../../assets/images/no_image.jpg')
+    }
+  },
   computed: {
     userData() {
       return this.$store.getters.userData;
     },
   },
   methods: {
+    getUserImage(imageUrl) {
+      if (imageUrl !== 'null') {
+        return imageUrl;
+      } else {
+        return this.noImage;
+      }
+    },
     updateUserData() {
       console.log('test');
     },
-  },
-  created() {
-    console.log(this.userData);
   },
 };
 </script>
