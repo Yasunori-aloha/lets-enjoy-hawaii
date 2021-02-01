@@ -187,5 +187,11 @@ export default new Vuex.Store({
         this.state.userHistories[params.index].attributes.comment = response.data.data.attributes.comment;
       });
     },
+    toReviewsList: async function({}, userId) {
+      await axios.get(`/api/v1/users/${userId}/reviews`)
+      .then(response => {
+        this.state.userReviews = response.data;
+      });
+    },
   }
 });
