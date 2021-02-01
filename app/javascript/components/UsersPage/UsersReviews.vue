@@ -14,7 +14,7 @@
                 </li>
                 <li>
                   <a :href="`/experiences/${review.experience.id}`" class="activity__name link__hover">{{ review.experience.name }}</a>
-                    <p class="activity__place">{{  }} > {{  }}</p>
+                    <p class="activity__place">{{ review.experience.area.island.name }} > {{ review.experience.area.name }}</p>
                 </li>
                 <li class="reviewed__at__wrapper">
                     <p >投稿日：</p>
