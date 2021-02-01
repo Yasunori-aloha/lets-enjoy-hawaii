@@ -28,7 +28,7 @@
                     <div class="star__rating__front">★★★★★</div>
                     <div class="star__rating__back">★★★★★</div>
                   </div>
-                  <span class="rating__point">{{  }}</span>
+                  <span class="rating__point">{{ scoreToFixed(review) }}</span>
                 </div>
               </div>
               <span class="triangle">▲</span>
@@ -61,6 +61,9 @@ export default {
   methods: {
     reviewTime(review) {
       return review.created_at.slice(0, 10).replace(/-/g, '/');
+    },
+    scoreToFixed(review) {
+      return review.score.toFixed(1)
     },
   },
 };
