@@ -13,7 +13,10 @@
             <label for="user_email">メールアドレス</label>
             <input id="user_email" type="text" name="user[email]" autocomplete="email" autocorrect="off" autocapitalize="off" class="edit__user__form">
           </li>
-          <li class="input__field"></li>
+          <li class="input__field">
+            <label for="user_introduce" class="text__top">自己紹介</label>
+            <textarea id="user_introduce" name="user[introduce]" cols="64" rows="8" class="edit__user__form"></textarea>
+          </li>
         </ul>
       </form>
     </div>
@@ -53,6 +56,7 @@ export default {
     padding-top: 17px;
     text-align: end;
   }
+/* ユーザー情報入力欄 */
   .input__field{
     width: 100%;
     margin-bottom: 10px;
@@ -63,5 +67,8 @@ export default {
     border: 1px solid gray;
     border-radius: 6px;
     padding: 5px;
+  }
+  .text__top{
+    vertical-align: top;
   }
 </style>
