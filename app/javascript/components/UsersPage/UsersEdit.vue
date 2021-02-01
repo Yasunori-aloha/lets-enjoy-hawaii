@@ -25,7 +25,7 @@
             <input id="user_image" type="file" name="user[image]" class="hidden">
           </li>
         </ul>
-        <button class="button__cv update__btn btn__hover">更新する</button>
+        <button @click.prevent="updateUserData()" class="button__cv update__btn btn__hover">更新する</button>
       </form>
     </div>
   </div>
@@ -42,7 +42,12 @@ export default {
     userData() {
       return this.$store.getters.userData;
     },
-  }
+  },
+  methods: {
+    updateUserData() {
+      console.log('test');
+    },
+  },
 };
 </script>
 
