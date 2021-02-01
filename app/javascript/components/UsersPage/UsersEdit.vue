@@ -17,6 +17,13 @@
             <label for="user_introduce" class="text__top">自己紹介</label>
             <textarea id="user_introduce" name="user[introduce]" cols="64" rows="8" class="edit__user__form"></textarea>
           </li>
+          <li class="image__field">
+            <label for="user_image" class="text__top">アイコン画像</label>
+            <label for="user_image">
+              <img src="" class="user__image">
+            </label>
+            <input id="user_image" type="file" name="user[image]" class="hidden">
+          </li>
         </ul>
       </form>
     </div>
@@ -70,5 +77,16 @@ export default {
   }
   .text__top{
     vertical-align: top;
+  }
+  .image__field{
+    text-align: left;
+    padding-left: 20px;
+  }
+  .user__image{
+    height: 150px;
+    width: 150px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    cursor: pointer;
   }
 </style>
