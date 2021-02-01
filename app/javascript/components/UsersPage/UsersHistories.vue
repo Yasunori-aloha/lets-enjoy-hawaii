@@ -4,7 +4,7 @@
       <UsersPageMenu currentPage="行った場所" />
       <div class="user__histories__show__area">
         <ul v-if="historyIsExists" class="user__histories__list">
-          <li v-for="(history, index) in userHistories" class="history__wrapper" :class="{history__margin__right: isNotRight[index] }">
+          <li v-for="(history, index) in userHistories" class="history__wrapper" :style="isNotRight(index + 1)">
             <div class="history__info">
               <ul class="history__time">
                 <li>登録日：</li>
@@ -53,11 +53,6 @@ export default {
   components: {
     UsersPageMenu,
   },
-  data() {
-    return {
-      isNotRight: [],
-    }
-  },
   computed: {
     ...mapGetters(["userData", "userHistories"]),
     historyIsExists() {
@@ -65,6 +60,17 @@ export default {
     },
   },
   methods: {
+    isNotRight(index) {
+      if (index % 3 !== 0) {
+        return {
+          '--margin-right': '8px',
+          };
+      } else {
+        return {
+          '--margin-right': '0px'
+        };
+      }
+    },
     historyTime(history) {
       return history.created_at.slice(0, 10).replace(/-/g, '/');
     },
@@ -76,15 +82,6 @@ export default {
       formData.append('history[comment]', history.comment);
       await this.$store.dispatch('updateHistoryComment', { userId: this.userData.id, historyId: history.id, formData });
     },
-  },
-  created() {
-    this.userHistories.forEach((e, index) => {
-      if ((index + 1) % 3 !== 0) {
-        this.isNotRight.push(true);
-      } else {
-        this.isNotRight.push(false);
-      }
-    });
   },
 };
 </script>
@@ -117,9 +114,8 @@ export default {
     margin-bottom: 17px;
     word-spacing: 0px;
     background-color: #fff;
-  }
-  .history__margin__right{
-    margin-right: 8px;
+    /* 右端じゃなければ'8px'付与する。 */
+    margin-right: var(--margin-right);
   }
   .history__info{
     height: 36px;

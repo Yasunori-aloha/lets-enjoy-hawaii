@@ -4,7 +4,7 @@
       <UsersPageMenu currentPage="お気に入りした場所" />
       <div class="user__favorites__show__area">
         <ul v-if="favoriteIsExists" class="user__favorites__list">
-          <li v-for="(favorite, index) in userFavorites" class="favorite__wrapper" :class="{favorite__margin__right: isNotRight[index] }">
+          <li v-for="(favorite, index) in userFavorites" class="favorite__wrapper" :style="isNotRight(index + 1)">
             <div class="favorite__info">
               <ul class="favorite__time">
                 <li>登録日：</li>
@@ -52,11 +52,6 @@ export default {
   components: {
     UsersPageMenu,
   },
-  data() {
-    return {
-      isNotRight: [],
-    }
-  },
   computed: {
     ...mapGetters(["userData", "userFavorites"]),
     favoriteIsExists() {
@@ -64,6 +59,17 @@ export default {
     },
   },
   methods: {
+    isNotRight(index) {
+      if (index % 3 !== 0) {
+        return {
+          '--margin-right': '8px',
+          };
+      } else {
+        return {
+          '--margin-right': '0px'
+        };
+      }
+    },
     favoriteTime(favorite) {
       return favorite['created_at'].slice(0, 10).replace(/-/g, '/');
     },
@@ -75,16 +81,6 @@ export default {
       formData.append('favorite[comment]', favorite.comment);
       await this.$store.dispatch('updateFavoriteComment', { userId: this.userData.id, favoriteId: favorite.id, comment: favorite.comment, formData });
     },
-  },
-  created() {
-    // お気に入りのコメントを抽出して右端以外のお気に入りに'margin-right'を付与する。
-    this.userFavorites.forEach( (e, index) => {
-      if ((index + 1) % 3 !== 0) {
-        this.isNotRight.push(true);
-      } else {
-        this.isNotRight.push(false);
-      }
-    });
   },
 };
 </script>
@@ -116,9 +112,8 @@ export default {
   margin-bottom: 17px;
   word-spacing: 0px;
   background-color: #fff;
-}
-.favorite__margin__right{
-  margin-right: 8px;
+  /* 右端じゃなければ'8px'付与する。 */
+  margin-right: var(--margin-right);
 }
 .favorite__info{
   height: 36px;
