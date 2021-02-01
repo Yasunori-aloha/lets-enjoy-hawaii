@@ -158,14 +158,14 @@ export default new Vuex.Store({
     },
     updateFavoriteComment: async function({}, params) {
       await axios.patch(`/api/v1/users/${params.userId}/favorites/${params.favoriteId}`, params.formData)
-      .then(response => {
-        this.state.userFavorites[params.index].attributes.comment = response.data.data.attributes.comment;
+      .catch(error => {
+        console.log(error.response.data);
       });
     },
     updateHistoryComment: async function({}, params) {
       await axios.patch(`/api/v1/users/${params.userId}/histories/${params.historyId}`, params.formData)
-      .then(response => {
-        this.state.userHistories[params.index].attributes.comment = response.data.data.attributes.comment;
+      .catch(error => {
+        console.log(error.response.data);
       });
     },
   }
