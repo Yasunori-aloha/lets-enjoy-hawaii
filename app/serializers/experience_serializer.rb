@@ -10,11 +10,8 @@ class ExperienceSerializer < ActiveModel::Serializer
 
   belongs_to :area
 
-  # お気に入り一覧ページでのみ取得する。
-  attribute  :favorite_counts,        unless: :user_histories_page?
-
-  # 訪問記録一覧ページでのみ取得する。
-  attribute  :histories_counts,       unless: :user_favorites_page?
+  attribute  :favorite_counts
+  attribute  :histories_counts
 
   # アクティビティ詳細ページでのみ取得する。
   attribute  :outline,                if: :show_experiences?
@@ -31,16 +28,8 @@ class ExperienceSerializer < ActiveModel::Serializer
     @instance_options.key?(:show_experiences)
   end
 
-  def user_favorites_page?
-    @instance_options[:user_favorites_page?]
-  end
-
   def favorite_counts
     object.favorites.length
-  end
-
-  def user_histories_page?
-    @instance_options[:user_histories_page?]
   end
 
   def histories_counts

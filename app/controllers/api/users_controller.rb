@@ -6,6 +6,13 @@ class Api::UsersController < ApplicationController
   def show
     # 自分のじゃないマイページに遷移しようとしていたらトップページへリダイレクトする。
     user_is_current_user?(params)
-    render json: @user, methods: [:image_url]
+    @user = User.includes([
+      { favorites: { experience: :area }},
+      { histories: { experience: :histories }},
+      { histories: { experience: :favorites }},
+      { histories: { experience: :area }},
+      { reviews: :experience }
+      ]).find(current_user.id)
+    render json: UserSerializer.new(@user, is_user_page?: true).to_json
   end
 end
