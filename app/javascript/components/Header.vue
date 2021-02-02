@@ -36,9 +36,12 @@ export default {
   },
   methods: {
     toUsersPage: async function() {
-      await this.$store.dispatch('toUsersPage', this.userData.id).then(() => {
-        this.$router.push({ path: `/users/${this.userData.id}`});
-      });
+      const isNotUsersHomePage = !(/^\/users\/\d{1,}$/.test(this.$route.path));
+      if (isNotUsersHomePage) {
+        await this.$store.dispatch('toUsersPage', this.userData.id).then(() => {
+          this.$router.push({ path: `/users/${this.userData.id}`});
+        });
+      }
     },
     userLogout: async function() {
       const isUsersPage = /\/users\/\d/.test(this.$route.path);
