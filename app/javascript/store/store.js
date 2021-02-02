@@ -168,7 +168,14 @@ export default new Vuex.Store({
       });
     },
     toUsersPage: async function({}, userId) {
-      await axios.get(`/api/v1/users/${userId}`)
+      await axios.get(`/api/v1/users/${userId}`,
+      {
+        headers: {
+          'access-token': localStorage.getItem('access-token'),
+          'client': localStorage.getItem('client'),
+          'uid': localStorage.getItem('uid'),
+        }
+      })
       .then(response => {
         this.state.userReviews = response.data.reviews;
         this.state.userFavorites = response.data.favorites;
