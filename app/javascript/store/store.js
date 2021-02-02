@@ -178,5 +178,19 @@ export default new Vuex.Store({
         console.log(error.response.data);
       });
     },
+    updateUserData({}, formData) {
+      axios.put('/api/v1/auth', formData,
+      {
+        headers: {
+          'content-type': 'multipart/form-data'
+        }
+      }
+      ).then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error.response.data);
+      });
+    },
   }
 });

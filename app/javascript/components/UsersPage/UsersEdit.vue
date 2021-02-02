@@ -22,7 +22,7 @@
             <label for="user_image">
               <img :src="imageUrl" class="user__image">
             </label>
-            <input  @change="imagePreview()" ref="imagePreview" id="user_image" type="file" name="user[image]" class="hidden">
+            <input  @change="imagePreview()" ref="imagePreview" id="user_image" type="file" accept="image/*" name="user[image]" class="hidden">
           </li>
         </ul>
         <button @click.prevent="updateUserData()" class="button__cv update__btn btn__hover">更新する</button>
@@ -40,8 +40,9 @@ export default {
   },
   data() {
     return {
-      imageUrl: require('../../../assets/images/no_image.jpg'),
       checkGuestUser: false,
+      imageUrl: require('../../../assets/images/no_image.jpg'),
+      imageFile: null,
     }
   },
   computed: {
@@ -55,9 +56,12 @@ export default {
     },
   },
   methods: {
-    imagePreview() {
+    imagePreview(e) {
       const image = this.$refs.imagePreview.files[0];
+
+      this.imageFile = image;
       this.imageUrl = URL.createObjectURL(image);
+
       this.$refs.imagePreview.value = '';
     },
     updateUserData() {
@@ -69,8 +73,9 @@ export default {
       formData.append('name', this.userData.name);
       formData.append('email', this.userData.email);
       formData.append('introduce', this.userData.introduce);
-      if (isNotNoImage) formData.append('image', this.imageUrl);
+      if (isNotNoImage) formData.append('image', this.imageFile);
 
+      return this.$store.dispatch('updateUserData', formData);
     },
   },
 };
