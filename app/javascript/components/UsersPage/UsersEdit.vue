@@ -2,7 +2,7 @@
   <div class="my__page__main__right">
     <div class="user__edit__wrapper">
       <UsersPageMenu currentPage="会員情報の確認・変更" />
-      <p class="guest__user__alert"></p>
+      <p v-if="checkGuestUser" class="guest__user__alert">※ゲストユーザーは情報を更新することができません※</p>
       <form action="" class="edit__user">
         <ul>
           <li class="input__field">
@@ -41,6 +41,7 @@ export default {
   data() {
     return {
       imageUrl: require('../../../assets/images/no_image.jpg'),
+      checkGuestUser: false,
     }
   },
   computed: {
@@ -56,12 +57,16 @@ export default {
   methods: {
     imagePreview() {
       const image = this.$refs.imagePreview.files[0];
-      console.log(this.$refs.imagePreview.value);
       this.imageUrl = URL.createObjectURL(image);
       this.$refs.imagePreview.value = '';
     },
     updateUserData() {
-      console.log('test');
+      const checkGuestUser = (this.userData.email === 'guest@sample.com')
+      // if (checkGuestUser) return this.checkGuestUser = true;
+
+      let formData = new FormData();
+      formData.append()
+      console.log(formData);
     },
   },
 };
