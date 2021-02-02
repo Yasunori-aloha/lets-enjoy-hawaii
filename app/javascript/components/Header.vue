@@ -31,7 +31,7 @@ export default {
   computed: {
     ...mapGetters(["userData"]),
     isAuthenticated() {
-      return this.$store.getters.userToken !== null;
+      return this.$store.getters.userTokens['access-token'] !== null;
     },
   },
   methods: {
