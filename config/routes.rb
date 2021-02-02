@@ -18,17 +18,10 @@ Rails.application.routes.draw do
           omniauth_callbacks: 'users/omniauth_callbacks',
         }
         resources :users, only: %i[show] do
-          resources :favorites, only: %i[index update]
-          resources :histories, only: %i[index update]
-          member do
-            get 'reviews', to: 'reviews#user_index'
-          end
+          resources :favorites, only: :update
+          resources :histories, only: :update
         end
       end
-    end
-  end
-  namespace :api do
-    scope :v1 do
     end
   end
 
