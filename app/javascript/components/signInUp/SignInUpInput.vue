@@ -160,12 +160,14 @@ export default {
             if (!(form.input.match(/^[\w+\-.]+@[a-z\d\-.]+\.[a-z]+$/))) {
               this.errorIndication(form, 'メールアドレスの形式で入力してください');
             } else {
-              // メールアドレスがすでに登録されているか？
-              this.$store.dispatch('isRegisterd', form.input).then((response) => {
-                if (response.data) {
-                  this.errorIndication(form, 'すでに登録されているメールアドレスです');
-                };
-              });
+              // 会員登録時にメールアドレスがすでに登録されているか確認する。
+              if (/\/users\/sign_up/.test(this.$route.path)) {
+                this.$store.dispatch('isRegisterd', form.input).then((response) => {
+                  if (response.data) {
+                    this.errorIndication(form, 'すでに登録されているメールアドレスです');
+                  };
+                });
+              };
             }
             break;
           case 'password':
