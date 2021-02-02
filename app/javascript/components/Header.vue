@@ -40,8 +40,11 @@ export default {
         this.$router.push({ path: `/users/${this.userData.id}`});
       });
     },
-    userLogout() {
-      this.$store.dispatch('logout');
+    userLogout: async function() {
+      const isUsersPage = /\/users\/\d/.test(this.$route.path);
+
+      await this.$store.dispatch('logout');
+      if (isUsersPage) this.$router.replace({ path: '/' });
     },
   },
 };

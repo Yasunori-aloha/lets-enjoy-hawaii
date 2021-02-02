@@ -126,8 +126,8 @@ export default new Vuex.Store({
           commit('updateLocalStorage', { userData: response.data, userTokens: response.headers });
         });
     },
-    logout({ commit }) {
-      axios.delete(
+    logout: async function({ commit }) {
+      await axios.delete(
         '/api/v1/auth/sign_out',
         {
           headers: {
