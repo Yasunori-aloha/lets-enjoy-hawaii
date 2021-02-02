@@ -49,11 +49,6 @@ export default {
     userData() {
       return this.$store.getters.userData;
     },
-    getUserImageURL() {
-      if (this.userData.image_url !== 'null') {
-        return this.imageUrl = this.userData.image_url;
-      }
-    },
   },
   methods: {
     imagePreview(e) {
@@ -79,7 +74,11 @@ export default {
     },
   },
   created() {
-    console.log(this.userData.image_url);
+    const userImageIsExsits = (this.userData.image_url !== 'null');
+
+    if (userImageIsExsits) {
+      this.imageUrl = this.userData.image_url;
+    }
   },
 };
 </script>
