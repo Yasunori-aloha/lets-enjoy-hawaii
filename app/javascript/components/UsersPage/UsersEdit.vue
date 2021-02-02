@@ -63,7 +63,7 @@ export default {
       const checkGuestUser = (this.userData.email === 'guest@sample.com');
       const isNotNoImage = (this.imageUrl !== require('../../../assets/images/no_image.jpg'));
       let formData = new FormData();
-      // if (checkGuestUser) return this.checkGuestUser = true;
+      if (checkGuestUser) return this.checkGuestUser = true;
 
       formData.append('name', this.userData.name);
       formData.append('email', this.userData.email);
@@ -76,9 +76,7 @@ export default {
   created() {
     const userImageIsExsits = (this.userData.image_url !== 'null');
 
-    if (userImageIsExsits) {
-      this.imageUrl = this.userData.image_url;
-    }
+    if (userImageIsExsits) this.imageUrl = this.userData.image_url;
   },
 };
 </script>
