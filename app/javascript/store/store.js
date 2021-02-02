@@ -26,7 +26,7 @@ export default new Vuex.Store({
   },
   getters: {
     mapImageIndex: state => state.mapImageIndex,
-    userToken: state => state.userToken,
+    userTokens: state => state.userTokens,
     userData: state => state.userData,
     userReviews: state => state.userReviews,
     userFavorites: state => state.userFavorites,
@@ -34,28 +34,28 @@ export default new Vuex.Store({
   },
   mutations: {
     updateUserData(state, userData) {
-      state.user.id = userData.id;
-      state.user.name = userData.name;
-      state.user.email = userData.email;
-      state.user.introduce = userData.introduce;
-      state.user.admin = userData.admin;
-      state.user.image_url = userData.image_url;
+      state.userData.id = userData.id;
+      state.userData.name = userData.name;
+      state.userData.email = userData.email;
+      state.userData.introduce = userData.introduce;
+      state.userData.admin = userData.admin;
+      state.userData.image_url = userData.image_url;
     },
-    updateUserTokens(state,  userToken) {
-      state.user['accessToken'] = userToken['access-token'];
-      state.user['client'] = userToken['client'];
-      state.user['uid'] = userToken['uid'];
+    updateUserTokens(state,  userTokens) {
+      state.userTokens['accessToken'] = userTokens['access-token'];
+      state.userTokens['client'] = userTokens['client'];
+      state.userTokens['uid'] = userTokens['uid'];
     },
-    updateLocalStorage(state, { userData, userToken }) {
+    updateLocalStorage(state, { userData, userTokens }) {
       localStorage.setItem('id', userData.id);
       localStorage.setItem('name', userData.name);
       localStorage.setItem('email', userData.email);
       localStorage.setItem('introduce', userData.introduce);
       localStorage.setItem('admin', userData.admin);
       localStorage.setItem('image_url', userData.image_url);
-      localStorage.setItem('access-token', userToken['access-token']);
-      localStorage.setItem('client', userToken['client']);
-      localStorage.setItem('uid', userToken['uid']);
+      localStorage.setItem('access-token', userTokens['access-token']);
+      localStorage.setItem('client', userTokens['client']);
+      localStorage.setItem('uid', userTokens['uid']);
     },
     // ホーム画面の地図をホバーすると、ホバーした島の表示が変更される。
     mapChange(state, number) {
@@ -82,7 +82,7 @@ export default new Vuex.Store({
       };
       if (userTokens['access-token']) {
         commit('updateUserData', userData);
-        commit('updateUserTokens', userToken);
+        commit('updateUserTokens', userTokens);
         dispatch('toUsersPage', userData.id);
       }
     },
@@ -97,7 +97,7 @@ export default new Vuex.Store({
       .then(response => {
         commit('updateUserData', response.data);
         commit('updateUserTokens', response.headers);
-        commit('updateLocalStorage', { userData: response.data, userToken: response.headers });
+        commit('updateLocalStorage', { userData: response.data, userTokens: response.headers });
       });
     },
     isRegisterd: async function({}, email) {
@@ -114,7 +114,7 @@ export default new Vuex.Store({
       .then(response => {
         commit('updateUserData', response.data);
         commit('updateUserTokens', response.headers);
-        commit('updateLocalStorage', { userData: response.data, userToken: response.headers });
+        commit('updateLocalStorage', { userData: response.data, userTokens: response.headers });
       });
     },
     guestUserLogin: async function({ commit }) {
@@ -123,7 +123,7 @@ export default new Vuex.Store({
         ).then(response => {
           commit('updateUserData', response.data);
           commit('updateUserTokens', response.headers);
-          commit('updateLocalStorage', { userData: response.data, userToken: response.headers });
+          commit('updateLocalStorage', { userData: response.data, userTokens: response.headers });
         });
     },
     logout({ commit }) {
@@ -187,7 +187,7 @@ export default new Vuex.Store({
         console.log(error.response.data);
       });
     },
-    updateUserData({}, formData) {
+    updateUserData({ commit }, formData) {
       axios.put('/api/v1/auth', formData,
       {
         headers: {
@@ -195,10 +195,7 @@ export default new Vuex.Store({
         }
       }
       ).then(response => {
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.log(error.response.data);
+        commit('updateUserData', response.data);
       });
     },
   }
