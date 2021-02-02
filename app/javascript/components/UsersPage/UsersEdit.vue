@@ -61,12 +61,16 @@ export default {
       this.$refs.imagePreview.value = '';
     },
     updateUserData() {
-      const checkGuestUser = (this.userData.email === 'guest@sample.com')
+      const checkGuestUser = (this.userData.email === 'guest@sample.com');
+      const isNotNoImage = (this.imageUrl !== require('../../../assets/images/no_image.jpg'));
+      let formData = new FormData();
       // if (checkGuestUser) return this.checkGuestUser = true;
 
-      let formData = new FormData();
-      formData.append()
-      console.log(formData);
+      formData.append('name', this.userData.name);
+      formData.append('email', this.userData.email);
+      formData.append('introduce', this.userData.introduce);
+      if (isNotNoImage) formData.append('image', this.imageUrl);
+
     },
   },
 };
