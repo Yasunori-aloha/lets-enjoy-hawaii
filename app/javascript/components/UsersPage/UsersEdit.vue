@@ -74,7 +74,7 @@ export default {
     },
   },
   created() {
-    const userImageIsExsits = (this.userData.image_url !== 'null');
+    const userImageIsExsits = (this.userData.image_url !== null) && (this.userData.image_url !== 'null');
 
     if (userImageIsExsits) this.imageUrl = this.userData.image_url;
   },
