@@ -16,9 +16,9 @@ export default new Vuex.Store({
       image_url: null,
     },
     userTokens: {
-      accessToken: null,
-      client: null,
-      uid: null,
+      'access-token': null,
+      'client': null,
+      'uid': null,
     },
     userReviews: null,
     userFavorites: null,
@@ -42,7 +42,7 @@ export default new Vuex.Store({
       state.userData.image_url = userData.image_url;
     },
     updateUserTokens(state,  userTokens) {
-      state.userTokens['accessToken'] = userTokens['access-token'];
+      state.userTokens['access-token'] = userTokens['access-token'];
       state.userTokens['client'] = userTokens['client'];
       state.userTokens['uid'] = userTokens['uid'];
     },
@@ -196,6 +196,7 @@ export default new Vuex.Store({
       }
       ).then(response => {
         commit('updateUserData', response.data);
+        commit('updateLocalStorage', { userData: response.data, userTokens: this.getters.userTokens });
       });
     },
   }
