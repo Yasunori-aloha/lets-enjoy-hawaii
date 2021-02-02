@@ -7,13 +7,15 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     mapImageIndex: 8,
-    user: {
+    userData: {
       id: null,
       name: null,
       email: null,
       introduce: null,
       admin: null,
       image_url: null,
+    },
+    userTokens: {
       accessToken: null,
       client: null,
       uid: null,
@@ -24,23 +26,25 @@ export default new Vuex.Store({
   },
   getters: {
     mapImageIndex: state => state.mapImageIndex,
-    userToken: state => state.user.accessToken,
-    userData: state => state.user,
+    userToken: state => state.userToken,
+    userData: state => state.userData,
     userReviews: state => state.userReviews,
     userFavorites: state => state.userFavorites,
     userHistories: state => state.userHistories,
   },
   mutations: {
-    updateUser(state, { userData, userToken}) {
+    updateUserData(state, userData) {
       state.user.id = userData.id;
       state.user.name = userData.name;
       state.user.email = userData.email;
       state.user.introduce = userData.introduce;
       state.user.admin = userData.admin;
       state.user.image_url = userData.image_url;
-      state.user.accessToken = userToken['access-token'];
-      state.user.client = userToken.client;
-      state.user.uid = userToken.uid;
+    },
+    updateUserTokens(state,  userToken) {
+      state.user['accessToken'] = userToken['access-token'];
+      state.user['client'] = userToken['client'];
+      state.user['uid'] = userToken['uid'];
     },
     updateLocalStorage(state, { userData, userToken }) {
       localStorage.setItem('id', userData.id);
@@ -50,8 +54,8 @@ export default new Vuex.Store({
       localStorage.setItem('admin', userData.admin);
       localStorage.setItem('image_url', userData.image_url);
       localStorage.setItem('access-token', userToken['access-token']);
-      localStorage.setItem('client', userToken.client);
-      localStorage.setItem('uid', userToken.uid);
+      localStorage.setItem('client', userToken['client']);
+      localStorage.setItem('uid', userToken['uid']);
     },
     // ホーム画面の地図をホバーすると、ホバーした島の表示が変更される。
     mapChange(state, number) {
@@ -73,11 +77,12 @@ export default new Vuex.Store({
       };
       const userTokens = {
         'access-token':  localStorage.getItem('access-token'),
-        client:  localStorage.getItem('client'),
-        uid:  localStorage.getItem('uid'),
+        'client':  localStorage.getItem('client'),
+        'uid':  localStorage.getItem('uid'),
       };
       if (userTokens['access-token']) {
-        commit('updateUser', { userData: userData, userToken: userTokens });
+        commit('updateUserData', userData);
+        commit('updateUserTokens', userToken);
         dispatch('toUsersPage', userData.id);
       }
     },
@@ -90,7 +95,8 @@ export default new Vuex.Store({
         password_confirmation: signUpForms[3].input,
       })
       .then(response => {
-        commit('updateUser', { userData: response.data, userToken: response.headers });
+        commit('updateUserData', response.data);
+        commit('updateUserTokens', response.headers);
         commit('updateLocalStorage', { userData: response.data, userToken: response.headers });
       });
     },
@@ -106,7 +112,8 @@ export default new Vuex.Store({
         password: loginForms[1].input,
       })
       .then(response => {
-        commit('updateUser', { userData: response.data, userToken: response.headers });
+        commit('updateUserData', response.data);
+        commit('updateUserTokens', response.headers);
         commit('updateLocalStorage', { userData: response.data, userToken: response.headers });
       });
     },
@@ -114,7 +121,8 @@ export default new Vuex.Store({
       return await axios.post(
         '/api/v1/auth/guest_sign_in',
         ).then(response => {
-          commit('updateUser', { userData: response.data, userToken: response.headers });
+          commit('updateUserData', response.data);
+          commit('updateUserTokens', response.headers);
           commit('updateLocalStorage', { userData: response.data, userToken: response.headers });
         });
     },
@@ -143,10 +151,11 @@ export default new Vuex.Store({
         };
         const userTokens = {
           'access-token': null,
-          client: null,
-          uid: null,
+          'client': null,
+          'uid': null,
         };
-        commit('updateUser', { userData: userData, userToken: userTokens });
+        commit('updateUserData', userData);
+        commit('updateUserTokens', userTokens);
         localStorage.removeItem('id');
         localStorage.removeItem('name');
         localStorage.removeItem('email');

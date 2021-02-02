@@ -78,6 +78,9 @@ export default {
       return this.$store.dispatch('updateUserData', formData);
     },
   },
+  created() {
+    console.log(this.userData.image_url);
+  },
 };
 </script>
 
