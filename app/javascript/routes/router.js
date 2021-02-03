@@ -42,8 +42,8 @@ export default new Router({
       ],
       // 他人のユーザーページにはアクセスできない。
       beforeEnter: async (to, from, next) => {
-        const userId = store.getters.userData.id;
-        const userPageId = to.params.id;
+        const userId = Number(store.getters.userData.id);
+        const userPageId = Number(to.params.id);
 
         if (/\/users\/\d/.test(to.path)) {
           await store.dispatch('toUsersPage', to.params.id);
