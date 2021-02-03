@@ -11,6 +11,7 @@ class ReviewSerializer < ActiveModel::Serializer
   # ユーザー口コミ一覧ページでのみ取得する。
   belongs_to :experience, if: :current_user_page?
 
+  # 属性取得判定用メソッド
   def is_experience_page?
     @instance_options.key?(:is_experience_page)
   end

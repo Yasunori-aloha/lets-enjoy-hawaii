@@ -1,5 +1,5 @@
 class AreaSerializer < ActiveModel::Serializer
-  attributes :id, :name
+  attributes :name
 
   belongs_to :island
 end
