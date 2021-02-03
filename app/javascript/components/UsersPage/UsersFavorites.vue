@@ -10,10 +10,10 @@
                 <li>登録日：</li>
                 <li class="favorited__at">{{ favoriteTime(favorite) }}</li>
               </ul>
-              <div class="favorite__release__btn">
+              <button @click="removeFavorite(favorite)" class="favorite__release__btn">
                 <i class="fas fa-times release__mark"></i><span class="release__message">登録解除</span>
                 <a :href="`/experiences/${favorite.experience.id}/favorites`" data-remote="true" rel="nofollow" data-method="delete" class="favorite__release"></a>
-              </div>
+              </button>
             </div>
             <div class="activity__picture">
               <img :src="favoriteActivityImage(favorite)" class="content__picture">
@@ -93,6 +93,15 @@ export default {
         favorite.comment = this.favoriteComments[favorite.id];
       });
     },
+    removeFavorite: async function(favorite) {
+      await this.$store.dispatch('removeFavorite',
+      {
+        userId: this.userData.id,
+        favoriteId: favorite.id,
+      }).then(response => {
+        console.log('remove');
+      });
+    },
   },
   created() {
     this.userFavorites.forEach(e => {
@@ -150,7 +159,8 @@ export default {
   height: 20px;
   margin: auto 0px;
   padding: 0 7px;
-  position: relative;
+  cursor: pointer;
+  /* position: relative; */
 }
 .release__mark{
   margin: 3px 5px 0 0;
@@ -159,7 +169,7 @@ export default {
 .release__message{
   font-weight: bold;
 }
-.favorite__release{
+/* .favorite__release{
   position: absolute;
   top: 0;
   left: 0;
@@ -167,7 +177,7 @@ export default {
   width: 100%;
   opacity: 0;
   cursor: pointer;
-}
+} */
 .activity__picture{
   height: 181px;
   position: relative;
