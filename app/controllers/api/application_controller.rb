@@ -10,7 +10,7 @@ class Api::ApplicationController < ActionController::Base
   private
 
   def current_user?(params)
-    unless current_api_user.id == params[:id].to_i
+    unless current_api_user.id == params[:id].to_i || current_api_user.id == params[:user_id].to_i
       return render json: current_api_user, status: :unauthorized
     end
   end

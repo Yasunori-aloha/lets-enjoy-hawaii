@@ -4,13 +4,13 @@
       <UsersPageMenu currentPage="お気に入りした場所" />
       <div class="user__favorites__show__area">
         <ul v-if="favoriteIsExists" class="user__favorites__list">
-          <li v-for="(favorite, index) in userFavorites" class="favorite__wrapper" :style="isNotRight(index + 1)">
+          <li v-for="(favorite, index) in userFavorites" :key="favorite.id" class="favorite__wrapper" :style="isNotRight(index + 1)">
             <div class="favorite__info">
               <ul class="favorite__time">
                 <li>登録日：</li>
                 <li class="favorited__at">{{ favoriteTime(favorite) }}</li>
               </ul>
-              <button @click="removeFavorite(favorite)" class="favorite__release__btn">
+              <button @click="removeFavorite(favorite, index)" class="favorite__release__btn">
                 <i class="fas fa-times release__mark"></i><span class="release__message">登録解除</span>
                 <a :href="`/experiences/${favorite.experience.id}/favorites`" data-remote="true" rel="nofollow" data-method="delete" class="favorite__release"></a>
               </button>
@@ -91,15 +91,18 @@ export default {
         formData,
       }).then(response => {
         favorite.comment = this.favoriteComments[favorite.id];
+        this.userData.favorites_counts -= 1;
       });
     },
-    removeFavorite: async function(favorite) {
+    // 'index番号も渡して、登録解除が成功したら連想配列のindex番号要素を削除する。
+    removeFavorite: async function(favorite, index) {
       await this.$store.dispatch('removeFavorite',
       {
         userId: this.userData.id,
         favoriteId: favorite.id,
       }).then(response => {
-        console.log('remove');
+        this.userFavorites.splice(index, 1);
+
       });
     },
   },
