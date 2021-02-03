@@ -207,7 +207,15 @@ export default new Vuex.Store({
       });
     },
     removeFavorite: async function({}, params) {
-      await axios.delete(`/api/v1/users/${params.userId}/favorites/${params.favoriteId}`)
+      await axios.delete(`/api/v1/users/${params.userId}/favorites/${params.favoriteId}`,
+      {
+        headers: {
+          'content-type': 'multipart/form-data',
+          'access-token': localStorage.getItem('access-token'),
+          'client': localStorage.getItem('client'),
+          'uid': localStorage.getItem('uid'),
+        }
+      })
       .catch(error => {
         console.log(error.response.data);
       });
@@ -227,7 +235,15 @@ export default new Vuex.Store({
       });
     },
     removeFavorite: async function({}, params) {
-      await axios.delete(`/api/v1/users/${params.userId}/histories/${params.historyId}`)
+      await axios.delete(`/api/v1/users/${params.userId}/histories/${params.historyId}`,
+      {
+        headers: {
+          'content-type': 'multipart/form-data',
+          'access-token': localStorage.getItem('access-token'),
+          'client': localStorage.getItem('client'),
+          'uid': localStorage.getItem('uid'),
+        }
+      })
       .catch(error => {
         console.log(error.response.data);
       });
