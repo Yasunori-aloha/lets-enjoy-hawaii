@@ -3,9 +3,9 @@
     <div class="my__page__wrapper">
       <div class="my__page__head">
         <ul class="my__page__head__list">
-          <li class="my__page__head__number">お気に入りした場所 {{ userFavoriteCounts }}</li>
-          <li class="my__page__head__number">口コミ数 {{ userReviewCounts }}</li>
-          <li class="my__page__head__number">行った場所 {{ userHistorieCounts }}</li>
+          <li class="my__page__head__number">お気に入りした場所 {{ userData.favorites_counts }}</li>
+          <li class="my__page__head__number">口コミ数 {{ userData.reviews_counts }}</li>
+          <li class="my__page__head__number">行った場所 {{ userData.histories_counts }}</li>
         </ul>
       </div>
       <div class="my__page__main">
@@ -38,27 +38,6 @@ export default {
     ...mapGetters(["userData"]),
     isUsersHome() {
       return this.$route.path === `/users/${this.userData.id}`;
-    },
-    userReviewCounts() {
-      if (this.$store.getters.userReviews) {
-        return this.$store.getters.userReviews.length;
-      } else {
-        return 0;
-      }
-    },
-    userFavoriteCounts() {
-      if (this.$store.getters.userFavorites) {
-        return this.$store.getters.userFavorites.length;
-      } else {
-        return 0;
-      }
-    },
-    userHistorieCounts() {
-      if (this.$store.getters.userHistories) {
-        return this.$store.getters.userHistories.length;
-      } else {
-        return 0;
-      }
     },
   },
 };
