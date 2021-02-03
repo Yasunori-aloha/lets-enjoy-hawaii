@@ -182,9 +182,9 @@ export default new Vuex.Store({
         }
       })
       .then(response => {
-        this.state.favorites_counts = response.data.favorites_counts;
-        this.state.reviews_counts = response.data.reviews_counts;
-        this.state.histories_counts = response.data.histories_counts;
+        this.state.userData.favorites_counts = response.data.favorites_counts;
+        this.state.userData.reviews_counts = response.data.reviews_counts;
+        this.state.userData.histories_counts = response.data.histories_counts;
         this.state.userReviews = response.data.reviews;
         this.state.userFavorites = response.data.favorites;
         this.state.userHistories = response.data.histories;
