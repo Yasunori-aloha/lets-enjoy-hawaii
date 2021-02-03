@@ -55,7 +55,7 @@ export default {
   computed: {
     ...mapGetters(["userData", "userFavorites"]),
     favoriteIsExists() {
-      return this.userFavorites !== null;
+      return this.userData.favorites_counts !== 0;
     },
   },
   methods: {

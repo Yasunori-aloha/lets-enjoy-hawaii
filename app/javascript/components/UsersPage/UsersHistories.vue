@@ -56,7 +56,7 @@ export default {
   computed: {
     ...mapGetters(["userData", "userHistories"]),
     historyIsExists() {
-      return this.userHistories !== null;
+      return this.userData.histories_counts !== 0;
     },
   },
   methods: {

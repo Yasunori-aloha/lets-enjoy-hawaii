@@ -54,8 +54,11 @@ export default {
   },
   computed: {
     ...mapGetters(["userReviews"]),
+    reviewsCounts() {
+      return this.$store.getters.userData.reviews_counts;
+    },
     reviewsIsExists() {
-      return this.userReviews !== null;
+      return this.reviewsCounts !== 0;
     },
   },
   methods: {
