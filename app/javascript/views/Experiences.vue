@@ -21,10 +21,15 @@
                 <a href="" class="review__link review__counts link__hover">口コミ{{  }}件</a>
                 <span class="review__counts">）</span>
               </li>
-              <li class="area__genre__wrapeer">
+              <li class="area__island__wrapeer">
                 <span class="area__name">エリア</span>
                 <a href="/" class="island search_btn link__hover area__island">エリア名{{  }}</a>
                 <a href="/" class="area search_btn link__hover area__island">島名{{  }}</a>
+              </li>
+              <li class="genre__category__wrapper">
+                <span class="genre__name">ジャンル</span>
+                <a href="" class="category search_btn link__hover genre__category">カテゴリー名{{  }}</a>
+                <a href="" class="genre search_btn link__hover genre__category">ジャンル名{{  }}</a>
               </li>
             </ul>
           </div>
@@ -125,16 +130,30 @@ export default {
   .review__link{
     color: blue;
   }
-  .area__genre__wrapeer{
-          display: flex;
-          font-size: 12px;
-          margin-top: 12px;
+/* アクティビティのエリア表示欄 */
+  .area__island__wrapeer{
+    display: flex;
+    font-size: 12px;
+    margin-top: 12px;
   }
   .area__name{
-            font-weight: bold;
-            margin-right: 40px;
+    font-weight: bold;
+    margin-right: 40px;
   }
   .area__island{
+    margin: -1px 6px 0 8px;
+  }
+/* アクティビティのジャンル表示欄 */
+  .genre__category__wrapper{
+    display: flex;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  .genre__name{
+    font-weight: bold;
+    margin-right: 29px;
+  }
+  .genre__category{
     margin: -1px 6px 0 8px;
   }
   .experience__page__right{
