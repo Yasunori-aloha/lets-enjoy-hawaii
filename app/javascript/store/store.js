@@ -123,8 +123,11 @@ export default new Vuex.Store({
     },
     guestUserLogin: async function({ commit }) {
       return await axios.post(
-        '/api/v1/auth/guest_sign_in',
-        ).then(response => {
+        '/api/v1/auth/sign_in',
+        {
+          guest_user: true,
+        })
+        .then(response => {
           commit('updateUserData', response.data);
           commit('updateUserTokens', response.headers);
           commit('updateLocalStorage', { userData: response.data, userTokens: response.headers });
@@ -228,7 +231,6 @@ export default new Vuex.Store({
         }
       }
       ).then(response => {
-        console.log(response);
         commit('updateUserData', response.data);
         commit('updateLocalStorage', { userData: response.data, userTokens: this.getters.userTokens });
       });
