@@ -88,7 +88,6 @@ export default new Vuex.Store({
       if (userTokens['access-token']) {
         commit('updateUserData', userData);
         commit('updateUserTokens', userTokens);
-        dispatch('toUsersPage', userData.id);
       }
     },
     userSignUp: async function({ commit }, signUpForms) {

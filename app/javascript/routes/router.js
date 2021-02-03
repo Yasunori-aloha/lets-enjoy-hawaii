@@ -30,10 +30,13 @@ export default new Router({
         { path: 'histories', component: UsersHistories },
       ],
       // 他人のユーザーページにはアクセスできない。
-      beforeEnter: (to, from, next) => {
+      beforeEnter: async (to, from, next) => {
         const userId = store.getters.userData.id;
         const userPageId = to.params.id;
 
+        if (/\/users\/\d/.test(to.path)) {
+          await store.dispatch('toUsersPage', to.params.id);
+        }
         if (userId === userPageId) {
           return next();
         } else {
