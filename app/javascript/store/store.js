@@ -228,6 +228,7 @@ export default new Vuex.Store({
         }
       }
       ).then(response => {
+        console.log(response);
         commit('updateUserData', response.data);
         commit('updateLocalStorage', { userData: response.data, userTokens: this.getters.userTokens });
       });

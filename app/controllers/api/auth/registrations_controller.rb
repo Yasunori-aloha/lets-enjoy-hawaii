@@ -18,7 +18,7 @@ module Overrides
       render json: UserSerializer.new(@resource, login_or_signup?: true).to_json
     end
     def render_update_success
-      render json: UserSerializer.new(@resource, login_or_signup?: true).to_json
+      render json: UserSerializer.new(@resource, login_or_signup?: true, current_user_page?: true).to_json
     end
 
 
