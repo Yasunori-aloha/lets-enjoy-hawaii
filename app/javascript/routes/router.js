@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Vuex from 'vuex'
+import store from '../store/store.js'
 import Home from '../views/Home.vue'
 import SignInUp from '../views/SignInUp.vue'
 import Users from '../views/Users.vue'
