@@ -11,8 +11,8 @@
                 <li class="favorited__at">{{ favoriteTime(favorite) }}</li>
               </ul>
               <button @click="removeFavorite(favorite, index)" class="favorite__release__btn">
-                <i class="fas fa-times release__mark"></i><span class="release__message">登録解除</span>
-                <a :href="`/experiences/${favorite.experience.id}/favorites`" data-remote="true" rel="nofollow" data-method="delete" class="favorite__release"></a>
+                <i class="fas fa-times release__mark"></i>
+                <span class="release__message">登録解除</span>
               </button>
             </div>
             <div class="activity__picture">
