@@ -54,7 +54,7 @@ module Overrides
     protected
 
     def render_create_success
-      render json: UserSerializer.new(@resource, login_or_signup?: true).to_json
+      render json: UserSerializer.new(@resource, login_or_signup_or_experience?: true).to_json
     end
   end
 end

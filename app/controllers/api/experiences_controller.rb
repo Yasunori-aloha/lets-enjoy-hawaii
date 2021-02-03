@@ -1,9 +1,11 @@
 class Api::ExperiencesController < Api::ApplicationController
 
   def show
-    @experience = Experience.find(params[:id])
+    @experience = Experience.eager_load(
+      reviews: { user: {image_attachment: :blob }}
+    ).find(params[:id])
 
-    render json: ExperienceSerializer.new(@experience, show_experiences?: true).to_json
+    render json: ExperienceSerializer.new(@experience, show_experiences?: true, login_or_signup_or_experience?: true).to_json
   end
 
 end
