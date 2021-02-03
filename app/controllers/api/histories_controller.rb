@@ -1,5 +1,5 @@
-class Api::HistoriesController < ApplicationController
-  before_action :authenticate_user!, only: :update
+class Api::HistoriesController < Api::ApplicationController
+  before_action :authenticate_api_user!, only: :update
 
   # 訪問記録へのコメント保存
   def update
