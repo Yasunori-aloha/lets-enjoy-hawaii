@@ -69,7 +69,7 @@ export default {
       if (checkGuestUser) return this.checkGuestUser = true;
 
       formData.append('name', this.userName);
-      formData.append('email', this.useEmail);
+      formData.append('email', this.userEmail);
       formData.append('introduce', this.userIntroduce);
       if (isNotNoImage) formData.append('image', this.imageFile);
 
