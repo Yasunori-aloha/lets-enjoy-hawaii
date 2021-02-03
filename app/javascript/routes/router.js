@@ -1,16 +1,25 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Vuex from 'vuex'
-import store from '../store/store.js'
-import Header from '../components/Header.vue'
-import Footer from '../components/Footer.vue'
-import Home from '../views/Home.vue'
-import SignInUp from '../views/SignInUp.vue'
-import Users from '../views/Users.vue'
-import UsersEdit from '../components/UsersPage/UsersEdit.vue'
-import UsersFavorites from '../components/UsersPage/UsersFavorites.vue'
-import UsersReviews from '../components/UsersPage/UsersReviews.vue'
-import UsersHistories from '../components/UsersPage/UsersHistories.vue'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Vuex from 'vuex';
+import store from '../store/store.js';
+// ヘッダー・フッター
+import Header from '../components/Header.vue';
+import Footer from '../components/Footer.vue';
+// ホーム画面
+import Home from '../views/Home.vue';
+// 会員登録・ログインページ
+import SignInUp from '../views/SignInUp.vue';
+// ユーザーページ
+import Users from '../views/Users.vue';
+import UsersEdit from '../components/UsersPage/UsersEdit.vue';
+import UsersFavorites from '../components/UsersPage/UsersFavorites.vue';
+import UsersReviews from '../components/UsersPage/UsersReviews.vue';
+import UsersHistories from '../components/UsersPage/UsersHistories.vue';
+// アクティビティ詳細ページ
+import Experiences from '../views/Experiences.vue';
+import ExperiencesMain from '../components/ExperiencesPage/ExperiencesMain.vue';
+import ExperiencesReviews from '../components/ExperiencesPage/ExperiencesReviews.vue';
+import ExperiencesPhotos from '../components/ExperiencesPage/ExperiencesPhotos.vue';
 
 Vue.use(Router)
 Vue.use(Vuex)
@@ -30,10 +39,10 @@ export default new Router({
     { path: '/users/sign_in', component: SignInUp },
     // マイページ
     { path: '/users/:id', components: {
-      default: Users,
-      header: Header,
-      footer: Footer,
-    },
+        default: Users,
+        header: Header,
+        footer: Footer,
+      },
       children: [
         { path: 'edit', component: UsersEdit },
         { path: 'favorites', component: UsersFavorites },
@@ -55,5 +64,18 @@ export default new Router({
         }
       },
     },
+    // アクティビティ詳細ページ
+    { path: '/experiences/:id',
+      components: {
+        default: Experiences,
+        header: Header,
+        footer: Footer,
+        main: ExperiencesMain,
+      },
+      children: [
+        { path: 'reviews', component: ExperiencesReviews },
+        { path: 'photos', component: ExperiencesPhotos },
+      ],
+    }
   ]
 });
