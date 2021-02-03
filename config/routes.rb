@@ -13,8 +13,8 @@ Rails.application.routes.draw do
           omniauth_callbacks: 'users/omniauth_callbacks',
         }
         resources :users, only: :show do
-          resources :favorites, only: :update
-          resources :histories, only: :update
+          resources :favorites, only: %i[update destroy]
+          resources :histories, only: %i[update destroy]
         end
       end
     end
