@@ -6,11 +6,11 @@
         <span>口コミ投稿</span>
         <a href="" class="btn"></a>
       </li>
-      <li class="reviews__share">
+      <!-- <li class="reviews__share">
         <i class="fas fa-share"></i>
         <span>シェアする</span>
         <a href="" class="btn"></a>
-      </li>
+      </li> -->
     </ul>
     <ul class="favorite__history__wrapper">
       <li class="favorite">
