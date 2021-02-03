@@ -234,7 +234,7 @@ export default new Vuex.Store({
         console.log(error.response.data);
       });
     },
-    removeFavorite: async function({}, params) {
+    removeHistory: async function({}, params) {
       await axios.delete(`/api/v1/users/${params.userId}/histories/${params.historyId}`,
       {
         headers: {
