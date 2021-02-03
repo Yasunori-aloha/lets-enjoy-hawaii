@@ -1,25 +1,10 @@
 <template>
   <div>
-    <Header v-if="checkSignInUp()" />
+    <router-view name="header" />
     <router-view />
-    <Footer v-if="checkSignInUp()" />
+    <router-view name="footer" />
   </div>
 </template>
-
-<script>
-export default {
-  methods: {
-    // 会員登録・ログインページでは、ヘッダーとフッターを表示させない様にする。
-    checkSignInUp() {
-      if (this.$route.path === '/users/sign_in' || this.$route.path === '/users/sign_up') {
-        return false;
-      }else{
-        return true;
-      }
-    },
-  },
-}
-</script>
 
 <style>
   .link__hover{

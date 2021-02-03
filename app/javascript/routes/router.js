@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Vuex from 'vuex'
 import store from '../store/store.js'
+import Header from '../components/Header.vue'
+import Footer from '../components/Footer.vue'
 import Home from '../views/Home.vue'
 import SignInUp from '../views/SignInUp.vue'
 import Users from '../views/Users.vue'
@@ -17,12 +19,21 @@ export default new Router({
   mode: 'history',
   routes: [
     // ホーム画面
-    { path: '/', component: Home },
+    { path: '/', components: {
+        default: Home,
+        header: Header,
+        footer: Footer,
+      }
+    },
     // 会員登録・ログイン画面
     { path: '/users/sign_up', component: SignInUp },
     { path: '/users/sign_in', component: SignInUp },
     // マイページ
-    { path: '/users/:id', component: Users,
+    { path: '/users/:id', components: {
+      default: Users,
+      header: Header,
+      footer: Footer,
+    },
       children: [
         { path: 'edit', component: UsersEdit },
         { path: 'favorites', component: UsersFavorites },
