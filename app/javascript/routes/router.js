@@ -29,6 +29,17 @@ export default new Router({
         { path: 'reviews', component: UsersReviews },
         { path: 'histories', component: UsersHistories },
       ],
+      // 他人のユーザーページにはアクセスできない。
+      beforeEnter: (to, from, next) => {
+        const userId = store.getters.userData.id;
+        const userPageId = to.params.id;
+
+        if (userId === userPageId) {
+          return next();
+        } else {
+          return next('/');
+        }
+      },
     },
   ]
 });
