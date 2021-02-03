@@ -2,10 +2,10 @@
 
 Rails.application.routes.draw do
   root to: 'tops#index'
-  devise_for :users,
-             controllers: {
-               registrations: 'users/registrations',
-             }
+  # devise_for :users,
+  #            controllers: {
+  #              registrations: 'users/registrations',
+  #            }
 
   devise_scope :user do
     namespace :api do

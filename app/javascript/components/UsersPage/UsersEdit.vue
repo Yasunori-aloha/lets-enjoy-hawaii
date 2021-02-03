@@ -7,15 +7,15 @@
         <ul>
           <li class="input__field">
             <label for="user_name">お名前</label>
-            <input v-model="userData.name" id="user_name" type="text" name="user[name]" autocomplete="name" class="edit__user__form">
+            <input v-model="userName" id="user_name" type="text" name="user[name]" autocomplete="name" class="edit__user__form">
           </li>
           <li class="input__field">
             <label for="user_email">メールアドレス</label>
-            <input v-model="userData.email" id="user_email" type="text" name="user[email]" autocomplete="email" autocorrect="off" autocapitalize="off" class="edit__user__form">
+            <input v-model="userEmail" id="user_email" type="text" name="user[email]" autocomplete="email" autocorrect="off" autocapitalize="off" class="edit__user__form">
           </li>
           <li class="input__field">
             <label for="user_introduce" class="text__top">自己紹介</label>
-            <textarea v-model="userData.introduce" id="user_introduce" name="user[introduce]" cols="64" rows="8" class="edit__user__form"></textarea>
+            <textarea v-model="userIntroduce" id="user_introduce" name="user[introduce]" cols="64" rows="8" class="edit__user__form"></textarea>
           </li>
           <li class="image__field">
             <label for="user_image" class="text__top">アイコン画像</label>
@@ -40,6 +40,9 @@ export default {
   },
   data() {
     return {
+      userName: null,
+      userEmail: null,
+      userIntroduce: null,
       checkGuestUser: false,
       imageUrl: require('../../../assets/images/no_image.jpg'),
       imageFile: null,
@@ -51,7 +54,7 @@ export default {
     },
   },
   methods: {
-    imagePreview(e) {
+    imagePreview() {
       const image = this.$refs.imagePreview.files[0];
 
       this.imageFile = image;
@@ -65,9 +68,9 @@ export default {
       let formData = new FormData();
       if (checkGuestUser) return this.checkGuestUser = true;
 
-      formData.append('name', this.userData.name);
-      formData.append('email', this.userData.email);
-      formData.append('introduce', this.userData.introduce);
+      formData.append('name', this.userName);
+      formData.append('email', this.useEmail);
+      formData.append('introduce', this.userIntroduce);
       if (isNotNoImage) formData.append('image', this.imageFile);
 
       return this.$store.dispatch('updateUserData', formData);
@@ -77,6 +80,9 @@ export default {
     const userImageIsExsits = (this.userData.image_url !== null) && (this.userData.image_url !== 'null');
 
     if (userImageIsExsits) this.imageUrl = this.userData.image_url;
+    this.userName = this.userData.name;
+    this.userEmail = this.userData.email;
+    this.userIntroduce = this.userData.introduce;
   },
 };
 </script>
