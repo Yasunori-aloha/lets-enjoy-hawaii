@@ -190,13 +190,29 @@ export default new Vuex.Store({
       });
     },
     updateFavoriteComment: async function({}, params) {
-      await axios.patch(`/api/v1/users/${params.userId}/favorites/${params.favoriteId}`, params.formData)
+      await axios.patch(`/api/v1/users/${params.userId}/favorites/${params.favoriteId}`, params.formData,
+      {
+        headers: {
+          'content-type': 'multipart/form-data',
+          'access-token': localStorage.getItem('access-token'),
+          'client': localStorage.getItem('client'),
+          'uid': localStorage.getItem('uid'),
+        }
+      })
       .catch(error => {
         console.log(error.response.data);
       });
     },
     updateHistoryComment: async function({}, params) {
-      await axios.patch(`/api/v1/users/${params.userId}/histories/${params.historyId}`, params.formData)
+      await axios.patch(`/api/v1/users/${params.userId}/histories/${params.historyId}`, params.formData,
+      {
+        headers: {
+          'content-type': 'multipart/form-data',
+          'access-token': localStorage.getItem('access-token'),
+          'client': localStorage.getItem('client'),
+          'uid': localStorage.getItem('uid'),
+        }
+      })
       .catch(error => {
         console.log(error.response.data);
       });
@@ -205,7 +221,10 @@ export default new Vuex.Store({
       axios.put('/api/v1/auth', formData,
       {
         headers: {
-          'content-type': 'multipart/form-data'
+          'content-type': 'multipart/form-data',
+          'access-token': localStorage.getItem('access-token'),
+          'client': localStorage.getItem('client'),
+          'uid': localStorage.getItem('uid'),
         }
       }
       ).then(response => {
