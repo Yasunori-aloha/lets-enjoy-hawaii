@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     namespace :api do
       scope :v1 do
-        post '/auth/check_email', to: 'auth/registrations#is_registerd?'
+        post '/auth/check_email', to: 'users#is_registerd?'
         post '/auth/guest_sign_in', to: 'auth/sessions#new_guest'
         mount_devise_token_auth_for 'User', at: 'auth', controllers: {
           registrations: 'api/auth/registrations',

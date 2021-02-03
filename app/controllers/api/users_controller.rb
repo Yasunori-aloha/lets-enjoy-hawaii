@@ -15,4 +15,11 @@ class Api::UsersController < ApplicationController
       ]).find(current_user.id)
     render json: UserSerializer.new(@user, current_user_page?: true).to_json
   end
+
+  # メールが登録済みか確認するためのメソッド。
+  def is_registerd?
+    @user = User.is_exists?(params[:email])
+    render json: @user
+  end
+
 end
