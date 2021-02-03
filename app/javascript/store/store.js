@@ -13,7 +13,9 @@ export default new Vuex.Store({
       email: null,
       introduce: null,
       admin: null,
-      image_url: null,
+      favorites_counts: null,
+      reviews_counts: null,
+      histories_counts: null,
     },
     userTokens: {
       'access-token': null,
@@ -40,6 +42,9 @@ export default new Vuex.Store({
       state.userData.introduce = userData.introduce;
       state.userData.admin = userData.admin;
       state.userData.image_url = userData.image_url;
+      state.userData.favorites_counts = userData.favorites_counts;
+      state.userData.reviews_counts = userData.reviews_counts;
+      state.userData.histories_counts = userData.histories_counts;
     },
     updateUserTokens(state,  userTokens) {
       state.userTokens['access-token'] = userTokens['access-token'];
@@ -177,6 +182,9 @@ export default new Vuex.Store({
         }
       })
       .then(response => {
+        this.state.favorites_counts = response.data.favorites_counts;
+        this.state.reviews_counts = response.data.reviews_counts;
+        this.state.histories_counts = response.data.histories_counts;
         this.state.userReviews = response.data.reviews;
         this.state.userFavorites = response.data.favorites;
         this.state.userHistories = response.data.histories;
