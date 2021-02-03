@@ -45,7 +45,7 @@
             = link_to "#{@experience.genre_name}", "/#{@experience.genre_search}", class: 'genre search_btn link_to link_hover', method: :post
       .show_info_right
         -# 未ログインユーザーなら'口コミ投稿'等のボタンが表示されない。
-        - if user_signed_in?
+        -# - if user_signed_in?
           %ul
             %li.post_reviews
               = icon('far', 'comment-dots', class: 'fa-flip-horizontal')
