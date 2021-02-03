@@ -2,6 +2,7 @@
 
 class Api::UsersController < Api::ApplicationController
   before_action :authenticate_api_user!, only: %i[show]
+  before_action -> { current_user?(params) }, only: :show
 
   def show
     # 自分のじゃないマイページに遷移しようとしていたらトップページへリダイレクトする。
@@ -16,8 +17,6 @@ class Api::UsersController < Api::ApplicationController
       { reviews:   { experience: :histories }},
       { reviews:   { experience: :area }}
       ]).find(current_api_user.id)
-
-    current_user?(params)
 
     render json: UserSerializer.new(@user, current_user_page?: true).to_json
   end
