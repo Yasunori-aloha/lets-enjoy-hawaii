@@ -226,6 +226,12 @@ export default new Vuex.Store({
         console.log(error.response.data);
       });
     },
+    removeFavorite: async function({}, params) {
+      await axios.delete(`/api/v1/users/${params.userId}/histories/${params.historyId}`)
+      .catch(error => {
+        console.log(error.response.data);
+      });
+    },
     updateUserData({ commit }, formData) {
       axios.put('/api/v1/auth', formData,
       {

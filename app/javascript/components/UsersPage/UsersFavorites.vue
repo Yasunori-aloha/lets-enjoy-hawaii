@@ -91,7 +91,6 @@ export default {
         formData,
       }).then(response => {
         favorite.comment = this.favoriteComments[favorite.id];
-        this.userData.favorites_counts -= 1;
       });
     },
     // 'index番号も渡して、登録解除が成功したら連想配列のindex番号要素を削除する。
@@ -102,7 +101,7 @@ export default {
         favoriteId: favorite.id,
       }).then(response => {
         this.userFavorites.splice(index, 1);
-
+        this.userData.favorites_counts -= 1;
       });
     },
   },
@@ -163,7 +162,6 @@ export default {
   margin: auto 0px;
   padding: 0 7px;
   cursor: pointer;
-  /* position: relative; */
 }
 .release__mark{
   margin: 3px 5px 0 0;
@@ -172,15 +170,6 @@ export default {
 .release__message{
   font-weight: bold;
 }
-/* .favorite__release{
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  cursor: pointer;
-} */
 .activity__picture{
   height: 181px;
   position: relative;

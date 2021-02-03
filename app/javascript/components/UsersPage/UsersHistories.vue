@@ -4,17 +4,16 @@
       <UsersPageMenu currentPage="行った場所" />
       <div class="user__histories__show__area">
         <ul v-if="historyIsExists" class="user__histories__list">
-          <li v-for="(history, index) in userHistories" class="history__wrapper" :style="isNotRight(index + 1)">
+          <li v-for="(history, index) in userHistories" :key="history.id" class="history__wrapper" :style="isNotRight(index + 1)">
             <div class="history__info">
               <ul class="history__time">
                 <li>登録日：</li>
                 <li class="historied__at">{{ historyTime(history) }}</li>
               </ul>
-              <div class="history__release__btn">
+              <button @click="removeHistory(history, index)" class="history__release__btn">
                 <i class="fas fa-times release__mark"></i>
                 <span class="release__message">登録解除</span>
-                <a :href="`/experiences/${history.experience.id}/histories`" data-remote="true" rel="nofollow" data-method="delete" class="history__release"></a>
-              </div>
+              </button>
             </div>
             <div class="acitivity__picture">
               <img :src="historyActivityImage(history)" class="content__picture">
@@ -94,6 +93,17 @@ export default {
         history.comment = this.historyComments[history.id];
       });
     },
+    // 'index番号も渡して、登録解除が成功したら連想配列のindex番号要素を削除する。
+    removeHistory: async function(history, index) {
+      await this.$store.dispatch('removeFavorite',
+      {
+        userId: this.userData.id,
+        historyId: history.id,
+      }).then(response => {
+        this.userHistories.splice(index, 1);
+        this.userData.histories_counts -= 1;
+      });
+    },
   },
   created() {
     this.userHistories.forEach(e => {
@@ -153,7 +163,7 @@ export default {
     height: 20px;
     margin: auto 0px;
     padding: 0 7px;
-    position: relative;
+    cursor: pointer;
   }
   .release__mark{
     margin: 3px 5px 0 0;
@@ -161,15 +171,6 @@ export default {
   }
   .release__message{
     font-weight: bold;
-  }
-  .history__release{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    cursor: pointer;
   }
 /* 訪問記録のアクティビティ画像部分 */
   .acitivity__picture{
