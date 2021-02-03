@@ -16,6 +16,7 @@ Rails.application.routes.draw do
           resources :favorites, only: %i[update destroy]
           resources :histories, only: %i[update destroy]
         end
+        resources :experiences, only: :show
       end
     end
   end
