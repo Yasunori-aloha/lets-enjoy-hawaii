@@ -6,11 +6,15 @@ class Api::UsersController < Api::ApplicationController
   def show
     # 自分のじゃないマイページに遷移しようとしていたらトップページへリダイレクトする。
     @user = User.includes([
+      { favorites: { experience: :favorites }},
+      { favorites: { experience: :histories }},
       { favorites: { experience: :area }},
-      { histories: { experience: :histories }},
       { histories: { experience: :favorites }},
+      { histories: { experience: :histories }},
       { histories: { experience: :area }},
-      { reviews: :experience }
+      { reviews:   { experience: :favorites }},
+      { reviews:   { experience: :histories }},
+      { reviews:   { experience: :area }}
       ]).find(current_api_user.id)
 
     current_user?(params)
