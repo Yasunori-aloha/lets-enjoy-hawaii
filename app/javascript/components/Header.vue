@@ -3,7 +3,7 @@
     <AppIcon />
     <ul v-if="isAuthenticated" class="signup__login__wrapper">
       <li>
-        <span @click="toUsersPage()" class="sl__link link__hover">{{ userData.name }}さんのマイページ</span>
+        <router-link :to="`/users/${userData.id}`" class="sl__link link__hover">{{ userData.name }}さんのマイページ</router-link>
       </li>
       <li>
         <span @click="userLogout()" class="sl__link link__hover">ログアウト</span>
@@ -35,14 +35,6 @@ export default {
     },
   },
   methods: {
-    toUsersPage: async function() {
-      const isNotUsersHomePage = !(/^\/users\/\d{1,}$/.test(this.$route.path));
-      if (isNotUsersHomePage) {
-        await this.$store.dispatch('toUsersPage', this.userData.id).then(() => {
-          this.$router.push({ path: `/users/${this.userData.id}`});
-        });
-      }
-    },
     userLogout: async function() {
       const isUsersPage = /\/users\/\d/.test(this.$route.path);
 
