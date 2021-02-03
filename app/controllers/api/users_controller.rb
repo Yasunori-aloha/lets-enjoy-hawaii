@@ -13,6 +13,6 @@ class Api::UsersController < ApplicationController
       { histories: { experience: :area }},
       { reviews: :experience }
       ]).find(current_user.id)
-    render json: UserSerializer.new(@user, is_user_page?: true, current_user_page?: true).to_json
+    render json: UserSerializer.new(@user, current_user_page?: true).to_json
   end
 end
