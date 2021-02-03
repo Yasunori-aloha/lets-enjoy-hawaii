@@ -29,7 +29,7 @@
               </span>
               <form>
                 <label for="history_comment" class="activity__comment__info">コメント ※個人情報は入力しないでください</label>
-                <textarea v-model="history.comment" id="history_comment" name="history[comment]" maxlength="30" placeholder="ここにコメントを書くと便利です。（全角30文字以内・改行は受け付けません）" class="activity__comment"></textarea>
+                <textarea v-model="historyComments[history.id]" id="history_comment" name="history[comment]" maxlength="30" placeholder="ここにコメントを書くと便利です。（全角30文字以内・改行は受け付けません）" class="activity__comment"></textarea>
                 <div class="save__btn">
                   <i class="fas fa-check check__mark"></i>
                   <span class="save__message">保存する</span>
@@ -52,6 +52,11 @@ import { mapGetters } from "vuex";
 export default {
   components: {
     UsersPageMenu,
+  },
+  data() {
+    return {
+      historyComments: {},
+    }
   },
   computed: {
     ...mapGetters(["userData", "userHistories"]),
@@ -79,9 +84,21 @@ export default {
     },
     updateHistoryComment: async function(history) {
       let formData = new FormData();
-      formData.append('history[comment]', history.comment);
-      await this.$store.dispatch('updateHistoryComment', { userId: this.userData.id, historyId: history.id, formData });
+      formData.append('history[comment]', this.historyComments[history.id]);
+      await this.$store.dispatch('updateHistoryComment',
+      {
+        userId: this.userData.id,
+        historyId: history.id,
+        formData
+      }).then(response => {
+        history.comment = this.historyComments[history.id];
+      });
     },
+  },
+  created() {
+    this.userHistories.forEach(e => {
+      this.historyComments[e.id] =  e.comment;
+    });
   },
 };
 </script>
