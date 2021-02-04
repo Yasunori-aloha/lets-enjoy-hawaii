@@ -14,6 +14,14 @@
             <ActivityPicture  />
             <ExperiencesScoreDistribution />
           </div>
+          <ul class="experience__business__hours">
+            <li class="business__hours__info">
+              <span>営業時間</span>
+            </li>
+            <li class="business__hours__main">
+              <span>{{  }} 〜 {{  }}</span>
+            </li>
+          </ul>
         </div>
       </div>
       <div class="experience__page__right"></div>
@@ -74,6 +82,26 @@ export default {
     height: 370px;
     width: 490px;
     border: 1px solid #ccc;
+  }
+  .experience__business__hours{
+    height: 36px;
+    border: 1px solid #ccc;
+    color: #333333;
+    display: flex;
+  }
+  .business__hours__info{
+    height: 100%;
+    width: 175px;
+    padding: 8px 0 0 8px;
+    font-size: 12px;
+    border-right: 1px solid #ccc;
+    font-weight: bold;
+    background-color: #eaeaea;
+  }
+  .business__hours__main{
+    padding: 8px 0 0 8px;
+    font-size: 12px;
+    display: flex;
   }
   .experience__page__right{
     width: calc(100% - 770px)
