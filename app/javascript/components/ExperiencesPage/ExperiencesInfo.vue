@@ -6,11 +6,7 @@
         <h1 class="experinece__name">{{ experienceData.name }}</h1>
       </li>
       <li class="experience__score">
-        <div class="star__rating__wrapper">
-          <div class="star__rating__front">★★★★★</div>
-          <div class="star__rating__back">★★★★★</div>
-        </div>
-        <span class="rating__point">{{ experienceData.score }}</span>
+        <StarRating :score="experienceData.score" />
         <span class="review__counts">（</span>
         <a href="" class="review__link review__counts link__hover">口コミ{{ experienceData.reviews_counts }}件</a>
         <span class="review__counts">）</span>
@@ -30,7 +26,12 @@
 </template>
 
 <script>
+import StarRating from '../StarRating.vue';
+
 export default {
+  components: {
+    StarRating,
+  },
   computed: {
     experienceData() {
       return this.$store.getters.experienceData;
@@ -66,31 +67,6 @@ export default {
   .experience__score{
     padding-top: 5px;
     display: flex;
-  }
-  .star__rating__wrapper{
-    margin-right: 6px;
-    width: 5em;
-    line-height: 22px;
-    font-size: 22px;
-    position: relative;
-  }
-  .star__rating__front{
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    color: #ffa500;
-    width: var(--width);
-  }
-  .star__rating__back{
-    color: #808080;
-  }
-/* アクティビティの点数表示欄 */
-  .rating__point{
-    font-size: 16px;
-    line-height: 26px;
-    font-weight: bold;
-    color: black;
   }
 /* 口コミ件数表示欄 */
   .review__counts{
