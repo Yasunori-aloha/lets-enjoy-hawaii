@@ -11,7 +11,7 @@
         <ExperiencesTab />
         <div class="experience__main__wrapper">
           <div class="picture__score__wrapper">
-            <ActivityPicture  />
+            <ActivityPicture :activity="experienceData" />
             <ExperiencesScoreDistribution />
           </div>
           <ExperiencesTimeLocation />
@@ -41,6 +41,11 @@ export default {
     ActivityPicture,
     ExperiencesScoreDistribution,
     ExperiencesTimeLocation,
+  },
+  computed: {
+    experienceData() {
+      return this.$store.getters.experienceData;
+    },
   },
   created() {
   },
