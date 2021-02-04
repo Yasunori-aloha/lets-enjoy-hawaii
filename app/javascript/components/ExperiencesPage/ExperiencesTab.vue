@@ -6,13 +6,13 @@
     <li class="two__line__tab">
       <span>口コミ</span>
       <br>
-      <span class="number">({{  }}件)</span>
+      <span class="number">({{ experienceData.reviews_counts }}件)</span>
       <a href="" class="experience__link" />
     </li>
     <li class="two__line__tab">
       <span>写真</span>
       <br>
-      <span class="number">({{  }}枚)</span>
+      <span class="number">({{ experienceData.images_counts }}枚)</span>
       <a href="" class="experience__link" />
     </li>
   </ul>
@@ -20,7 +20,11 @@
 
 <script>
 export default {
-
+  computed: {
+    experienceData() {
+      return this.$store.getters.experienceData;
+    },
+  },
 };
 </script>
 
