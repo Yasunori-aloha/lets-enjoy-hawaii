@@ -271,14 +271,15 @@ export default new Vuex.Store({
         this.state.experienceData = response.data;
       });
     },
-    favoriteRegistration: async function({}, experienceId) {
-      await axios.post(`/api/v1/experiences/${experienceId}/histories`,
+    favoriteRegistration: async function({}, params) {
+      await axios.post(`/api/v1/experiences/${params.experienceId}/histories`,
       {
         headers: {
           'access-token': localStorage.getItem('access-token'),
           'client': localStorage.getItem('client'),
           'uid': localStorage.getItem('uid'),
-        }
+        },
+        user_id: params.userId
       })
       .then(response => {
         console.log(response.data);

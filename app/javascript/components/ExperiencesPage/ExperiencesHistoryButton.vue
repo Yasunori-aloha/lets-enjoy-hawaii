@@ -12,6 +12,9 @@
 <script>
 export default {
   computed: {
+    userId() {
+      return this.$store.getters.userData.id;
+    },
     experienceId() {
       return this.$store.getters.experienceData.id;
     },
@@ -21,7 +24,11 @@ export default {
   },
   methods: {
     favoriteRegistration: async function() {
-      await this.$store.dispatch('favoriteRegistration', this.experienceId);
+      await this.$store.dispatch('favoriteRegistration',
+        {
+          userId: this.userId,
+          experienceId: this.experienceId,
+        });
     },
     favoriteRemove() {
       console.log('rem');
