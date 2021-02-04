@@ -58,10 +58,6 @@ export default {
   .category__icon{
     height: 35px;
     width: 35px;
-    /* background-image: var(--background-image);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover; */
   }
   .experinece__name{
     font-size: 24px;

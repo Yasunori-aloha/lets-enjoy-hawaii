@@ -13,8 +13,8 @@ Rails.application.routes.draw do
           omniauth_callbacks: 'users/omniauth_callbacks',
         }
         resources :users, only: :show do
-          resources :favorites, only: %i[create update destroy]
-          resources :histories, only: %i[create update destroy]
+          resources :favorites, only: %i[update destroy]
+          resources :histories, only: %i[update destroy]
         end
         resources :experiences, only: :show, shallow: true do
           member do
@@ -31,9 +31,6 @@ Rails.application.routes.draw do
       resources :reviews, only: %i[new create]
       get 'photos', to: 'reviews#edit'
       get 'reviews', to: 'reviews#exp_index'
-      # 'resources'の方だと、destroy時に'id'で検索できる。
-      resource :histories, only: %i[create destroy]
-      resource :favorites, only: %i[create destroy]
     end
   end
   get '/search', to: 'tops#search'
