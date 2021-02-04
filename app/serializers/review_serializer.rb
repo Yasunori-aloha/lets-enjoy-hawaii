@@ -6,6 +6,7 @@ class ReviewSerializer < ActiveModel::Serializer
              :created_at
 
   # アクティビティの詳細ページでのみ取得する。
+  attribute  :images_url, if: :show_experiences?
   belongs_to :user,       if: :show_experiences?
 
   # ユーザー口コミ一覧ページでのみ取得する。
