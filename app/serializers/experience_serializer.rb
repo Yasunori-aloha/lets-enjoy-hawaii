@@ -21,6 +21,7 @@ class ExperienceSerializer < ActiveModel::Serializer
   attribute  :business_hours_start,  if: :show_experiences?
   attribute  :business_hours_finish, if: :show_experiences?
   attribute  :score,                 if: :show_experiences?
+  attribute  :score_counts,          if: :show_experiences?
   attribute  :image_url,             if: :show_experiences?
   attribute  :images_counts,         if: :show_experiences?
   attribute  :already_favorited,     if: :show_experiences?
@@ -46,6 +47,10 @@ class ExperienceSerializer < ActiveModel::Serializer
 
   def histories_counts
     object.histories.length
+  end
+
+  def score_counts
+    object.reviews.group(:score).count
   end
 
   def images_counts
