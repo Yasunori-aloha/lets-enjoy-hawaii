@@ -1,10 +1,10 @@
 <template>
-  <li v-if="experienceData.already_favorited" class="favorite">
+  <li v-if="experienceData.already_favorited" @click="favoriteRegistration()" class="favorite">
     <i class="fas fa-star"></i>
     <a href="" class="btn"></a>
     <span>{{ experienceData.favorite_counts }}</span>
   </li>
-  <li v-else class="favorite">
+  <li v-else class="favorite" @click="favoriteRemove()">
     <i class="far fa-star"></i>
     <a href="" class="btn"></a>
     <span>{{ experienceData.favorite_counts }}</span>
@@ -12,10 +12,26 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   computed: {
-    experienceData() {
-      return this.$store.getters.experienceData;
+    ...mapGetters(["experienceData","userData"]),
+  },
+  methods: {
+    favoriteRegistration: async function() {
+      await this.$store.dispatch('favoriteRegistration',
+        {
+          userId: this.userId,
+          experienceId: this.experienceId,
+        });
+    },
+    favoriteRemove: async function() {
+      await this.$store.dispatch('favoriteRemove',
+        {
+          userId: this.userId,
+          experienceId: this.experienceId,
+        });
     },
   },
 };

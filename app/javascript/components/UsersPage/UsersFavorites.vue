@@ -10,7 +10,7 @@
                 <li>登録日：</li>
                 <li class="favorited__at">{{ favoriteTime(favorite) }}</li>
               </ul>
-              <button @click="removeFavorite(favorite, index)" class="favorite__release__btn">
+              <button @click="favoriteRemove(favorite, index)" class="favorite__release__btn">
                 <i class="fas fa-times release__mark"></i>
                 <span class="release__message">登録解除</span>
               </button>
@@ -93,8 +93,8 @@ export default {
       });
     },
     // 'index番号も渡して、登録解除が成功したら連想配列のindex番号要素を削除する。
-    removeFavorite: async function(favorite, index) {
-      await this.$store.dispatch('removeFavorite',
+    favoriteRemove: async function(favorite, index) {
+      await this.$store.dispatch('favoriteRemove',
       {
         userId: this.userData.id,
         favoriteId: favorite.id,

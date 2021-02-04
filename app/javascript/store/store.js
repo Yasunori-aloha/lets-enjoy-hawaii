@@ -208,18 +208,19 @@ export default new Vuex.Store({
         console.log(error.response.data);
       });
     },
-    removeFavorite: async function({}, params) {
-      await axios.delete(`/api/v1/users/${params.userId}/favorites/${params.favoriteId}`,
+    favoriteRemove: async function({}, params) {
+      await axios.delete(`/api/v1/users/${params.userId}/favorites/${params.experienceId}`,
       {
         headers: {
-          'content-type': 'multipart/form-data',
           'access-token': localStorage.getItem('access-token'),
           'client': localStorage.getItem('client'),
           'uid': localStorage.getItem('uid'),
         }
       })
-      .catch(error => {
-        console.log(error.response.data);
+      .then(response => {
+        if (this.state.experienceData !== null) {
+          this.state.experienceData.already_favorited = false;
+        }
       });
     },
     updateHistoryComment: async function({}, params) {
@@ -284,6 +285,21 @@ export default new Vuex.Store({
       })
       .then(response => {
         this.state.experienceData.already_historied = true;
+      });
+    },
+    favoriteRegistration: async function({}, params) {
+      await axios.post(`/api/v1/experiences/${params.experienceId}/favorites`,
+      {
+        headers: {
+          'access-token': localStorage.getItem('access-token'),
+          'client': localStorage.getItem('client'),
+          'uid': localStorage.getItem('uid'),
+        },
+        user_id: params.userId
+      })
+      .then(response => {
+        this.state.experienceData.already_favorited = true;
+        this.state.experienceData.favorite_counts += 1;
       });
     },
   }
