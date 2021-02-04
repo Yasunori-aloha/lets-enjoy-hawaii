@@ -22,6 +22,15 @@
               <span>{{  }} 〜 {{  }}</span>
             </li>
           </ul>
+          <ul class="experience__location">
+            <div class="location__info">
+              <span>所在地</span>
+            </div>
+            <div class="locaiton__main">
+              <span class="location__postal__code">{{  }}</span>
+              <span class="location__address">{{  }}</span>
+            </div>
+          </ul>
         </div>
       </div>
       <div class="experience__page__right"></div>
@@ -102,6 +111,33 @@ export default {
     padding: 8px 0 0 8px;
     font-size: 12px;
     display: flex;
+  }
+  .experience__location{
+    height: 36px;
+    border: 1px solid #ccc;
+    border-top: 0;
+    color: #333333;
+    display: flex;
+  }
+  .location__info{
+    height: 100%;
+    width: 175px;
+    padding: 8px 0 0 8px;
+    font-size: 12px;
+    border-right: 1px solid #ccc;
+    font-weight: bold;
+    background-color: #eaeaea;
+  }
+  .locaiton__main{
+    padding: 8px 0 0 8px;
+    font-size: 12px;
+    display: flex;
+  }
+  .location__postal__code{
+    margin-right: 16px;
+  }
+  .location__address{
+    margin-right: 4px;
   }
   .experience__page__right{
     width: calc(100% - 770px)
