@@ -220,6 +220,7 @@ export default new Vuex.Store({
       .then(response => {
         if (this.state.experienceData !== null) {
           this.state.experienceData.already_favorited = false;
+          this.state.experienceData.favorite_counts -= 1;
         }
       });
     },

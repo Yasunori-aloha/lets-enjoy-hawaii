@@ -1,12 +1,10 @@
 <template>
-  <li v-if="experienceData.already_favorited" @click="favoriteRegistration()" class="favorite">
+  <li v-if="experienceData.already_favorited" @click="favoriteRemove()" class="favorite">
     <i class="fas fa-star"></i>
-    <a href="" class="btn"></a>
     <span>{{ experienceData.favorite_counts }}</span>
   </li>
-  <li v-else class="favorite" @click="favoriteRemove()">
+  <li v-else class="favorite" @click="favoriteRegistration()">
     <i class="far fa-star"></i>
-    <a href="" class="btn"></a>
     <span>{{ experienceData.favorite_counts }}</span>
   </li>
 </template>
@@ -22,15 +20,15 @@ export default {
     favoriteRegistration: async function() {
       await this.$store.dispatch('favoriteRegistration',
         {
-          userId: this.userId,
-          experienceId: this.experienceId,
+          userId: this.userData.id,
+          experienceId: this.experienceData.id,
         });
     },
     favoriteRemove: async function() {
       await this.$store.dispatch('favoriteRemove',
         {
-          userId: this.userId,
-          experienceId: this.experienceId,
+          userId: this.userData.id,
+          experienceId: this.experienceData.id,
         });
     },
   },
@@ -49,6 +47,7 @@ export default {
     padding-left: 5px;
     position: relative;
     background: linear-gradient(#ffffff, #e4e4e4);
+    cursor: pointer;
   }
   .fa-star{
     color: #ffa500;

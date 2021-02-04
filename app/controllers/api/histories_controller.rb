@@ -1,5 +1,5 @@
 class Api::HistoriesController < Api::ApplicationController
-  before_action :authenticate_api_user!, only: %i[update destroy]
+  before_action :authenticate_api_user!, only: %i[create update destroy]
   before_action -> { current_user?(params) }, only: %i[create update destroy]
 
   # 訪問記録登録。

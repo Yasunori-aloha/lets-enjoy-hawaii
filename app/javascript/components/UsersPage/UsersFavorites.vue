@@ -97,7 +97,7 @@ export default {
       await this.$store.dispatch('favoriteRemove',
       {
         userId: this.userData.id,
-        favoriteId: favorite.id,
+        experienceId: favorite.experience.id,
       }).then(response => {
         this.userFavorites.splice(index, 1);
         this.userData.favorites_counts -= 1;
