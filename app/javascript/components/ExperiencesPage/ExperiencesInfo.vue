@@ -2,7 +2,7 @@
   <div class="experience__info__left">
     <ul>
       <li class="experience__name__wrapper">
-        <img src="" class="category__icon">
+        <img :src="categoryIcon(experienceData.genre.category.search)" class="category__icon">
         <h1 class="experinece__name">{{ experienceData.name }}</h1>
       </li>
       <li class="experience__score">
@@ -37,6 +37,11 @@ export default {
       return this.$store.getters.experienceData;
     },
   },
+  methods: {
+    categoryIcon(categorySearch) {
+      return require(`../../../assets/images/${categorySearch}_icon.png`);
+    },
+  },
 };
 </script>
 
@@ -53,10 +58,10 @@ export default {
   .category__icon{
     height: 35px;
     width: 35px;
-    /* background-image: url(''); */
+    /* background-image: var(--background-image);
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: cover;
+    background-size: cover; */
   }
   .experinece__name{
     font-size: 24px;
