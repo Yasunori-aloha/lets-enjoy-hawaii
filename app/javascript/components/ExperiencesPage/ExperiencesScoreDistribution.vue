@@ -3,7 +3,7 @@
     <li class="list__title">評価分布</li>
     <li v-for="(evalution, index) in evalutions" :key="evalution" class="list__score">
       <span class="evalution">{{ evalution }}</span>
-      <span class="percent">{{ 0 }}%</span>
+      <span class="percent">{{ scorePercent(index) }}%</span>
       <div class="percent__graph">
         <div :style="percentGraph(0)" class="percent__graph__front"></div>
         <div class="percent__graph__back"></div>
@@ -25,11 +25,24 @@ export default {
       ],
     }
   },
+  computed: {
+    scoreCounts() {
+      return this.$store.getters.experienceData.score_counts;
+    },
+    reviewsCounts() {
+      return this.$store.getters.experienceData.reviews_counts;
+    },
+  },
   methods: {
     percentGraph() {
       return {
         "--width": `${0}%`,
       }
+    },
+    scorePercent(index) {
+      const score = this.scoreCounts[5 - index];
+      if (!score) return 0;
+      return score / this.reviewsCounts * 100;
     },
   },
 };
