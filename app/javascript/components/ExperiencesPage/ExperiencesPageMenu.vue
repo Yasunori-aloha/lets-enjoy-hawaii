@@ -3,15 +3,19 @@
     <div>
       <router-link to="/" class="link__hover">トップページ</router-link>
       <span> › </span>
-      <a href="/" class="link__hover">カテゴリー名{{  }}</a>
-      <span> › アクティビティ名称{{  }}</span>
+      <a href="/" class="link__hover" rel="nofollow" data-method="post">{{ experienceData.genre.category.name }}</a>
+      <span> › {{ experienceData.name }}</span>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-
+  computed: {
+    experienceData() {
+      return this.$store.getters.experienceData;
+    },
+  },
 };
 </script>
 

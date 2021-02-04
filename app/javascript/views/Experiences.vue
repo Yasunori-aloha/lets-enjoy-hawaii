@@ -43,7 +43,6 @@ export default {
     ExperiencesTimeLocation,
   },
   created() {
-    console.log(this.$route.path);
   },
 };
 </script>
