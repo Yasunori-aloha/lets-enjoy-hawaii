@@ -49,9 +49,7 @@ class ExperienceSerializer < ActiveModel::Serializer
   def images_counts
     images_counts = 0
     if object.reviews
-      object.reviews.each do |review|
-        images_counts += review.images.length
-      end
+      object.reviews.each{ |review| images_counts += review.images.length }
     end
     images_counts
   end
