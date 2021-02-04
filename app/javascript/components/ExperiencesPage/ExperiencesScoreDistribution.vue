@@ -5,7 +5,7 @@
       <span class="evalution">{{ evalution }}</span>
       <span class="percent">{{ scorePercent(index) }}%</span>
       <div class="percent__graph">
-        <div :style="percentGraph(0)" class="percent__graph__front"></div>
+        <div :style="percentGraph(index)" class="percent__graph__front"></div>
         <div class="percent__graph__back"></div>
       </div>
     </li>
@@ -23,6 +23,7 @@ export default {
         'やや不満',
         '不満',
       ],
+      percent: [],
     }
   },
   computed: {
@@ -34,15 +35,15 @@ export default {
     },
   },
   methods: {
-    percentGraph() {
-      return {
-        "--width": `${0}%`,
-      }
-    },
     scorePercent(index) {
       const score = this.scoreCounts[5 - index];
       if (!score) return 0;
-      return score / this.reviewsCounts * 100;
+      return (score / this.reviewsCounts * 100).toFixed(0);
+    },
+    percentGraph(index) {
+      const score = this.scoreCounts[5 - index];
+      if (!score) return { "--width": '0%' };
+      return {"--width": `${(score / this.reviewsCounts * 100).toFixed(0)}%`}
     },
   },
 };
