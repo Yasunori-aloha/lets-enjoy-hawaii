@@ -1,9 +1,9 @@
 <template>
-  <li v-if="alreadyHistoried" @click="favoriteRemove()" class="history__place">
+  <li v-if="alreadyHistoried" @click="historyRemove()" class="history__place">
     <i class="fas fa-check"></i>
     <span class="history">行った</span>
   </li>
-  <li v-else @click="favoriteRegistration()" class="history__place">
+  <li v-else @click="historyRegistration()" class="history__place">
     <i class="fas fa-shoe-prints fa-rotate-270"></i>
     <span class="history">行った</span>
   </li>
@@ -30,8 +30,12 @@ export default {
           experienceId: this.experienceId,
         });
     },
-    historyRemove() {
-      console.log('rem');
+    historyRemove: async function() {
+      await this.$store.dispatch('historyRemove',
+        {
+          userId: this.userId,
+          experienceId: this.experienceId,
+        });
     },
   },
 };

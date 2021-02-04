@@ -10,7 +10,7 @@
                 <li>登録日：</li>
                 <li class="historied__at">{{ historyTime(history) }}</li>
               </ul>
-              <button @click="removeHistory(history, index)" class="history__release__btn">
+              <button @click="historyRemove(history, index)" class="history__release__btn">
                 <i class="fas fa-times release__mark"></i>
                 <span class="release__message">登録解除</span>
               </button>
@@ -93,11 +93,11 @@ export default {
       });
     },
     // 'index番号も渡して、登録解除が成功したら連想配列のindex番号要素を削除する。
-    removeHistory: async function(history, index) {
-      await this.$store.dispatch('removeFavorite',
+    historyRemove: async function(history, index) {
+      await this.$store.dispatch('historyRemove',
       {
         userId: this.userData.id,
-        historyId: history.id,
+        experienceId: history.experience.id,
       }).then(response => {
         this.userHistories.splice(index, 1);
         this.userData.histories_counts -= 1;

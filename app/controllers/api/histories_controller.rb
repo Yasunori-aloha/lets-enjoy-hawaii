@@ -19,7 +19,8 @@ class Api::HistoriesController < Api::ApplicationController
 
   # 訪問記録登録解除。
   def destroy
-    @history = History.find(params[:id])
+    experience = Experience.find(params[:id])
+    @history = current_api_user.histories.find_by(experience_id: experience.id)
     @history.destroy
 
     render json: true, status: :ok
