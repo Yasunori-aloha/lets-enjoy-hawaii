@@ -3,27 +3,27 @@
     <ul>
       <li class="experience__name__wrapper">
         <img src="" class="category__icon">
-        <h1 class="experinece__name">アクティビティ名称{{  }}</h1>
+        <h1 class="experinece__name">{{ experienceData.name }}</h1>
       </li>
       <li class="experience__score">
         <div class="star__rating__wrapper">
           <div class="star__rating__front">★★★★★</div>
           <div class="star__rating__back">★★★★★</div>
         </div>
-        <span class="rating__point">点数{{  }}</span>
+        <span class="rating__point">{{ experienceData.score }}</span>
         <span class="review__counts">（</span>
-        <a href="" class="review__link review__counts link__hover">口コミ{{  }}件</a>
+        <a href="" class="review__link review__counts link__hover">口コミ{{ experienceData.reviews_counts }}件</a>
         <span class="review__counts">）</span>
       </li>
       <li class="area__island__wrapeer">
         <span class="area__name">エリア</span>
-        <a href="/" class="island search_btn link__hover area__island">エリア名{{  }}</a>
-        <a href="/" class="area search_btn link__hover area__island">島名{{  }}</a>
+        <a href="/" class="island search_btn link__hover area__island">{{ experienceData.area.name }}</a>
+        <a href="/" class="area search_btn link__hover area__island">{{ experienceData.area.island.name }}</a>
       </li>
       <li class="genre__category__wrapper">
         <span class="genre__name">ジャンル</span>
-        <a href="" class="category search_btn link__hover genre__category">カテゴリー名{{  }}</a>
-        <a href="" class="genre search_btn link__hover genre__category">ジャンル名{{  }}</a>
+        <a href="" class="category search_btn link__hover genre__category">{{ experienceData.genre.category.name }}</a>
+        <a href="" class="genre search_btn link__hover genre__category">{{ experienceData.genre.name }}</a>
       </li>
     </ul>
   </div>
@@ -31,7 +31,11 @@
 
 <script>
 export default {
-
+  computed: {
+    experienceData() {
+      return this.$store.getters.experienceData;
+    },
+  },
 };
 </script>
 
