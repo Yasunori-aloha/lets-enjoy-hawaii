@@ -4,7 +4,7 @@
       <li class="reviews__share">
         <i class="far fa-comment-dots fa-flip-horizontal"></i>
         <span>口コミ投稿</span>
-        <a href="" class="btn"></a>
+        <a :href="`/experiences/${experienceData.id}/reviews/new`" class="btn"></a>
       </li>
       <!-- <li class="reviews__share">
         <i class="fas fa-share"></i>
@@ -16,7 +16,7 @@
       <li class="favorite">
         <i class="far fa-star"></i>
         <a href="" class="btn"></a>
-        <span>お気に入り数{{  }}</span>
+        <span>{{ experienceData.favorite_counts }}</span>
       </li>
       <li class="history__place">
         <i class="fas fa-shoe-prints fa-rotate-270"></i>
@@ -29,7 +29,11 @@
 
 <script>
 export default {
-
+  computed: {
+    experienceData() {
+      return this.$store.getters.experienceData;
+    },
+  },
 };
 </script>
 
