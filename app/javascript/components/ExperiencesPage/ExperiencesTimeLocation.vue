@@ -5,7 +5,7 @@
         <span>営業時間</span>
       </li>
       <li class="business__hours__main">
-        <span>{{  }} 〜 {{  }}</span>
+        <span v-if="isExists">{{ experienceData.business_hours_start }} 〜 {{ experienceData.business_hours_finish }}</span>
       </li>
     </ul>
     <ul class="experience__location">
@@ -13,8 +13,8 @@
         <span>所在地</span>
       </div>
       <div class="locaiton__main">
-        <span class="location__postal__code">{{  }}</span>
-        <span class="location__address">{{  }}</span>
+        <span class="location__postal__code">{{ experienceData.address }}</span>
+        <!-- <span class="location__address">{{  }}</span> -->
       </div>
     </ul>
   </div>
@@ -22,7 +22,14 @@
 
 <script>
 export default {
-
+  computed: {
+    experienceData() {
+      return this.$store.getters.experienceData;
+    },
+    isExists() {
+      return this.experienceData.business_hours_start !== null ? true : false;
+    },
+  },
 };
 </script>
 
