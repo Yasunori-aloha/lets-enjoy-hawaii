@@ -8,6 +8,9 @@
           <ExperiencesInfo />
           <ExperiencesMultiButton />
         </div>
+        <div>
+          <ul class="experience__tabs__wrapper"></ul>
+        </div>
       </div>
       <div class="experience__page__right"></div>
     </div>
@@ -45,6 +48,12 @@ export default {
   .experience__info__wrapper{
     display: flex;
     justify-content: space-between;
+  }
+  .experience__tabs__wrapper{
+    display: flex;
+    height: 43px;
+    border-bottom: 2px solid #ffa500;
+    padding: 0 12px;
   }
   .experience__page__right{
     width: calc(100% - 770px)
