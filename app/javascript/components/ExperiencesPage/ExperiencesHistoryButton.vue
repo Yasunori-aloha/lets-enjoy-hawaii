@@ -1,12 +1,10 @@
 <template>
-  <li v-if="alreadyHistoried" class="history__place">
+  <li v-if="alreadyHistoried" @click="favoriteRemove()" class="history__place">
     <i class="fas fa-check"></i>
-    <a href="" class="btn"></a>
     <span class="history">行った</span>
   </li>
-  <li v-else class="history__place">
+  <li v-else @click="favoriteRegistration()" class="history__place">
     <i class="fas fa-shoe-prints fa-rotate-270"></i>
-    <a href="" class="btn"></a>
     <span class="history">行った</span>
   </li>
 </template>
@@ -16,6 +14,14 @@ export default {
   computed: {
     alreadyHistoried() {
       return this.$store.getters.experienceData.already_historied;
+    },
+  },
+  methods: {
+    favoriteRegistration() {
+      console.log('reg');
+    },
+    favoriteRemove() {
+      console.log('rem');
     },
   },
 };
@@ -34,6 +40,7 @@ export default {
     position: relative;
     background: linear-gradient(#ffffff, #e4e4e4);
     margin-left: 5px;
+    cursor: pointer;
   }
   .history{
     float: right;
