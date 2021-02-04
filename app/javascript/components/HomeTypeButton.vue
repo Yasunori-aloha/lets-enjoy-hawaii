@@ -20,8 +20,8 @@ export default {
     return {
       typeImage: [
         'hotel_icon',
-        'lunch_icon',
-        'car_icon',
+        'dinner_icon',
+        'rentacar_icon',
         'leisure_icon',
         'landmark_icon',
         'shopping_icon',
