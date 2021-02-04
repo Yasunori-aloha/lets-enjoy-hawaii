@@ -76,6 +76,10 @@ export default new Router({
         { path: 'reviews', component: ExperiencesReviews },
         { path: 'photos', component: ExperiencesPhotos },
       ],
+      beforeEnter: async (to, from, next) => {
+        await store.dispatch('toExperiencesPage', to.params.id);
+        return next();
+      },
     }
   ]
 });

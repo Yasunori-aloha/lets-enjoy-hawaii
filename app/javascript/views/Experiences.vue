@@ -42,6 +42,9 @@ export default {
     ExperiencesScoreDistribution,
     ExperiencesTimeLocation,
   },
+  created() {
+    console.log(this.$route.path);
+  },
 };
 </script>
 

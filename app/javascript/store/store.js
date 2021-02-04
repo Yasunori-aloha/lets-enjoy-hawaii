@@ -25,6 +25,7 @@ export default new Vuex.Store({
     userReviews: null,
     userFavorites: null,
     userHistories: null,
+    experienceData: null,
   },
   getters: {
     mapImageIndex: state => state.mapImageIndex,
@@ -33,6 +34,7 @@ export default new Vuex.Store({
     userReviews: state => state.userReviews,
     userFavorites: state => state.userFavorites,
     userHistories: state => state.userHistories,
+    experienceData: state => state.experienceData,
   },
   mutations: {
     updateUserData(state, userData) {
@@ -261,6 +263,12 @@ export default new Vuex.Store({
       ).then(response => {
         commit('updateUserData', response.data);
         commit('updateLocalStorage', { userData: response.data, userTokens: this.getters.userTokens });
+      });
+    },
+    toExperiencesPage: async function({}, experienceId) {
+      await axios.get(`/api/v1/experiences/${experienceId}`)
+      .then(response => {
+        this.state.experienceData = response.data;
       });
     },
   }
