@@ -2,6 +2,11 @@ class Api::HistoriesController < Api::ApplicationController
   before_action :authenticate_api_user!, only: %i[update destroy]
   before_action -> { current_user?(params) }, only: %i[update destroy]
 
+  # 訪問記録登録。
+  def create
+
+  end
+
   # 訪問記録へのコメント保存。
   def update
     @history = History.find(params[:id])
