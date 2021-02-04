@@ -9,7 +9,7 @@
               <ul class="review__info__wrapper">
                 <li>
                   <a :href="`/experiences/${review.experience.id}`">
-                    <img :src="reviewActivityImage(review)" class="activity__picture">
+                    <ActivityPicutre :activity="review" />
                   </a>
                 </li>
                 <li>
@@ -46,11 +46,13 @@
 
 <script>
 import UsersPageMenu from '../UsersPage/UsersPageMenu.vue';
+import ActivityPicutre from '../ActivityPicture.vue';
 import { mapGetters } from "vuex";
 
 export default {
   components: {
     UsersPageMenu,
+    ActivityPicutre,
   },
   computed: {
     ...mapGetters(["userReviews"]),
@@ -64,9 +66,6 @@ export default {
   methods: {
     reviewTime(review) {
       return review.created_at.slice(0, 10).replace(/-/g, '/');
-    },
-    reviewActivityImage(review) {
-      return `https://maps.googleapis.com/maps/api/streetview?size=800x600&location=${review.experience.latitude},${review.experience.longitude}&heading=${review.experience.heading}&pitch=${review.experience.pitch}&fov=${review.experience.fov}&zoom=${review.experience.zoom}&key=${process.env.GOOGLE_STREET_VIEW_KEY}`;
     },
     starRatingWidth(review) {
       return {
@@ -112,7 +111,7 @@ export default {
   .review__info__wrapper{
     display: flex;
   }
-  .activity__picture{
+  .experience__picture{
     height: 60px;
     width: 80px;
     margin: 0 15px 5px 0;

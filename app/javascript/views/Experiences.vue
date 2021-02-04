@@ -11,7 +11,7 @@
         <ExperiencesTab />
         <div class="experience__main__wrapper">
           <div class="picture__score__wrapper">
-            <img src="" alt="" class="experience__picture">
+            <ActivityPicture  />
           </div>
         </div>
       </div>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import ActivityPicture from '../components/ActivityPicture.vue';
 import ExperiencesPageMenu from '../components/ExperiencesPage/ExperiencesPageMenu.vue';
 import ExperiencesInfo from '../components/ExperiencesPage/ExperiencesInfo.vue';
 import ExperiencesMultiButton from '../components/ExperiencesPage/ExperiencesMultiButton.vue';
@@ -33,6 +34,7 @@ export default {
     ExperiencesInfo,
     ExperiencesMultiButton,
     ExperiencesTab,
+    ActivityPicture,
   }
 };
 </script>

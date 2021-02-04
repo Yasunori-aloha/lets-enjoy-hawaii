@@ -16,7 +16,7 @@
               </button>
             </div>
             <div class="activity__picture">
-              <img :src="favoriteActivityImage(favorite)" class="content__picture">
+              <ActivityPicutre :activity="favorite" />
               <a :href="`/experiences/${favorite.experience.id}`" class="activity__picture__link"></a>
             </div>
             <div class="activity__info__wrapper">
@@ -46,11 +46,13 @@
 
 <script>
 import UsersPageMenu from '../UsersPage/UsersPageMenu.vue';
+import ActivityPicutre from '../ActivityPicture.vue';
 import { mapGetters } from "vuex";
 
 export default {
   components: {
     UsersPageMenu,
+    ActivityPicutre,
   },
   data() {
     return {
@@ -77,9 +79,6 @@ export default {
     },
     favoriteTime(favorite) {
       return favorite['created_at'].slice(0, 10).replace(/-/g, '/');
-    },
-    favoriteActivityImage(favorite) {
-      return `https://maps.googleapis.com/maps/api/streetview?size=800x600&location=${favorite.experience.latitude},${favorite.experience.longitude}&heading=${favorite.experience.heading}&pitch=${favorite.experience.pitch}&fov=${favorite.experience.fov}&zoom=${favorite.experience.zoom}&key=${process.env.GOOGLE_STREET_VIEW_KEY}`;
     },
     updateFavoriteComment: async function(favorite) {
       let formData = new FormData();
@@ -174,7 +173,7 @@ export default {
   height: 181px;
   position: relative;
 }
-.content__picture{
+.experience__picture{
   height: 100%;
   width: 100%;
 }

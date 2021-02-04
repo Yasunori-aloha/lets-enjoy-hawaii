@@ -16,7 +16,7 @@
               </button>
             </div>
             <div class="acitivity__picture">
-              <img :src="historyActivityImage(history)" class="content__picture">
+              <ActivityPicutre :activity="history" />
               <a :href="`/experiences/${history.experience.id}`" class="activity__picture__link"></a>
             </div>
             <div class="activity__info__wrapper">
@@ -46,11 +46,13 @@
 
 <script>
 import UsersPageMenu from '../UsersPage/UsersPageMenu.vue';
+import ActivityPicutre from '../ActivityPicture.vue';
 import { mapGetters } from "vuex";
 
 export default {
   components: {
     UsersPageMenu,
+    ActivityPicutre,
   },
   data() {
     return {
@@ -77,9 +79,6 @@ export default {
     },
     historyTime(history) {
       return history.created_at.slice(0, 10).replace(/-/g, '/');
-    },
-    historyActivityImage(history) {
-      return `https://maps.googleapis.com/maps/api/streetview?size=800x600&location=${history.experience.latitude},${history.experience.longitude}&heading=${history.experience.heading}&pitch=${history.experience.pitch}&fov=${history.experience.fov}&zoom=${history.experience.zoom}&key=${process.env.GOOGLE_STREET_VIEW_KEY}`;
     },
     updateHistoryComment: async function(history) {
       let formData = new FormData();
@@ -177,7 +176,7 @@ export default {
     height: 181px;
     position: relative;
   }
-  .content__picture{
+  .experience__picture{
     height: 100%;
     width: 100%;
   }
