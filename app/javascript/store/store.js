@@ -282,7 +282,6 @@ export default new Vuex.Store({
         user_id: params.userId
       })
       .then(response => {
-        console.log(response.data);
         this.state.experienceData.already_historied = true;
       });
     },

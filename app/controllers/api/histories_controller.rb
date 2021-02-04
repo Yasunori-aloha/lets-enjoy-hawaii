@@ -4,7 +4,9 @@ class Api::HistoriesController < Api::ApplicationController
 
   # 訪問記録登録。
   def create
-    binding.pry
+    current_api_user.histories.create(experience_id: params[:id])
+
+    render json: true, status: :ok
   end
 
   # 訪問記録へのコメント保存。
