@@ -23,14 +23,14 @@ export default {
     },
   },
   methods: {
-    favoriteRegistration: async function() {
-      await this.$store.dispatch('favoriteRegistration',
+    historyRegistration: async function() {
+      await this.$store.dispatch('historyRegistration',
         {
           userId: this.userId,
           experienceId: this.experienceId,
         });
     },
-    favoriteRemove() {
+    historyRemove() {
       console.log('rem');
     },
   },

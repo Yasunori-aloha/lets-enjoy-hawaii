@@ -271,7 +271,7 @@ export default new Vuex.Store({
         this.state.experienceData = response.data;
       });
     },
-    favoriteRegistration: async function({}, params) {
+    historyRegistration: async function({}, params) {
       await axios.post(`/api/v1/experiences/${params.experienceId}/histories`,
       {
         headers: {
