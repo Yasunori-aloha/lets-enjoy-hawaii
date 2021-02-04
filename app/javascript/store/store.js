@@ -271,5 +271,19 @@ export default new Vuex.Store({
         this.state.experienceData = response.data;
       });
     },
+    favoriteRegistration: async function({}, experienceId) {
+      await axios.post(`/api/v1/experiences/${experienceId}/histories`,
+      {
+        headers: {
+          'access-token': localStorage.getItem('access-token'),
+          'client': localStorage.getItem('client'),
+          'uid': localStorage.getItem('uid'),
+        }
+      })
+      .then(response => {
+        console.log(response.data);
+        this.state.experienceData.already_historied = true;
+      });
+    },
   }
 });

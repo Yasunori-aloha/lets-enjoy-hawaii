@@ -12,13 +12,16 @@
 <script>
 export default {
   computed: {
+    experienceId() {
+      return this.$store.getters.experienceData.id;
+    },
     alreadyHistoried() {
       return this.$store.getters.experienceData.already_historied;
     },
   },
   methods: {
-    favoriteRegistration() {
-      console.log('reg');
+    favoriteRegistration: async function() {
+      await this.$store.dispatch('favoriteRegistration', this.experienceId);
     },
     favoriteRemove() {
       console.log('rem');

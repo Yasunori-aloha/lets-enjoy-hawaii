@@ -4,7 +4,7 @@ class Api::HistoriesController < Api::ApplicationController
 
   # 訪問記録登録。
   def create
-
+    binding.pry
   end
 
   # 訪問記録へのコメント保存。
