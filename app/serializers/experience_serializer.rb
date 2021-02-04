@@ -23,6 +23,8 @@ class ExperienceSerializer < ActiveModel::Serializer
   attribute  :score,                 if: :show_experiences?
   attribute  :image_url,             if: :show_experiences?
   attribute  :images_counts,         if: :show_experiences?
+  attribute  :already_favorited,     if: :show_experiences?
+  attribute  :already_historied,     if: :show_experiences?
   belongs_to :genre,                 if: :show_experiences?
   has_many   :histories,             if: :show_experiences?
   has_many   :favorites,             if: :show_experiences?
@@ -52,6 +54,16 @@ class ExperienceSerializer < ActiveModel::Serializer
       object.reviews.each{ |review| images_counts += review.images.length }
     end
     images_counts
+  end
+
+  def already_favorited
+    user_id = @instance_options[:current_user_id]
+    Favorite.exists?(user_id: user_id, experience_id: object.id)
+  end
+
+  def already_historied
+    user_id = @instance_options[:current_user_id]
+    History.exists?(user_id: user_id, experience_id: object.id)
   end
 
 end
