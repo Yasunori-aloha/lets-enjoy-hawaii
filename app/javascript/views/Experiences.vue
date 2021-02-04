@@ -8,8 +8,11 @@
           <ExperiencesInfo />
           <ExperiencesMultiButton />
         </div>
-        <div>
-          <ExperiencesTab />
+        <ExperiencesTab />
+        <div class="experience__main__wrapper">
+          <div class="picture__score__wrapper">
+            <img src="" alt="" class="experience__picture">
+          </div>
         </div>
       </div>
       <div class="experience__page__right"></div>
@@ -51,6 +54,21 @@ export default {
   .experience__info__wrapper{
     display: flex;
     justify-content: space-between;
+  }
+/* アクティビティコンテンツ表示欄 */
+  .experience__main__wrapper{
+    margin-top: 16px;
+  }
+  .picture__score__wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+/* アクティビティ画像表示欄 */
+  .experience__picture{
+    height: 370px;
+    width: 490px;
+    border: 1px solid #ccc;
   }
   .experience__page__right{
     width: calc(100% - 770px)
