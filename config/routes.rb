@@ -16,7 +16,12 @@ Rails.application.routes.draw do
           resources :favorites, only: %i[create update destroy]
           resources :histories, only: %i[create update destroy]
         end
-        resources :experiences, only: :show
+        resources :experiences, only: :show, shallow: true do
+          member do
+            resources :favorites, only: :create
+            resources :histories, only: :create
+          end
+        end
       end
     end
   end
