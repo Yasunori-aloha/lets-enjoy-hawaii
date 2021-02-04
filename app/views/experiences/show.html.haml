@@ -5,8 +5,8 @@
 .menu{id: 'link_main', style: 'margin-bottom:0; text-align: left'}
   - breadcrumb :activity, @experience
   = breadcrumbs separator: " &rsaquo; ", id: 'breadcrumbs'
-  %span{id: 'category_id', style: 'display:none'}
-    = @experience.genre.category.id
+  -# %span{id: 'category_id', style: 'display:none'}
+    -# = @experience.genre.category.id
 .show_content_wrapper
   .show_content_left
     .show_left_info

@@ -3,9 +3,10 @@
     <div>
       <router-link to="/" class="link__hover">トップページ</router-link>
       <span> › </span>
-      <a href="/" class="link__hover" rel="nofollow" data-method="post">{{ experienceData.genre.category.name }}</a>
+      <a :href="`/${experienceData.genre.category.search}`" class="link__hover" rel="nofollow" data-method="post">{{ experienceData.genre.category.name }}</a>
       <span> › {{ experienceData.name }}</span>
     </div>
+    <span id="category_id" style="display: none;">{{ experienceData.genre.category.id }}</span>
   </div>
 </template>
 
