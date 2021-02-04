@@ -14,21 +14,19 @@
     </ul>
     <ul class="favorite__history__wrapper">
       <ExperiencesFavoriteButton />
-      <li class="history__place">
-        <i class="fas fa-shoe-prints fa-rotate-270"></i>
-        <a href="" class="btn"></a>
-        <span class="history">行った</span>
-      </li>
+      <ExperiencesHistoryButton />
     </ul>
   </div>
 </template>
 
 <script>
 import ExperiencesFavoriteButton from '../ExperiencesPage/ExperiencesFavoriteButton.vue';
+import ExperiencesHistoryButton from '../ExperiencesPage/ExperiencesHistoryButton.vue';
 
 export default {
   components: {
     ExperiencesFavoriteButton,
+    ExperiencesHistoryButton,
   },
   computed: {
     experienceData() {
@@ -67,22 +65,5 @@ export default {
 /* お気に入り・訪問記録登録表示欄 */
   .favorite__history__wrapper{
     display: flex;
-  }
-/* 訪問記録登録ボタン */
-  .history__place{
-    height: 25px;
-    width: calc((170px - 5px) / 2) ;
-    line-height: 25px;
-    font-size: 15px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    padding-left: 5px;
-    position: relative;
-    background: linear-gradient(#ffffff, #e4e4e4);
-    margin-left: 5px;
-  }
-  .history{
-    float: right;
-    margin-right: 6px;
   }
 </style>
