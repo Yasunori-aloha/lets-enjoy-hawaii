@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="photo__list">
-      <img v-for="image in images" :key="image" :src="image" class="photo">
+      <img v-for="(image, index) in images" :key="image" :src="image" :style="isNotRight(index + 1)" class="photo">
     </div>
   </div>
 </template>
@@ -26,6 +26,19 @@ export default {
   computed: {
     experienceData() {
       return this.$store.getters.experienceData;
+    },
+  },
+  methods: {
+    isNotRight(index) {
+      if (index % 3 !== 0) {
+        return {
+          '--margin-right': '22px',
+        };
+      } else {
+        return {
+          '--margin-right': '0px',
+        };
+      }
     },
   },
   created() {
@@ -91,7 +104,8 @@ export default {
   .photo{
     height: 171px;
     width: 228px;
-    margin: 0 22px 26px 0;
+    margin: 0 0 26px 0;
     border: 1px solid $gray;
+    margin-right: var(--margin-right);
   }
 </style>
