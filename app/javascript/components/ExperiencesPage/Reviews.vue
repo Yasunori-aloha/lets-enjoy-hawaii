@@ -15,7 +15,7 @@
         <li @click="sortScore()" class="sort__link" :class="{active__sort: activeSort['score'], link__hover: !activeSort['score']}">評価順</li>
       </ul>
     </div>
-    <ul>
+    <ul :class="{active__fade__in: isFadeIn}">
       <li v-for="(review, index) in experienceData.reviews" :key="review.id" class="review__main__wrapper">
         <div class="review__main__area">
           <h2 class="review__main__title">{{ review.title }}</h2>
@@ -49,6 +49,7 @@ export default {
         createdAt: true,
         score: false,
       },
+      isFadeIn: false,
     }
   },
   computed: {
@@ -82,6 +83,11 @@ export default {
         this.activeSort['createdAt'] = true;
         this.activeSort['score'] = false;
 
+        this.isFadeIn = true;
+        setTimeout(() => {
+          this.isFadeIn = false;
+        }, 750);
+
         return this.experienceData.reviews = tmp;
       }
     },
@@ -109,6 +115,11 @@ export default {
         // 並び替えボタンの表示を変更する。
         this.activeSort['createdAt'] = false;
         this.activeSort['score'] = true;
+
+        this.isFadeIn = true;
+        setTimeout(() => {
+          this.isFadeIn = false;
+        }, 750);
 
         return this.experienceData.reviews = tmp;
       }
@@ -225,5 +236,9 @@ export default {
     width: 30px;
     margin-right: 9px;
     background-color: #ccc;
+  }
+  .active__fade__in {
+    animation: fadeOut 0.35s;
+    animation: fadeIn 0.35s;
   }
 </style>
