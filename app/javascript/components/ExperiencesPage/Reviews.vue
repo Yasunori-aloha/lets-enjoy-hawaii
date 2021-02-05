@@ -24,6 +24,9 @@
           <div class="review__comment__area">
             <span>{{  review.comment  }}</span>
           </div>
+          <div class="review__user__area">
+            <span class="review__user__name">{{ review.user.name }}さん</span>
+          </div>
         </div>
       </li>
     </ul>
@@ -141,5 +144,14 @@ export default {
     padding: 8px;
     border-radius: 6px;
     background-color: #eee;
+  }
+/* 口コミ投稿者情報表示欄 */
+  .review__user__area{
+    display: flex;
+    margin-top: 10px;
+  }
+  .review__user__name{
+    font-size: 11px;
+    line-height: 32px;
   }
 </style>
