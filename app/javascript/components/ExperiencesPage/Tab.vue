@@ -1,15 +1,15 @@
 <template>
   <ul class="experience__tabs__wrapper">
-    <li class="tab active__tab">
+    <li class="tab" :class="{active__tab: mainPath}">
       <span>概要</span>
     </li>
-    <li class="two__line__tab">
+    <li class="two__line__tab" :class="{active__tab: reviewPath}">
       <span>口コミ</span>
       <br>
       <span class="number">({{ experienceData.reviews_counts }}件)</span>
       <a href="" class="experience__link" />
     </li>
-    <li class="two__line__tab">
+    <li class="two__line__tab" :class="{active__tab: photoPath}">
       <span>写真</span>
       <br>
       <span class="number">({{ experienceData.images_counts }}枚)</span>
@@ -20,10 +20,27 @@
 
 <script>
 export default {
+  data() {
+    return {
+      mainPath: false,
+      reviewPath: false,
+      photoPath: false,
+    }
+  },
   computed: {
     experienceData() {
       return this.$store.getters.experienceData;
     },
+  },
+  created() {
+    const currentPath = this.$route.path;
+    if (/^\/experiences\/\d{1,}$/.test(currentPath)) {
+      return this.mainPath = true;
+    } else if (/^\/experiences\/\d{1,}\/reviews$/.test(currentPath)) {
+      return this.reviewPath = true;
+    } else {
+      return this.photoPath = true;
+    }
   },
 };
 </script>
