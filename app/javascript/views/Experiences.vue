@@ -9,6 +9,7 @@
         </div>
         <Tab />
         <Main v-if="isMain" />
+        <router-view v-else />
       </div>
       <div class="experience__page__right"></div>
     </div>
