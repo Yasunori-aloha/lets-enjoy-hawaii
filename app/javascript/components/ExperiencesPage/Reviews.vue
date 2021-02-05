@@ -25,6 +25,7 @@
             <span>{{  review.comment  }}</span>
           </div>
           <div class="review__user__area">
+            <UserImage :image="review.user.image_url" />
             <span class="review__user__name">{{ review.user.name }}さん</span>
           </div>
         </div>
@@ -35,10 +36,12 @@
 
 <script>
 import StarRating from '../StarRating.vue';
+import UserImage from '../UserImage.vue';
 
 export default {
   components: {
     StarRating,
+    UserImage,
   },
   computed: {
     experienceData() {
@@ -153,5 +156,11 @@ export default {
   .review__user__name{
     font-size: 11px;
     line-height: 32px;
+  }
+  .user__image {
+    height: 30px;
+    width: 30px;
+    margin-right: 9px;
+    background-color: #ccc;
   }
 </style>

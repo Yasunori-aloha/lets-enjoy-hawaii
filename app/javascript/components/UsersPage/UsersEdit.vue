@@ -20,7 +20,8 @@
           <li class="image__field">
             <label for="user_image" class="text__top">アイコン画像</label>
             <label for="user_image">
-              <img :src="imageUrl" class="user__image">
+              <img v-if="imageFile" :src="imageUrl" class="user__image">
+              <UserImage v-else :image="userData.image_url" />
             </label>
             <input  @change="imagePreview()" ref="imagePreview" id="user_image" type="file" accept="image/*" name="user[image]" class="hidden">
           </li>
@@ -33,10 +34,12 @@
 
 <script>
 import UsersPageMenu from '../UsersPage/UsersPageMenu.vue';
+import UserImage from '../UserImage.vue';
 
 export default {
   components: {
     UsersPageMenu,
+    UserImage,
   },
   data() {
     return {
@@ -44,7 +47,7 @@ export default {
       userEmail: null,
       userIntroduce: null,
       checkGuestUser: false,
-      imageUrl: require('../../../assets/images/no_image.jpg'),
+      imageUrl: null,
       imageFile: null,
     }
   },
@@ -77,9 +80,6 @@ export default {
     },
   },
   created() {
-    const userImageIsExsits = (this.userData.image_url !== null) && (this.userData.image_url !== 'null');
-
-    if (userImageIsExsits) this.imageUrl = this.userData.image_url;
     this.userName = this.userData.name;
     this.userEmail = this.userData.email;
     this.userIntroduce = this.userData.introduce;

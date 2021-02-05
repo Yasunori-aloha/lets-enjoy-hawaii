@@ -1,7 +1,8 @@
 <template>
   <div class="my__page__main__right">
     <div class="my__page__user__info__head">
-      <img :src="imageUrl" alt="no_image"  class="my__page__user__image">
+      <UserImage :image="userData.image_url" />
+      <!-- <img :src="imageUrl" alt="no_image"  class="my__page__user__image"> -->
       <div class="my__page__user__name__area">
         <p class="my__page__user__name1">{{ userData.name }}</p>
         <span class="my__page__user__name2">さんのマイページ</span>
@@ -14,21 +15,16 @@
 </template>
 
 <script>
+import UserImage from '../UserImage.vue';
+
 export default {
+  components: {
+    UserImage,
+  },
   computed: {
     userData() {
       return this.$store.getters.userData;
     },
-  },
-  data() {
-    return {
-      imageUrl: require('../../../assets/images/no_image.jpg')
-    }
-  },
-  created() {
-    const userImageIsExsits = (this.userData.image_url !== null) && (this.userData.image_url !== 'null');
-
-    if (userImageIsExsits) this.imageUrl = this.userData.image_url;
   },
 };
 </script>
@@ -41,13 +37,6 @@ export default {
     display: flex;
     margin: 28px 0;
     border-radius: 5px;
-  }
-  .my__page__user__image{
-    height: 150px;
-    width: 150px;
-    margin: 17px;
-    border-radius: 10px;
-    border: 1px solid gray;
   }
   .my__page__user__name__area{
     min-height: 150px;
@@ -74,5 +63,12 @@ export default {
     display: block;
     color: black;
     padding: 25px 17px;
+  }
+  .user__image{
+    height: 150px;
+    width: 150px;
+    margin: 17px;
+    border-radius: 10px;
+    border: 1px solid gray;
   }
 </style>
