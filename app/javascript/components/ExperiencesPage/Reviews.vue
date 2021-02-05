@@ -15,6 +15,13 @@
         <li class="sort__link link__hover">評価順</li>
       </ul>
     </div>
+    <ul>
+      <li v-for="(review, index) in experienceData.reviews" :key="review.id" class="review__main__wrapper">
+        <div class="review__main__area">
+          <h2 class="review__title"></h2>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -24,6 +31,9 @@ export default {
     experienceData() {
       return this.$store.getters.experienceData;
     },
+  },
+  created() {
+    console.log(this.experienceData.reviews);
   },
 };
 </script>
@@ -71,25 +81,42 @@ export default {
     font-size: 12px;
     margin: 4px 0 0 5px;
   }
+/* 口コミ並び替えボタン表示欄 */
   .review__sort{
-      display: flex;
-      font-size: 12px;
-      margin: 2px 64px 0 0;
+    display: flex;
+    font-size: 12px;
+    margin: 2px 64px 0 0;
   }
   .review__sort > li{
-        height: 12px;
-        line-height: 12px;
-        border-right: 1px solid #ccc;
-        padding: 0 5px;
+    height: 12px;
+    line-height: 12px;
+    border-right: 1px solid #ccc;
+    padding: 0 5px;
   }
   .sort__link{
-  text-decoration: underline;
-  cursor: pointer;
+    text-decoration: underline;
+    cursor: pointer;
   }
   .active__sort{
     color: #000000;
     font-weight: bold;
     text-decoration: none;
     cursor: auto;
+  }
+/* 口コミ表示欄 */
+  .review__main__wrapper{
+    border-bottom: 3px solid #eee;
+    padding: 12px 0 15px;
+    color: $colorBlack;
+  }
+  .review__main__area{
+    width: 99%;
+    margin: 0 auto;
+  }
+  .review__title{
+    font-size: 14px;
+    font-weight: bold;
+    color: #0000ff;
+    text-decoration: underline;
   }
 </style>
