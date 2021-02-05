@@ -52,9 +52,11 @@ export default {
   },
   created() {
     this.experienceData.reviews.forEach(e => {
-      e.images_url.forEach(image => {
-        this.images.push(image);
-      });
+      if (e.images_url !== null) {
+        e.images_url.forEach(image => {
+          this.images.push(image);
+        });
+      }
     });
   },
 };

@@ -48,9 +48,6 @@ export default {
       return this.$store.getters.experienceData;
     },
   },
-  created() {
-    console.log(this.experienceData.reviews);
-  },
 };
 </script>
 
