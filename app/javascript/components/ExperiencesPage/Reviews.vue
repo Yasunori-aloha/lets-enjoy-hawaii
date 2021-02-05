@@ -12,7 +12,7 @@
       <ul class="review__sort">
         <li>並び替え</li>
         <li class="sort__link active__sort">投稿日順</li>
-        <li class="sort__link link__hover">評価順</li>
+        <li @click="sortScore()" class="sort__link link__hover">評価順</li>
       </ul>
     </div>
     <ul>
@@ -43,9 +43,37 @@ export default {
     StarRating,
     UserImage,
   },
+  data() {
+    return {
+      reviewsList: null,
+    }
+  },
   computed: {
     experienceData() {
       return this.$store.getters.experienceData;
+    },
+  },
+  methods: {
+    sortScore() {
+      // 'mapメソッド'を使って'review'と'スコア'が入った配列を作成する。
+      let tmp = this.experienceData.reviews.map(review => {
+        return {
+          review,
+          key: review['score']
+        };
+      // 作成した配列内の'スコア'を基に降順ソートしていく。
+      }).sort((a,b) =>{
+        if (a.key > b.key) {
+          return -1;
+        } else {
+          return 1;
+        }
+      // ソートした配列から'review'だけを取り出した配列を作成してそれを代入する。
+      }).map(sortScore => {
+        return sortScore.review;
+      });
+
+      return this.experienceData.reviews = tmp;
     },
   },
 };
