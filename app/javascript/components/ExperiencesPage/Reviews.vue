@@ -11,7 +11,7 @@
       </div>
       <ul class="review__sort">
         <li>並び替え</li>
-        <li class="sort__link" :class="{active__sort: activeSort['createdAt'], link__hover: !activeSort['createdAt']}">投稿日順</li>
+        <li @click="sortCreatedAt()" class="sort__link" :class="{active__sort: activeSort['createdAt'], link__hover: !activeSort['createdAt']}">投稿日順</li>
         <li @click="sortScore()" class="sort__link" :class="{active__sort: activeSort['score'], link__hover: !activeSort['score']}">評価順</li>
       </ul>
     </div>
@@ -57,10 +57,37 @@ export default {
     },
   },
   methods: {
+    sortCreatedAt() {
+      const notSortedYet = !(this.activeSort['createdAt']);
+      if (notSortedYet) {
+        // 'mapメソッド'を使って'review'と'スコア'が入った配列を作成する。
+        let tmp = this.experienceData.reviews.map(review => {
+          return {
+            review,
+            key: review['created_at']
+          };
+        // 作成した配列内の'スコア'を基に降順ソートしていく。
+        }).sort((a,b) =>{
+          if (a.key > b.key) {
+            return -1;
+          } else {
+            return 1;
+          }
+        // ソートした配列から'review'だけを取り出した配列を作成してそれを代入する。
+        }).map(sortCreatedAt => {
+          return sortCreatedAt.review;
+        });
+
+        // 並び替えボタンの表示を変更する。
+        this.activeSort['createdAt'] = true;
+        this.activeSort['score'] = false;
+
+        return this.experienceData.reviews = tmp;
+      }
+    },
     sortScore() {
       const notSortedYet = !(this.activeSort['score']);
       if (notSortedYet) {
-        console.log('test');
         // 'mapメソッド'を使って'review'と'スコア'が入った配列を作成する。
         let tmp = this.experienceData.reviews.map(review => {
           return {
