@@ -1,12 +1,7 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
 import axios from 'axios';
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default {
   state: {
-    mapImageIndex: 8,
     userData: {
       id: null,
       name: null,
@@ -25,16 +20,13 @@ export default new Vuex.Store({
     userReviews: null,
     userFavorites: null,
     userHistories: null,
-    experienceData: null,
   },
   getters: {
-    mapImageIndex: state => state.mapImageIndex,
     userTokens: state => state.userTokens,
     userData: state => state.userData,
     userReviews: state => state.userReviews,
     userFavorites: state => state.userFavorites,
     userHistories: state => state.userHistories,
-    experienceData: state => state.experienceData,
   },
   mutations: {
     updateUserData(state, userData) {
@@ -63,13 +55,6 @@ export default new Vuex.Store({
       localStorage.setItem('access-token', userTokens['access-token']);
       localStorage.setItem('client', userTokens['client']);
       localStorage.setItem('uid', userTokens['uid']);
-    },
-    // ホーム画面の地図をホバーすると、ホバーした島の表示が変更される。
-    mapChange(state, number) {
-      state.mapImageIndex = number;
-    },
-    mapReturn(state, number) {
-      state.mapImageIndex = number;
     },
   },
   actions: {
@@ -186,71 +171,12 @@ export default new Vuex.Store({
         }
       })
       .then(response => {
-        this.state.userData.favorites_counts = response.data.favorites_counts;
-        this.state.userData.reviews_counts = response.data.reviews_counts;
-        this.state.userData.histories_counts = response.data.histories_counts;
-        this.state.userReviews = response.data.reviews;
-        this.state.userFavorites = response.data.favorites;
-        this.state.userHistories = response.data.histories;
-      });
-    },
-    updateFavoriteComment: async function({}, params) {
-      await axios.patch(`/api/v1/users/${params.userId}/favorites/${params.favoriteId}`, params.formData,
-      {
-        headers: {
-          'content-type': 'multipart/form-data',
-          'access-token': localStorage.getItem('access-token'),
-          'client': localStorage.getItem('client'),
-          'uid': localStorage.getItem('uid'),
-        }
-      })
-      .catch(error => {
-        console.log(error.response.data);
-      });
-    },
-    favoriteRemove: async function({}, params) {
-      await axios.delete(`/api/v1/users/${params.userId}/favorites/${params.experienceId}`,
-      {
-        headers: {
-          'access-token': localStorage.getItem('access-token'),
-          'client': localStorage.getItem('client'),
-          'uid': localStorage.getItem('uid'),
-        }
-      })
-      .then(response => {
-        if (this.state.experienceData !== null) {
-          this.state.experienceData.already_favorited = false;
-          this.state.experienceData.favorite_counts -= 1;
-        }
-      });
-    },
-    updateHistoryComment: async function({}, params) {
-      await axios.patch(`/api/v1/users/${params.userId}/histories/${params.historyId}`, params.formData,
-      {
-        headers: {
-          'content-type': 'multipart/form-data',
-          'access-token': localStorage.getItem('access-token'),
-          'client': localStorage.getItem('client'),
-          'uid': localStorage.getItem('uid'),
-        }
-      })
-      .catch(error => {
-        console.log(error.response.data);
-      });
-    },
-    historyRemove: async function({}, params) {
-      await axios.delete(`/api/v1/users/${params.userId}/histories/${params.experienceId}`,
-      {
-        headers: {
-          'access-token': localStorage.getItem('access-token'),
-          'client': localStorage.getItem('client'),
-          'uid': localStorage.getItem('uid'),
-        }
-      })
-      .then(response => {
-        if (this.state.experienceData !== null) {
-          this.state.experienceData.already_historied = false;
-        }
+        this.state.user.userData.favorites_counts = response.data.favorites_counts;
+        this.state.user.userData.reviews_counts = response.data.reviews_counts;
+        this.state.user.userData.histories_counts = response.data.histories_counts;
+        this.state.user.userReviews = response.data.reviews;
+        this.state.user.userFavorites = response.data.favorites;
+        this.state.user.userHistories = response.data.histories;
       });
     },
     updateUserData({ commit }, formData) {
@@ -268,40 +194,5 @@ export default new Vuex.Store({
         commit('updateLocalStorage', { userData: response.data, userTokens: this.getters.userTokens });
       });
     },
-    toExperiencesPage: async function({}, experienceId) {
-      await axios.get(`/api/v1/experiences/${experienceId}`)
-      .then(response => {
-        this.state.experienceData = response.data;
-      });
-    },
-    historyRegistration: async function({}, params) {
-      await axios.post(`/api/v1/experiences/${params.experienceId}/histories`,
-      {
-        headers: {
-          'access-token': localStorage.getItem('access-token'),
-          'client': localStorage.getItem('client'),
-          'uid': localStorage.getItem('uid'),
-        },
-        user_id: params.userId
-      })
-      .then(response => {
-        this.state.experienceData.already_historied = true;
-      });
-    },
-    favoriteRegistration: async function({}, params) {
-      await axios.post(`/api/v1/experiences/${params.experienceId}/favorites`,
-      {
-        headers: {
-          'access-token': localStorage.getItem('access-token'),
-          'client': localStorage.getItem('client'),
-          'uid': localStorage.getItem('uid'),
-        },
-        user_id: params.userId
-      })
-      .then(response => {
-        this.state.experienceData.already_favorited = true;
-        this.state.experienceData.favorite_counts += 1;
-      });
-    },
-  }
-});
+  },
+};

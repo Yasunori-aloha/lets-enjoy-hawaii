@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Vuex from 'vuex';
-import store from '../store/store.js';
+import store from '../store/index.js';
 // ヘッダー・フッター
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
