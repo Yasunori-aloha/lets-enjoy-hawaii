@@ -29,8 +29,6 @@ Rails.application.routes.draw do
   resources :experiences, only: %i[show], shallow: true do
     member do
       resources :reviews, only: %i[new create]
-      get 'photos', to: 'reviews#edit'
-      get 'reviews', to: 'reviews#exp_index'
     end
   end
   get '/search', to: 'tops#search'

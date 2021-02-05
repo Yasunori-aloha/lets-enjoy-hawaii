@@ -2,13 +2,8 @@
 
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  before_action -> { find_exp(params[:id]) }, only: %i[exp_index new create edit]
-  before_action -> { images_count(params[:id]) }, only: %i[exp_index edit]
-
-  def exp_index
-    @reviews = Review.preload(:user).where(experience_id: params[:id]).order('created_at DESC')
-    render 'experiences/show'
-  end
+  before_action -> { find_exp(params[:id]) }, only: %i[new create edit]
+  before_action -> { images_count(params[:id]) }, only: :edit
 
   def new
     find_exp(params[:id])
@@ -25,12 +20,6 @@ class ReviewsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
-    @images = []
-    Review.eager_load(images_attachments: :blob).where(experience_id: params[:id]).to_a.each { |review| review.images.each { |image| @images << image } }
-    render 'experiences/show'
   end
 
   private
