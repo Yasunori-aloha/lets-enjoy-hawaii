@@ -18,8 +18,12 @@
     <ul>
       <li v-for="(review, index) in experienceData.reviews" :key="review.id" class="review__main__wrapper">
         <div class="review__main__area">
-          <h2 class="review__title">{{ review.title }}</h2>
+          <h2 class="review__main__title">{{ review.title }}</h2>
           <StarRating :score="review.score" />
+          <span class="triangle">▲</span>
+          <div class="review__comment__area">
+            <span>{{  review.comment  }}</span>
+          </div>
         </div>
       </li>
     </ul>
@@ -112,16 +116,30 @@ export default {
   .review__main__wrapper{
     border-bottom: 3px solid #eee;
     padding: 12px 0 15px;
-    color: $colorBlack;
+    color: #333333;
   }
   .review__main__area{
     width: 99%;
     margin: 0 auto;
   }
-  .review__title{
+/* 口コミタイトル表示欄 */
+  .review__main__title{
     font-size: 14px;
     font-weight: bold;
     color: #0000ff;
     text-decoration: underline;
+  }
+/* 口コミ本文表示欄 */
+  .triangle{
+    font-size: 14px;
+    margin: -5px 0 0 27px;
+    color: #eee;
+  }
+  .review__comment__area{
+    font-size: 20px;
+    margin-top: -7px;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: #eee;
   }
 </style>
