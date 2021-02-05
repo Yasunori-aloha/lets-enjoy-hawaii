@@ -3,7 +3,7 @@
     <router-link :to="`/experiences/${experienceData.id}`" tag="li" class="tab" :class="{active__tab: mainPath}" >
       <span>概要</span>
     </router-link>
-    <router-link :to="`/experiences/${experienceData.id}/reviews`" tag="li" class="two__line__tab" :class="{active__tab: photoPath}">
+    <router-link :to="`/experiences/${experienceData.id}/reviews`" tag="li" class="two__line__tab" :class="{active__tab: reviewPath}">
       <span>口コミ</span>
       <br>
       <span class="number">({{ experienceData.reviews_counts }}件)</span>
@@ -28,6 +28,24 @@ export default {
   computed: {
     experienceData() {
       return this.$store.getters.experienceData;
+    },
+  },
+  watch: {
+    $route(to, from) {
+      const toPath = to.fullPath;
+      if (/^\/experiences\/\d{1,}$/.test(toPath)) {
+        this.reviewPath = false;
+        this.photoPath = false;
+        return this.mainPath = true;
+      } else if (/^\/experiences\/\d{1,}\/reviews$/.test(toPath)) {
+        this.mainPath = false;
+        this.photoPath = false;
+        return this.reviewPath = true;
+      } else {
+        this.mainPath = false;
+        this.reviewPath = false;
+        return this.photoPath = true;
+      }
     },
   },
   created() {
