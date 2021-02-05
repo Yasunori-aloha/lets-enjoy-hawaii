@@ -17,9 +17,9 @@ import UsersReviews from '../components/UsersPage/UsersReviews.vue';
 import UsersHistories from '../components/UsersPage/UsersHistories.vue';
 // アクティビティ詳細ページ
 import Experiences from '../views/Experiences.vue';
-import ExperiencesMain from '../components/ExperiencesPage/ExperiencesMain.vue';
-import ExperiencesReviews from '../components/ExperiencesPage/ExperiencesReviews.vue';
-import ExperiencesPhotos from '../components/ExperiencesPage/ExperiencesPhotos.vue';
+import Main from '../components/ExperiencesPage/Main.vue';
+import Reviews from '../components/ExperiencesPage/Reviews.vue';
+import Photos from '../components/ExperiencesPage/Photos.vue';
 
 Vue.use(Router)
 Vue.use(Vuex)
@@ -70,11 +70,11 @@ export default new Router({
         default: Experiences,
         header: Header,
         footer: Footer,
-        main: ExperiencesMain,
+        main: Main,
       },
       children: [
-        { path: 'reviews', component: ExperiencesReviews },
-        { path: 'photos', component: ExperiencesPhotos },
+        { path: 'reviews', component: Reviews },
+        { path: 'photos', component: Photos },
       ],
       beforeEnter: async (to, from, next) => {
         await store.dispatch('toExperiencesPage', to.params.id);

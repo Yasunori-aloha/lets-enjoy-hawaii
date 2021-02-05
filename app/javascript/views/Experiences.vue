@@ -1,20 +1,20 @@
 <template>
   <div>
     <router-view name="header" />
-    <ExperiencesPageMenu />
+    <PageMenu />
     <div class="experience__page__wrapper">
       <div class="experience__page__left">
         <div class="experience__info__wrapper">
-          <ExperiencesInfo />
-          <ExperiencesMultiButton />
+          <Info />
+          <MultiButton />
         </div>
-        <ExperiencesTab />
+        <Tab />
         <div class="experience__main__wrapper">
           <div class="picture__score__wrapper">
             <ActivityPicture :activity="experienceData" />
-            <ExperiencesScoreDistribution />
+            <ScoreDistribution />
           </div>
-          <ExperiencesTimeLocation />
+          <TimeLocation />
         </div>
       </div>
       <div class="experience__page__right"></div>
@@ -24,23 +24,23 @@
 </template>
 
 <script>
-import ExperiencesPageMenu from '../components/ExperiencesPage/ExperiencesPageMenu.vue';
-import ExperiencesInfo from '../components/ExperiencesPage/ExperiencesInfo.vue';
-import ExperiencesMultiButton from '../components/ExperiencesPage/ExperiencesMultiButton.vue';
-import ExperiencesTab from '../components/ExperiencesPage/ExperiencesTab.vue';
+import PageMenu from '../components/ExperiencesPage/PageMenu.vue';
+import Info from '../components/ExperiencesPage/Info.vue';
+import MultiButton from '../components/ExperiencesPage/MultiButton.vue';
+import Tab from '../components/ExperiencesPage/Tab.vue';
 import ActivityPicture from '../components/ActivityPicture.vue';
-import ExperiencesScoreDistribution from '../components/ExperiencesPage/ExperiencesScoreDistribution.vue';
-import ExperiencesTimeLocation from '../components/ExperiencesPage/ExperiencesTimeLocation.vue';
+import ScoreDistribution from '../components/ExperiencesPage/ScoreDistribution.vue';
+import TimeLocation from '../components/ExperiencesPage/TimeLocation.vue';
 
 export default {
   components: {
-    ExperiencesPageMenu,
-    ExperiencesInfo,
-    ExperiencesMultiButton,
-    ExperiencesTab,
+    PageMenu,
+    Info,
+    MultiButton,
+    Tab,
     ActivityPicture,
-    ExperiencesScoreDistribution,
-    ExperiencesTimeLocation,
+    ScoreDistribution,
+    TimeLocation,
   },
   computed: {
     experienceData() {

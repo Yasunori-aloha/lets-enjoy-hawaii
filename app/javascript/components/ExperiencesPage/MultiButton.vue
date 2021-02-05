@@ -13,20 +13,20 @@
       </li> -->
     </ul>
     <ul class="favorite__history__wrapper">
-      <ExperiencesFavoriteButton />
-      <ExperiencesHistoryButton />
+      <FavoriteButton />
+      <HistoryButton />
     </ul>
   </div>
 </template>
 
 <script>
-import ExperiencesFavoriteButton from '../ExperiencesPage/ExperiencesFavoriteButton.vue';
-import ExperiencesHistoryButton from '../ExperiencesPage/ExperiencesHistoryButton.vue';
+import FavoriteButton from '../ExperiencesPage/FavoriteButton.vue';
+import HistoryButton from '../ExperiencesPage/HistoryButton.vue';
 
 export default {
   components: {
-    ExperiencesFavoriteButton,
-    ExperiencesHistoryButton,
+    FavoriteButton,
+    HistoryButton,
   },
   computed: {
     experienceData() {
