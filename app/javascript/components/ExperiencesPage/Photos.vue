@@ -110,6 +110,7 @@ export default {
     flex-wrap: wrap;
     padding: 3px;
   }
+/* 写真一覧表示欄 */
   .photo{
     height: 171px;
     width: 228px;
