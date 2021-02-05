@@ -10,12 +10,15 @@ class Api::UsersController < Api::ApplicationController
       { favorites: { experience: :favorites }},
       { favorites: { experience: :histories }},
       { favorites: { experience: :area }},
+      { favorites: { experience: :reviews }},
       { histories: { experience: :favorites }},
       { histories: { experience: :histories }},
       { histories: { experience: :area }},
+      { histories: { experience: :reviews }},
       { reviews:   { experience: :favorites }},
       { reviews:   { experience: :histories }},
-      { reviews:   { experience: :area }}
+      { reviews:   { experience: :area }},
+      { reviews:   { experience: :reviews }}
       ]).find(current_api_user.id)
 
     render json: UserSerializer.new(@user, current_user_page?: true).to_json
