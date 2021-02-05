@@ -1,20 +1,18 @@
 <template>
   <ul class="experience__tabs__wrapper">
-    <li class="tab" :class="{active__tab: mainPath}">
+    <router-link :to="`/experiences/${experienceData.id}`" tag="li" class="tab" :class="{active__tab: mainPath}" >
       <span>概要</span>
-    </li>
-    <li class="two__line__tab" :class="{active__tab: reviewPath}">
+    </router-link>
+    <router-link :to="`/experiences/${experienceData.id}/reviews`" tag="li" class="two__line__tab" :class="{active__tab: photoPath}">
       <span>口コミ</span>
       <br>
       <span class="number">({{ experienceData.reviews_counts }}件)</span>
-      <a href="" class="experience__link" />
-    </li>
-    <li class="two__line__tab" :class="{active__tab: photoPath}">
+    </router-link>
+    <router-link :to="`/experiences/${experienceData.id}/photos`" tag="li" class="two__line__tab" :class="{active__tab: photoPath}">
       <span>写真</span>
       <br>
       <span class="number">({{ experienceData.images_counts }}枚)</span>
-      <a href="" class="experience__link" />
-    </li>
+    </router-link>
   </ul>
 </template>
 
@@ -81,17 +79,9 @@ export default {
     color: #333333;
     text-align: center;
     cursor: pointer;
-    position: relative;
   }
   .number{
     font-size: 11px;
-  }
-  .experience__link{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
   }
 /* 選択されているタブ表示欄 */
   .active__tab{
