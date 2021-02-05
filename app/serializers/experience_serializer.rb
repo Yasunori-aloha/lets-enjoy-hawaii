@@ -71,4 +71,8 @@ class ExperienceSerializer < ActiveModel::Serializer
     History.exists?(user_id: user_id, experience_id: object.id)
   end
 
+  def reviews
+    object.reviews.order('created_at DESC')
+  end
+
 end
