@@ -18,7 +18,8 @@
     <ul>
       <li v-for="(review, index) in experienceData.reviews" :key="review.id" class="review__main__wrapper">
         <div class="review__main__area">
-          <h2 class="review__title"></h2>
+          <h2 class="review__title">{{ review.title }}</h2>
+          <StarRating :score="review.score" />
         </div>
       </li>
     </ul>
@@ -26,7 +27,12 @@
 </template>
 
 <script>
+import StarRating from '../StarRating.vue';
+
 export default {
+  components: {
+    StarRating,
+  },
   computed: {
     experienceData() {
       return this.$store.getters.experienceData;
@@ -67,7 +73,6 @@ export default {
   .review__info{
     font-size: 16px;
     padding-bottom: 6px;
-    margin-bottom: 10px;
     border-bottom: 3px solid #eee;
     word-spacing: 0;
     color:  #333333;
