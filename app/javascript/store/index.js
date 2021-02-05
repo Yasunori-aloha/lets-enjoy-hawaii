@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import axios from 'axios';
 import { home, user, experience, favorite, history } from "./modules";
 
 Vue.use(Vuex);
