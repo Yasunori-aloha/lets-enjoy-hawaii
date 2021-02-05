@@ -1,5 +1,5 @@
 <template>
-  <div class="review__wrapper">
+  <div v-if="isExists" class="review__wrapper">
     <div class="review__title__area">
       <div class="review__title__icon"></div>
       <h1 class="review__title">{{ experienceData.name }}の口コミ一覧</h1>
@@ -32,6 +32,12 @@
       </li>
     </ul>
   </div>
+  <div v-else class="review__wrapper">
+    <div class="review__title__area">
+      <div class="review__title__icon"></div>
+      <h1 class="review__title">{{ experienceData.name }}の口コミはまだありません</h1>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -55,6 +61,9 @@ export default {
   computed: {
     experienceData() {
       return this.$store.getters.experienceData;
+    },
+    isExists() {
+      return this.experienceData.reviews_counts !== 0 ? true : false;
     },
   },
   methods: {
