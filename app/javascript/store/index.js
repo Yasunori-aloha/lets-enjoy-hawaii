@@ -8,11 +8,9 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     mapImageIndex: 8,
-    experienceData: null,
   },
   getters: {
     mapImageIndex: state => state.mapImageIndex,
-    experienceData: state => state.experienceData,
   },
   mutations: {
     // ホーム画面の地図をホバーすると、ホバーした島の表示が変更される。
@@ -48,9 +46,9 @@ export default new Vuex.Store({
         }
       })
       .then(response => {
-        if (this.state.experienceData !== null) {
-          this.state.experienceData.already_favorited = false;
-          this.state.experienceData.favorite_counts -= 1;
+        if (this.state.experience.experienceData !== null) {
+          this.state.experience.experienceData.already_favorited = false;
+          this.state.experience.experienceData.favorite_counts -= 1;
         }
       });
     },
@@ -79,14 +77,8 @@ export default new Vuex.Store({
       })
       .then(response => {
         if (this.state.experienceData !== null) {
-          this.state.experienceData.already_historied = false;
+          this.state.experience.experienceData.already_historied = false;
         }
-      });
-    },
-    toExperiencesPage: async function({}, experienceId) {
-      await axios.get(`/api/v1/experiences/${experienceId}`)
-      .then(response => {
-        this.state.experienceData = response.data;
       });
     },
     historyRegistration: async function({}, params) {
@@ -100,7 +92,7 @@ export default new Vuex.Store({
         user_id: params.userId
       })
       .then(response => {
-        this.state.experienceData.already_historied = true;
+        this.state.experience.experienceData.already_historied = true;
       });
     },
     favoriteRegistration: async function({}, params) {
@@ -114,8 +106,8 @@ export default new Vuex.Store({
         user_id: params.userId
       })
       .then(response => {
-        this.state.experienceData.already_favorited = true;
-        this.state.experienceData.favorite_counts += 1;
+        this.state.experience.experienceData.already_favorited = true;
+        this.state.experience.experienceData.favorite_counts += 1;
       });
     },
   },
