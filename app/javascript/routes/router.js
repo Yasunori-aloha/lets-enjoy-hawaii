@@ -70,7 +70,6 @@ export default new Router({
         default: Experiences,
         header: Header,
         footer: Footer,
-        main: Main,
       },
       children: [
         { path: 'reviews', component: Reviews },
