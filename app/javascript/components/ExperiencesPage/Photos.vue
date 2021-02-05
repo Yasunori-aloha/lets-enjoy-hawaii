@@ -1,8 +1,8 @@
 <template>
-  <div class="photo__wrapper">
+  <div v-if="isExists" class="photo__wrapper">
     <div class="photo__title__area">
       <div class="photo__title__icon"></div>
-      <h1 class="photo__title__area">{{ experienceData.name }}の写真一覧</h1>
+      <h1 class="photo__title">{{ experienceData.name }}の写真一覧</h1>
     </div>
     <div class="photo__info">
       <div class="photo__number">
@@ -12,6 +12,12 @@
     </div>
     <div class="photo__list">
       <img v-for="(image, index) in images" :key="image" :src="image" :style="isNotRight(index + 1)" class="photo">
+    </div>
+  </div>
+  <div v-else class="photo__wrapper">
+    <div class="photo__title__area">
+      <div class="photo__title__icon"></div>
+      <h1 class="photo__title">{{ experienceData.name }}の写真はまだありません</h1>
     </div>
   </div>
 </template>
@@ -26,6 +32,9 @@ export default {
   computed: {
     experienceData() {
       return this.$store.getters.experienceData;
+    },
+    isExists() {
+      return this.experienceData.images_counts !== 0 ? true : false;
     },
   },
   methods: {
@@ -70,7 +79,7 @@ export default {
     background-color: #ff4500;
     margin: 1px 5px 0 0;
   }
-  .photo__title__area{
+  .photo__title{
     font-size: 18px;
     font-weight: bold;
     color: #333333;
