@@ -6,19 +6,34 @@
     </div>
     <div class="photo__info">
       <div class="photo__number">
-        <span class="photo__number__part">1 - {{ experienceData.images_counts }}件目</span>
-        <span class="photo__number__all">(全{{ experienceData.images_counts }}件中)</span>
+        <span class="photo__number__part">1 - {{ experienceData.images_counts }}枚目</span>
+        <span class="photo__number__all">(全{{ experienceData.images_counts }}枚中)</span>
       </div>
+    </div>
+    <div class="photo__list">
+      <img v-for="image in images" :key="image" :src="image" class="photo">
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      images: [],
+    }
+  },
   computed: {
     experienceData() {
       return this.$store.getters.experienceData;
     },
+  },
+  created() {
+    this.experienceData.reviews.forEach(e => {
+      e.images_url.forEach(image => {
+        this.images.push(image);
+      });
+    });
   },
 };
 </script>
@@ -48,6 +63,7 @@ export default {
     color: #333333;
     margin: 0 0 13px 3px;
   }
+/* 写真枚数表示欄 */
   .photo__info{
     display: flex;
     justify-content: space-between;
@@ -55,6 +71,7 @@ export default {
     color:  #333333;
     border-bottom: 3px solid #eee;
     padding-bottom: 6px;
+    margin-bottom: 10px
   }
   .photo__number{
     display: flex;
@@ -65,5 +82,16 @@ export default {
   .photo__number__all{
     font-size: 12px;
     margin: 4px 0 0 5px;
+  }
+  .photo__list{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3px;
+  }
+  .photo{
+    height: 171px;
+    width: 228px;
+    margin: 0 22px 26px 0;
+    border: 1px solid $gray;
   }
 </style>
