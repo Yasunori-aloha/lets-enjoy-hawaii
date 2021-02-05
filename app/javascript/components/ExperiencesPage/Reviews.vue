@@ -9,6 +9,11 @@
         <span>1 - {{ experienceData.reviews_counts }}件目</span>
         <span class="review__number__all">(全{{ experienceData.reviews_counts }}件中)</span>
       </div>
+      <ul class="review__sort">
+        <li>並び替え</li>
+        <li class="sort__link active__sort">投稿日順</li>
+        <li class="sort__link link__hover">評価順</li>
+      </ul>
     </div>
   </div>
 </template>
@@ -65,5 +70,26 @@ export default {
   .review__number__all{
     font-size: 12px;
     margin: 4px 0 0 5px;
+  }
+  .review__sort{
+      display: flex;
+      font-size: 12px;
+      margin: 2px 64px 0 0;
+  }
+  .review__sort > li{
+        height: 12px;
+        line-height: 12px;
+        border-right: 1px solid #ccc;
+        padding: 0 5px;
+  }
+  .sort__link{
+  text-decoration: underline;
+  cursor: pointer;
+  }
+  .active__sort{
+    color: #000000;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: auto;
   }
 </style>
