@@ -6,9 +6,7 @@
         <Score />
         <Comment />
         <Picture />
-        <div class="review__submit">
-          <button class="submit btn__hover">投稿する</button>
-        </div>
+        <Submit />
       </form>
     </div>
   </div>
@@ -19,6 +17,7 @@ import Title from '../components/ReviewPage/Title.vue';
 import Score from '../components/ReviewPage/Score.vue';
 import Comment from '../components/ReviewPage/Comment.vue';
 import Picture from '../components/ReviewPage/Picture.vue';
+import Submit from '../components/ReviewPage/Submit.vue';
 
 export default {
   components: {
@@ -26,6 +25,7 @@ export default {
     Score,
     Comment,
     Picture,
+    Submit,
   },
 };
 </script>
@@ -41,29 +41,6 @@ export default {
   .review__form{
     width: 750px;
     color: #333333;
-  }
-
-  .review__submit{
-    margin-top: 31px;
-    height: 100px;
-    border-top: 1px solid #ccc;
-    display: flex;
-    justify-content: center;
-  }
-  .submit{
-    height: 57px;
-    width: 282px;
-    margin: 50px 10px 0;
-    font-size: 24px;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: #ffffff;
-    border: none;
-    background-color: #00b900;
-    cursor: pointer;
   }
 </style>
 
