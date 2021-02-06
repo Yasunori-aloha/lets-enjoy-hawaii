@@ -3,6 +3,7 @@ import user from './user.js';
 import experience from './experience.js';
 import favorite from './favorite.js';
 import history from './history.js';
+import review from './review.js';
 
 export {
   home,
@@ -10,4 +11,5 @@ export {
   experience,
   favorite,
   history,
+  review,
 };

@@ -10,7 +10,7 @@
         <label for="review_title" class="name">タイトル（50文字以内）</label>
       </li>
       <li class="review__title__main">
-        <input type="text" id="review_title" name="review[title]" maxlength="50" placeholder="体験した感想や伝えたいことをまとめましょう" size="50" class="review__title">
+        <input @change="" type="text" id="review_title" name="review[title]" maxlength="50" autocomplete="off" placeholder="体験した感想や伝えたいことをまとめましょう" size="50" class="review__title">
       </li>
       <li class="review__main__info">
         <div class="icon"></div>
@@ -23,6 +23,12 @@
     </ul>
   </div>
 </template>
+
+<script>
+export default {
+
+};
+</script>
 
 <style scoped>
 /* 口コミの内容入力欄 */
