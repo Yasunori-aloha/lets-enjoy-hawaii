@@ -40,6 +40,7 @@ export default {
   }
   .review__form{
     width: 750px;
+    margin: 0 auto;
     color: #333333;
   }
 </style>
