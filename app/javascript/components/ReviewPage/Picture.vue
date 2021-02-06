@@ -12,7 +12,7 @@
       <p class="picture__info">写真を複数選択して、一度に追加することができます。</p>
     </li>
     <li class="picture__main__wrapper">
-      <ul class="picture__preview__area">
+      <ul class="picture__preview__area" :style="previewAreaHeight(imagesUrl.length)">
         <li v-for="(image, index) in imagesUrl" :key="image" class="preview__wrapper">
           <img src="" class="preview">
           <div class="picture__delete">
@@ -49,6 +49,20 @@ export default {
 
       return this.$refs.reviewImages.value = null;
     },
+    previewAreaHeight(imagesCounts) {
+      if (imagesCounts >= 4) {
+        return {
+          '--height': '100%',
+        }
+      } else {
+        return {
+          '--height': '215px',
+        }
+      }
+    },
+  },
+  created() {
+    console.log(this.imagesUrl.length);
   },
 };
 </script>
@@ -110,7 +124,7 @@ export default {
     display: flex;
   }
   .picture__preview__area{
-    height: 215px;
+    height: var(--height);
     width: 710px;
     margin: 20px auto;
     border: 3px dotted #ccc;
