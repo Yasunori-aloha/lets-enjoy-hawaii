@@ -14,7 +14,7 @@
     <li class="picture__main__wrapper">
       <ul class="picture__preview__area" :style="previewAreaHeight(imagesUrl.length)">
         <li v-for="(image, index) in imagesUrl" :key="image" class="preview__wrapper">
-          <img src="" class="preview">
+          <img :src="image" class="preview">
           <div class="picture__delete">
             <i class="far fa-window-close"></i>
             <span class="delete__btn">写真削除</span>
