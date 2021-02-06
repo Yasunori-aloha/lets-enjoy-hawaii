@@ -17,9 +17,10 @@ import UsersReviews from '../components/UsersPage/UsersReviews.vue';
 import UsersHistories from '../components/UsersPage/UsersHistories.vue';
 // アクティビティ詳細ページ
 import Experiences from '../views/Experiences.vue';
-import Main from '../components/ExperiencesPage/Main.vue';
 import Reviews from '../components/ExperiencesPage/Reviews.vue';
 import Photos from '../components/ExperiencesPage/Photos.vue';
+// 口コミ投稿ページ
+import ReviewCreate from '../views/ReviewCreate.vue';
 
 Vue.use(Router)
 Vue.use(Vuex)
@@ -79,6 +80,14 @@ export default new Router({
         await store.dispatch('toExperiencesPage', to.params.id);
         return next();
       },
-    }
+    },
+    // 口コミ投稿ページ
+    { path: '/experience/review',
+      components: {
+        default: ReviewCreate,
+        header: Header,
+        footer: Footer,
+      },
+    },
   ]
 });
