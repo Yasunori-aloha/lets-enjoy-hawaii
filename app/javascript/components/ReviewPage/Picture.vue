@@ -12,7 +12,15 @@
       <p class="picture__info">写真を複数選択して、一度に追加することができます。</p>
     </li>
     <li class="picture__main__wrapper">
-      <div class="picture__preview__area"></div>
+      <ul class="picture__preview__area">
+        <li v-for="(image, index) in imagesUrl" :key="image" class="preview__wrapper">
+          <img src="" class="preview">
+          <div class="picture__delete">
+            <i class="far fa-window-close"></i>
+            <span class="delete__btn">写真削除</span>
+          </div>
+        </li>
+      </ul>
     </li>
   </ul>
 </template>
@@ -94,7 +102,7 @@ export default {
     margin-block-start: 1px;
     margin-block-end: 0;
   }
-/* 添付画像プレビュー欄 */
+/* 添付画像プレビューエリア欄 */
   .picture__main__wrapper{
     margin-top: 10px;
     border-radius: 4px;
@@ -109,5 +117,23 @@ export default {
     display: flex;
     flex-wrap: wrap;
     background-color: #ffffff;
+  }
+/* 画像プレビュー欄 */
+  .preview__wrapper{
+    margin: 20px 0 10px 20px;
+  }
+  .preview{
+    height: 156px;
+    width: 209px;
+  }
+  .picture__delete{
+    margin-top: 5px;
+    font-size: 12px;
+    width: 67px;
+    cursor: pointer;
+  }
+  .delete__btn{
+    color: #0000ff;
+    text-decoration: underline;
   }
 </style>
