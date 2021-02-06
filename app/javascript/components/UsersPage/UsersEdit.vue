@@ -136,9 +136,6 @@ export default {
     border: 1px solid gray;
     cursor: pointer;
   }
-  .hidden{
-    display: none;
-  }
   .update__btn{
     height: 54px;
     width: 300px;

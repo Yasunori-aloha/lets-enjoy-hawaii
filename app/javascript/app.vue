@@ -27,4 +27,7 @@
   background-color: #00b900;
   font-weight: 700;
   }
+  .hidden{
+    display: none;
+  }
 </style>
