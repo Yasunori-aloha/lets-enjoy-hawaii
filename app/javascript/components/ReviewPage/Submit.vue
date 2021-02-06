@@ -1,12 +1,16 @@
 <template>
   <div class="review__submit">
-    <button class="submit btn__hover">投稿する</button>
+    <button @click.prevent="createReview()" class="submit btn__hover">投稿する</button>
   </div>
 </template>
 
 <script>
 export default {
-
+  methods: {
+    createReview() {
+      console.log('create review!');
+    },
+  },
 };
 </script>
 
@@ -32,6 +36,7 @@ export default {
     color: #ffffff;
     border: none;
     background-color: #00b900;
+    outline: none;
     cursor: pointer;
   }
 </style>
