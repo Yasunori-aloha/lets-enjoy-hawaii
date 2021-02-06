@@ -1,11 +1,10 @@
 <template>
   <div class="experience__info__right">
     <ul>
-      <li class="reviews__share">
+      <router-link to="/experience/review" tag="li" class="reviews__share">
         <i class="far fa-comment-dots fa-flip-horizontal"></i>
         <span>口コミ投稿</span>
-        <a :href="`/experiences/${experienceData.id}/reviews/new`" class="btn"></a>
-      </li>
+      </router-link>
       <!-- <li class="reviews__share">
         <i class="fas fa-share"></i>
         <span>シェアする</span>
@@ -53,6 +52,7 @@ export default {
     text-align: center;
     margin-bottom: 5px;
     position: relative;
+    cursor: pointer;
     background: linear-gradient(#ffffff, #e4e4e4);
   }
   .btn{
