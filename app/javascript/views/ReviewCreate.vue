@@ -2,24 +2,24 @@
   <div class="review__wrapper">
     <div class="review__form">
       <form>
-        <ReviewTitle />
-        <ReviewScore />
-        <ReviewText />
+        <Title />
+        <Score />
+        <Comment />
       </form>
     </div>
   </div>
 </template>
 
 <script>
-import ReviewTitle from '../components/ReviewPage/ReviewTitle.vue';
-import ReviewScore from '../components/ReviewPage/ReviewScore.vue';
-import ReviewText from '../components/ReviewPage/ReviewText.vue';
+import Title from '../components/ReviewPage/Title.vue';
+import Score from '../components/ReviewPage/Score.vue';
+import Comment from '../components/ReviewPage/Comment.vue';
 
 export default {
   components: {
-    ReviewTitle,
-    ReviewScore,
-    ReviewText,
+    Title,
+    Score,
+    Comment,
   },
 };
 </script>
