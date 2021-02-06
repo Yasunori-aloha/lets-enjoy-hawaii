@@ -8,7 +8,7 @@
     <ul class="review__score">
       <li v-for="index in 5">
         <label :for="`review_score${index}`" class="review__score__star">☆</label>
-        <input type="radio" :id="`review_score${index}`" name="review[score]" :value="`${index}`" class="review__btn">
+        <input v-model="reviewData.score" type="radio" :id="`review_score${index}`" name="review[score]" :value="`${index}`" class="review__btn">
       </li>
     </ul>
   </div>
@@ -16,7 +16,11 @@
 
 <script>
 export default {
-
+  computed: {
+    reviewData() {
+      return this.$store.getters.reviewData;
+    },
+  },
 };
 </script>
 
