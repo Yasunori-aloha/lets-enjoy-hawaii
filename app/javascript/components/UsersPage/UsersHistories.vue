@@ -16,11 +16,12 @@
               </button>
             </div>
             <div class="acitivity__picture">
-              <ActivityPicutre :activity="history" />
-              <a :href="`/experiences/${history.experience.id}`" class="activity__picture__link"></a>
+              <router-link :to="`/experiences/${history.experience.id}`">
+                <ActivityPicutre :activity="history" />
+              </router-link>
             </div>
             <div class="activity__info__wrapper">
-              <a :href="`/experiences/${history.experience.id}`" class="activity__name link__hover">{{ history.experience.name }}</a>
+              <router-link :to="`/experiences/${history.experience.id}`" class="activity__name link__hover">{{ history.experience.name }}</router-link>
               <p class="activity__place">{{ history.experience.area.island.name }} > {{ history.experience.area.name }}</p>
               <span class="histories__counts">
                 <i class="fas fa-shoe-prints fa-rotate-270"></i>
@@ -174,20 +175,10 @@ export default {
 /* 訪問記録のアクティビティ画像部分 */
   .acitivity__picture{
     height: 181px;
-    position: relative;
   }
   .experience__picture{
     height: 100%;
     width: 100%;
-  }
-  .activity__picture__link{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    cursor: pointer;
   }
 /* アクティビティ情報欄 */
   .activity__info__wrapper{

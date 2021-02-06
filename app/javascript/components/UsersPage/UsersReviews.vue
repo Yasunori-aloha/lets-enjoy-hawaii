@@ -8,13 +8,13 @@
             <div class="review__main__area">
               <ul class="review__info__wrapper">
                 <li>
-                  <a :href="`/experiences/${review.experience.id}`">
+                  <router-link :to="`/experiences/${review.experience.id}`">
                     <ActivityPicutre :activity="review" />
-                  </a>
+                  </router-link>
                 </li>
                 <li>
-                  <a :href="`/experiences/${review.experience.id}`" class="activity__name link__hover">{{ review.experience.name }}</a>
-                    <p class="activity__place">{{ review.experience.area.island.name }} > {{ review.experience.area.name }}</p>
+                  <router-link :to="`/experiences/${review.experience.id}`" class="activity__name link__hover">{{ review.experience.name }}</router-link>
+                  <p class="activity__place">{{ review.experience.area.island.name }} > {{ review.experience.area.name }}</p>
                 </li>
                 <li class="reviewed__at__wrapper">
                     <p >投稿日：</p>

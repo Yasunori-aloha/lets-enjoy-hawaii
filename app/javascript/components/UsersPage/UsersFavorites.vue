@@ -16,11 +16,12 @@
               </button>
             </div>
             <div class="activity__picture">
-              <ActivityPicutre :activity="favorite" />
-              <a :href="`/experiences/${favorite.experience.id}`" class="activity__picture__link"></a>
+              <router-link :to="`/experiences/${favorite.experience.id}`">
+                <ActivityPicutre :activity="favorite" />
+              </router-link>
             </div>
             <div class="activity__info__wrapper">
-              <a :href="`/experiences/${favorite.experience.id}`" class="activity__name link__hover">{{ favorite.experience.name }}</a>
+              <router-link :to="`/experiences/${favorite.experience.id}`" class="activity__name link__hover">{{ favorite.experience.name }}</router-link>
               <p class="activity__place">{{ favorite.experience.area.island.name }} > {{ favorite.experience.area.name }}</p>
               <span class="favorites__counts">
               <i class="fas fa-star star__icon"></i>
@@ -171,20 +172,10 @@ export default {
 }
 .activity__picture{
   height: 181px;
-  position: relative;
 }
 .experience__picture{
   height: 100%;
   width: 100%;
-}
-.activity__picture__link{
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  cursor: pointer;
 }
 .activity__info__wrapper{
   padding: 5px 7px 6px;
