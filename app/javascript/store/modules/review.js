@@ -6,7 +6,7 @@ export default {
       score: null,
       title: null,
       comment: null,
-      images: null,
+      images: [],
     },
   },
   getters: {

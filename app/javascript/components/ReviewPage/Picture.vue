@@ -6,7 +6,7 @@
     <li class="picture__btn">
       <i class="fas fa-camera"></i>
       <label for="review_images" class="picture__add">写真を追加する</label>
-      <input type="file" id="review_images" name="review[images][]" multiple="multiple" class="hidden">
+      <input @change="previewImages()" ref="reviewImages" type="file" id="review_images" name="review[images][]" multiple="multiple" accept="image/*" class="hidden">
     </li>
     <li>
       <p class="picture__info">写真を複数選択して、一度に追加することができます。</p>
@@ -19,7 +19,29 @@
 
 <script>
 export default {
+  data() {
+    return {
+      imagesUrl: [],
+    }
+  },
+  computed: {
+    reviewData() {
+      return this.$store.getters.reviewData;
+    },
+  },
+  methods: {
+    previewImages() {
+      const images = this.$refs.reviewImages.files;
 
+      // 入力された画像を'reviewData'に保存し、プレビュー用のURLを'imagesUrl'に保存する。
+      for (const image of images) {
+        this.reviewData.images.push(image);
+        this.imagesUrl.push(URL.createObjectURL(image));
+      }
+
+      return this.$refs.reviewImages.value = null;
+    },
+  },
 };
 </script>
 
