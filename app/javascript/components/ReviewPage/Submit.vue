@@ -5,23 +5,33 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   computed: {
-    reviewData() {
-      return this.$store.getters.reviewData;
-    },
+    ...mapGetters(["userData", "experienceData", "reviewData"]),
   },
   methods: {
     createReview: async function() {
       let formData = new FormData();
 
-      formData.append('score', this.reviewData.score);
-      formData.append('title', this.reviewData.title);
-      formData.append('comment', this.reviewData.comment);
-      formData.append('images', this.reviewData.images);
+      formData.append('review[score]', this.reviewData.score);
+      formData.append('review[title]', this.reviewData.title);
+      formData.append('review[comment]', this.reviewData.comment);
+      formData.append('review[images]', this.reviewData.images);
 
-      await this.$store.dispatch('createReview', formData);
+      await this.$store.dispatch('createReview',
+      {
+        userId: this.userData.id,
+        experienceId: this.experienceData.id,
+        formData,
+      });
     },
+  },
+  created() {
+    console.log(this.userData);
+    console.log(this.experienceData);
+    console.log(this.reviewData);
   },
 };
 </script>
