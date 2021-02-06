@@ -6,8 +6,8 @@
       <span class="required__item">必須</span>
     </div>
     <ul class="review__score">
-      <li v-for="index in 5">
-        <label :for="`review_score${index}`" class="review__score__star">☆</label>
+      <li @mouseover="starOver(index)" @mouseleave="starLeave()" v-for="index in 5">
+        <label ref="star" :for="`review_score${index}`" class="review__score__star">☆</label>
         <input v-model="reviewData.score" type="radio" :id="`review_score${index}`" name="review[score]" :value="`${index}`" class="review__btn">
       </li>
     </ul>
@@ -19,6 +19,18 @@ export default {
   computed: {
     reviewData() {
       return this.$store.getters.reviewData;
+    },
+  },
+  methods: {
+    starOver(starId) {
+      for (let index = (starId - 1); index >= 0; index--) {
+        this.$refs.star[index].innerText = '★';
+      }
+    },
+    starLeave() {
+      this.$refs.star.forEach(star => {
+        star.innerText = '☆';
+      });
     },
   },
 };
