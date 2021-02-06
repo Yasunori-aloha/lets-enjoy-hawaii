@@ -6,9 +6,21 @@
 
 <script>
 export default {
+  computed: {
+    reviewData() {
+      return this.$store.getters.reviewData;
+    },
+  },
   methods: {
-    createReview() {
-      console.log('create review!');
+    createReview: async function() {
+      let formData = new FormData();
+
+      formData.append('score', this.reviewData.score);
+      formData.append('title', this.reviewData.title);
+      formData.append('comment', this.reviewData.comment);
+      formData.append('images', this.reviewData.images);
+
+      await this.$store.dispatch('createReview', formData);
     },
   },
 };
