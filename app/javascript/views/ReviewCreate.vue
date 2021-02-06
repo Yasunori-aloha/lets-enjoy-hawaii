@@ -8,10 +8,10 @@
             <h1 class="head__name">口コミを投稿する</h1>
           </div>
           <div class="review__experience__info">
-            <img src="" alt="" class="experience__picture">
+            <ActivityPicture :activity="experienceData" />
             <ul class="experience__name__wrapper">
               <li class="experience__icon__name">
-                <img src="" alt="" class="category__icon">
+                <CategoryIcon :category-name="experienceData.genre.category.search" />
                 <span class="experience__name">{{ experienceData.name }}</span>
               </li>
               <li class="experience__area">
@@ -29,7 +29,14 @@
 </template>
 
 <script>
+import ActivityPicture from '../components/ActivityPicture.vue';
+import CategoryIcon from '../components/CategoryIcon.vue';
+
 export default {
+  components: {
+    ActivityPicture,
+    CategoryIcon,
+  },
   computed: {
     experienceData() {
       return this.$store.getters.experienceData;
@@ -85,9 +92,6 @@ export default {
   }
   .experience__icon__name{
     display: flex;
-  }
-  .category__icon{
-
   }
   .experience__name{
     font-weight: bold;

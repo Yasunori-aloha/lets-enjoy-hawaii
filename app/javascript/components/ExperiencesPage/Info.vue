@@ -2,7 +2,7 @@
   <div class="experience__info__left">
     <ul>
       <li class="experience__name__wrapper">
-        <img :src="categoryIcon(experienceData.genre.category.search)" class="category__icon">
+        <CategoryIcon :category-name="experienceData.genre.category.search" />
         <h1 class="experinece__name">{{ experienceData.name }}</h1>
       </li>
       <li class="experience__score">
@@ -26,20 +26,17 @@
 </template>
 
 <script>
+import CategoryIcon from '../CategoryIcon.vue';
 import StarRating from '../StarRating.vue';
 
 export default {
   components: {
+    CategoryIcon,
     StarRating,
   },
   computed: {
     experienceData() {
       return this.$store.getters.experienceData;
-    },
-  },
-  methods: {
-    categoryIcon(categorySearch) {
-      return require(`../../../assets/images/${categorySearch}_icon.png`);
     },
   },
 };
@@ -54,10 +51,6 @@ export default {
 /* アクティビティ名称表示欄 */
   .experience__name__wrapper{
     display: flex;
-  }
-  .category__icon{
-    height: 35px;
-    width: 35px;
   }
   .experinece__name{
     font-size: 24px;
