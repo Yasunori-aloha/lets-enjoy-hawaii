@@ -15,9 +15,9 @@
       <ul class="picture__preview__area" :style="previewAreaHeight(imagesUrl.length)">
         <li v-for="(image, index) in imagesUrl" :key="image" class="preview__wrapper">
           <img :src="image" class="preview">
-          <div @mouseover="buttonOver()" @mouseleave="buttonLeave()" class="picture__delete">
+          <div @click="previewDelete(index)" @mouseover="buttonOver(index)" @mouseleave="buttonLeave(index)" class="picture__delete">
             <i class="far fa-window-close"></i>
-            <span class="delete__btn" :style="{color: color}">写真削除</span>
+            <span ref="deleteButton" class="delete__btn">写真削除</span>
           </div>
         </li>
       </ul>
@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       imagesUrl: [],
-      color: '#0000ff',
+      mouseOver: [],
     }
   },
   computed: {
@@ -46,6 +46,7 @@ export default {
       for (const image of images) {
         this.reviewData.images.push(image);
         this.imagesUrl.push(URL.createObjectURL(image));
+        this.mouseOver.push(false);
       }
 
       return this.$refs.reviewImages.value = null;
@@ -61,11 +62,14 @@ export default {
         }
       }
     },
-    buttonOver() {
-      return this.color = '#ffa500';
+    buttonOver(index) {
+      return this.$refs.deleteButton[index].style.color = '#ffa500';
     },
-    buttonLeave() {
-      return this.color = '#0000ff';
+    buttonLeave(index) {
+      return this.$refs.deleteButton[index].style.color = '#0000ff';
+    },
+    previewDelete(index) {
+      console.log(index);
     },
   },
 };
@@ -151,6 +155,7 @@ export default {
     cursor: pointer;
   }
   .delete__btn{
+    color: #0000ff;
     text-decoration: underline;
   }
 </style>
