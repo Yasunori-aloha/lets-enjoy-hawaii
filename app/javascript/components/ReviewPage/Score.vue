@@ -6,8 +6,8 @@
       <span class="required__item">必須</span>
     </div>
     <ul class="review__score">
-      <li @mouseover="starOver(index)" @mouseleave="starLeave()" v-for="index in 5">
-        <label ref="star" :for="`review_score${index}`" class="review__score__star">☆</label>
+      <li @mouseover="starOver(index - 1)" @mouseleave="starLeave(choiceStarId)" v-for="index in 5">
+        <label @click="choiceStar(index - 1)" ref="star" :for="`review_score${index}`" class="review__score__star">☆</label>
         <input v-model="reviewData.score" type="radio" :id="`review_score${index}`" name="review[score]" :value="`${index}`" class="review__btn">
       </li>
     </ul>
@@ -16,6 +16,12 @@
 
 <script>
 export default {
+  data() {
+    return {
+      // 選択されている星から左は'☆'に変更されない様にする。
+      choiceStarId: null,
+    }
+  },
   computed: {
     reviewData() {
       return this.$store.getters.reviewData;
@@ -23,14 +29,29 @@ export default {
   },
   methods: {
     starOver(starId) {
-      for (let index = (starId - 1); index >= 0; index--) {
+      // ホバーした星から左を'★'に変更する。
+      for (let index = 0; index <= starId; index++) {
         this.$refs.star[index].innerText = '★';
-      }
+      };
     },
-    starLeave() {
-      this.$refs.star.forEach(star => {
-        star.innerText = '☆';
-      });
+    // ホバーを外すと、選択されている星から右の星を'☆'に変更する。
+    starLeave(choiceStarId) {
+      if (choiceStarId === null) {
+        this.$refs.star.forEach(star => {
+          star.innerText = '☆';
+        });
+      } else {
+        for (let index = (choiceStarId + 1); index <= 4; index++) {
+          this.$refs.star[index].innerText = '☆';
+        }
+      };
+    },
+    // 選択された星から右の星を'☆'に変更する。
+    choiceStar(starId) {
+      this.choiceStarId = starId;
+      for (let index = (starId + 1); index <= 4; index++) {
+        this.$refs.star[index].innerText = '☆';
+      };
     },
   },
 };
