@@ -88,6 +88,13 @@ export default new Router({
         header: Header,
         footer: Footer,
       },
+      beforeEnter: (to, from, next) => {
+        const fromExperience = /\/experiences\/\d{1,}/.test(from.fullPath);
+
+        if (fromExperience) return next();
+
+        return next('/');
+      }
     },
   ]
 });
