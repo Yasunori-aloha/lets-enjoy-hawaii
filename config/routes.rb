@@ -19,6 +19,7 @@ Rails.application.routes.draw do
         resources :experiences, only: :show, shallow: true do
           member do
             resources :favorites, only: :create
+            resources :reviews, only: :create
             resources :histories, only: :create
           end
         end
