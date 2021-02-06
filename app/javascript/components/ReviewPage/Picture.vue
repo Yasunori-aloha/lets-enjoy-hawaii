@@ -30,7 +30,6 @@ export default {
   data() {
     return {
       imagesUrl: [],
-      mouseOver: [],
     }
   },
   computed: {
@@ -46,7 +45,6 @@ export default {
       for (const image of images) {
         this.reviewData.images.push(image);
         this.imagesUrl.push(URL.createObjectURL(image));
-        this.mouseOver.push(false);
       }
 
       return this.$refs.reviewImages.value = null;
@@ -69,7 +67,8 @@ export default {
       return this.$refs.deleteButton[index].style.color = '#0000ff';
     },
     previewDelete(index) {
-      console.log(index);
+      this.reviewData.images.splice(index, 1);
+      return this.imagesUrl.splice(index, 1);
     },
   },
 };
