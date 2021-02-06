@@ -26,7 +26,7 @@ export default {
         }
       })
       .then(response => {
-        if (this.state.experienceData !== null) {
+        if (this.state.experience.experienceData !== null) {
           this.state.experience.experienceData.already_historied = false;
         }
       });
