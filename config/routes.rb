@@ -29,10 +29,13 @@ Rails.application.routes.draw do
           resources :histories, only: :create
         end
       end
+
+      # 検索結果ページ
+      get '/search', to: 'experiences#search'
     end
   end
 
-  get '/search', to: 'tops#search'
+  # get '/search', to: 'tops#search'
   post '/:name', to: 'experiences#edit'
   get '*path', to: 'tops#index', constraints: lambda { |req|
     req.path.exclude? 'rails/active_storage'
