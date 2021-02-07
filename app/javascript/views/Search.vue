@@ -45,6 +45,10 @@
                 <i class="fas fa-flag category__icon"></i>
                 <span>{{ experience.genre.name }}</span>
               </div>
+              <div class="search__experience__favorites">
+                <i class="fas fa-star star__icon"></i>
+                <span class="experience__favorite__counts">{{ experience.favorite_counts }}</span>
+              </div>
             </div>
           </div>
         </li>
@@ -225,6 +229,21 @@ export default {
   }
   .category__icon{
     color: #ffa500;
+  }
+/* アクティビティへのお気に入り数表示欄 */
+  .search__experience__favorites{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #333333;
+    font-size: 22px;
+  }
+  .star__icon{
+    color: #ffa500;
+  }
+  .experience__favorite__counts{
+    font-weight: bold;
+    line-height: 26px;
   }
 /* 検索結果ページ右側要素表示欄 */
   .search__main__right{
