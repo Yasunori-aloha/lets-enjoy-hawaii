@@ -28,6 +28,8 @@ class ExperienceSerializer < ActiveModel::Serializer
 
   # アクティビティ詳細ページと検索結果ページでのみ取得する。
   attribute  :score,                 if: :search_show_experiences?
+  attribute  :search_word,           if: :search_show_experiences?
+  attribute  :search_score,          if: :search_show_experiences?
   belongs_to :genre,                 if: :search_show_experiences?
 
   # アクティビティ詳細ページと検索結果ページでは取得しない。
@@ -81,4 +83,11 @@ class ExperienceSerializer < ActiveModel::Serializer
     object.reviews.order('created_at DESC')
   end
 
+  def search_word
+    @instance_options[:search_word]
+  end
+
+  def search_score
+    @instance_options[:search_score]
+  end
 end

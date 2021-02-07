@@ -22,7 +22,9 @@ class Api::ExperiencesController < Api::ApplicationController
     render json: ActiveModel::Serializer::CollectionSerializer.new(
       @experiences,
       serializer: ExperienceSerializer,
-      search_show_experiences?: true
+      search_show_experiences?: true,
+      search_word: params[:q][:name_cont],
+      search_score: params[:q][:score_gteq]
     ).to_json
   end
 end
