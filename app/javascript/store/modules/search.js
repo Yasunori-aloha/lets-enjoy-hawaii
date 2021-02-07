@@ -10,6 +10,7 @@ export default {
   },
   getters: {
     searchData: state => state.searchData,
+    experiencesList: state => state.experiencesList,
   },
   mutations: {
     resetSearchWordScore() {

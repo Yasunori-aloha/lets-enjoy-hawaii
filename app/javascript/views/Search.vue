@@ -4,6 +4,22 @@
       <div class="search__main__left__header">
         <h1 class="search__main__title">" {{ searchData.word }} "が含まれるスポット</h1>
       </div>
+      <div class="search__main__left__info">
+        <div class="search__main__left__info__up">
+          <ul class="ul__number">
+            <li>1 - {{ experiencesList.length }}件</li>
+            <li class="all__number">（全{{ experiencesList.length }}件中）</li>
+          </ul>
+          <ul class="ul__list">
+            <li class="list list__active">
+              <i class="fas fa-list"></i>
+            </li>
+            <li class="list">
+              <i class="fas fa-th"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="search__main__right">
       <!-- <div class="search__right__area">
@@ -22,16 +38,16 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   computed: {
-    searchData() {
-      return this.$store.getters.searchData;
-    },
+    ...mapGetters(["searchData", "experiencesList"]),
   },
   beforeRouteLeave (to, from, next) {
     this.$store.commit('resetSearchWordScore');
     next();
-  }
+  },
 };
 </script>
 
@@ -57,6 +73,43 @@ export default {
     color: #333333;
     line-height: 40px;
     padding-left: 3px;
+  }
+/* 検索結果ページ内件数表示欄 */
+  .search__main__left__info{
+    height: 50px;
+    color: #333333;
+    margin-bottom: 10px;
+  }
+  .search__main__left__info__up{
+    height: 29px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .ul__number{
+    display: flex;
+    align-items: flex-end;
+  }
+  .all__number{
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+  .ul__list{
+    width: 100px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .list{
+    width: 24px;
+    margin: 0 0 5px 8px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #969696;
+    color: white;
+    cursor: pointer;
+  }
+  .list__active{
+    background-color: #333333;
   }
 /* 検索結果ページ右側要素表示欄 */
   .search__main__right{
