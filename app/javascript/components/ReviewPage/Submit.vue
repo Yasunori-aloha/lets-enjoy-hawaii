@@ -18,7 +18,9 @@ export default {
       formData.append('review[score]', this.reviewData.score);
       formData.append('review[title]', this.reviewData.title);
       formData.append('review[comment]', this.reviewData.comment);
-      formData.append('review[images]', this.reviewData.images);
+      this.reviewData.images.forEach(image => {
+        formData.append('review[images][]', image);
+      });
 
       await this.$store.dispatch('createReview',
       {
