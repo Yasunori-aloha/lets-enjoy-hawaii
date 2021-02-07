@@ -193,7 +193,6 @@ export default {
   }
   .sort__link{
     text-decoration: underline;
-    cursor: pointer;
   }
   .active__sort{
     color: #000000;

@@ -19,6 +19,13 @@
             </li>
           </ul> -->
         </div>
+        <div class="search__main__left__info__down">
+          <ul class="order">
+            <li>並び順：</li>
+            <li class="sort__link link__hover">口コミランク順</li>
+            <li class="sort__link active__sort">おすすめ順</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="search__main__right">
@@ -110,6 +117,31 @@ export default {
   }
   .list__active{
     background-color: #333333;
+  }
+/* 検索結果並び順変更ボタン表示欄 */
+  .search__main__left__info__down{
+    height: 14px;
+    font-size: 12px;
+    padding-top: 5px;
+  }
+  .order{
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+  }
+  .sort__link{
+    height: 12px;
+    line-height: 12px;
+    margin-left: 5px;
+    padding-right: 6px;
+    border-right: 1px solid #ccc;
+    text-decoration: underline;
+  }
+  .active__sort{
+    color: #000000;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: auto;
   }
 /* 検索結果ページ右側要素表示欄 */
   .search__main__right{
