@@ -1,14 +1,12 @@
 <template>
-  <PageMenu />
+  <div class="search__wrapper">
+    <div class="search__main__left"></div>
+    <div class="search__main__right"></div>
+  </div>
 </template>
 
 <script>
-import PageMenu from '../components/ExperiencesPage/PageMenu.vue';
-
 export default {
-  components: {
-    PageMenu,
-  },
   computed: {
     searchData() {
       return this.$store.getters.searchData;
@@ -22,5 +20,17 @@ export default {
 </script>
 
 <style scoped>
-
+/* 検索結果ページ表示欄 */
+  .search__wrapper{
+    min-height: calc(100vh - 216px);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .search__main__left{
+    width: 740px;
+  }
+  .search__main__right{
+    width: 210px;
+  }
 </style>

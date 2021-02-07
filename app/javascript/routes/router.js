@@ -23,6 +23,8 @@ import Photos from '../components/ExperiencesPage/Photos.vue';
 import ReviewCreate from '../views/ReviewCreate.vue';
 // アクティビティ検索結果ページ
 import Search from '../views/Search.vue';
+// ホーム画面からの遷移歴表示欄
+import PageMenu from '../components/PageMenu.vue';
 
 Vue.use(Router)
 Vue.use(Vuex)
@@ -72,6 +74,7 @@ export default new Router({
       components: {
         default: Experiences,
         header: Header,
+        pageMenu: PageMenu,
         footer: Footer,
       },
       children: [
@@ -103,6 +106,7 @@ export default new Router({
       {
         default: Search,
         header: Header,
+        pageMenu: PageMenu,
         footer: Footer,
       },
       beforeEnter: async (to, from, next) => {

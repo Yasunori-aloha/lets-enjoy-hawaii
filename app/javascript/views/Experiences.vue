@@ -1,6 +1,5 @@
 <template>
   <div>
-    <PageMenu />
     <div class="experience__page__wrapper">
       <div class="experience__page__left">
         <div class="experience__info__wrapper">
@@ -17,7 +16,6 @@
 </template>
 
 <script>
-import PageMenu from '../components/ExperiencesPage/PageMenu.vue';
 import Info from '../components/ExperiencesPage/Info.vue';
 import MultiButton from '../components/ExperiencesPage/MultiButton.vue';
 import Tab from '../components/ExperiencesPage/Tab.vue';
@@ -25,7 +23,6 @@ import Main from '../components/ExperiencesPage/Main.vue';
 
 export default {
   components: {
-    PageMenu,
     Info,
     MultiButton,
     Tab,
