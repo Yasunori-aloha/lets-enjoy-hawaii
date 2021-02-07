@@ -27,13 +27,12 @@ export default {
         userId: this.userData.id,
         experienceId: this.experienceData.id,
         formData,
+      })
+      .then(response => {
+        this.$store.commit('resetReviewData');
+        this.$router.replace(`/experiences/${this.experienceData.id}`);
       });
     },
-  },
-  created() {
-    console.log(this.userData);
-    console.log(this.experienceData);
-    console.log(this.reviewData);
   },
 };
 </script>

@@ -12,6 +12,14 @@ export default {
   getters: {
     reviewData: state => state.reviewData,
   },
+  mutations: {
+    resetReviewData(state) {
+      state.reviewData.score = '';
+      state.reviewData.title = '';
+      state.reviewData.comment = '';
+      state.reviewData.images = [];
+    },
+  },
   actions: {
     createReview: async function({ commit }, params) {
       await axios.post(`/api/v1/experiences/${params.experienceId}/reviews`, params.formData,
@@ -22,8 +30,9 @@ export default {
           'client': localStorage.getItem('client'),
           'uid': localStorage.getItem('uid'),
         }
-      }).then(response => {
-        console.log(response);
+      })
+      .catch(error => {
+        console.log(error.response.data.errors);
       });
     },
   },
