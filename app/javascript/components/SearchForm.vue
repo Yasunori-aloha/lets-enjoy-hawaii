@@ -1,16 +1,16 @@
 <template>
-  <form @click.prevent class="form">
+  <form class="form">
     <div class="keyword">
       <label for="q_name_cont" class="main__word">キーワード</label>
-      <input placeholder="ホテル名・地名やイベント名など" class="text__field"  type="search" name="q[name_cont]" id="q_name_cont">
+      <input v-model="searchData.word" placeholder="ホテル名・地名やイベント名など" class="text__field"  type="search" name="q[name_cont]" id="q_name_cont">
     </div>
     <div class="select">
       <label for="q_score_gteq" class="main__select">評価</label>
-      <select name="q[score_gteq]" id="score" class="select__box">
+      <select @change="choiceScore" ref="choiceScore" name="q[score_gteq]" id="score" class="select__box">
         <option v-for="(value, index) in optionTexts" :value="index">{{ value }}</option>
       </select>
     </div>
-    <button class="submit btn__hover">検索</button>
+    <button @click.prevent="searchWordScore()" class="submit btn__hover">検索</button>
   </form>
 </template>
 
@@ -26,6 +26,22 @@ export default {
         '★4.0以上',
       ],
     }
+  },
+  computed: {
+    searchData() {
+      return this.$store.getters.searchData;
+    },
+  },
+  methods: {
+    searchWordScore() {
+      console.log(this.$store.getters.searchData);
+    },
+    choiceScore(option) {
+      this.searchData.score = option.target.value;
+    },
+  },
+  created() {
+    // console.log(this.$store.getters.searchData);
   },
 };
 </script>

@@ -4,7 +4,7 @@ export default {
   state: {
     searchData: {
       word: '',
-      score: '',
+      score: 0,
     }
   },
   getters: {
