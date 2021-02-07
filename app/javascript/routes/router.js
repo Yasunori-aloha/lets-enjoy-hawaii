@@ -21,6 +21,8 @@ import Reviews from '../components/ExperiencesPage/Reviews.vue';
 import Photos from '../components/ExperiencesPage/Photos.vue';
 // 口コミ投稿ページ
 import ReviewCreate from '../views/ReviewCreate.vue';
+// アクティビティ検索結果ページ
+import Search from '../views/Search.vue';
 
 Vue.use(Router)
 Vue.use(Vuex)
@@ -96,5 +98,13 @@ export default new Router({
         return next('/');
       }
     },
+    // アクティビティ検索結果ページ
+    { path: '/search', components:
+      {
+        default: Search,
+        header: Header,
+        footer: Footer,
+      }
+    }
   ]
 });
