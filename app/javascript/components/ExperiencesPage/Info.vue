@@ -8,7 +8,7 @@
       <li class="experience__score">
         <StarRating :score="experienceData.score" />
         <span class="review__counts">（</span>
-        <a href="" class="review__link review__counts link__hover">口コミ{{ experienceData.reviews_counts }}件</a>
+        <router-link :to="`/experiences/${experienceData.id}/reviews`" class="review__link review__counts link__hover">口コミ{{ experienceData.reviews_counts }}件</router-link>
         <span class="review__counts">）</span>
       </li>
       <li class="area__island__wrapeer">
