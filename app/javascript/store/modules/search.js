@@ -13,5 +13,16 @@ export default {
   mutations: {
   },
   actions: {
+    searchWordScore: async function({}, params) {
+      await axios.get('/api/v1/search', {
+        params: {
+          'q[name_cont]': params.word,
+          'q[score_gteq]': params.score,
+        }
+      })
+      .then(response => {
+        console.log(response);
+      });
+    },
   },
 };

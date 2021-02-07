@@ -33,8 +33,12 @@ export default {
     },
   },
   methods: {
-    searchWordScore() {
-      console.log(this.$store.getters.searchData);
+    searchWordScore: async function() {
+      await this.$store.dispatch('searchWordScore',
+      {
+        word: this.searchData.word,
+        score: this.searchData.score,
+      });
     },
     choiceScore(option) {
       this.searchData.score = option.target.value;
