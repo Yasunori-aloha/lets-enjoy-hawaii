@@ -36,6 +36,17 @@
             <StarRating :experience="experience" />
             <p class="search__experience__location">{{ experience.area.island.name }} > {{ experience.area.name }}</p>
           </div>
+          <div class="search__experience__main">
+            <ActivityPicture :activity="experience" />
+            <div class="experience__outline__wrapper">
+              <div class="experience__outline__main link__hover"></div>
+              <div class="experience__outline__sub"></div>
+              <div class="experience__outline__category">
+                <i class="fas fa-flag category__icon"></i>
+                <span>{{ experience.genre.name }}</span>
+              </div>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
@@ -57,11 +68,13 @@
 
 <script>
 import StarRating from '../components/StarRating.vue';
+import ActivityPicture from '../components/ActivityPicture.vue';
 import { mapGetters } from "vuex";
 
 export default {
   components: {
     StarRating,
+    ActivityPicture,
   },
   computed: {
     ...mapGetters(["searchData", "experiencesList"]),
@@ -177,6 +190,41 @@ export default {
   .search__experience__location{
     margin-top: -4px;
     font-size: 12px;
+  }
+/* アクティビティ画像等表示欄 */
+  .search__experience__main{
+    height: 161px;
+    margin: 20px 11px 10px;
+    display: flex;
+  }
+  .experience__picture{
+    height: 134px;
+    width: 178px;
+    border: 1px solid #ccc;
+  }
+  .experience__outline__wrapper{
+    height: 100%;
+    width: 100%;
+    margin-left: 11px;
+    position: relative;
+  }
+  .experience__outline__main{
+    line-height: 18px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .experience__outline__sub{
+    line-height: 15px;
+    margin-bottom: 8px;
+    font-size: 11px;
+  }
+  .experience__outline__category{
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+  .category__icon{
+    color: #ffa500;
   }
 /* 検索結果ページ右側要素表示欄 */
   .search__main__right{

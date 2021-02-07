@@ -8,7 +8,7 @@ export default {
   props: ["activity"],
   computed: {
     isExperinecesPage() {
-      const currentPath = /\/experiences\/\d{1,}/.test(this.$route.path) || /\/experience\/review/.test(this.$route.path)
+      const currentPath = /\/experiences\/\d{1,}/.test(this.$route.path) || /\/experience\/review/.test(this.$route.path) || /\/search/.test(this.$route.path)
       return currentPath ? true : false
     },
   },
