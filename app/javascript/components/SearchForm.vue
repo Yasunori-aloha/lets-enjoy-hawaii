@@ -1,5 +1,5 @@
 <template>
-  <form action="/search" accept-charset='UTF-8' method='get' class="form">
+  <form @click.prevent class="form">
     <div class="keyword">
       <label for="q_name_cont" class="main__word">キーワード</label>
       <input placeholder="ホテル名・地名やイベント名など" class="text__field"  type="search" name="q[name_cont]" id="q_name_cont">
@@ -10,7 +10,7 @@
         <option v-for="(value, index) in optionTexts" :value="index">{{ value }}</option>
       </select>
     </div>
-    <input type="submit" name="commit" value="検索" class="submit btn__hover">
+    <button class="submit btn__hover">検索</button>
   </form>
 </template>
 

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { home, user, experience, favorite, history, review } from "./modules";
+import { home, user, experience, favorite, history, review, search } from "./modules";
 
 Vue.use(Vuex);
 
@@ -12,5 +12,6 @@ export default new Vuex.Store({
     favorite,
     history,
     review,
+    search,
   },
 });
