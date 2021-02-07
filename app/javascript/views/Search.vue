@@ -10,14 +10,14 @@
             <li>1 - {{ experiencesList.length }}件</li>
             <li class="all__number">（全{{ experiencesList.length }}件中）</li>
           </ul>
-          <ul class="ul__list">
+          <!-- <ul class="ul__list">
             <li class="list list__active">
               <i class="fas fa-list"></i>
             </li>
             <li class="list">
               <i class="fas fa-th"></i>
             </li>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </div>
