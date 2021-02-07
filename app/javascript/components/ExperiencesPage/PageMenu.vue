@@ -1,5 +1,12 @@
 <template>
-  <div class="experience__page__menu">
+  <div v-if="isSearchPage" class="experience__page__menu">
+    <div>
+      <router-link to="/" class="link__hover">トップページ</router-link>
+      <span> › </span>
+      <span>評価点 {{ searchData.score }}点以上で、" {{ searchData.word }} "の検索結果</span>
+    </div>
+  </div>
+  <div v-else class="experience__page__menu">
     <div>
       <router-link to="/" class="link__hover">トップページ</router-link>
       <span> › </span>
@@ -11,11 +18,17 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   computed: {
-    experienceData() {
-      return this.$store.getters.experienceData;
+    ...mapGetters(["experienceData", "searchData"]),
+    isSearchPage() {
+      return /\/search/.test(this.$route.path) ? true : false;
     },
+  },
+  created() {
+    console.log(this.searchData);
   },
 };
 </script>

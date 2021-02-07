@@ -1,9 +1,14 @@
 <template>
-  <h1>test</h1>
+  <PageMenu />
 </template>
 
 <script>
+import PageMenu from '../components/ExperiencesPage/PageMenu.vue';
+
 export default {
+  components: {
+    PageMenu,
+  },
   computed: {
     searchData() {
       return this.$store.getters.searchData;
