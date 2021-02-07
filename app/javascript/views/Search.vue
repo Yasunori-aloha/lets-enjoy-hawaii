@@ -1,6 +1,10 @@
 <template>
   <div class="search__wrapper">
-    <div class="search__main__left"></div>
+    <div class="search__main__left">
+      <div class="search__main__left__header">
+        <h1 class="search__main__title">" {{ searchData.word }} "が含まれるスポット</h1>
+      </div>
+    </div>
     <div class="search__main__right">
       <!-- <div class="search__right__area">
         <h2 class="right__area__title">最近のお気に入りスポット</h2>
@@ -41,6 +45,18 @@ export default {
   }
   .search__main__left{
     width: 740px;
+  }
+  .search__main__left__header{
+    display: flex;
+    padding-top: 5px;
+    margin-bottom: 23px;
+  }
+  .search__main__title{
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333;
+    line-height: 40px;
+    padding-left: 3px;
   }
 /* 検索結果ページ右側要素表示欄 */
   .search__main__right{
