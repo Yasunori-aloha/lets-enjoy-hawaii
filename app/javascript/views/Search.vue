@@ -2,7 +2,7 @@
   <div class="search__wrapper">
     <div class="search__main__left"></div>
     <div class="search__main__right">
-      <div class="search__right__area">
+      <!-- <div class="search__right__area">
         <h2 class="right__area__title">最近のお気に入りスポット</h2>
         <div class="right__area__main">
           <img src="" class="favorite__image">
@@ -12,7 +12,7 @@
           <img src="" class="favorite__image">
           <p class="favorite__name__sub link__hover">テスト</p>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
