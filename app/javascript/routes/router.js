@@ -104,6 +104,24 @@ export default new Router({
         default: Search,
         header: Header,
         footer: Footer,
+      },
+      beforeEnter: async (to, from, next) => {
+        const searchData = {
+          word: localStorage.getItem('searchWord'),
+          score: localStorage.getItem('searchScore'),
+        };
+
+        if (searchData !== null) {
+          await store.dispatch('searchWordScore',
+          {
+            word: searchData.word,
+            score: searchData.score,
+          });
+
+          return next();
+        };
+
+        return next('/');
       }
     }
   ]

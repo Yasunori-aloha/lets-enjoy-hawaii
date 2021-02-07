@@ -23,6 +23,8 @@ export default {
       })
       .then(response => {
         this.state.search.experiencesList = response.data;
+        localStorage.setItem('searchWord', params.word);
+        localStorage.setItem('searchScore', params.score);
       });
     },
   },

@@ -39,7 +39,7 @@ export default {
         word: this.searchData.word,
         score: this.searchData.score,
       })
-      .then(() => {
+      .then(response => {
         this.$router.push('/search');
       });
     },
