@@ -7,7 +7,7 @@ class Api::ReviewsController < Api::ApplicationController
 
     if @review.valid?
       @review.save
-      @experience.update(score: experience.reviews.average(:score).round(1))
+      @experience.update(score: @experience.reviews.average(:score).round(1))
 
       render_experience
 
