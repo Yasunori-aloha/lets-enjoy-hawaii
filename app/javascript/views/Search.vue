@@ -27,6 +27,15 @@
           </ul>
         </div>
       </div>
+      <ul>
+        <li v-for="(experience, index) in experiencesList" :key="experience" class="search__experience__list">
+          <div class="search__experience__header">
+            <div class="search__experience__name">
+              <router-link :to="`/experiences/${experience.id}`" class="show__experiences link__hover">{{ experience.name }}</router-link>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
     <div class="search__main__right">
       <!-- <div class="search__right__area">
@@ -142,6 +151,25 @@ export default {
     font-weight: bold;
     text-decoration: none;
     cursor: auto;
+  }
+/* アクティビティ表示欄 */
+  .search__experience__list{
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+  .search__experience__header{
+    height: 87px;
+    padding: 10px 0;
+    margin: 0 10px;
+    border-bottom: 2px dotted #ccc;
+  }
+  .search__experience__name{
+
+  }
+  .show__experiences{
+    font-size: 18px;
+    font-weight: bold;
   }
 /* 検索結果ページ右側要素表示欄 */
   .search__main__right{
