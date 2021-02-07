@@ -6,10 +6,7 @@
         <h1 class="experinece__name">{{ experienceData.name }}</h1>
       </li>
       <li class="experience__score">
-        <StarRating :score="experienceData.score" />
-        <span class="review__counts">（</span>
-        <router-link :to="`/experiences/${experienceData.id}/reviews`" class="review__link review__counts link__hover">口コミ{{ experienceData.reviews_counts }}件</router-link>
-        <span class="review__counts">）</span>
+        <StarRating :experience="experienceData" />
       </li>
       <li class="area__island__wrapeer">
         <span class="area__name">エリア</span>
@@ -61,16 +58,6 @@ export default {
   .experience__score{
     padding-top: 5px;
     display: flex;
-  }
-/* 口コミ件数表示欄 */
-  .review__counts{
-    color: black;
-    font-weight: unset;
-    font-size: 12px;
-    line-height: 25px;
-  }
-  .review__link{
-    color: blue;
   }
 /* アクティビティのエリア表示欄 */
   .area__island__wrapeer{

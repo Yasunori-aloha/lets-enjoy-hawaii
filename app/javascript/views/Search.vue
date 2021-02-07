@@ -34,10 +34,7 @@
               <router-link :to="`/experiences/${experience.id}`" class="show__experiences link__hover">{{ experience.name }}</router-link>
             </div>
             <div class="search__experience__score">
-              <StarRating :score="experience.score" />
-              <span class="review__count">（</span>
-              <router-link :to="`/experiences/${experience.id}/reviews`" class="link__hover">口コミ{{ experience.reviews_counts }}件</router-link>
-              <span class="review__count">）</span>
+              <StarRating :experience="experience" />
             </div>
           </div>
         </li>
@@ -177,15 +174,6 @@ export default {
   .show__experiences{
     font-size: 18px;
     font-weight: bold;
-  }
-  .search__experience__score{
-    padding-top: 5px;
-    display: flex;
-  }
-  .review__count{
-    font-weight: unset;
-    font-size: 12px;
-    line-height: 25px;
   }
 /* 検索結果ページ右側要素表示欄 */
   .search__main__right{

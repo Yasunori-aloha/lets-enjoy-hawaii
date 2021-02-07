@@ -1,16 +1,26 @@
 <template>
   <div class="score__wrapper">
     <div class="star__rating">
-      <div :style="starRatingWidth(score)" class="star__rating__front">★★★★★</div>
+      <div :style="starRatingWidth(experience.score)" class="star__rating__front">★★★★★</div>
       <div class="star__rating__back">★★★★★</div>
     </div>
-    <span class="rating__point">{{ scoreToFixed(score) }}</span>
+    <span class="rating__point">{{ scoreToFixed(experience.score) }}</span>
+    <div v-if="isNotUsersPage" style="display: flex;">
+      <span class="review__counts">（</span>
+      <router-link :to="`/experiences/${experience.id}/reviews`" class="review__link review__counts link__hover">口コミ{{ experience.reviews_counts }}件</router-link>
+      <span class="review__counts">）</span>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["score"],
+  props: ["experience"],
+  computed: {
+    isNotUsersPage() {
+      return /\/users\/\d{1,}\/reviews/.test(this.$route.path) ? false : true;
+    },
+  },
   methods: {
     starRatingWidth(score) {
       return {
@@ -54,5 +64,15 @@ export default {
     font-size: 16px;
     color: black;
     font-weight: bold;
+  }
+/* 口コミ件数表示欄 */
+  .review__counts{
+    color: black;
+    font-weight: unset;
+    font-size: 12px;
+    line-height: 25px;
+  }
+  .review__link{
+    color: blue;
   }
 </style>
