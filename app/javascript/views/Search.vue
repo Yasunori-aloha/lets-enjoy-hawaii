@@ -30,21 +30,7 @@
       <ul>
         <li v-for="(experience, index) in experiencesList" :key="experience.id" class="search__experience__list">
           <ExperienceHeader :experience="experience" />
-          <div class="search__experience__main">
-            <ActivityPicture :activity="experience" />
-            <div class="experience__outline__wrapper">
-              <div class="experience__outline__main link__hover"></div>
-              <div class="experience__outline__sub"></div>
-              <div class="experience__outline__category">
-                <i class="fas fa-flag category__icon"></i>
-                <span>{{ experience.genre.name }}</span>
-              </div>
-              <div class="search__experience__favorites">
-                <i class="fas fa-star star__icon"></i>
-                <span class="experience__favorite__counts">{{ experience.favorite_counts }}</span>
-              </div>
-            </div>
-          </div>
+          <ExperienceMain :experience="experience" />
         </li>
       </ul>
     </div>
@@ -66,13 +52,13 @@
 
 <script>
 import ExperienceHeader from '../components/SearchPage/ExperienceHeader.vue';
-import ActivityPicture from '../components/ActivityPicture.vue';
+import ExperienceMain from '../components/SearchPage/ExperienceMain.vue';
 import { mapGetters } from "vuex";
 
 export default {
   components: {
     ExperienceHeader,
-    ActivityPicture,
+    ExperienceMain,
   },
   computed: {
     ...mapGetters(["searchData", "experiencesList"]),
@@ -174,56 +160,6 @@ export default {
     margin-bottom: 15px;
     border-radius: 10px;
     border: 1px solid #ccc;
-  }
-/* アクティビティ画像等表示欄 */
-  .search__experience__main{
-    height: 161px;
-    margin: 20px 11px 10px;
-    display: flex;
-  }
-  .experience__picture{
-    height: 134px;
-    width: 178px;
-    border: 1px solid #ccc;
-  }
-  .experience__outline__wrapper{
-    height: 100%;
-    width: 100%;
-    margin-left: 11px;
-    position: relative;
-  }
-  .experience__outline__main{
-    line-height: 18px;
-    margin-bottom: 5px;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  .experience__outline__sub{
-    line-height: 15px;
-    margin-bottom: 8px;
-    font-size: 11px;
-  }
-  .experience__outline__category{
-    font-size: 11px;
-    margin-bottom: 10px;
-  }
-  .category__icon{
-    color: #ffa500;
-  }
-/* アクティビティへのお気に入り数表示欄 */
-  .search__experience__favorites{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    color: #333333;
-    font-size: 22px;
-  }
-  .star__icon{
-    color: #ffa500;
-  }
-  .experience__favorite__counts{
-    font-weight: bold;
-    line-height: 26px;
   }
 /* 検索結果ページ右側要素表示欄 */
   .search__main__right{
