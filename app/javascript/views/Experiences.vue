@@ -33,6 +33,15 @@ export default {
       return /^\/experiences\/\d{1,}$/.test(this.$route.path)
     },
   },
+  beforeRouteLeave (to, from, next) {
+    const toSearchPage = /\/search/.test(to.path);
+
+    if (!toSearchPage) {
+      this.$store.commit('resetSearchWordScore');
+    }
+
+    next();
+  },
 };
 </script>
 
