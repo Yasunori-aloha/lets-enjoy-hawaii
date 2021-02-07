@@ -29,13 +29,7 @@
       </div>
       <ul>
         <li v-for="(experience, index) in experiencesList" :key="experience.id" class="search__experience__list">
-          <div class="search__experience__header">
-            <div>
-              <router-link :to="`/experiences/${experience.id}`" class="show__experiences link__hover">{{ experience.name }}</router-link>
-            </div>
-            <StarRating :experience="experience" />
-            <p class="search__experience__location">{{ experience.area.island.name }} > {{ experience.area.name }}</p>
-          </div>
+          <ExperienceHeader :experience="experience" />
           <div class="search__experience__main">
             <ActivityPicture :activity="experience" />
             <div class="experience__outline__wrapper">
@@ -71,13 +65,13 @@
 </template>
 
 <script>
-import StarRating from '../components/StarRating.vue';
+import ExperienceHeader from '../components/SearchPage/ExperienceHeader.vue';
 import ActivityPicture from '../components/ActivityPicture.vue';
 import { mapGetters } from "vuex";
 
 export default {
   components: {
-    StarRating,
+    ExperienceHeader,
     ActivityPicture,
   },
   computed: {
@@ -180,20 +174,6 @@ export default {
     margin-bottom: 15px;
     border-radius: 10px;
     border: 1px solid #ccc;
-  }
-  .search__experience__header{
-    height: 87px;
-    padding: 10px 0;
-    margin: 0 10px;
-    border-bottom: 2px dotted #ccc;
-  }
-  .show__experiences{
-    font-size: 18px;
-    font-weight: bold;
-  }
-  .search__experience__location{
-    margin-top: -4px;
-    font-size: 12px;
   }
 /* アクティビティ画像等表示欄 */
   .search__experience__main{
