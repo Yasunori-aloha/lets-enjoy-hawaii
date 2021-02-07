@@ -28,10 +28,16 @@
         </div>
       </div>
       <ul>
-        <li v-for="(experience, index) in experiencesList" :key="experience" class="search__experience__list">
+        <li v-for="(experience, index) in experiencesList" :key="experience.id" class="search__experience__list">
           <div class="search__experience__header">
-            <div class="search__experience__name">
+            <div>
               <router-link :to="`/experiences/${experience.id}`" class="show__experiences link__hover">{{ experience.name }}</router-link>
+            </div>
+            <div class="search__experience__score">
+              <StarRating :score="experience.score" />
+              <span class="review__count">（</span>
+              <router-link :to="`/experiences/${experience.id}/reviews`" class="link__hover">口コミ{{ experience.reviews_counts }}件</router-link>
+              <span class="review__count">）</span>
             </div>
           </div>
         </li>
@@ -54,9 +60,13 @@
 </template>
 
 <script>
+import StarRating from '../components/StarRating.vue';
 import { mapGetters } from "vuex";
 
 export default {
+  components: {
+    StarRating,
+  },
   computed: {
     ...mapGetters(["searchData", "experiencesList"]),
   },
@@ -164,12 +174,18 @@ export default {
     margin: 0 10px;
     border-bottom: 2px dotted #ccc;
   }
-  .search__experience__name{
-
-  }
   .show__experiences{
     font-size: 18px;
     font-weight: bold;
+  }
+  .search__experience__score{
+    padding-top: 5px;
+    display: flex;
+  }
+  .review__count{
+    font-weight: unset;
+    font-size: 12px;
+    line-height: 25px;
   }
 /* 検索結果ページ右側要素表示欄 */
   .search__main__right{
