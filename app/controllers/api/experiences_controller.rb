@@ -14,7 +14,6 @@ class Api::ExperiencesController < Api::ApplicationController
   end
 
   def search
-    binding.pry
     @experiences = Experience.preload(%i[favorites reviews]).eager_load(%i[genre area]).ransack(params[:q]).result.to_a
 
     # お気に入り数の多い順に配列を並び替える。

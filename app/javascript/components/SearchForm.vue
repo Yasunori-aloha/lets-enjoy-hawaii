@@ -38,14 +38,14 @@ export default {
       {
         word: this.searchData.word,
         score: this.searchData.score,
+      })
+      .then(() => {
+        this.$router.push('/search');
       });
     },
     choiceScore(option) {
       this.searchData.score = option.target.value;
     },
-  },
-  created() {
-    // console.log(this.$store.getters.searchData);
   },
 };
 </script>

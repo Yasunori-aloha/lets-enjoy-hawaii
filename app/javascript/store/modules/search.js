@@ -5,7 +5,8 @@ export default {
     searchData: {
       word: '',
       score: 0,
-    }
+    },
+    experiencesList: [],
   },
   getters: {
     searchData: state => state.searchData,
@@ -21,7 +22,7 @@ export default {
         }
       })
       .then(response => {
-        console.log(response);
+        this.state.search.experiencesList = response.data;
       });
     },
   },
