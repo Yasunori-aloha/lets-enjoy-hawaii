@@ -27,11 +27,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :experiences, only: %i[show], shallow: true do
-    member do
-      resources :reviews, only: %i[new create]
-    end
-  end
   get '/search', to: 'tops#search'
   post '/:name', to: 'experiences#edit'
   get '*path', to: 'tops#index', constraints: lambda { |req|

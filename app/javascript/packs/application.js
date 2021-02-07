@@ -10,7 +10,6 @@ require("channels")
 var jQuery = require('jquery')
 global.$ = global.jQuery = jQuery;
 window.$ = window.jQuery = jQuery;
-require("preview.js")
 require("search.js")
 require("review.js")
 
