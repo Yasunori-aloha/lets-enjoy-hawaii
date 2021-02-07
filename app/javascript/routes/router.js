@@ -91,10 +91,9 @@ export default new Router({
       beforeEnter: (to, from, next) => {
         const fromExperience = /\/experiences\/\d{1,}/.test(from.fullPath);
 
-        // if (fromExperience) return next();
+        if (fromExperience) return next();
 
-        // return next('/');
-        next();
+        return next('/');
       }
     },
   ]
