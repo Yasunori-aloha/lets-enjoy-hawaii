@@ -14,6 +14,7 @@
   .link__hover:hover{
     text-decoration-line: underline;
     color: #ffa500;
+    cursor: pointer;
   }
   .btn__hover:hover{
     background-color: #ffa500;

@@ -67,17 +67,17 @@
                   %span.experience_favorites_number
                     = exp.favorites.length
     .content_main_right
-      -# - if user_signed_in? && current_user.favorites.exists?
-        -# .right_content_area
-          -# %h2.right_content_area_title
-          -#   最近のお気に入りスポット
-          -# .right_content
-          -#   = image_tag '', height: '38px', width: '51px', class: 'fav_image'
-          -#   %p{class: 'fav_name link_hover'}
-          -#     テスト
-          -# .content_sub
-          -#   = image_tag '', height: '38px', width: '51px', class: 'fav_image'
-          -#   %p.name_sub
-          -#     テスト
+      - if user_signed_in? && current_user.favorites.exists?
+        .right_content_area
+          %h2.right_content_area_title
+            最近のお気に入りスポット
+          .right_content
+            = image_tag '', height: '38px', width: '51px', class: 'fav_image'
+            %p{class: 'fav_name link_hover'}
+              テスト
+          .content_sub
+            = image_tag '', height: '38px', width: '51px', class: 'fav_image'
+            %p.name_sub
+              テスト
 .footer
   = render 'shared/leh_footer'
