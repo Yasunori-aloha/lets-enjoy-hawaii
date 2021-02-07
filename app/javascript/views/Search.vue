@@ -33,9 +33,8 @@
             <div>
               <router-link :to="`/experiences/${experience.id}`" class="show__experiences link__hover">{{ experience.name }}</router-link>
             </div>
-            <div class="search__experience__score">
-              <StarRating :experience="experience" />
-            </div>
+            <StarRating :experience="experience" />
+            <p class="search__experience__location">{{ experience.area.island.name }} > {{ experience.area.name }}</p>
           </div>
         </li>
       </ul>
@@ -174,6 +173,10 @@ export default {
   .show__experiences{
     font-size: 18px;
     font-weight: bold;
+  }
+  .search__experience__location{
+    margin-top: -4px;
+    font-size: 12px;
   }
 /* 検索結果ページ右側要素表示欄 */
   .search__main__right{
