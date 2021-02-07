@@ -64,7 +64,12 @@ export default {
     ...mapGetters(["searchData", "experiencesList"]),
   },
   beforeRouteLeave (to, from, next) {
-    this.$store.commit('resetSearchWordScore');
+    const toExperiencesPage = /\/experiences\/\d{1,}/.test(to.path);
+
+    if (!toExperiencesPage) {
+      this.$store.commit('resetSearchWordScore');
+    }
+
     next();
   },
 };
