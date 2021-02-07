@@ -19,7 +19,7 @@ class Api::ApplicationController < ActionController::Base
 
     @experience = Experience.preload(
       { reviews: { user: {image_attachment: :blob }}},
-      { reviews: :images_attachments}
+      { reviews: { images_attachments: :blob }}
     ).find(params[:id])
 
   end
