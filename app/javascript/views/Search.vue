@@ -4,7 +4,15 @@
 
 <script>
 export default {
-
+  computed: {
+    searchData() {
+      return this.$store.getters.searchData;
+    },
+  },
+  beforeRouteLeave (to, from, next) {
+    this.$store.commit('resetSearchWordScore');
+    next();
+  }
 };
 </script>
 

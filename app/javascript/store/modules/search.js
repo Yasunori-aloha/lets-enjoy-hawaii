@@ -12,6 +12,12 @@ export default {
     searchData: state => state.searchData,
   },
   mutations: {
+    resetSearchWordScore() {
+      this.state.search.searchData.word = '';
+      this.state.search.searchData.score = 0;
+      localStorage.removeItem('searchWord');
+      localStorage.removeItem('searchScore');
+    },
   },
   actions: {
     searchWordScore: async function({}, params) {

@@ -122,7 +122,7 @@ export default new Router({
         };
 
         return next('/');
-      }
+      },
     }
   ]
 });
