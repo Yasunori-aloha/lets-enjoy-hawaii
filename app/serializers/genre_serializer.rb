@@ -1,10 +1,10 @@
 class GenreSerializer < ActiveModel::Serializer
   attributes :name
 
-  belongs_to :category, unless: :search_show_experiences?
+  belongs_to :category, unless: :search?
 
   # 属性取得判定用メソッド
-  def search_show_experiences?
-    @instance_options.key?(:search_show_experiences?)
+  def search?
+    @instance_options.key?(:search?)
   end
 end

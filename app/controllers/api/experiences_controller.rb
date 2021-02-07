@@ -23,6 +23,7 @@ class Api::ExperiencesController < Api::ApplicationController
       @experiences,
       serializer: ExperienceSerializer,
       search_show_experiences?: true,
+      search?: true,
     ).to_json
   end
 end
