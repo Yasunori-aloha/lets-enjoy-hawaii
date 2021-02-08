@@ -1,10 +1,8 @@
 <template>
   <li class="name name_main">
-    <!-- <router-link to="/" class='island__name link__hover'> -->
-      <a :href="areaUrl[areaId]" class="island search_btn island_name island__name link__hover" :data-id="areaId" rel="nofollow" data-method="post">
-        <span @mouseover="mapChange(areaId)" @mouseleave="mapReturn(8)">{{ areaNames[areaId] }}島</span>
-      </a>
-    <!-- </router-link> -->
+    <router-link :to="{name: 'search', params:{name: islandData.islandUrl[areaId], case: 'island', id: `${areaId + 1}`}}" class='island__name link__hover'>
+      <span @mouseover="mapChange(areaId)" @mouseleave="mapReturn(8)">{{ islandData.islandNames[areaId] }}島</span>
+    </router-link>
   </li>
 </template>
 
@@ -14,26 +12,6 @@ import { mapMutations } from "vuex";
 export default {
   data() {
     return {
-      areaNames: [
-        'ニイハウ',
-        'オアフ',
-        'カホオラウェ',
-        'ラナイ',
-        'モロカイ',
-        'マウイ',
-        'カウアイ',
-        'ハワイ',
-      ],
-      areaUrl: [
-        '/niihau' ,
-        '/oahu' ,
-        '/kahoolawe' ,
-        '/lanai' ,
-        '/molokai' ,
-        '/maui' ,
-        '/kauai' ,
-        '/hawaii' ,
-      ],
     }
   },
   props: {
@@ -41,6 +19,11 @@ export default {
       type: Number,
       required: true,
     }
+  },
+  computed: {
+    islandData() {
+      return this.$store.getters.islandData;
+    },
   },
   methods: {
     ...mapMutations(["mapChange", "mapReturn"]),

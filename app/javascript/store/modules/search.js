@@ -29,6 +29,28 @@ export default {
         'shopping',
       ],
     },
+    islandData: {
+      islandNames: [
+        'ニイハウ',
+        'オアフ',
+        'カホオラウェ',
+        'ラナイ',
+        'モロカイ',
+        'マウイ',
+        'カウアイ',
+        'ハワイ',
+      ],
+      islandUrl: [
+        'niihau' ,
+        'oahu' ,
+        'kahoolawe' ,
+        'lanai' ,
+        'molokai' ,
+        'maui' ,
+        'kauai' ,
+        'hawaii' ,
+      ],
+    },
     searchData: {
       word: '',
       score: 0,
@@ -38,6 +60,7 @@ export default {
   },
   getters: {
     categoryData: state => state.categoryData,
+    islandData: state => state.islandData,
     searchData: state => state.searchData,
     experiencesList: state => state.experiencesList,
   },
@@ -54,7 +77,7 @@ export default {
     },
   },
   actions: {
-    searchWordScore: async function({}, params) {
+    searchWordScore: async function({ commit }, params) {
       await axios.get('/api/v1/search', {
         params: {
           'q[name_cont]': params.word,
@@ -66,7 +89,7 @@ export default {
         this.commit('setExperiencesList', response.data);
       });
     },
-    searchGenre: async function({}, params) {
+    searchGenre: async function({ commit }, params) {
       await axios.get('/api/v1/search',
       {
         params: {
@@ -75,10 +98,10 @@ export default {
         }
       })
       .then(response => {
-        this.state.sort.sort.activeList = response.data;
+        this.commit('setExperiencesList', response.data);
       });
     },
-    searchCategory: async function({}, params) {
+    searchCategory: async function({ commit }, params) {
       await axios.get('/api/v1/search',
       {
         params: {
@@ -87,10 +110,10 @@ export default {
         }
       })
       .then(response => {
-        this.state.sort.sort.activeList = response.data;
+        this.commit('setExperiencesList', response.data);
       });
     },
-    searchArea: async function({}, params) {
+    searchArea: async function({ commit }, params) {
       await axios.get('/api/v1/search',
       {
         params: {
@@ -99,10 +122,10 @@ export default {
         }
       })
       .then(response => {
-        this.state.sort.sort.activeList = response.data;
+        this.commit('setExperiencesList', response.data);
       });
     },
-    searchIsland: async function({}, params) {
+    searchIsland: async function({ commit }, params) {
       await axios.get('/api/v1/search',
       {
         params: {
@@ -111,7 +134,7 @@ export default {
         }
       })
       .then(response => {
-        this.state.sort.sort.activeList = response.data;
+        this.commit('setExperiencesList', response.data);
       });
     },
   },

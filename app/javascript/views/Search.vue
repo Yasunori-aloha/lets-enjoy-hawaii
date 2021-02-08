@@ -70,6 +70,9 @@ export default {
 
     next();
   },
+  created() {
+    console.log(this.experiencesList);
+  },
 };
 </script>
 
