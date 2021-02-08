@@ -11,11 +11,11 @@
       </div>
       <ul class="review__sort">
         <li>並び替え</li>
-        <li @click="sortCreatedAt()" class="sort__link" :class="{active__sort: activeSort['createdAt'], link__hover: !activeSort['createdAt']}">投稿日順</li>
-        <li @click="sortScore()" class="sort__link" :class="{active__sort: activeSort['score'], link__hover: !activeSort['score']}">評価順</li>
+        <li @click="sortCreatedAt()" class="sort__link" :class="{active__sort: sort.activeSort['createdAt'], link__hover: !sort.activeSort['createdAt']}">投稿日順</li>
+        <li @click="sortScore()" class="sort__link" :class="{active__sort: sort.activeSort['score'], link__hover: !sort.activeSort['score']}">評価順</li>
       </ul>
     </div>
-    <ul :class="{active__fade__in: isFadeIn}">
+    <ul :class="{active__fade__in: sort.isFadeIn}">
       <li v-for="(review, index) in experienceData.reviews" :key="review.id" class="review__main__wrapper">
         <div class="review__main__area">
           <h2 class="review__main__title">{{ review.title }}</h2>
@@ -43,97 +43,31 @@
 <script>
 import StarRating from '../StarRating.vue';
 import UserImage from '../UserImage.vue';
+import { mapGetters } from "vuex";
 
 export default {
   components: {
     StarRating,
     UserImage,
   },
-  data() {
-    return {
-      activeSort: {
-        createdAt: true,
-        score: false,
-      },
-      isFadeIn: false,
-    }
-  },
   computed: {
-    experienceData() {
-      return this.$store.getters.experienceData;
-    },
+    ...mapGetters(["experienceData", "sort"]),
     isExists() {
       return this.experienceData.reviews_counts !== 0 ? true : false;
     },
   },
   methods: {
     sortCreatedAt() {
-      const notSortedYet = !(this.activeSort['createdAt']);
-      if (notSortedYet) {
-        // 'mapメソッド'を使って'review'と'スコア'が入った配列を作成する。
-        let tmp = this.experienceData.reviews.map(review => {
-          return {
-            review,
-            key: review['created_at']
-          };
-        // 作成した配列内の'スコア'を基に降順ソートしていく。
-        }).sort((a,b) =>{
-          if (a.key > b.key) {
-            return -1;
-          } else {
-            return 1;
-          }
-        // ソートした配列から'review'だけを取り出した配列を作成してそれを代入する。
-        }).map(sortCreatedAt => {
-          return sortCreatedAt.review;
-        });
-
-        // 並び替えボタンの表示を変更する。
-        this.activeSort['createdAt'] = true;
-        this.activeSort['score'] = false;
-
-        this.isFadeIn = true;
-        setTimeout(() => {
-          this.isFadeIn = false;
-        }, 750);
-
-        return this.experienceData.reviews = tmp;
-      }
+      this.$store.commit('sortCreatedAt');
     },
     sortScore() {
-      const notSortedYet = !(this.activeSort['score']);
-      if (notSortedYet) {
-        // 'mapメソッド'を使って'review'と'スコア'が入った配列を作成する。
-        let tmp = this.experienceData.reviews.map(review => {
-          return {
-            review,
-            key: review['score']
-          };
-        // 作成した配列内の'スコア'を基に降順ソートしていく。
-        }).sort((a,b) =>{
-          if (a.key > b.key) {
-            return -1;
-          } else {
-            return 1;
-          }
-        // ソートした配列から'review'だけを取り出した配列を作成してそれを代入する。
-        }).map(sortScore => {
-          return sortScore.review;
-        });
-
-        // 並び替えボタンの表示を変更する。
-        this.activeSort['createdAt'] = false;
-        this.activeSort['score'] = true;
-
-        this.isFadeIn = true;
-        setTimeout(() => {
-          this.isFadeIn = false;
-        }, 750);
-
-        return this.experienceData.reviews = tmp;
-      }
+      this.$store.commit('sortScore');
     },
   },
+  beforeRouteLeave (to, from, next) {
+    this.$store.commit('resetSort');
+    next();
+  }
 };
 </script>
 

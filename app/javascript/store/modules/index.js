@@ -5,6 +5,7 @@ import favorite from './favorite.js';
 import history from './history.js';
 import review from './review.js';
 import search from './search.js';
+import sort from './sort.js';
 
 export {
   home,
@@ -14,4 +15,5 @@ export {
   history,
   review,
   search,
+  sort,
 };
