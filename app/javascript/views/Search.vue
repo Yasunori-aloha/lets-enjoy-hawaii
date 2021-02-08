@@ -20,12 +20,7 @@
           </ul> -->
         </div>
         <div class="search__main__left__info__down">
-          <ul class="order">
-            <li>並び順：</li>
-            <li @click="sortScore()" class="sort__link" :class="{active__sort: sort.activeSort['score'], link__hover: !sort.activeSort['score']}">口コミランク順</li>
-            <li @click="sortReviewCounts()" class="sort__link" :class="{active__sort: sort.activeSort['reviewCounts'], link__hover: !sort.activeSort['reviewCounts']}">口コミ数順</li>
-            <li @click="sortFavoriteCounts()" class="sort__link" :class="{active__sort: sort.activeSort['favoriteCounts'], link__hover: !sort.activeSort['favoriteCounts']}">おすすめ順</li>
-          </ul>
+          <Sort />
         </div>
       </div>
       <ul :class="{active__fade__in: sort.isFadeIn}">
@@ -52,142 +47,19 @@
 </template>
 
 <script>
+import Sort from '../components/Sort.vue';
 import ExperienceHeader from '../components/SearchPage/ExperienceHeader.vue';
 import ExperienceMain from '../components/SearchPage/ExperienceMain.vue';
 import { mapGetters } from "vuex";
 
 export default {
   components: {
+    Sort,
     ExperienceHeader,
     ExperienceMain,
   },
-  data() {
-    return {
-      activeSort: {
-        score: false,
-        reviewCounts: false,
-        favoriteCounts: true,
-      },
-      activeList: null,
-      isFadeIn: false,
-    }
-  },
   computed: {
     ...mapGetters(["searchData", "experiencesList", "sort"]),
-  },
-  methods: {
-    // sortScore() {
-    //   const notSortedYet = !(this.activeSort['score']);
-    //   if (notSortedYet) {
-    //     // 'mapメソッド'を使って'アクティビティリスト'と'スコア'が入った配列を作成する。
-    //     let tmp = this.activeList.map(list => {
-    //       return {
-    //         list,
-    //         key: list['score'],
-    //       };
-    //     // 作成した配列内の'スコア'を基に降順ソートしていく。
-    //     }).sort((a,b) => {
-    //       if (a.key > b.key) {
-    //         return -1;
-    //       } else {
-    //         return 1;
-    //       }
-    //     // ソートした配列から'アクティビティリスト'だけを取り出した配列を作成してそれを代入する。
-    //     }).map(sortScore => {
-    //       return sortScore.list;
-    //     });
-
-    //     // 並び替えボタンの表示を変更する。
-    //     this.activeSort['score'] = true;
-    //     this.activeSort['reviewCounts'] = false;
-    //     this.activeSort['favoriteCounts'] = false;
-
-    //     this.isFadeIn = true;
-    //     setTimeout(() => {
-    //       this.isFadeIn = false;
-    //     }, 750);
-
-    //     return this.activeList = tmp;
-    //   };
-    // },
-    // sortReviewCounts() {
-    //   const notSortedYet = !(this.activeSort['reviewCounts']);
-    //     // 'mapメソッド'を使って'アクティビティリスト'と'お気に入り数'が入った配列を作成する。
-    //   if (notSortedYet) {
-    //     let tmp = this.activeList.map(list => {
-    //       return {
-    //         list,
-    //         key: list['favorite_counts'],
-    //       };
-    //     // 作成した配列内の'お気に入り数'を基に降順ソートしていく。
-    //     }).sort((a,b) => {
-    //       if (a.key > b.key) {
-    //         return -1;
-    //       } else {
-    //         return 1;
-    //       }
-    //     // ソートした配列から'アクティビティリスト'だけを取り出した配列を作成してそれを代入する。
-    //     }).map(sortReviewCounts => {
-    //       return sortReviewCounts.list;
-    //     });
-
-    //     // 並び替えボタンの表示を変更する。
-    //     this.activeSort['favoriteCounts'] = false;
-    //     this.activeSort['reviewCounts'] = true;
-    //     this.activeSort['score'] = false;
-
-    //     this.isFadeIn = true;
-    //     setTimeout(() => {
-    //       this.isFadeIn = false;
-    //     }, 750);
-
-    //     return this.activeList = tmp;
-    //   };
-    // },
-    // sortFavoriteCounts() {
-    //   const notSortedYet = !(this.activeSort['favoriteCounts']);
-    //     // 'mapメソッド'を使って'アクティビティリスト'と'お気に入り数'が入った配列を作成する。
-    //   if (notSortedYet) {
-    //     let tmp = this.activeList.map(list => {
-    //       return {
-    //         list,
-    //         key: list['favorite_counts'],
-    //       };
-    //     // 作成した配列内の'お気に入り数'を基に降順ソートしていく。
-    //     }).sort((a,b) => {
-    //       if (a.key > b.key) {
-    //         return -1;
-    //       } else {
-    //         return 1;
-    //       }
-    //     // ソートした配列から'アクティビティリスト'だけを取り出した配列を作成してそれを代入する。
-    //     }).map(sortFavoriteCounts => {
-    //       return sortFavoriteCounts.list;
-    //     });
-
-    //     // 並び替えボタンの表示を変更する。
-    //     this.activeSort['favoriteCounts'] = true;
-    //     this.activeSort['reviewCounts'] = false;
-    //     this.activeSort['score'] = false;
-
-    //     this.isFadeIn = true;
-    //     setTimeout(() => {
-    //       this.isFadeIn = false;
-    //     }, 750);
-
-    //     return this.activeList = tmp;
-    //   };
-    // },
-    sortScore() {
-      const currentPath = this.$route.path
-      this.$store.commit('sortScore', currentPath);
-    },
-    sortReviewCounts() {
-      this.$store.commit('sortReviewCounts');
-    },
-    sortFavoriteCounts() {
-      this.$store.commit('sortFavoriteCounts');
-    },
   },
   beforeRouteLeave (to, from, next) {
     const toExperiencesPage = /\/experiences\/\d{1,}/.test(to.path);
@@ -266,25 +138,6 @@ export default {
     height: 14px;
     font-size: 12px;
     padding-top: 5px;
-  }
-  .order{
-    display: flex;
-    align-items: center;
-    padding: 0 5px;
-  }
-  .sort__link{
-    height: 12px;
-    line-height: 12px;
-    margin-left: 5px;
-    padding-right: 6px;
-    border-right: 1px solid #ccc;
-    text-decoration: underline;
-  }
-  .active__sort{
-    color: #000000;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: auto;
   }
   .active__fade__in {
     animation: fadeOut 0.35s;
