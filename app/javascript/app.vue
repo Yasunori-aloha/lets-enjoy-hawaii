@@ -32,4 +32,17 @@
   .hidden{
     display: none;
   }
+  .active__fade__in{
+    animation: fadeOut 0.35s;
+    animation: fadeIn 0.35s;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
 </style>

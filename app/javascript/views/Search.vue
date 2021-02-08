@@ -139,10 +139,6 @@ export default {
     font-size: 12px;
     padding-top: 5px;
   }
-  .active__fade__in {
-    animation: fadeOut 0.35s;
-    animation: fadeIn 0.35s;
-  }
 /* アクティビティ表示欄 */
   .search__experience__list{
     margin-bottom: 15px;

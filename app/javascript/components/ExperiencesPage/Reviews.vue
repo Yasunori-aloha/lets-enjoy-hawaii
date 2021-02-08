@@ -9,11 +9,7 @@
         <span>1 - {{ experienceData.reviews_counts }}件目</span>
         <span class="review__number__all">(全{{ experienceData.reviews_counts }}件中)</span>
       </div>
-      <ul class="review__sort">
-        <li>並び替え</li>
-        <li @click="sortCreatedAt()" class="sort__link" :class="{active__sort: sort.activeSort['createdAt'], link__hover: !sort.activeSort['createdAt']}">投稿日順</li>
-        <li @click="sortScore()" class="sort__link" :class="{active__sort: sort.activeSort['score'], link__hover: !sort.activeSort['score']}">評価順</li>
-      </ul>
+      <Sort />
     </div>
     <ul :class="{active__fade__in: sort.isFadeIn}">
       <li v-for="(review, index) in experienceData.reviews" :key="review.id" class="review__main__wrapper">
@@ -41,12 +37,14 @@
 </template>
 
 <script>
+import Sort from '../Sort.vue';
 import StarRating from '../StarRating.vue';
 import UserImage from '../UserImage.vue';
 import { mapGetters } from "vuex";
 
 export default {
   components: {
+    Sort,
     StarRating,
     UserImage,
   },
@@ -54,15 +52,6 @@ export default {
     ...mapGetters(["experienceData", "sort"]),
     isExists() {
       return this.experienceData.reviews_counts !== 0 ? true : false;
-    },
-  },
-  methods: {
-    sortCreatedAt() {
-      this.$store.commit('sortCreatedAt');
-    },
-    sortScore() {
-      const currentPath = this.$route.path;
-      this.$store.commit('sortScore', currentPath);
     },
   },
   beforeRouteLeave (to, from, next) {
@@ -114,27 +103,6 @@ export default {
     font-size: 12px;
     margin: 4px 0 0 5px;
   }
-/* 口コミ並び替えボタン表示欄 */
-  .review__sort{
-    display: flex;
-    font-size: 12px;
-    margin: 2px 64px 0 0;
-  }
-  .review__sort > li{
-    height: 12px;
-    line-height: 12px;
-    border-right: 1px solid #ccc;
-    padding: 0 5px;
-  }
-  .sort__link{
-    text-decoration: underline;
-  }
-  .active__sort{
-    color: #000000;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: auto;
-  }
 /* 口コミ表示欄 */
   .review__main__wrapper{
     border-bottom: 3px solid #eee;
@@ -179,9 +147,5 @@ export default {
     width: 30px;
     margin-right: 9px;
     background-color: #ccc;
-  }
-  .active__fade__in {
-    animation: fadeOut 0.35s;
-    animation: fadeIn 0.35s;
   }
 </style>
