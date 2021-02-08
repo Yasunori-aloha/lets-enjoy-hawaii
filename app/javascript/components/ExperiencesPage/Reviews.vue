@@ -61,7 +61,8 @@ export default {
       this.$store.commit('sortCreatedAt');
     },
     sortScore() {
-      this.$store.commit('sortScore');
+      const currentPath = this.$route.path;
+      this.$store.commit('sortScore', currentPath);
     },
   },
   beforeRouteLeave (to, from, next) {

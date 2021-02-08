@@ -83,6 +83,7 @@ export default new Router({
       ],
       beforeEnter: async (to, from, next) => {
         await store.dispatch('toExperiencesPage', to.params.id);
+        store.commit('resetSort');
         return next();
       },
     },
