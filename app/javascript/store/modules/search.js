@@ -32,7 +32,6 @@ export default {
     searchData: {
       word: '',
       score: 0,
-      type: null,
       typeId: null,
     },
     experiencesList: [],
@@ -48,10 +47,6 @@ export default {
       this.state.search.searchData.score = 0;
       localStorage.removeItem('searchWord');
       localStorage.removeItem('searchScore');
-    },
-    setSearchType(state, params) {
-      this.state.search.searchData.type = params.case;
-      this.state.search.searchData.typeId = params.id;
     },
   },
   actions: {

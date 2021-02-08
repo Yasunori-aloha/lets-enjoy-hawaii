@@ -138,30 +138,60 @@ export default new Router({
         footer: Footer,
       },
       beforeEnter: async (to, from, next) => {
+        // 検索用のボタンをクリックしていれば行う処理。
         if (to.params.case !== undefined) {
-          localStorage.setItem('searchCase', to.params.case);
-          localStorage.setItem('caseId', to.params.id);
-          store.commit('setSearchType', to.params);
+          localStorage.setItem('typeId', to.params.id);
+        };
+        const typeId = localStorage.getItem('caseId');
+        switch (to.path) {
+          case '/hotel':
+            await store.dispatch('searchCategory',
+            {
+              case: 'category',
+              categoryId: 1,
+            });
+            break;
+          case '/dinner':
+            await store.dispatch('searchCategory',
+            {
+              case: 'category',
+              categoryId: 2,
+            });
+            break;
+          case '/rentacar':
+            await store.dispatch('searchCategory',
+            {
+              case: 'category',
+              categoryId: 3,
+            });
+            break;
+          case '/leisure':
+            await store.dispatch('searchCategory',
+            {
+              case: 'category',
+              categoryId: 4,
+            });
+            break;
+          case '/landmark':
+            await store.dispatch('searchCategory',
+            {
+              case: 'category',
+              categoryId: 5,
+            });
+            break;
+          case '/shopping':
+            await store.dispatch('searchCategory',
+            {
+              case: 'category',
+              categoryId: 6,
+            });
+            break;
+          default:
+            return next('/');
+            break;
         };
 
-        const searchData = {
-          case: localStorage.getItem('searchCase'),
-          id: localStorage.getItem('caseId'),
-        };
-
-        if (searchData.searchCase !== null) {
-          store.commit('setSearchType', searchData);
-          await store.dispatch('searchCategory',
-          {
-            case: searchData.case,
-            categoryId: searchData.id,
-          });
-
-          return next();
-        };
-
-        return next('/');
-
+        return next();
       },
     },
   ]
