@@ -144,6 +144,7 @@ export default new Router({
         };
         const typeId = localStorage.getItem('caseId');
         switch (to.path) {
+          // 目的別検索の場合。
           case '/hotel':
             await store.dispatch('searchCategory',
             {
@@ -184,6 +185,63 @@ export default new Router({
             {
               case: 'category',
               categoryId: 6,
+            });
+            break;
+          // 島名検索の場合。
+          case '/hawaii':
+            await store.dispatch('searchCategory',
+            {
+              case: 'island',
+              islandId: 1,
+            });
+            break;
+          case '/maui':
+            await store.dispatch('searchCategory',
+            {
+              case: 'island',
+              islandId: 2,
+            });
+            break;
+          case '/kahoolawe':
+            await store.dispatch('searchCategory',
+            {
+              case: 'island',
+              islandId: 3,
+            });
+            break;
+          case '/lanai':
+            await store.dispatch('searchCategory',
+            {
+              case: 'island',
+              islandId: 4,
+            });
+            break;
+          case '/molokai':
+            await store.dispatch('searchCategory',
+            {
+              case: 'island',
+              islandId: 5,
+            });
+            break;
+          case '/oahu':
+            await store.dispatch('searchCategory',
+            {
+              case: 'island',
+              islandId: 6,
+            });
+            break;
+          case '/kauai':
+            await store.dispatch('searchCategory',
+            {
+              case: 'island',
+              islandId: 7,
+            });
+            break;
+          case '/niihau':
+            await store.dispatch('searchCategory',
+            {
+              case: 'island',
+              islandId: 8,
             });
             break;
           default:

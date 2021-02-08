@@ -48,6 +48,10 @@ export default {
       localStorage.removeItem('searchWord');
       localStorage.removeItem('searchScore');
     },
+    setExperiencesList(state, list) {
+      this.state.search.experiencesList = list;
+      this.state.sort.sort.activeList = list;
+    },
   },
   actions: {
     searchWordScore: async function({}, params) {
@@ -59,7 +63,18 @@ export default {
         }
       })
       .then(response => {
-        this.state.search.experiencesList = response.data;
+        this.commit('setExperiencesList', response.data);
+      });
+    },
+    searchGenre: async function({}, params) {
+      await axios.get('/api/v1/search',
+      {
+        params: {
+          case: params.case,
+          genre_id: params.genreId,
+        }
+      })
+      .then(response => {
         this.state.sort.sort.activeList = response.data;
       });
     },
@@ -72,7 +87,30 @@ export default {
         }
       })
       .then(response => {
-        this.state.search.experiencesList = response.data;
+        this.state.sort.sort.activeList = response.data;
+      });
+    },
+    searchArea: async function({}, params) {
+      await axios.get('/api/v1/search',
+      {
+        params: {
+          case: params.case,
+          area_id: params.areaId,
+        }
+      })
+      .then(response => {
+        this.state.sort.sort.activeList = response.data;
+      });
+    },
+    searchIsland: async function({}, params) {
+      await axios.get('/api/v1/search',
+      {
+        params: {
+          case: params.case,
+          island_id: params.islandId,
+        }
+      })
+      .then(response => {
         this.state.sort.sort.activeList = response.data;
       });
     },
