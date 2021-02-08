@@ -2,7 +2,8 @@
   <div class="search__wrapper">
     <div class="search__main__left">
       <div class="search__main__left__header">
-        <h1 class="search__main__title">" {{ searchData.word }} "が含まれるスポット</h1>
+        <h1 v-if="isWordSearchPage" class="search__main__title">" {{ searchData.word }} "が含まれるスポット</h1>
+        <h1 v-else class="search__main__title">{{ searchData.typeWord }}スポット</h1>
       </div>
       <div class="search__main__left__info">
         <div class="search__main__left__info__up">
@@ -60,6 +61,9 @@ export default {
   },
   computed: {
     ...mapGetters(["searchData", "experiencesList", "sort"]),
+    isWordSearchPage() {
+      return /\/search/.test(this.$route.path) ? true : false;
+    },
   },
   beforeRouteLeave (to, from, next) {
     const toExperiencesPage = /\/experiences\/\d{1,}/.test(to.path);
