@@ -79,8 +79,11 @@ export default {
     resetSearchWordScore() {
       this.state.search.searchData.word = '';
       this.state.search.searchData.score = 0;
+      this.state.search.searchData.typeId = null;
+      this.state.search.searchData.typeWord = '';
       localStorage.removeItem('searchWord');
       localStorage.removeItem('searchScore');
+      localStorage.removeItem('typeId');
     },
     setExperiencesList(state, list) {
       this.state.search.experiencesList = list;

@@ -136,7 +136,7 @@ export default {
         let tmp = this.state.sort.sort.activeList.map(list => {
           return {
             list,
-            key: list['favorite_counts'],
+            key: list['reviews_counts'],
           };
         // 作成した配列内の'お気に入り数'を基に降順ソートしていく。
         }).sort((a,b) => {

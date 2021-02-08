@@ -71,6 +71,7 @@ export default {
     if (!toExperiencesPage) {
       this.$store.commit('resetSearchWordScore');
     }
+    this.$store.commit('resetSort');
 
     next();
   },
