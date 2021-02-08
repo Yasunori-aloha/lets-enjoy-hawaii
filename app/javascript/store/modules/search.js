@@ -65,6 +65,7 @@ export default {
       word: '',
       score: 0,
       typeId: null,
+      typeWord: '',
     },
     experiencesList: [],
   },

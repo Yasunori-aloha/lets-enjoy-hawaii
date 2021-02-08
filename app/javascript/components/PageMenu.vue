@@ -12,8 +12,8 @@
     <div>
       <router-link to="/" class="link__hover">トップページ</router-link>
       <span> › </span>
-      <span v-if="isSearchPage">評価点 {{ searchData.score }}点以上で、" {{ searchData.word }} "が含まれる検索結果</span>
-      <!-- <span v-else-if="condition">{{  }}</span> -->
+      <span v-if="isWordSearchPage">評価点 {{ searchData.score }}点以上で、" {{ searchData.word }} "が含まれる検索結果</span>
+      <span v-else="condition">{{ searchData.typeWord }}</span>
     </div>
   </div>
 </template>
@@ -27,7 +27,7 @@ export default {
     isExperiencesPage() {
       return /\/experiences\/\d{1,}/.test(this.$route.path) ? true : false;
     },
-    isSearchPage() {
+    isWordSearchPage() {
       return /\/search/.test(this.$route.path) ? true : false;
     },
   },

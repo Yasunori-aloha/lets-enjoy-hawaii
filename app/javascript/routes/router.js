@@ -146,6 +146,7 @@ export default new Router({
         switch (to.path) {
           // 目的別検索の場合。
           case '/hotel':
+            store.state.search.searchData.typeWord = 'ホテル・コンドミニアム';
             await store.dispatch('searchCategory',
             {
               case: 'category',
@@ -153,6 +154,7 @@ export default new Router({
             });
             break;
           case '/dinner':
+            store.state.search.searchData.typeWord = '食事';
             await store.dispatch('searchCategory',
             {
               case: 'category',
@@ -160,6 +162,7 @@ export default new Router({
             });
             break;
           case '/rentacar':
+            store.state.search.searchData.typeWord = 'レンタカー';
             await store.dispatch('searchCategory',
             {
               case: 'category',
@@ -167,6 +170,7 @@ export default new Router({
             });
             break;
           case '/leisure':
+            store.state.search.searchData.typeWord = '遊び・体験';
             await store.dispatch('searchCategory',
             {
               case: 'category',
@@ -174,6 +178,7 @@ export default new Router({
             });
             break;
           case '/landmark':
+            store.state.search.searchData.typeWord = '観光地';
             await store.dispatch('searchCategory',
             {
               case: 'category',
@@ -181,6 +186,7 @@ export default new Router({
             });
             break;
           case '/shopping':
+            store.state.search.searchData.typeWord = 'ショッピング';
             await store.dispatch('searchCategory',
             {
               case: 'category',
@@ -189,6 +195,7 @@ export default new Router({
             break;
           // 島名検索の場合。
           case '/hawaii':
+            store.state.search.searchData.typeWord = 'ハワイ島';
             await store.dispatch('searchIsland',
             {
               case: 'island',
@@ -196,6 +203,7 @@ export default new Router({
             });
             break;
           case '/maui':
+            store.state.search.searchData.typeWord = 'マウイ島';
             await store.dispatch('searchIsland',
             {
               case: 'island',
@@ -203,6 +211,7 @@ export default new Router({
             });
             break;
           case '/kahoolawe':
+            store.state.search.searchData.typeWord = 'カホオラウェ島';
             await store.dispatch('searchIsland',
             {
               case: 'island',
@@ -210,6 +219,7 @@ export default new Router({
             });
             break;
           case '/lanai':
+            store.state.search.searchData.typeWord = 'ラナイ島';
             await store.dispatch('searchIsland',
             {
               case: 'island',
@@ -217,6 +227,7 @@ export default new Router({
             });
             break;
           case '/molokai':
+            store.state.search.searchData.typeWord = 'モロカイ島';
             await store.dispatch('searchIsland',
             {
               case: 'island',
@@ -224,6 +235,7 @@ export default new Router({
             });
             break;
           case '/oahu':
+            store.state.search.searchData.typeWord = 'オアフ島';
             await store.dispatch('searchIsland',
             {
               case: 'island',
@@ -231,6 +243,7 @@ export default new Router({
             });
             break;
           case '/kauai':
+            store.state.search.searchData.typeWord = 'カウアイ島';
             await store.dispatch('searchIsland',
             {
               case: 'island',
@@ -238,6 +251,7 @@ export default new Router({
             });
             break;
           case '/niihau':
+            store.state.search.searchData.typeWord = 'ニイハウ島';
             await store.dispatch('searchIsland',
             {
               case: 'island',
