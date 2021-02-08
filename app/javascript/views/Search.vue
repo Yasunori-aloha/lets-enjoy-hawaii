@@ -22,8 +22,8 @@
         <div class="search__main__left__info__down">
           <ul class="order">
             <li>並び順：</li>
-            <li class="sort__link link__hover">口コミランク順</li>
-            <li class="sort__link active__sort">おすすめ順</li>
+            <li class="sort__link" :class="{active__sort: activeSort['starPoint'], link__hover: !activeSort['starPoint']}">口コミランク順</li>
+            <li class="sort__link" :class="{active__sort: activeSort['favoriteCounts'], link__hover: !activeSort['favoriteCounts']}">おすすめ順</li>
           </ul>
         </div>
       </div>
@@ -59,6 +59,14 @@ export default {
   components: {
     ExperienceHeader,
     ExperienceMain,
+  },
+  data() {
+    return {
+      activeSort: {
+        starPoint: false,
+        favoriteCounts: true,
+      },
+    }
   },
   computed: {
     ...mapGetters(["searchData", "experiencesList"]),
