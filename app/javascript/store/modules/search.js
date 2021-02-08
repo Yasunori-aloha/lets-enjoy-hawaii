@@ -26,13 +26,12 @@ export default {
         params: {
           'q[name_cont]': params.word,
           'q[score_gteq]': params.score,
+          case: params.case,
         }
       })
       .then(response => {
         this.state.search.experiencesList = response.data;
         this.state.sort.sort.activeList = response.data;
-        localStorage.setItem('searchWord', params.word);
-        localStorage.setItem('searchScore', params.score);
       });
     },
   },

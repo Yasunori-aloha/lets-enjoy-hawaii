@@ -34,14 +34,9 @@ export default {
   },
   methods: {
     searchWordScore: async function() {
-      await this.$store.dispatch('searchWordScore',
-      {
-        word: this.searchData.word,
-        score: this.searchData.score,
-      })
-      .then(response => {
-        this.$router.push('/search');
-      });
+      await localStorage.setItem('searchWord', this.searchData.word);
+      await localStorage.setItem('searchScore', this.searchData.score);
+      this.$router.push('/search');
     },
     choiceScore(option) {
       this.searchData.score = option.target.value;

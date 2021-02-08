@@ -121,6 +121,7 @@ export default new Router({
           {
             word: searchData.word,
             score: searchData.score,
+            case: 'search',
           });
 
           return next();
