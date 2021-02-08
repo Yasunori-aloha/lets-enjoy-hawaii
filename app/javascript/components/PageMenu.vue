@@ -31,9 +31,6 @@ export default {
       return /\/search/.test(this.$route.path) ? true : false;
     },
   },
-  created() {
-    console.log(this.searchData);
-  },
 };
 </script>
 
