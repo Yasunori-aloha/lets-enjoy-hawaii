@@ -6,10 +6,10 @@
           <SearchHeader searchHeaderName='目的から探す' />
           <div class="search__type__main">
             <ul class="search__type__main__list">
-              <HomeTypeButton v-for="(n, index) in 3" :typeId="index"  />
+              <HomeTypeButton v-for="(n, index) in 3" :categoryId="index"  />
             </ul>
             <ul class="search__type__main__list">
-              <HomeTypeButton v-for="(n, index) in 3" :typeId="index + 3" />
+              <HomeTypeButton v-for="(n, index) in 3" :categoryId="index + 3" />
             </ul>
           </div>
         </div>

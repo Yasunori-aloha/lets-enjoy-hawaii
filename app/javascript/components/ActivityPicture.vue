@@ -1,14 +1,14 @@
 <template>
-  <img v-if="isExperinecesPage" :src="activityPicture(activity)" class="experience__picture">
-  <img v-else :src="activityPictureUsersPage(activity)" class="experience__picture">
+  <img v-if="isUsersPage" :src="activityPictureUsersPage(activity)" class="experience__picture">
+  <img v-else :src="activityPicture(activity)" class="experience__picture">
 </template>
 
 <script>
 export default {
   props: ["activity"],
   computed: {
-    isExperinecesPage() {
-      const currentPath = /\/experiences\/\d{1,}/.test(this.$route.path) || /\/experience\/review/.test(this.$route.path) || /\/search/.test(this.$route.path)
+    isUsersPage() {
+      const currentPath = /\/users\/\d{1,}/.test(this.$route.path);
       return currentPath ? true : false
     },
   },

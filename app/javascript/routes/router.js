@@ -116,7 +116,7 @@ export default new Router({
           score: localStorage.getItem('searchScore'),
         };
 
-        if (searchData !== null) {
+        if (searchData.word !== null) {
           await store.dispatch('searchWordScore',
           {
             word: searchData.word,
@@ -129,6 +129,40 @@ export default new Router({
 
         return next('/');
       },
-    }
+    },
+    { path: '/:name', name: "search", components:
+      {
+        default: Search,
+        header: Header,
+        pageMenu: PageMenu,
+        footer: Footer,
+      },
+      beforeEnter: async (to, from, next) => {
+        if (to.params.case !== undefined) {
+          localStorage.setItem('searchCase', to.params.case);
+          localStorage.setItem('caseId', to.params.id);
+          store.commit('setSearchType', to.params);
+        };
+
+        const searchData = {
+          case: localStorage.getItem('searchCase'),
+          id: localStorage.getItem('caseId'),
+        };
+
+        if (searchData.searchCase !== null) {
+          store.commit('setSearchType', searchData);
+          await store.dispatch('searchCategory',
+          {
+            case: searchData.case,
+            categoryId: searchData.id,
+          });
+
+          return next();
+        };
+
+        return next('/');
+
+      },
+    },
   ]
 });

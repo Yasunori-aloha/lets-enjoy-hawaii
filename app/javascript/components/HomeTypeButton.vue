@@ -1,60 +1,34 @@
 <template>
-  <li class="type search_type_main">
-    <!-- <router-link :to="typeUrl[typeId]" class='type__link'></router-link> -->
-    <a :href="typeUrl[typeId]" class="category search_btn type__link" rel="nofollow" data-method="post"></a>
-    <img :src="getImagePath(typeImage[typeId])" alt="目的アイコン" class="type__icon">
-    <p v-if="typeId === 0 " class="type__name">{{ typeName[typeId] }}<br>コンドミニアム</p>
-    <p v-else class="type__name">{{ typeName[typeId] }}</p>
-  </li>
+  <router-link :to="{name: 'search', params:{name: categoryData.categoryUrl[categoryId], case: 'category', id: `${categoryId + 1}`}}" tag="li" class="category">
+    <img :src="getImagePath(categoryData.categoryImage[categoryId])" alt="目的アイコン" class="category__icon">
+    <p v-if="categoryId === 0 " class="category__name">{{ categoryData.categoryName[categoryId] }}<br>コンドミニアム</p>
+    <p v-else class="category__name">{{ categoryData.categoryName[categoryId] }}</p>
+  </router-link>
 </template>
 
 <script>
 export default {
   props: {
-    typeId: {
+    categoryId: {
       type: Number,
       required: true,
     },
   },
-  data() {
-    return {
-      typeImage: [
-        'hotel_icon',
-        'dinner_icon',
-        'rentacar_icon',
-        'leisure_icon',
-        'landmark_icon',
-        'shopping_icon',
-      ],
-      typeName: [
-        'ホテル',
-        '食事',
-        'レンタカー',
-        '遊び・体験',
-        '観光地',
-        'ショッピング',
-        'コンドミニアム',
-      ],
-      typeUrl: [
-        '/hotel',
-        '/dinner',
-        '/rentacar',
-        '/leisure',
-        '/landmark',
-        '/shopping',
-      ],
-    }
+  computed: {
+    categoryData() {
+      return this.$store.getters.categoryData;
+    },
   },
   methods: {
-    getImagePath(typeImage) {
-      return require(`../../assets/images/${typeImage}.png`)
+    getImagePath(categoryImage) {
+      return require(`../../assets/images/${categoryImage}.png`)
     }
   },
 };
 </script>
 
 <style scoped>
-  .type{
+  .category{
     height: 68.25px;
     border: 1px solid #000000;
     border-radius: 8px;
@@ -64,14 +38,14 @@ export default {
     cursor: pointer;
     position: relative;
   }
-  .type__link{
+  .category__link{
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
   }
-  .type__icon{
+  .category__icon{
     height: 40px;
     width: 40px;
     margin: 0 10px;
