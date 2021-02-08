@@ -22,13 +22,13 @@
         <div class="search__main__left__info__down">
           <ul class="order">
             <li>並び順：</li>
-            <li class="sort__link" :class="{active__sort: activeSort['starPoint'], link__hover: !activeSort['starPoint']}">口コミランク順</li>
-            <li class="sort__link" :class="{active__sort: activeSort['favoriteCounts'], link__hover: !activeSort['favoriteCounts']}">おすすめ順</li>
+            <li @click="sortScore()" class="sort__link" :class="{active__sort: activeSort['score'], link__hover: !activeSort['score']}">口コミランク順</li>
+            <li @click="sortFavoriteCounts()" class="sort__link" :class="{active__sort: activeSort['favoriteCounts'], link__hover: !activeSort['favoriteCounts']}">おすすめ順</li>
           </ul>
         </div>
       </div>
-      <ul>
-        <li v-for="(experience, index) in experiencesList" :key="experience.id" class="search__experience__list">
+      <ul :class="{active__fade__in: isFadeIn}">
+        <li v-for="(experience, index) in activeList" :key="experience.id" class="search__experience__list">
           <ExperienceHeader :experience="experience" />
           <ExperienceMain :experience="experience" />
         </li>
@@ -63,13 +63,83 @@ export default {
   data() {
     return {
       activeSort: {
-        starPoint: false,
+        score: false,
         favoriteCounts: true,
       },
+      activeList: null,
+      isFadeIn: false,
     }
   },
   computed: {
     ...mapGetters(["searchData", "experiencesList"]),
+  },
+  methods: {
+    sortScore() {
+      const notSortedYet = !(this.activeSort['score']);
+      if (notSortedYet) {
+        // 'mapメソッド'を使って'アクティビティリスト'と'スコア'が入った配列を作成する。
+        let tmp = this.activeList.map(list => {
+          return {
+            list,
+            key: list['score'],
+          };
+        // 作成した配列内の'スコア'を基に降順ソートしていく。
+        }).sort((a,b) => {
+          if (a.key > b.key) {
+            return -1;
+          } else {
+            return 1;
+          }
+        // ソートした配列から'アクティビティリスト'だけを取り出した配列を作成してそれを代入する。
+        }).map(sortScore => {
+          return sortScore.list;
+        });
+
+        // 並び替えボタンの表示を変更する。
+        this.activeSort['score'] = true;
+        this.activeSort['favoriteCounts'] = false;
+
+        this.isFadeIn = true;
+        setTimeout(() => {
+          this.isFadeIn = false;
+        }, 750);
+
+        return this.activeList = tmp;
+      };
+    },
+    sortFavoriteCounts() {
+      const notSortedYet = !(this.activeSort['favoriteCounts']);
+        // 'mapメソッド'を使って'アクティビティリスト'と'お気に入り数'が入った配列を作成する。
+      if (notSortedYet) {
+        let tmp = this.activeList.map(list => {
+          return {
+            list,
+            key: list['favorite_counts'],
+          };
+        // 作成した配列内の'お気に入り数'を基に降順ソートしていく。
+        }).sort((a,b) => {
+          if (a.key > b.key) {
+            return -1;
+          } else {
+            return 1;
+          }
+        // ソートした配列から'アクティビティリスト'だけを取り出した配列を作成してそれを代入する。
+        }).map(sortFavoriteCounts => {
+          return sortFavoriteCounts.list;
+        });
+
+        // 並び替えボタンの表示を変更する。
+        this.activeSort['favoriteCounts'] = true;
+        this.activeSort['score'] = false;
+
+        this.isFadeIn = true;
+        setTimeout(() => {
+          this.isFadeIn = false;
+        }, 750);
+
+        return this.activeList = tmp;
+      };
+    },
   },
   beforeRouteLeave (to, from, next) {
     const toExperiencesPage = /\/experiences\/\d{1,}/.test(to.path);
@@ -79,6 +149,9 @@ export default {
     }
 
     next();
+  },
+  created() {
+    this.activeList = this.experiencesList;
   },
 };
 </script>
@@ -167,6 +240,10 @@ export default {
     font-weight: bold;
     text-decoration: none;
     cursor: auto;
+  }
+  .active__fade__in {
+    animation: fadeOut 0.35s;
+    animation: fadeIn 0.35s;
   }
 /* アクティビティ表示欄 */
   .search__experience__list{
