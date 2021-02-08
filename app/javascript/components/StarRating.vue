@@ -5,9 +5,9 @@
       <div class="star__rating__back">★★★★★</div>
     </div>
     <span class="rating__point">{{ scoreToFixed(experience.score) }}</span>
-    <div v-if="isNotUsersPage" style="display: flex;">
+    <div v-if="!unnecessaryReviewCounts" style="display: flex;">
       <span class="review__counts">（</span>
-      <router-link :to="`/experiences/${experience.id}/reviews`" class="review__link review__counts link__hover">口コミ{{ experience.reviews_counts }}件</router-link>
+      <router-link :to="`/experiences/${experience.id}/reviews`" class="review__link review__counts link__hover"false>口コミ{{ experience.reviews_counts }}件</router-link>
       <span class="review__counts">）</span>
     </div>
   </div>
@@ -15,12 +15,7 @@
 
 <script>
 export default {
-  props: ["experience"],
-  computed: {
-    isNotUsersPage() {
-      return /\/users\/\d{1,}\/reviews/.test(this.$route.path) ? false : true;
-    },
-  },
+  props: ["experience", "unnecessaryReviewCounts"],
   methods: {
     starRatingWidth(score) {
       return {

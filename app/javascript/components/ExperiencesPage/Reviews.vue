@@ -19,7 +19,7 @@
       <li v-for="(review, index) in experienceData.reviews" :key="review.id" class="review__main__wrapper">
         <div class="review__main__area">
           <h2 class="review__main__title">{{ review.title }}</h2>
-          <StarRating :score="review.score" />
+          <StarRating :experience="review" :unnecessaryReviewCounts="true" />
           <span class="triangle">▲</span>
           <div class="review__comment__area">
             <span>{{  review.comment  }}</span>
