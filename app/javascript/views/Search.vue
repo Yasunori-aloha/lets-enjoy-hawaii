@@ -23,6 +23,7 @@
           <ul class="order">
             <li>並び順：</li>
             <li @click="sortScore()" class="sort__link" :class="{active__sort: activeSort['score'], link__hover: !activeSort['score']}">口コミランク順</li>
+            <li @click="sortReviewCounts()" class="sort__link" :class="{active__sort: activeSort['reviewCounts'], link__hover: !activeSort['reviewCounts']}">口コミ数順</li>
             <li @click="sortFavoriteCounts()" class="sort__link" :class="{active__sort: activeSort['favoriteCounts'], link__hover: !activeSort['favoriteCounts']}">おすすめ順</li>
           </ul>
         </div>
@@ -64,6 +65,7 @@ export default {
     return {
       activeSort: {
         score: false,
+        reviewCounts: false,
         favoriteCounts: true,
       },
       activeList: null,
@@ -97,7 +99,42 @@ export default {
 
         // 並び替えボタンの表示を変更する。
         this.activeSort['score'] = true;
+        this.activeSort['reviewCounts'] = false;
         this.activeSort['favoriteCounts'] = false;
+
+        this.isFadeIn = true;
+        setTimeout(() => {
+          this.isFadeIn = false;
+        }, 750);
+
+        return this.activeList = tmp;
+      };
+    },
+    sortReviewCounts() {
+      const notSortedYet = !(this.activeSort['reviewCounts']);
+        // 'mapメソッド'を使って'アクティビティリスト'と'お気に入り数'が入った配列を作成する。
+      if (notSortedYet) {
+        let tmp = this.activeList.map(list => {
+          return {
+            list,
+            key: list['favorite_counts'],
+          };
+        // 作成した配列内の'お気に入り数'を基に降順ソートしていく。
+        }).sort((a,b) => {
+          if (a.key > b.key) {
+            return -1;
+          } else {
+            return 1;
+          }
+        // ソートした配列から'アクティビティリスト'だけを取り出した配列を作成してそれを代入する。
+        }).map(sortReviewCounts => {
+          return sortReviewCounts.list;
+        });
+
+        // 並び替えボタンの表示を変更する。
+        this.activeSort['favoriteCounts'] = false;
+        this.activeSort['reviewCounts'] = true;
+        this.activeSort['score'] = false;
 
         this.isFadeIn = true;
         setTimeout(() => {
@@ -130,6 +167,7 @@ export default {
 
         // 並び替えボタンの表示を変更する。
         this.activeSort['favoriteCounts'] = true;
+        this.activeSort['reviewCounts'] = false;
         this.activeSort['score'] = false;
 
         this.isFadeIn = true;
