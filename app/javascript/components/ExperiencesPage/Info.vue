@@ -10,13 +10,13 @@
       </li>
       <li class="area__island__wrapeer">
         <span class="area__name">エリア</span>
-        <a href="/" class="island search_btn link__hover area__island">{{ experienceData.area.island.name }}</a>
-        <a href="/" class="area search_btn link__hover area__island">{{ experienceData.area.name }}</a>
+        <router-link to="" class="island search_btn link__hover area__island">{{ experienceData.area.island.name }}</router-link>
+        <router-link to="" class="area search_btn link__hover area__island">{{ experienceData.area.name }}</router-link>
       </li>
       <li class="genre__category__wrapper">
         <span class="genre__name">ジャンル</span>
-        <a href="" class="category search_btn link__hover genre__category">{{ experienceData.genre.category.name }}</a>
-        <a href="" class="genre search_btn link__hover genre__category">{{ experienceData.genre.name }}</a>
+        <router-link to="" class="category search_btn link__hover genre__category">{{ experienceData.genre.category.name }}</router-link>
+        <router-link to="" class="genre search_btn link__hover genre__category">{{ experienceData.genre.name }}</router-link>
       </li>
     </ul>
   </div>
