@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{name: 'search', params:{name: categoryData.categoryUrl[categoryId], case: 'category', id: `${categoryId + 1}`}}" tag="li" class="category">
+  <router-link :to="{name: 'search', params:{name: categoryData.categoryUrl[categoryId], case: 'category', id: `${categoryId + 1}`, typeWord: categoryData.categoryName[categoryId] }}" tag="li" class="category">
     <img :src="getImagePath(categoryData.categoryImage[categoryId])" alt="目的アイコン" class="category__icon">
     <p v-if="categoryId === 0 " class="category__name">{{ categoryData.categoryName[categoryId] }}<br>コンドミニアム</p>
     <p v-else class="category__name">{{ categoryData.categoryName[categoryId] }}</p>

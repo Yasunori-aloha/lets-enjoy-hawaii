@@ -151,6 +151,7 @@ export default new Router({
           // 目的別検索の場合。
           case 'category':
             store.state.search.searchData.typeWord = typeWord;
+            if (typeWord === 'ホテル') store.state.search.searchData.typeWord = 'ホテル・コンドミニアム';
             await store.dispatch('searchCategory',
             {
               case: 'category',

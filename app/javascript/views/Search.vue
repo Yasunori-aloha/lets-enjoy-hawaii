@@ -3,7 +3,7 @@
     <div class="search__main__left">
       <div class="search__main__left__header">
         <h1 v-if="isWordSearchPage" class="search__main__title">" {{ searchData.word }} "が含まれるスポット</h1>
-        <h1 v-else class="search__main__title">{{ searchData.typeWord }}スポット</h1>
+        <h1 v-else class="search__main__title">{{ searchData.typeWord }}のスポット</h1>
       </div>
       <div class="search__main__left__info">
         <div class="search__main__left__info__up">
