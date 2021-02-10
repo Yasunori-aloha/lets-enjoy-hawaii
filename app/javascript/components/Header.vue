@@ -36,10 +36,15 @@ export default {
   },
   methods: {
     userLogout: async function() {
-      const isUsersPage = /\/users\/\d/.test(this.$route.path);
+      const redirectRoot = /\/users\/\d/.test(this.$route.path)
+      const redirectSignUp = /\/experience\/review/.test(this.$route.path);
 
       await this.$store.dispatch('logout');
-      if (isUsersPage) this.$router.replace({ path: '/' });
+      if (redirectRoot) {
+        this.$router.replace({ path: '/' });
+      } else if (redirectSignUp) {
+        this.$router.replace({ path: '/users/sign_in' });
+      }
     },
   },
 };

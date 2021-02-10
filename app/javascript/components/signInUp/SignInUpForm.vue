@@ -7,7 +7,7 @@
     <SignInUpLink />
     <div class="guest__user__sign__in__form">
       <span class="guest__user__login__text">※アカウント登録せず、ユーザー機能を試したい方は</span>
-      <button @click="guestUserLogin()" class="guest__user__login__button link_hover_not_underline">こちら</button>
+      <button @click="guestUserLogin()" class="guest__user__login__button link__hover__not__underline">こちら</button>
     </div>
   </div>
 </template>

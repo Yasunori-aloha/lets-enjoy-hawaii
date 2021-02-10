@@ -95,11 +95,16 @@ export default new Router({
         footer: Footer,
       },
       beforeEnter: (to, from, next) => {
-        const fromExperience = /\/experiences\/\d{1,}/.test(from.fullPath);
+        const accessToken = localStorage.getItem('access-token');
+        const toReview = /\/experiences\/\d{1,}/.test(from.fullPath) && accessToken !== null;
 
-        if (fromExperience) return next();
-
-        return next('/');
+        if (toReview) {
+          return next();
+        } else if (accessToken === null) {
+          return next('/users/sign_up');
+        } else {
+          return next('/');
+        }
       }
     },
     // アクティビティ検索結果ページ
