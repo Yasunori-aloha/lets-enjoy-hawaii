@@ -3,7 +3,6 @@ class IslandSerializer < ActiveModel::Serializer
 
   attribute  :search, if: :show_experiences?
 
-
   # 属性取得判定用メソッド
   def show_experiences?
     @instance_options.key?(:show_experiences?)
