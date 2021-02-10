@@ -193,6 +193,118 @@ export default new Router({
               categoryId: 6,
             });
             break;
+          case 'landmark':
+            store.state.search.searchData.typeWord = 'ショッピング';
+            await store.dispatch('searchGenre',
+            {
+              case: 'genre',
+              genreId: 1,
+            });
+            break;
+          case 'restaurant':
+            store.state.search.searchData.typeWord = 'ショッピング';
+            await store.dispatch('searchGenre',
+            {
+              case: 'genre',
+              genreId: 2,
+            });
+            break;
+          case 'rentacar':
+            store.state.search.searchData.typeWord = 'ショッピング';
+            await store.dispatch('searchGenre',
+            {
+              case: 'genre',
+              genreId: 3,
+            });
+            break;
+          case 'card-shop':
+            store.state.search.searchData.typeWord = 'ショッピング';
+            await store.dispatch('searchGenre',
+            {
+              case: 'genre',
+              genreId: 4,
+            });
+            break;
+          case 'hotel':
+            store.state.search.searchData.typeWord = 'ショッピング';
+            await store.dispatch('searchGenre',
+            {
+              case: 'genre',
+              genreId: 5,
+            });
+            break;
+          case 'aquarium':
+            store.state.search.searchData.typeWord = 'ショッピング';
+            await store.dispatch('searchGenre',
+            {
+              case: 'genre',
+              genreId: 6,
+            });
+            break;
+          case 'convenience-store':
+            store.state.search.searchData.typeWord = 'ショッピング';
+            await store.dispatch('searchGenre',
+            {
+              case: 'genre',
+              genreId: 7,
+            });
+            break;
+          case 'zoo':
+            store.state.search.searchData.typeWord = 'ショッピング';
+            await store.dispatch('searchGenre',
+            {
+              case: 'genre',
+              genreId: 8,
+            });
+            break;
+          case 'hawaian-restaurant':
+            store.state.search.searchData.typeWord = 'ショッピング';
+            await store.dispatch('searchGenre',
+            {
+              case: 'genre',
+              genreId: 9,
+            });
+            break;
+          case 'western-food':
+            store.state.search.searchData.typeWord = 'ショッピング';
+            await store.dispatch('searchGenre',
+            {
+              case: 'genre',
+              genreId: 10,
+            });
+            break;
+          case 'japanese-food':
+            store.state.search.searchData.typeWord = 'ショッピング';
+            await store.dispatch('searchGenre',
+            {
+              case: 'genre',
+              genreId: 11,
+            });
+            break;
+          case 'shopping-mall':
+            store.state.search.searchData.typeWord = 'ショッピング';
+            await store.dispatch('searchGenre',
+            {
+              case: 'genre',
+              genreId: 12,
+            });
+            break;
+          case 'fashion':
+            store.state.search.searchData.typeWord = 'ショッピング';
+            await store.dispatch('searchGenre',
+            {
+              case: 'genre',
+              genreId: 13,
+            });
+            break;
+          case 'supar':
+            store.state.search.searchData.typeWord = 'ショッピング';
+            await store.dispatch('searchGenre',
+            {
+              case: 'genre',
+              genreId: 14,
+            });
+            break;
           // 島名検索の場合。
           case '/hawaii':
             store.state.search.searchData.typeWord = 'ハワイ島';
