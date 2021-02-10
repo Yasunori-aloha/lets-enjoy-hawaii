@@ -15,7 +15,7 @@
       </li>
       <li class="genre__category__wrapper">
         <span class="genre__name">ジャンル</span>
-        <router-link :to="{name: 'search', params:{name: experienceData.genre.category.search, case: 'category'}}" class="category search_btn link__hover genre__category">{{ experienceData.genre.category.name }}</router-link>
+        <router-link :to="{name: 'search', params:{name: experienceData.genre.category.search, case: 'category', id: experienceData.genre.category.id, typeWord: experienceData.genre.category.name }}" class="category search_btn link__hover genre__category">{{ experienceData.genre.category.name }}</router-link>
         <router-link :to="{name: 'search', params:{name: experienceData.genre.search, case: 'genre'}}" class="genre search_btn link__hover genre__category">{{ experienceData.genre.name }}</router-link>
       </li>
     </ul>

@@ -145,52 +145,12 @@ export default new Router({
         const typeId = localStorage.getItem('caseId');
         switch (to.params.case) {
           // 目的別検索の場合。
-          case '/hotel':
-            store.state.search.searchData.typeWord = 'ホテル・コンドミニアム';
+          case 'category':
+            store.state.search.searchData.typeWord = to.params.typeWord;
             await store.dispatch('searchCategory',
             {
               case: 'category',
-              categoryId: 1,
-            });
-            break;
-          case '/dinner':
-            store.state.search.searchData.typeWord = '食事';
-            await store.dispatch('searchCategory',
-            {
-              case: 'category',
-              categoryId: 2,
-            });
-            break;
-          case '/rentacar':
-            store.state.search.searchData.typeWord = 'レンタカー';
-            await store.dispatch('searchCategory',
-            {
-              case: 'category',
-              categoryId: 3,
-            });
-            break;
-          case '/leisure':
-            store.state.search.searchData.typeWord = '遊び・体験';
-            await store.dispatch('searchCategory',
-            {
-              case: 'category',
-              categoryId: 4,
-            });
-            break;
-          case '/landmark':
-            store.state.search.searchData.typeWord = '観光地';
-            await store.dispatch('searchCategory',
-            {
-              case: 'category',
-              categoryId: 5,
-            });
-            break;
-          case '/shopping':
-            store.state.search.searchData.typeWord = 'ショッピング';
-            await store.dispatch('searchCategory',
-            {
-              case: 'category',
-              categoryId: 6,
+              categoryId: to.params.id,
             });
             break;
           // ジャンル検索の場合。
