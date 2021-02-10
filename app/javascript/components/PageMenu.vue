@@ -3,7 +3,7 @@
     <div>
       <router-link to="/" class="link__hover">トップページ</router-link>
       <span> › </span>
-      <router-link to="" class="link__hover">{{ experienceData.genre.category.name }}</router-link>
+      <router-link :to="{name: 'search', params:{name: experienceData.genre.category.search, case: 'category', id: experienceData.genre.category.id }}" class="link__hover">{{ experienceData.genre.category.name }}</router-link>
       <span> › {{ experienceData.name }}</span>
     </div>
     <span id="category_id" style="display: none;">{{ experienceData.genre.category.id }}</span>
