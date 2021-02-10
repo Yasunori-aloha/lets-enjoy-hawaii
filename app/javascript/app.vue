@@ -8,6 +8,12 @@
 </template>
 
 <style>
+  *,
+  :after,
+  :before {
+    box-sizing: border-box;
+    margin: 0;
+  }
   .link__hover{
     color: #0000ff;
   }
