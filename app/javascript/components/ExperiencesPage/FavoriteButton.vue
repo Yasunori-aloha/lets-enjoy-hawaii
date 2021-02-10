@@ -14,10 +14,14 @@ import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["experienceData","userData"]),
+    ...mapGetters(["experienceData","userData", "userTokens"]),
   },
   methods: {
     favoriteRegistration: async function() {
+      if (this.userTokens['access-token'] === null) {
+        return this.$router.push('/users/sign_up');
+      };
+
       await this.$store.dispatch('favoriteRegistration',
         {
           userId: this.userData.id,
@@ -31,9 +35,6 @@ export default {
           experienceId: this.experienceData.id,
         });
     },
-  },
-  created() {
-    console.log(this.experienceData);
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <li v-if="alreadyHistoried" @click="historyRemove()" class="history__place">
+  <li v-if="userData.alreadyHistoried" @click="historyRemove()" class="history__place">
     <i class="fas fa-check"></i>
     <span class="history">行った</span>
   </li>
@@ -10,31 +10,28 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   computed: {
-    userId() {
-      return this.$store.getters.userData.id;
-    },
-    experienceId() {
-      return this.$store.getters.experienceData.id;
-    },
-    alreadyHistoried() {
-      return this.$store.getters.experienceData.already_historied;
-    },
+    ...mapGetters(["experienceData","userData", "userTokens"]),
   },
   methods: {
     historyRegistration: async function() {
+      if (this.userTokens['access-token'] === null) {
+        return this.$router.push('/users/sign_up');
+      };
       await this.$store.dispatch('historyRegistration',
         {
-          userId: this.userId,
-          experienceId: this.experienceId,
+          userId: this.userData.id,
+          experienceId: this.experienceData.id,
         });
     },
     historyRemove: async function() {
       await this.$store.dispatch('historyRemove',
         {
-          userId: this.userId,
-          experienceId: this.experienceId,
+          userId: this.userData.id,
+          experienceId: this.experienceData.id,
         });
     },
   },
