@@ -140,6 +140,7 @@ export default {
       });
     },
     searchIsland: async function({ commit }, params) {
+      console.log(params);
       await axios.get('/api/v1/search',
       {
         params: {

@@ -10,7 +10,7 @@
       </li>
       <li class="area__island__wrapeer">
         <span class="area__name">エリア</span>
-        <router-link :to="{name: 'search', params:{name: experienceData.area.island.search, case: 'island' }}" class="island search_btn link__hover area__island">{{ experienceData.area.island.name }}</router-link>
+        <router-link :to="{name: 'search', params:{name: experienceData.area.island.search, case: 'island', id: experienceData.area.island.id, typeWord: experienceData.area.island.name }}" class="link__hover area__island">{{ experienceData.area.island.name }}</router-link>
         <router-link :to="{name: 'search', params:{name: experienceData.area.search, case: 'area' }}" class="area search_btn link__hover area__island">{{ experienceData.area.name }}</router-link>
       </li>
       <li class="genre__category__wrapper">
@@ -35,6 +35,9 @@ export default {
     experienceData() {
       return this.$store.getters.experienceData;
     },
+  },
+  created() {
+    console.log(this.experienceData.area.island.id);
   },
 };
 </script>

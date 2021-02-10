@@ -142,9 +142,8 @@ export default new Router({
         if (to.params.case !== undefined) {
           localStorage.setItem('typeId', to.params.id);
         };
-        console.log(to.params);
         const typeId = localStorage.getItem('caseId');
-        switch (to.path) {
+        switch (to.params.case) {
           // 目的別検索の場合。
           case '/hotel':
             store.state.search.searchData.typeWord = 'ホテル・コンドミニアム';
@@ -308,68 +307,13 @@ export default new Router({
             });
             break;
           // 島名検索の場合。
-          case '/hawaii':
-            store.state.search.searchData.typeWord = 'ハワイ島';
+          case 'island':
+            console.log(to.params)
+            store.state.search.searchData.typeWord = to.params.typeWord;
             await store.dispatch('searchIsland',
             {
               case: 'island',
-              islandId: 1,
-            });
-            break;
-          case '/maui':
-            store.state.search.searchData.typeWord = 'マウイ島';
-            await store.dispatch('searchIsland',
-            {
-              case: 'island',
-              islandId: 2,
-            });
-            break;
-          case '/kahoolawe':
-            store.state.search.searchData.typeWord = 'カホオラウェ島';
-            await store.dispatch('searchIsland',
-            {
-              case: 'island',
-              islandId: 3,
-            });
-            break;
-          case '/lanai':
-            store.state.search.searchData.typeWord = 'ラナイ島';
-            await store.dispatch('searchIsland',
-            {
-              case: 'island',
-              islandId: 4,
-            });
-            break;
-          case '/molokai':
-            store.state.search.searchData.typeWord = 'モロカイ島';
-            await store.dispatch('searchIsland',
-            {
-              case: 'island',
-              islandId: 5,
-            });
-            break;
-          case '/oahu':
-            store.state.search.searchData.typeWord = 'オアフ島';
-            await store.dispatch('searchIsland',
-            {
-              case: 'island',
-              islandId: 6,
-            });
-            break;
-          case '/kauai':
-            store.state.search.searchData.typeWord = 'カウアイ島';
-            await store.dispatch('searchIsland',
-            {
-              case: 'island',
-              islandId: 7,
-            });
-            break;
-          case '/niihau':
-            store.state.search.searchData.typeWord = 'ニイハウ島';
-            await store.dispatch('searchIsland',
-            {
-              case: 'island',
-              islandId: 8,
+              islandId: to.params.id,
             });
             break;
           // エリア検索の場合。
