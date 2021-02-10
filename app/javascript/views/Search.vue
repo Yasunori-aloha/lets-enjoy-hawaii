@@ -65,14 +65,12 @@ export default {
       return /\/search/.test(this.$route.path) ? true : false;
     },
   },
-  beforeRouteLeave (to, from, next) {
+  beforeRouteLeave: async function(to, from, next) {
     const toExperiencesPage = /\/experiences\/\d{1,}/.test(to.path);
 
     if (!toExperiencesPage) {
       this.$store.commit('resetSearchWordScore');
     }
-    this.$store.commit('resetSort');
-
     next();
   },
 };

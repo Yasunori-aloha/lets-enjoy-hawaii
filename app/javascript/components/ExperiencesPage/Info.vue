@@ -36,9 +36,6 @@ export default {
       return this.$store.getters.experienceData;
     },
   },
-  created() {
-    console.log(this.experienceData.area.island.id);
-  },
 };
 </script>
 

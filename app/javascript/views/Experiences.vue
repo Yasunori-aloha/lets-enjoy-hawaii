@@ -34,7 +34,7 @@ export default {
     },
   },
   beforeRouteLeave (to, from, next) {
-    const toSearchPage = /\/search/.test(to.path);
+    const toSearchPage = /^\/[\w\-]{1,}$/.test(to.path);
 
     if (!toSearchPage) {
       this.$store.commit('resetSearchWordScore');

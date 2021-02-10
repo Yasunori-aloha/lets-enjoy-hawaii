@@ -66,6 +66,7 @@ export default {
       score: 0,
       typeId: null,
       typeWord: '',
+      typeCase: '',
     },
     experiencesList: [],
   },
@@ -81,9 +82,12 @@ export default {
       this.state.search.searchData.score = 0;
       this.state.search.searchData.typeId = null;
       this.state.search.searchData.typeWord = '';
+      this.state.search.searchData.typeCase = '';
       localStorage.removeItem('searchWord');
       localStorage.removeItem('searchScore');
       localStorage.removeItem('typeId');
+      localStorage.removeItem('typeWord');
+      localStorage.removeItem('typeCase');
     },
     setExperiencesList(state, list) {
       this.state.search.experiencesList = list;

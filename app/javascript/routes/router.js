@@ -141,43 +141,47 @@ export default new Router({
         // 検索用のボタンをクリックしていれば行う処理。
         if (to.params.case !== undefined) {
           localStorage.setItem('typeId', to.params.id);
+          localStorage.setItem('typeWord', to.params.typeWord);
+          localStorage.setItem('typeCase', to.params.case);
         };
-        const typeId = localStorage.getItem('caseId');
-        switch (to.params.case) {
+        const typeId = localStorage.getItem('typeId');
+        const typeWord = localStorage.getItem('typeWord');
+        const typeCase = localStorage.getItem('typeCase');
+        switch (typeCase) {
           // 目的別検索の場合。
           case 'category':
-            store.state.search.searchData.typeWord = to.params.typeWord;
+            store.state.search.searchData.typeWord = typeWord;
             await store.dispatch('searchCategory',
             {
               case: 'category',
-              categoryId: to.params.id,
+              categoryId: typeId,
             });
             break;
           // ジャンル検索の場合。
           case 'genre':
-            store.state.search.searchData.typeWord = to.params.typeWord;
+            store.state.search.searchData.typeWord = typeWord;
             await store.dispatch('searchGenre',
             {
               case: 'genre',
-              genreId: to.params.id,
+              genreId: typeId,
             });
             break;
           // 島名検索の場合。
           case 'island':
-            store.state.search.searchData.typeWord = to.params.typeWord;
+            store.state.search.searchData.typeWord = typeWord;
             await store.dispatch('searchIsland',
             {
               case: 'island',
-              islandId: to.params.id,
+              islandId: typeId,
             });
             break;
           // エリア検索の場合。
           case 'area':
-            store.state.search.searchData.typeWord = to.params.typeWord;
+            store.state.search.searchData.typeWord = typeWord;
             await store.dispatch('searchArea',
             {
               case: 'area',
-              areaId: to.params.id,
+              areaId: typeId,
             });
             break;
           default:
