@@ -40,6 +40,7 @@ export default {
       const redirectSignUp = /\/experience\/review/.test(this.$route.path);
 
       await this.$store.dispatch('logout');
+      this.$store.commit('resetAlreadyFavorited');
       if (redirectRoot) {
         this.$router.replace({ path: '/' });
       } else if (redirectSignUp) {
