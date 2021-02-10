@@ -10,7 +10,7 @@
       </li>
       <li class="area__island__wrapeer">
         <span class="area__name">エリア</span>
-        <router-link to="" class="island search_btn link__hover area__island">{{ experienceData.area.island.name }}</router-link>
+        <router-link to="" class="island search_btn link__hover area__island">{{ experienceData.area.island.search }}</router-link>
         <router-link to="" class="area search_btn link__hover area__island">{{ experienceData.area.name }}</router-link>
       </li>
       <li class="genre__category__wrapper">

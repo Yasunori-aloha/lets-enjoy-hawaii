@@ -8,7 +8,7 @@ class Api::ExperiencesController < Api::ApplicationController
       show_experiences?: true,
       search_show_experiences?: true,
       login_or_signup_or_experience?: true,
-      current_user_id: current_api_user.id
+      current_user_id: api_user_signed_in? ? current_api_user.id : false
     ).to_json
 
   end
