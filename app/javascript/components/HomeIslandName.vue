@@ -1,7 +1,7 @@
 <template>
   <li class="name name_main">
-    <router-link :to="{name: 'search', params:{name: islandData.islandUrl[areaId], case: 'island', id: `${areaId + 1}`}}" class='island__name link__hover'>
-      <span @mouseover="mapChange(areaId)" @mouseleave="mapReturn(8)">{{ islandData.islandNames[areaId] }}島</span>
+    <router-link :to="{name: 'search', params:{name: islandData.islandUrl[areaId], case: 'island', id: `${areaId + 1}`, typeWord: islandData.islandNames[areaId] }}" class='island__name link__hover'>
+      <span @mouseover="mapChange(areaId)" @mouseleave="mapReturn(8)">{{ islandData.islandNames[areaId] }}</span>
     </router-link>
   </li>
 </template>

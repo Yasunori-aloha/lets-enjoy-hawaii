@@ -308,7 +308,6 @@ export default new Router({
             break;
           // 島名検索の場合。
           case 'island':
-            console.log(to.params)
             store.state.search.searchData.typeWord = to.params.typeWord;
             await store.dispatch('searchIsland',
             {

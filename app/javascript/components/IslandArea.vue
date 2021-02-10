@@ -23,9 +23,10 @@ export default {
       this.$router.push({
         name: 'search',
         params: {
-          name: this.islandData.islandUrl[areaId],
-          case: 'island',
-            id: `${areaId + 1}`
+              name: this.islandData.islandUrl[areaId],
+              case: 'island',
+                id: `${areaId + 1}`,
+          typeWord: this.islandData.islandNames[areaId]
         }
       });
     },
