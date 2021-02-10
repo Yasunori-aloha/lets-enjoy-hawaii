@@ -142,6 +142,7 @@ export default new Router({
         if (to.params.case !== undefined) {
           localStorage.setItem('typeId', to.params.id);
         };
+        console.log(to.params);
         const typeId = localStorage.getItem('caseId');
         switch (to.path) {
           // 目的別検索の場合。
