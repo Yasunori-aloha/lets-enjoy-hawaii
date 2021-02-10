@@ -154,116 +154,12 @@ export default new Router({
             });
             break;
           // ジャンル検索の場合。
-          case '/landmark':
-            store.state.search.searchData.typeWord = '観光地';
+          case 'genre':
+            store.state.search.searchData.typeWord = to.params.typeWord;
             await store.dispatch('searchGenre',
             {
               case: 'genre',
-              genreId: 1,
-            });
-            break;
-          case '/restaurant':
-            store.state.search.searchData.typeWord = '食事処';
-            await store.dispatch('searchGenre',
-            {
-              case: 'genre',
-              genreId: 2,
-            });
-            break;
-          case '/rentacar':
-            store.state.search.searchData.typeWord = 'レンタカー';
-            await store.dispatch('searchGenre',
-            {
-              case: 'genre',
-              genreId: 3,
-            });
-            break;
-          case '/card-shop':
-            store.state.search.searchData.typeWord = 'カードショップ';
-            await store.dispatch('searchGenre',
-            {
-              case: 'genre',
-              genreId: 4,
-            });
-            break;
-          case '/hotel':
-            store.state.search.searchData.typeWord = 'ホテル';
-            await store.dispatch('searchGenre',
-            {
-              case: 'genre',
-              genreId: 5,
-            });
-            break;
-          case '/aquarium':
-            store.state.search.searchData.typeWord = '水族館';
-            await store.dispatch('searchGenre',
-            {
-              case: 'genre',
-              genreId: 6,
-            });
-            break;
-          case '/convenience-store':
-            store.state.search.searchData.typeWord = 'コンビニ';
-            await store.dispatch('searchGenre',
-            {
-              case: 'genre',
-              genreId: 7,
-            });
-            break;
-          case '/zoo':
-            store.state.search.searchData.typeWord = '動物園';
-            await store.dispatch('searchGenre',
-            {
-              case: 'genre',
-              genreId: 8,
-            });
-            break;
-          case '/hawaian-restaurant':
-            store.state.search.searchData.typeWord = 'ハワイアンレストラン';
-            await store.dispatch('searchGenre',
-            {
-              case: 'genre',
-              genreId: 9,
-            });
-            break;
-          case '/western-food':
-            store.state.search.searchData.typeWord = '洋食';
-            await store.dispatch('searchGenre',
-            {
-              case: 'genre',
-              genreId: 10,
-            });
-            break;
-          case '/japanese-food':
-            store.state.search.searchData.typeWord = '日本食';
-            await store.dispatch('searchGenre',
-            {
-              case: 'genre',
-              genreId: 11,
-            });
-            break;
-          case '/shopping-mall':
-            store.state.search.searchData.typeWord = 'ショッピングモール';
-            await store.dispatch('searchGenre',
-            {
-              case: 'genre',
-              genreId: 12,
-            });
-            break;
-          case '/fashion':
-            store.state.search.searchData.typeWord = 'ファッション';
-            await store.dispatch('searchGenre',
-            {
-              case: 'genre',
-              genreId: 13,
-            });
-            break;
-          case '/supar':
-            store.state.search.searchData.typeWord = 'スーパー';
-            await store.dispatch('searchGenre',
-            {
-              case: 'genre',
-              genreId: 14,
+              genreId: to.params.id,
             });
             break;
           // 島名検索の場合。
