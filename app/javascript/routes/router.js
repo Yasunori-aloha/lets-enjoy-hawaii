@@ -316,44 +316,12 @@ export default new Router({
             });
             break;
           // エリア検索の場合。
-          case '/honolulu':
-            store.state.search.searchData.typeWord = 'ホノルル';
+          case 'area':
+            store.state.search.searchData.typeWord = to.params.typeWord;
             await store.dispatch('searchArea',
             {
               case: 'area',
-              areaId: 1,
-            });
-            break;
-          case '/wailuku':
-            store.state.search.searchData.typeWord = 'ワイルク';
-            await store.dispatch('searchArea',
-            {
-              case: 'area',
-              areaId: 2,
-            });
-            break;
-          case '/waikiki':
-            store.state.search.searchData.typeWord = 'ワイキキ';
-            await store.dispatch('searchArea',
-            {
-              case: 'area',
-              areaId: 3,
-            });
-            break;
-          case '/wahiawa':
-            store.state.search.searchData.typeWord = 'ワヒアワ';
-            await store.dispatch('searchArea',
-            {
-              case: 'area',
-              areaId: 4,
-            });
-            break;
-          case '/kailua-kona':
-            store.state.search.searchData.typeWord = 'カイルア コナ';
-            await store.dispatch('searchArea',
-            {
-              case: 'area',
-              areaId: 5,
+              areaId: to.params.id,
             });
             break;
           default:
