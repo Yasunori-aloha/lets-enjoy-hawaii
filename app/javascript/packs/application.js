@@ -10,8 +10,6 @@ require("channels")
 var jQuery = require('jquery')
 global.$ = global.jQuery = jQuery;
 window.$ = window.jQuery = jQuery;
-require("search.js")
-require("review.js")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
