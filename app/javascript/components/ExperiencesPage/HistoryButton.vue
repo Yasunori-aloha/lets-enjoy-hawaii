@@ -1,5 +1,5 @@
 <template>
-  <li v-if="userData.alreadyHistoried" @click="historyRemove()" class="history__place">
+  <li v-if="experienceData.already_historied" @click="historyRemove()" class="history__place">
     <i class="fas fa-check"></i>
     <span class="history">行った</span>
   </li>
