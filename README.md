@@ -64,7 +64,7 @@ Ruby on Railsで制作したアプリです。
 <img src="https://i.gyazo.com/431906588bf28ae4e5d35af527a55c05.gif" alt="Image from Gyazo" width="500">
 
 ## ※ゲストユーザーログイン※
-[![Image from Gyazo](https://i.gyazo.com/b5cb678033e8a301ec435173f4e34961.gif)](https://gyazo.com/b5cb678033e8a301ec435173f4e34961)
+<img src="https://i.gyazo.com/c0241ece8f5a87d5ac51c84aefd4e03e.gif" alt="Image from Gyazo" width="500">
 
 ## ※ゲストユーザー情報更新時の注意画面※
 <img src="https://i.gyazo.com/61fc30de5e2d53b6089375e3aa0b51a9.gif" alt="Image from Gyazo" width="500">
@@ -79,7 +79,7 @@ Ruby on Railsで制作したアプリです。
 <img src="https://i.gyazo.com/6d00f23b23f7226f6eacaa8b80d7f3c6.gif" alt="Image from Gyazo" width="500">
 
 ## ※お気に入り・訪問記録登録解除※
-[![Image from Gyazo](https://i.gyazo.com/af0f0148f7e1a42fdb968dcb800e6a93.gif)](https://gyazo.com/af0f0148f7e1a42fdb968dcb800e6a93)
+<img src="https://i.gyazo.com/582f4aff95ab9098043f86693f22a1fc.gif" alt="Image from Gyazo" width="500">
 
 <br>
 <br>
