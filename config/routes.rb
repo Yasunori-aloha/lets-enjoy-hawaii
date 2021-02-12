@@ -2,35 +2,40 @@
 
 Rails.application.routes.draw do
   root to: 'tops#index'
-  devise_scope :user do
-    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
-  end
-  devise_for :users,
-             controllers: {
-               omniauth_callbacks: 'users/omniauth_callbacks',
-               registrations: 'users/registrations',
-               sessions: 'users/sessions'
-             }
-  resources :users, only: %i[show] do
-    resources :favorites, only: %i[index update]
-    resources :histories, only: %i[index update]
-    member do
-      get 'reviews', to: 'reviews#user_index'
+
+  namespace :api do
+    scope :v1 do
+      # メールアドレスが登録済みか判定する。
+      post '/auth/check_email', to: 'users#is_registerd?'
+
+      # devise_token_auth
+      mount_devise_token_auth_for 'User', at: 'auth', controllers: {
+        registrations:      'api/auth/registrations',
+        sessions:           'api/auth/sessions',
+        omniauth_callbacks: 'users/omniauth_callbacks',
+      }
+
+      # ユーザーページ
+      resources :users, only: :show do
+        resources :favorites, only: %i[update destroy]
+        resources :histories, only: %i[update destroy]
+      end
+
+      # アクティビティ詳細ページ
+      resources :experiences, only: :show, shallow: true do
+        member do
+          resources :favorites, only: :create
+          resources :reviews, only: :create
+          resources :histories, only: :create
+        end
+      end
+
+      # 検索結果ページ
+      get '/search', to: 'experiences#search'
     end
   end
-  resources :experiences, only: %i[show], shallow: true do
-    member do
-      resources :reviews, only: %i[new create]
-      get 'photos', to: 'reviews#edit'
-      get 'reviews', to: 'reviews#exp_index'
-      # 'resources'の方だと、destroy時に'id'で検索できる。
-      resource :histories, only: %i[create destroy]
-      resource :favorites, only: %i[create destroy]
-    end
-  end
-  get '/search', to: 'tops#search'
-  post '/:name', to: 'experiences#edit'
-  get '*path', to: 'application#redirect_root', constraints: lambda { |req|
+
+  get '*path', to: 'tops#index', constraints: lambda { |req|
     req.path.exclude? 'rails/active_storage'
   }
 end

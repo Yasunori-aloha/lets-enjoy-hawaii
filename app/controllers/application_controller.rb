@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include DeviseTokenAuth::Concerns::SetUserByToken
+  # skip_before_action :verify_authenticity_token, if: :devise_controller?
   rescue_from ActiveRecord::RecordNotFound, with: :redirect_root
+  # CSRF対策を有効にするため必要
+  protect_from_forgery
 
   def redirect_root
     redirect_to root_path
@@ -11,9 +15,7 @@ class ApplicationController < ActionController::Base
 
   def user_is_current_user?(params)
     # paramsが'id'か'user_id'かで分岐させる。
-    if current_user.id == params[:id].to_i || current_user.id == params[:user_id].to_i
-      find_user_show
-    else
+    unless current_user.id == params[:id].to_i || current_user.id == params[:user_id].to_i
       redirect_to root_path
     end
   end
@@ -38,8 +40,4 @@ class ApplicationController < ActionController::Base
     exps.sort_by! { |exp| exp.favorites.length }.reverse!
   end
 
-  def find_user_show
-    @user = User.find(current_user.id)
-    render 'users/show'
-  end
 end

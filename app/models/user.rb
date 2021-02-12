@@ -9,6 +9,9 @@ class User < ApplicationRecord
          :rememberable,
          :omniauthable,
          omniauth_providers: %i[facebook google_oauth2]
+
+  include DeviseTokenAuth::Concerns::User
+
   with_options presence: true do
     validates :name
     # '@'がメールアドレスに入っていること。
@@ -21,6 +24,7 @@ class User < ApplicationRecord
     end
   end
 
+  include Rails.application.routes.url_helpers
   has_one_attached :image
   has_many :reviews, dependent: :destroy
   has_many :histories, dependent: :destroy
@@ -50,6 +54,17 @@ class User < ApplicationRecord
       user.introduce = 'ゲストユーザーです。'
       user.password = "#{SecureRandom.urlsafe_base64(7)}!!"
       user.password_confirmation = user.password
+      user.uid = user.email
+      user.provider = 'email'
     end
   end
+
+  def self.is_exists?(email)
+    User.exists?(email: email)
+  end
+
+  def image_url
+    image.attached? ? url_for(image) : nil
+  end
+
 end

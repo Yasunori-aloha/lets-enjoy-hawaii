@@ -1,0 +1,37 @@
+<template>
+  <div class='search__header'>
+    <img :src="searchGlassImage" alt="虫眼鏡アイコン" class="glass__icon">
+    <b class="header__name">{{ searchHeaderName }}</b>
+  </div>
+</template>
+
+<script>
+export default {
+  props: ['searchHeaderName'],
+  data() {
+    return {
+      searchGlassImage: require('../../assets/images/glass_icon.png'),
+    }
+  },
+};
+</script>
+
+<style scoped>
+  .search__header{
+    height: 30px;
+    width: 395px;
+    padding: 14px 0 0 20px;
+    display: flex;
+    align-items: center;
+  }
+  .glass__icon{
+    height: 20px;
+    width: 20px;
+  }
+  .header__name{
+    height: 30px;
+    color: #6e6e6e;
+    font-size: 22px;
+    margin-left: 5px;
+  }
+</style>

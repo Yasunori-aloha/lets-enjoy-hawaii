@@ -70,4 +70,8 @@ Rails.application.configure do
     Bullet.rails_logger = true
     Bullet.add_footer = true
   end
+
+  # ActiveStorageに保存している画像のURLを取得するために必要な設定
+  Rails.application.routes.default_url_options[:host] = 'localhost'
+  Rails.application.routes.default_url_options[:port] = 3000
 end
