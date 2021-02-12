@@ -23,7 +23,7 @@
               </ul>
               <div>
                 <h2 class="review__title">{{ review.title }}</h2>
-                <StarRating :experience="review" />
+                <StarRating :experience="review" :unnecessaryReviewCounts="true" />
               </div>
               <span class="triangle">▲</span>
               <div class="review__comment__area">
