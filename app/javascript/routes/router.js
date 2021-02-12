@@ -31,6 +31,7 @@ Vue.use(Vuex)
 
 export default new Router({
   mode: 'history',
+  base: process.env.API_URL,
   routes: [
     // ホーム画面
     { path: '/', components: {
