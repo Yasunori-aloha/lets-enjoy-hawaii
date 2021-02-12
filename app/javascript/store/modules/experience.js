@@ -2,7 +2,10 @@ import axios from 'axios';
 
 export default {
   state: {
-    experienceData: null,
+    experienceData: {
+      already_favorited: false,
+      already_historied: false,
+    },
   },
   getters: {
     experienceData: state => state.experienceData,
