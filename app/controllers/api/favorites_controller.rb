@@ -1,10 +1,10 @@
 class Api::FavoritesController < Api::ApplicationController
-  before_action :authenticate_api_user!, only: %i[create update destroy]
-  before_action -> { current_user?(params) }, only: %i[create update destroy]
+  before_action :authenticate_api_user!, only: %i[update destroy]
+  before_action -> { current_user?(params) }, only: %i[update destroy]
 
   # お気に入り登録。
   def create
-    current_api_user.favorites.create(experience_id: params[:id])
+    Favorite.create(experience_id: params[:id], user_id: params[:user_id])
 
     render json: true, status: :ok
   end

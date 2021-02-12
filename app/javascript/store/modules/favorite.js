@@ -5,11 +5,6 @@ export default {
     favoriteRegistration: async function({}, params) {
       await axios.post(`/api/v1/experiences/${params.experienceId}/favorites`,
       {
-        headers: {
-          'access-token': localStorage.getItem('access-token'),
-          'client': localStorage.getItem('client'),
-          'uid': localStorage.getItem('uid'),
-        },
         user_id: params.userId
       })
       .then(response => {

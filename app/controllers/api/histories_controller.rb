@@ -1,10 +1,10 @@
 class Api::HistoriesController < Api::ApplicationController
-  before_action :authenticate_api_user!, only: %i[create update destroy]
-  before_action -> { current_user?(params) }, only: %i[create update destroy]
+  before_action :authenticate_api_user!, only: %i[update destroy]
+  before_action -> { current_user?(params) }, only: %i[update destroy]
 
   # 訪問記録登録。
   def create
-    current_api_user.histories.create(experience_id: params[:id])
+    History.create(experience_id: params[:id], user_id: params[:user_id])
 
     render json: true, status: :ok
   end
