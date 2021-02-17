@@ -18,7 +18,7 @@ class Experience < ApplicationRecord
   end
 
   def image_url
-    image.attached? ? url_for(image) : nil
+    image.attached? ? "https://lets-enjoy-hawaii.s3-ap-northeast-1.amazonaws.com/#{image.key}" : nil
   end
 
 end

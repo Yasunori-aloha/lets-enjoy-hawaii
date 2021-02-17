@@ -96,7 +96,7 @@ $ rails db:seed
 ```
 
 # ER図
-[![Image from Gyazo](https://i.gyazo.com/df54895268d0fbfee3f13d7f0f7b3e3f.png)](https://gyazo.com/df54895268d0fbfee3f13d7f0f7b3e3f)
+[![Image from Gyazo](https://i.gyazo.com/5fb82c7710ffb2a0cdd555869e0675ca.png)](https://gyazo.com/5fb82c7710ffb2a0cdd555869e0675ca)
 
 # 使用技術
 ## フロントエンド

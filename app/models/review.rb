@@ -16,7 +16,7 @@ class Review < ApplicationRecord
   end
 
   def images_url
-    images.attached? ? images.map{|image| url_for(image)} : nil
+    images.attached? ? images.map{|image| "https://lets-enjoy-hawaii.s3-ap-northeast-1.amazonaws.com/#{image.key}"} : nil
   end
 
 end
