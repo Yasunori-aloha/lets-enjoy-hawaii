@@ -23,8 +23,8 @@ export default {
     mapChange(state, number) {
       state.mapImageData.mapImageIndex = number;
     },
-    mapReturn(state, number) {
-      state.mapImageData.mapImageIndex = number;
+    mapReset(state) {
+      state.mapImageData.mapImageIndex = 8;
     },
   },
 };

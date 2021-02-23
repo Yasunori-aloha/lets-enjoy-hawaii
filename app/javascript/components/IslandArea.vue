@@ -1,5 +1,5 @@
 <template>
-  <area @click="searchIsland(areaId)" class="island__area" shape="poly" :coords="islandData.areas[areaId]" @mouseover="mapChange(areaId)" @mouseleave="mapReturn(8)">
+  <area @click="searchIsland(areaId)" class="island__area" shape="poly" :coords="islandData.areas[areaId]" @mouseover="mapChange(areaId)" @mouseleave="mapReset">
 </template>
 
 <script>
@@ -18,7 +18,7 @@ export default {
     },
   },
   methods: {
-    ...mapMutations(["mapChange", "mapReturn"]),
+    ...mapMutations(["mapChange", "mapReset"]),
     searchIsland(areaId) {
       this.$router.push({
         name: 'search',

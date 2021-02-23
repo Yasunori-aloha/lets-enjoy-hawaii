@@ -57,7 +57,7 @@ export default {
     SearchForm,
   },
   beforeRouteLeave (to, from, next) {
-    this.$store.commit('mapReturn', 8);
+    this.$store.commit('mapReset');
     next();
   }
 };
