@@ -56,6 +56,10 @@ export default {
     HomeIslandMap,
     SearchForm,
   },
+  beforeRouteLeave (to, from, next) {
+    this.$store.commit('mapReturn', 8);
+    next();
+  }
 };
 </script>
 
