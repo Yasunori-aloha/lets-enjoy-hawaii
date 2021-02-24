@@ -59,15 +59,14 @@ export default new Router({
       beforeEnter: async (to, from, next) => {
         const userId = Number(store.getters.userData.id);
         const userPageId = Number(to.params.id);
+        const isUserPage = /\/users\/\d/.test(to.path);
 
-        if (/\/users\/\d/.test(to.path)) {
+        if (isUserPage && userId === userPageId) {
           await store.dispatch('toUsersPage', to.params.id);
-        }
-        if (userId === userPageId) {
           return next();
-        } else {
-          return next('/');
         }
+
+        return next('/');
       },
     },
     // アクティビティ詳細ページ
