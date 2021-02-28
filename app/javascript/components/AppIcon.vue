@@ -1,6 +1,6 @@
 <template>
   <router-link to="/">
-    <img :src="lehLogoImage" alt="アイコン画像" class="leh__icon" :class="{leh__icon__sm: $mq === 'sm'}">
+    <img :src="lehLogoImage" alt="アイコン画像" :class="{leh__icon: $mq !== 'sm', leh__icon__sm: $mq === 'sm'}">
   </router-link>
 </template>
 
@@ -20,6 +20,7 @@ export default {
     width: 80px;
     margin-bottom: 5px;
   }
+  /* スマホ表示用 */
   .leh__icon__sm{
     height: 40px;
     width: 40px;

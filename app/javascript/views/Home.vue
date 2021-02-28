@@ -1,6 +1,6 @@
 <template>
   <div class='search__wrapper'>
-    <div>
+    <div v-if="$mq !== 'sm'">
       <div class="search__left">
         <div class="search__type__wrapper">
           <SearchHeader searchHeaderName='目的から探す' />
