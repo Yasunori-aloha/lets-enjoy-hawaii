@@ -1,5 +1,5 @@
 <template>
-  <div class='search__wrapper'>
+  <div :class="{search__wrapper: $mq !== 'sm', search__wrapper__sm: $mq === 'sm'}">
     <div v-if="$mq !== 'sm'">
       <div class="search__left">
         <div class="search__type__wrapper">
@@ -132,5 +132,13 @@ export default {
   }
   .search__name__main__list{
     display: flex;
+  }
+  /* スマホ表示用 */
+  .search__wrapper__sm{
+    background-image: url('../../../public/images/toppage.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    min-height: calc(100vh - 94px);
   }
 </style>
