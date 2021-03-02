@@ -41,12 +41,14 @@
   </div>
   <div v-else class="search__wrapper__sm">
     <SearchHeader searchHeaderName='目的から探す' />
-    <ul class="search__type__list__sm">
-      <HomeTypeButton v-for="(n, index) in 3" :categoryId="index" />
-    </ul>
-    <ul class="search__type__list__sm">
-      <HomeTypeButton v-for="(n, index) in 3" :categoryId="index + 3" />
-    </ul>
+    <div class="search__type__wrapper__sm">
+      <ul class="search__type__list__sm">
+        <HomeTypeButton v-for="(n, index) in 3" :categoryId="index" />
+      </ul>
+      <ul class="search__type__list__sm">
+        <HomeTypeButton v-for="(n, index) in 3" :categoryId="index + 3" />
+      </ul>
+    </div>
     <SearchHeader searchHeaderName='キーワードから探す' />
     <SearchHeader searchHeaderName='島名から探す' />
   </div>
@@ -149,7 +151,12 @@ export default {
     min-height: calc(100vh - 94px);
     background-color: whitesmoke;
   }
+  .search__type__wrapper__sm{
+    padding-bottom: 16px;
+    background-color: #efebe6;
+  }
   .search__type__list__sm{
+    background-color: whitesmoke;
     display: flex;
   }
 </style>

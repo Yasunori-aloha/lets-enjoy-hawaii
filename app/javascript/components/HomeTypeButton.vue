@@ -4,10 +4,9 @@
     <p v-if="categoryId === 0 " class="category__name">{{ categoryData.categoryName[categoryId] }}<br>コンドミニアム</p>
     <p v-else class="category__name">{{ categoryData.categoryName[categoryId] }}</p>
   </router-link>
-  <router-link v-else :to="{name: 'search', params:{name: categoryData.categoryUrl[categoryId], case: 'category', id: `${categoryId + 1}`, typeWord: categoryData.categoryName[categoryId] }}" tag="li" class="category__sm">
+  <router-link v-else :to="{name: 'search', params:{name: categoryData.categoryUrl[categoryId], case: 'category', id: `${categoryId + 1}`, typeWord: categoryData.categoryName[categoryId] }}" tag="li" class="category__sm" :class="{border__right: (categoryId + 1) % 3 != 0}">
     <img :src="getImagePath(categoryData.categoryImage[categoryId])" alt="目的アイコン" class="category__icon__sm">
-    <p v-if="categoryId === 0 " class="category__name">{{ categoryData.categoryName[categoryId] }}<br>コンドミニアム</p>
-    <p v-else class="category__name">{{ categoryData.categoryName[categoryId] }}</p>
+    <p class="category__name">{{ categoryData.categoryName[categoryId] }}</p>
   </router-link>
 </template>
 
@@ -59,14 +58,18 @@ export default {
   .category__sm{
     width: calc(100% / 3);
     font-size: 14px;
-    padding: 10px 0;
+    padding: 5px 0;
+    border-bottom: solid 1.5px #ccc;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   .category__icon__sm{
     height: 40px;
-    width: 40px;
-    margin: 0 10px 5px;
+    width: 45px;
+    margin-bottom: 5px;
+  }
+  .border__right{
+    border-right: solid 1.5px #ccc;
   }
 </style>
