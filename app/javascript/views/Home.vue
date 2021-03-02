@@ -38,6 +38,12 @@
         </div>
       </div>
     </div>
+    <SearchHeader searchHeaderName='目的から探す' />
+    <ul class="search__type__list">
+      <HomeTypeButton v-for="(n, index) in 6" :categoryId="index"  />
+    </ul>
+    <SearchHeader searchHeaderName='キーワードから探す' />
+    <SearchHeader searchHeaderName='島名から探す' />
   </div>
 </template>
 
@@ -135,10 +141,7 @@ export default {
   }
   /* スマホ表示用 */
   .search__wrapper__sm{
-    background-image: url('../../../public/images/toppage.jpg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
     min-height: calc(100vh - 94px);
+    background-color: whitesmoke;
   }
 </style>
