@@ -1,6 +1,6 @@
 <template>
-  <div :class="{search__wrapper: $mq !== 'sm', search__wrapper__sm: $mq === 'sm'}">
-    <div v-if="$mq !== 'sm'">
+  <div v-if="$mq !== 'sm'" class="search__wrapper">
+    <div>
       <div class="search__left">
         <div class="search__type__wrapper">
           <SearchHeader searchHeaderName='目的から探す' />
@@ -38,9 +38,14 @@
         </div>
       </div>
     </div>
+  </div>
+  <div v-else class="search__wrapper__sm">
     <SearchHeader searchHeaderName='目的から探す' />
-    <ul class="search__type__list">
-      <HomeTypeButton v-for="(n, index) in 6" :categoryId="index"  />
+    <ul class="search__type__list__sm">
+      <HomeTypeButton v-for="(n, index) in 3" :categoryId="index" />
+    </ul>
+    <ul class="search__type__list__sm">
+      <HomeTypeButton v-for="(n, index) in 3" :categoryId="index + 3" />
     </ul>
     <SearchHeader searchHeaderName='キーワードから探す' />
     <SearchHeader searchHeaderName='島名から探す' />
@@ -143,5 +148,8 @@ export default {
   .search__wrapper__sm{
     min-height: calc(100vh - 94px);
     background-color: whitesmoke;
+  }
+  .search__type__list__sm{
+    display: flex;
   }
 </style>
