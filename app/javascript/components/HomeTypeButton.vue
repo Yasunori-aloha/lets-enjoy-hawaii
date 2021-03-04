@@ -69,7 +69,4 @@ export default {
     width: 45px;
     margin-bottom: 5px;
   }
-  .border__right{
-    border-right: solid 1.5px #ccc;
-  }
 </style>

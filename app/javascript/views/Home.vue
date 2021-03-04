@@ -50,14 +50,14 @@
       </ul>
     </div>
     <SearchHeader searchHeaderName='島名から探す' />
-      <div class="search__name__main">
-        <ul class="search__name__main__list">
-          <HomeIslandName v-for="(n, index) in 4" :areaId="index" />
-        </ul>
-        <ul class="search__name__main__list">
-          <HomeIslandName v-for="(n, index) in 4" :areaId="index + 4" />
-        </ul>
-      </div>
+    <div class="search__name__wrapper__sm">
+      <ul class="search__name__list__sm">
+        <HomeIslandName v-for="(n, index) in 4" :areaId="index" />
+      </ul>
+      <ul class="search__name__list__sm">
+        <HomeIslandName v-for="(n, index) in 4" :areaId="index + 4" />
+      </ul>
+    </div>
     <SearchHeader searchHeaderName='キーワードから探す' />
   </div>
 </template>
@@ -166,5 +166,17 @@ export default {
   .search__type__list__sm{
     background-color: whitesmoke;
     display: flex;
+  }
+  .search__name__wrapper__sm{
+    padding-bottom: 16px;
+    background-color: #efebe6;
+    display: flex;
+  }
+  .search__name__list__sm{
+    width: calc(100% / 2);
+    background-color: whitesmoke;
+  }
+  .border__right{
+    border-right: solid 1.5px #ccc;
   }
 </style>
