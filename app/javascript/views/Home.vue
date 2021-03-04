@@ -49,8 +49,16 @@
         <HomeTypeButton v-for="(n, index) in 3" :categoryId="index + 3" />
       </ul>
     </div>
-    <SearchHeader searchHeaderName='キーワードから探す' />
     <SearchHeader searchHeaderName='島名から探す' />
+      <div class="search__name__main">
+        <ul class="search__name__main__list">
+          <HomeIslandName v-for="(n, index) in 4" :areaId="index" />
+        </ul>
+        <ul class="search__name__main__list">
+          <HomeIslandName v-for="(n, index) in 4" :areaId="index + 4" />
+        </ul>
+      </div>
+    <SearchHeader searchHeaderName='キーワードから探す' />
   </div>
 </template>
 
