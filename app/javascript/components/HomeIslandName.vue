@@ -54,6 +54,7 @@ export default {
     width: 100%;
   }
   .name__sm{
+    padding: 8px 0;
     border-bottom: solid 1.5px #ccc;
     font-size: 18px;
     text-align: center;
