@@ -23,7 +23,7 @@
         <option v-for="(value, index) in optionTexts" :value="index">{{ value }}</option>
       </select>
     </div>
-    <button @click.prevent="searchWordScore()" class="submit btn__hover">検索</button>
+    <button @click.prevent="searchWordScore()" class="submit__sm btn__hover">検索</button>
   </form>
 </template>
 
@@ -143,5 +143,16 @@ export default {
     margin: 10px 0;
     border: 1px solid #808080;
     border-radius: 4px;
+  }
+  .submit__sm{
+    margin: 20px 10px 0;
+    height: 46px;
+    width: calc(100% - 20px);
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #90b200;
+    cursor: pointer;
   }
 </style>
