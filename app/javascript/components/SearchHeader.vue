@@ -1,7 +1,10 @@
 <template>
-  <div class='search__header'>
+  <div v-if="$mq !== 'sm'" class="search__header">
     <img :src="searchGlassImage" alt="虫眼鏡アイコン" class="glass__icon">
     <b class="header__name">{{ searchHeaderName }}</b>
+  </div>
+  <div v-else class="search__header__sm">
+    <h3 class="header__name__sm">{{ searchHeaderName }}</h3>
   </div>
 </template>
 
@@ -33,5 +36,18 @@ export default {
     color: #6e6e6e;
     font-size: 22px;
     margin-left: 5px;
+  }
+  /* スマホ表示用 */
+  .search__header__sm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#cdaa7d, #9f7f61);
+  }
+  .header__name__sm{
+    font-size: 14px;
+    padding: 2px 0;
+    text-shadow: 0.5px 0.5px 0.5px #000;
+    color: #fff;
   }
 </style>

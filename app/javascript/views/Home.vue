@@ -1,5 +1,5 @@
 <template>
-  <div class='search__wrapper'>
+  <div v-if="$mq !== 'sm'" class="search__wrapper">
     <div>
       <div class="search__left">
         <div class="search__type__wrapper">
@@ -38,6 +38,28 @@
         </div>
       </div>
     </div>
+  </div>
+  <div v-else class="search__wrapper__sm">
+    <SearchHeader searchHeaderName='目的から探す' />
+    <div class="search__type__wrapper__sm">
+      <ul class="search__type__list__sm">
+        <HomeTypeButton v-for="(n, index) in 3" :categoryId="index" />
+      </ul>
+      <ul class="search__type__list__sm">
+        <HomeTypeButton v-for="(n, index) in 3" :categoryId="index + 3" />
+      </ul>
+    </div>
+    <SearchHeader searchHeaderName='島名から探す' />
+    <div class="search__name__wrapper__sm">
+      <ul class="search__name__list__sm">
+        <HomeIslandName v-for="(n, index) in 4" :areaId="index" />
+      </ul>
+      <ul class="search__name__list__sm">
+        <HomeIslandName v-for="(n, index) in 4" :areaId="index + 4" />
+      </ul>
+    </div>
+    <SearchHeader searchHeaderName='キーワードから探す' />
+    <SearchForm />
   </div>
 </template>
 
@@ -132,5 +154,30 @@ export default {
   }
   .search__name__main__list{
     display: flex;
+  }
+  /* スマホ表示用 */
+  .search__wrapper__sm{
+    min-height: calc(100vh - 94px);
+    background-color: whitesmoke;
+  }
+  .search__type__wrapper__sm{
+    padding-bottom: 16px;
+    background-color: #efebe6;
+  }
+  .search__type__list__sm{
+    background-color: whitesmoke;
+    display: flex;
+  }
+  .search__name__wrapper__sm{
+    padding-bottom: 16px;
+    background-color: #efebe6;
+    display: flex;
+  }
+  .search__name__list__sm{
+    width: calc(100% / 2);
+    background-color: whitesmoke;
+  }
+  .border__right{
+    border-right: solid 1.5px #ccc;
   }
 </style>

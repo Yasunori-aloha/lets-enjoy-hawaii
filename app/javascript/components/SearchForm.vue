@@ -1,5 +1,5 @@
 <template>
-  <form class="form">
+  <form v-if="$mq !== 'sm'" class="form">
     <div class="keyword">
       <label for="q_name_cont" class="main__word">キーワード</label>
       <input v-model="searchData.word" placeholder="ホテル名・地名やイベント名など" class="text__field"  type="search" name="q[name_cont]" id="q_name_cont">
@@ -11,6 +11,19 @@
       </select>
     </div>
     <button @click.prevent="searchWordScore()" class="submit btn__hover">検索</button>
+  </form>
+  <form v-else class="form__sm">
+    <div class="keyword__sm">
+      <label for="q_name_cont" class="main__word">キーワード</label>
+      <input v-model="searchData.word" placeholder="ホテル名・地名やイベント名など" class="text__field__sm"  type="text" name="q[name_cont]" id="q_name_cont">
+    </div>
+    <div class="select__sm">
+      <label for="q_score_gteq" class="main__select__sm">評価</label>
+      <select @change="choiceScore" ref="choiceScore" name="q[score_gteq]" id="score" class="select__box__sm">
+        <option v-for="(value, index) in optionTexts" :value="index">{{ value }}</option>
+      </select>
+    </div>
+    <button @click.prevent="searchWordScore()" class="submit__sm btn__hover">検索</button>
   </form>
 </template>
 
@@ -93,5 +106,53 @@ export default {
     border-radius: 4px;
     background-color: #90b200;
     font-size: 18px;
+  }
+  /* スマホ表示用 */
+  .form__sm{
+    padding-bottom: 16px;
+  }
+  .keyword__sm{
+    line-height: 52px;
+    margin: 10px 10px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+  }
+  .text__field__sm{
+    width: calc(100% - 90px);
+    margin: 10px 0;
+    padding-left: 5px;
+    border: 1px solid #808080;
+    border-radius: 4px;
+  }
+  .select__sm{
+    line-height: 52px;
+    margin: 10px 10px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+  }
+  .main__select__sm{
+    width: 80px;
+    margin-right: 10px;
+    color: #646464;
+    font-weight: bold;
+  }
+  .select__box__sm{
+    height: 32px;
+    margin: 10px 0;
+    border: 1px solid #808080;
+    border-radius: 4px;
+  }
+  .submit__sm{
+    margin: 20px 10px 0;
+    height: 46px;
+    width: calc(100% - 20px);
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #90b200;
+    cursor: pointer;
   }
 </style>

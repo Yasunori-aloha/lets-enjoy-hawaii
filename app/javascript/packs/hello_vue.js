@@ -7,6 +7,7 @@ import App from '../app.vue';
 import axios from 'axios';
 import { csrfToken } from "rails-ujs";
 import VueAxios from '../plugins/vue_axios.js';
+import VueMq from '../plugins/vue-mq.js'
 
 Vue.use(Vuex);
 Vue.use(VueRouter);
