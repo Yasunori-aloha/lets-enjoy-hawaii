@@ -17,9 +17,9 @@
       <label for="q_name_cont" class="main__word">キーワード</label>
       <input v-model="searchData.word" placeholder="ホテル名・地名やイベント名など" class="text__field__sm"  type="text" name="q[name_cont]" id="q_name_cont">
     </div>
-    <div class="select">
-      <label for="q_score_gteq" class="main__select">評価</label>
-      <select @change="choiceScore" ref="choiceScore" name="q[score_gteq]" id="score" class="select__box">
+    <div class="select__sm">
+      <label for="q_score_gteq" class="main__select__sm">評価</label>
+      <select @change="choiceScore" ref="choiceScore" name="q[score_gteq]" id="score" class="select__box__sm">
         <option v-for="(value, index) in optionTexts" :value="index">{{ value }}</option>
       </select>
     </div>
@@ -117,14 +117,30 @@ export default {
     padding-bottom: 10px;
     border-bottom: 1px solid #ccc;
     display: flex;
-    align-content: center;
-    justify-content: space-between;
   }
   .text__field__sm{
+    width: calc(100% - 90px);
     margin: 10px 0;
     padding-left: 5px;
+    border: 1px solid #808080;
+    border-radius: 4px;
+  }
+  .select__sm{
+    line-height: 52px;
+    margin: 10px 10px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+  }
+  .main__select__sm{
+    width: 80px;
+    margin-right: 10px;
+    color: #646464;
+    font-weight: bold;
+  }
+  .select__box__sm{
     height: 32px;
-    width: calc(100% - 90px);
+    margin: 10px 0;
     border: 1px solid #808080;
     border-radius: 4px;
   }
