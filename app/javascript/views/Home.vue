@@ -59,6 +59,7 @@
       </ul>
     </div>
     <SearchHeader searchHeaderName='キーワードから探す' />
+    <SearchForm />
   </div>
 </template>
 

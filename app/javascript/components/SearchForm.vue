@@ -1,6 +1,19 @@
 <template>
-  <form class="form">
+  <form v-if="$mq !== 'sm'" class="form">
     <div class="keyword">
+      <label for="q_name_cont" class="main__word">キーワード</label>
+      <input v-model="searchData.word" placeholder="ホテル名・地名やイベント名など" class="text__field"  type="search" name="q[name_cont]" id="q_name_cont">
+    </div>
+    <div class="select">
+      <label for="q_score_gteq" class="main__select">評価</label>
+      <select @change="choiceScore" ref="choiceScore" name="q[score_gteq]" id="score" class="select__box">
+        <option v-for="(value, index) in optionTexts" :value="index">{{ value }}</option>
+      </select>
+    </div>
+    <button @click.prevent="searchWordScore()" class="submit btn__hover">検索</button>
+  </form>
+  <form v-else class="form__sm">
+    <div class="keyword__sm">
       <label for="q_name_cont" class="main__word">キーワード</label>
       <input v-model="searchData.word" placeholder="ホテル名・地名やイベント名など" class="text__field"  type="search" name="q[name_cont]" id="q_name_cont">
     </div>
@@ -94,4 +107,12 @@ export default {
     background-color: #90b200;
     font-size: 18px;
   }
+  /* スマホ表示用 */
+  .form__sm{
+    padding-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .keyword__sm{}
 </style>
