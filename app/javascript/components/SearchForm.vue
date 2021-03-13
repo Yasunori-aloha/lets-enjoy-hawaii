@@ -15,7 +15,7 @@
   <form v-else class="form__sm">
     <div class="keyword__sm">
       <label for="q_name_cont" class="main__word">キーワード</label>
-      <input v-model="searchData.word" placeholder="ホテル名・地名やイベント名など" class="text__field"  type="search" name="q[name_cont]" id="q_name_cont">
+      <input v-model="searchData.word" placeholder="ホテル名・地名やイベント名など" class="text__field__sm"  type="text" name="q[name_cont]" id="q_name_cont">
     </div>
     <div class="select">
       <label for="q_score_gteq" class="main__select">評価</label>
@@ -110,9 +110,22 @@ export default {
   /* スマホ表示用 */
   .form__sm{
     padding-bottom: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
-  .keyword__sm{}
+  .keyword__sm{
+    line-height: 52px;
+    margin: 10px 10px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+  }
+  .text__field__sm{
+    margin: 10px 0;
+    padding-left: 5px;
+    height: 32px;
+    width: calc(100% - 90px);
+    border: 1px solid #808080;
+    border-radius: 4px;
+  }
 </style>
