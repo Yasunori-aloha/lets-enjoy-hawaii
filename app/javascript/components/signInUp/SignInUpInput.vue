@@ -31,7 +31,7 @@
   </div>
   <div v-else>
     <div v-if="checkSignIn()" class="sign__in__up__form">
-      <p v-if="loginErrorMessage" class="login__error_message">{{ loginErrorMessage }}</p>
+      <p v-if="loginErrorMessage" class="login__error_message__sm">{{ loginErrorMessage }}</p>
       <form @submit.prevent="userLogin(signInForms)" class="sign__in__up__user__sm">
         <div v-for="form in signInForms" class="sign__in__up__form__input">
           <input :style="{'background-color': form.backGroundColor, 'border': `1px solid ${form.boderColor}`}" v-model="form.input" @blur="checkValidate(form)" :placeholder="form.placeholder" :autocomplete="form.autocomplete" :autocorrect="form.autocorrect" :autocapitalize="form.autocapitalize" :type="form.type" :name="form.name" :maxlength="form.maxlength" :size="form.size" class="sign__in__up__input__sm">
@@ -302,6 +302,12 @@ export default {
     font-size: 18px;
   }
   /* スマホ表示用 */
+  .login__error_message__sm{
+      font-size: 11px;
+      color: red;
+      margin-bottom: 15px;
+      text-align: center;
+  }
   .sign__in__up__input__sm{
     height: 50px;
     width: 100%;
