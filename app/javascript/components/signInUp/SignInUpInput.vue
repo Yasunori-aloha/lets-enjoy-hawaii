@@ -46,7 +46,7 @@
             <span>ログイン状態を保持</span>
           </label>
         </div>
-        <button type="submit" name="commit" class="sign__in__up__button button__cv btn__hover">ログイン</button>
+        <button type="submit" name="commit" class="sign__in__up__button__sm button__cv btn__hover">ログイン</button>
       </form>
     </div>
     <div v-else class="sign__in__up__form">

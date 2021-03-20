@@ -14,6 +14,14 @@
   <div v-else>
     <AppIcon class="sign__in__up__root__to__sm" />
     <SignInUpForm />
+    <ul class="sign__in__up__footer__wrapper__sm">
+      <li class="sign__in__up__footer__link">
+        <a href="mailto:t26.yasunori.yamasaki@gmail.com" class="leh__email__sm">ヘルプ・お問い合わせ</a>
+      </li>
+      <li class="sign__in__up__copyright">
+        Copyright© yasunori_yamasaki All Rights Reserved.
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -49,6 +57,8 @@ export default {
   .sign__in__up__footer__wrapper{
     height: 60px;
     width: 100%;
+    color: white;
+    font-size: 10px;
     text-shadow: 1px 1px 1px black;
     text-align: center;
     position: absolute;
@@ -63,13 +73,23 @@ export default {
     font-size: 10px;
     text-decoration: none;
   }
-  .sign__in__up__footer__wrapper{
-    color: white;
-    font-size: 10px;
-  }
   /* スマホ表示用 */
   .sign__in__up__root__to__sm{
     display: block;
     margin: 5px 0 0 10px;
+  }
+  .leh__email__sm{
+    color: gray;
+    font-size: 10px;
+    text-decoration: none;
+  }
+  .sign__in__up__footer__wrapper__sm{
+    height: 60px;
+    width: 100%;
+    color: gray;
+    font-size: 10px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
   }
 </style>
