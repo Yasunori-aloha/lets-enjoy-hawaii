@@ -1,5 +1,16 @@
 <template>
-  <div class="sign__in__up__main">
+  <div v-if="$mq !== 'sm'" class="sign__in__up__main">
+    <span v-if="checkSignIn()" class="sign__in__up__text">ログイン</span>
+    <span v-else class="sign__in__up__text">会員登録</span>
+    <SignInUpInput />
+    <!-- <SocialLoginLink /> -->
+    <SignInUpLink />
+    <div class="guest__user__sign__in__form">
+      <span class="guest__user__login__text">※アカウント登録せず、ユーザー機能を試したい方は</span>
+      <button @click="guestUserLogin()" class="guest__user__login__button link__hover__not__underline">こちら</button>
+    </div>
+  </div>
+  <div v-else>
     <span v-if="checkSignIn()" class="sign__in__up__text">ログイン</span>
     <span v-else class="sign__in__up__text">会員登録</span>
     <SignInUpInput />

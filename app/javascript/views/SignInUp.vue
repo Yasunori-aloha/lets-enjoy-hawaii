@@ -1,5 +1,5 @@
 <template>
-  <div class="sign__in__up__wrapper">
+  <div v-if="$mq !== 'sm'" class="sign__in__up__wrapper">
     <AppIcon class="sign__in__up__root__to"/>
     <SignInUpForm />
     <ul class="sign__in__up__footer__wrapper">
@@ -10,6 +10,10 @@
         Copyright© yasunori_yamasaki All Rights Reserved.
       </li>
     </ul>
+  </div>
+  <div v-else>
+    <AppIcon class="sign__in__up__root__to__sm" />
+    <SignInUpForm />
   </div>
 </template>
 
@@ -62,5 +66,10 @@ export default {
   .sign__in__up__footer__wrapper{
     color: white;
     font-size: 10px;
+  }
+  /* スマホ表示用 */
+  .sign__in__up__root__to__sm{
+    display: block;
+    margin: 5px 0 0 10px;
   }
 </style>
