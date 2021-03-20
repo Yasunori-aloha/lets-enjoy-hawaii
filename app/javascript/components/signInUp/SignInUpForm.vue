@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$mq !== 'sm'" class="sign__in__up__main__sm">
+  <div v-if="$mq !== 'sm'" class="sign__in__up__main">
     <span v-if="checkSignIn()" class="sign__in__up__text">ログイン</span>
     <span v-else class="sign__in__up__text">会員登録</span>
     <SignInUpInput />
