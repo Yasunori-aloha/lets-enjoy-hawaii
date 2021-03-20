@@ -17,7 +17,7 @@
     <!-- <SocialLoginLink /> -->
     <SignInUpLink />
     <div class="guest__user__sign__in__form">
-      <span class="guest__user__login__text">※アカウント登録せず、ユーザー機能を試したい方は</span>
+      <span class="guest__user__login__text__sm">※アカウント登録せず、ユーザー機能を試したい方は</span>
       <button @click="guestUserLogin()" class="guest__user__login__button link__hover__not__underline">こちら</button>
     </div>
   </div>
@@ -102,5 +102,9 @@ export default {
     font-weight: 700;
     display: block;
     text-align: center;
+  }
+  .guest__user__login__text__sm{
+    font-size: 13px;
+    margin-right: 5px;
   }
 </style>
