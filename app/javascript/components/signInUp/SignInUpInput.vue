@@ -1,31 +1,63 @@
 <template>
-  <div v-if="checkSignIn()" class="sign__in__up__form">
-    <p v-if="loginErrorMessage" class="login__error_message">{{ loginErrorMessage }}</p>
-    <form @submit.prevent="userLogin(signInForms)" class="sign__in__up__user">
-      <div v-for="form in signInForms" class="sign__in__up__form__input">
-        <input :style="{'background-color': form.backGroundColor, 'border': `1px solid ${form.boderColor}`}" v-model="form.input" @blur="checkValidate(form)" :placeholder="form.placeholder" :autocomplete="form.autocomplete" :autocorrect="form.autocorrect" :autocapitalize="form.autocapitalize" :type="form.type" :name="form.name" :maxlength="form.maxlength" :size="form.size" class="sign__in__up__input">
-        <span v-if="form.errorFlag" class="sign__in__up__error___message">{{ form.errorMessage }}</span>
-      </div>
-      <div class="remember__password">
-        <label class="remember__me">
-          <span aria-checked="true">
-            <input type="hidden" value="0" name="user[remember_me]">
-            <input type="checkbox" value="1" name="user[remember_me]">
-          </span>
-          <span>ログイン状態を保持</span>
-        </label>
-      </div>
-      <button type="submit" name="commit" class="sign__in__up__button button__cv btn__hover">ログイン</button>
-    </form>
+  <div v-if="$mq !== 'sm'">
+    <div v-if="checkSignIn()" class="sign__in__up__form">
+      <p v-if="loginErrorMessage" class="login__error_message">{{ loginErrorMessage }}</p>
+      <form @submit.prevent="userLogin(signInForms)" class="sign__in__up__user">
+        <div v-for="form in signInForms" class="sign__in__up__form__input">
+          <input :style="{'background-color': form.backGroundColor, 'border': `1px solid ${form.boderColor}`}" v-model="form.input" @blur="checkValidate(form)" :placeholder="form.placeholder" :autocomplete="form.autocomplete" :autocorrect="form.autocorrect" :autocapitalize="form.autocapitalize" :type="form.type" :name="form.name" :maxlength="form.maxlength" :size="form.size" class="sign__in__up__input">
+          <span v-if="form.errorFlag" class="sign__in__up__error___message">{{ form.errorMessage }}</span>
+        </div>
+        <div class="remember__password">
+          <label class="remember__me">
+            <span aria-checked="true">
+              <input type="hidden" value="0" name="user[remember_me]">
+              <input type="checkbox" value="1" name="user[remember_me]">
+            </span>
+            <span>ログイン状態を保持</span>
+          </label>
+        </div>
+        <button type="submit" name="commit" class="sign__in__up__button button__cv btn__hover">ログイン</button>
+      </form>
+    </div>
+    <div v-else class="sign__in__up__form">
+      <form @submit.prevent="userSignUp(signUpForms)" class="sign__in__up__user">
+        <div v-for="form in signUpForms" class="sign__in__up__form__input">
+          <input :style="{'background-color': form.backGroundColor, 'border': `1px solid ${form.boderColor}`}" v-model="form.input" @blur="checkValidate(form)" :placeholder="form.placeholder" :autocomplete="form.autocomplete" :autocorrect="form.autocorrect" :autocapitalize="form.autocapitalize" :type="form.type" :name="form.name" :maxlength="form.maxlength" :size="form.size" class="sign__in__up__input">
+          <span v-if="form.errorFlag" class="sign__in__up__error___message">{{ form.errorMessage }}</span>
+        </div>
+        <input type="submit" name="commit" value="登録する" class="sign__in__up__button button__cv btn__hover">
+      </form>
+    </div>
   </div>
-  <div v-else class="sign__in__up__form">
-    <form @submit.prevent="userSignUp(signUpForms)" class="sign__in__up__user">
-      <div v-for="form in signUpForms" class="sign__in__up__form__input">
-        <input :style="{'background-color': form.backGroundColor, 'border': `1px solid ${form.boderColor}`}" v-model="form.input" @blur="checkValidate(form)" :placeholder="form.placeholder" :autocomplete="form.autocomplete" :autocorrect="form.autocorrect" :autocapitalize="form.autocapitalize" :type="form.type" :name="form.name" :maxlength="form.maxlength" :size="form.size" class="sign__in__up__input">
-        <span v-if="form.errorFlag" class="sign__in__up__error___message">{{ form.errorMessage }}</span>
-      </div>
-      <input type="submit" name="commit" value="登録する" class="sign__in__up__button button__cv btn__hover">
-    </form>
+  <div v-else>
+    <div v-if="checkSignIn()" class="sign__in__up__form">
+      <p v-if="loginErrorMessage" class="login__error_message">{{ loginErrorMessage }}</p>
+      <form @submit.prevent="userLogin(signInForms)" class="sign__in__up__user__sm">
+        <div v-for="form in signInForms" class="sign__in__up__form__input">
+          <input :style="{'background-color': form.backGroundColor, 'border': `1px solid ${form.boderColor}`}" v-model="form.input" @blur="checkValidate(form)" :placeholder="form.placeholder" :autocomplete="form.autocomplete" :autocorrect="form.autocorrect" :autocapitalize="form.autocapitalize" :type="form.type" :name="form.name" :maxlength="form.maxlength" :size="form.size" class="sign__in__up__input__sm">
+          <span v-if="form.errorFlag" class="sign__in__up__error___message">{{ form.errorMessage }}</span>
+        </div>
+        <div class="remember__password">
+          <label class="remember__me">
+            <span aria-checked="true">
+              <input type="hidden" value="0" name="user[remember_me]">
+              <input type="checkbox" value="1" name="user[remember_me]">
+            </span>
+            <span>ログイン状態を保持</span>
+          </label>
+        </div>
+        <button type="submit" name="commit" class="sign__in__up__button button__cv btn__hover">ログイン</button>
+      </form>
+    </div>
+    <div v-else class="sign__in__up__form">
+      <form @submit.prevent="userSignUp(signUpForms)" class="sign__in__up__user__sm">
+        <div v-for="form in signUpForms" class="sign__in__up__form__input">
+          <input :style="{'background-color': form.backGroundColor, 'border': `1px solid ${form.boderColor}`}" v-model="form.input" @blur="checkValidate(form)" :placeholder="form.placeholder" :autocomplete="form.autocomplete" :autocorrect="form.autocorrect" :autocapitalize="form.autocapitalize" :type="form.type" :name="form.name" :maxlength="form.maxlength" :size="form.size" class="sign__in__up__input__sm">
+          <span v-if="form.errorFlag" class="sign__in__up__error___message">{{ form.errorMessage }}</span>
+        </div>
+        <input type="submit" name="commit" value="登録する" class="sign__in__up__button button__cv btn__hover">
+      </form>
+    </div>
   </div>
 </template>
 
@@ -215,58 +247,74 @@ export default {
 </script>
 
 <style scoped>
-.sign__in__up__form{
-  width: 100%;
-}
-.login__error_message{
+  .sign__in__up__form{
+    width: 100%;
+  }
+  .login__error_message{
+      font-size: 13px;
+      color: red;
+      margin-bottom: 15px;
+      text-align: center;
+  }
+  .sign__in__up__user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .sign__in__up__form__input{
+    width: 100%;
+    margin-bottom: 30px;
+    position: relative;
+  }
+  .sign__in__up__input{
+    border: 1px solid #ccc;
+    appearance: none;
+    height: 50px;
+    width: 100%;
+    outline: 0;
+    border-radius: 6px;
+    padding: 15px;
+    font-size: 14px;
+  }
+  .sign__in__up__error___message{
+    font-size: 12px;
+    color: #ff0000;
+    position: absolute;
+    left: 0;
+    top: 54px;
+  }
+  .remember__password{
+    width: 100%;
     font-size: 13px;
-    color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 15px;
-    text-align: center;
-}
-.sign__in__up__user{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
-}
-.sign__in__up__form__input{
-  width: 100%;
-  margin-bottom: 30px;
-  position: relative;
-}
-.sign__in__up__input{
-  border: 1px solid #ccc;
-  appearance: none;
-  height: 50px;
-  width: 100%;
-  outline: 0;
-  border-radius: 6px;
-  padding: 15px;
-  font-size: 14px;
-}
-.sign__in__up__error___message{
-  font-size: 12px;
-  color: #ff0000;
-  position: absolute;
-  left: 0;
-  top: 54px;
-}
-.remember__password{
-  width: 100%;
-  font-size: 13px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
-.remember__me{
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-.sign__in__up__button{
-  width: 100%;
-  font-size: 18px;
-}
+  }
+  .remember__me{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  .sign__in__up__button{
+    width: 100%;
+    font-size: 18px;
+  }
+  /* スマホ表示用 */
+  .sign__in__up__input__sm{
+    height: 40px;
+    width: 100%;
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    appearance: none;
+  }
+  .sign__in__up__user__sm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
 </style>
