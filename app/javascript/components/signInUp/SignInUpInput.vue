@@ -25,7 +25,7 @@
           <input :style="{'background-color': form.backGroundColor, 'border': `1px solid ${form.boderColor}`}" v-model="form.input" @blur="checkValidate(form)" :placeholder="form.placeholder" :autocomplete="form.autocomplete" :autocorrect="form.autocorrect" :autocapitalize="form.autocapitalize" :type="form.type" :name="form.name" :maxlength="form.maxlength" :size="form.size" class="sign__in__up__input">
           <span v-if="form.errorFlag" class="sign__in__up__error___message">{{ form.errorMessage }}</span>
         </div>
-        <input type="submit" name="commit" value="登録する" class="sign__in__up__button button__cv btn__hover">
+        <button type="submit" name="commit" class="sign__in__up__button button__cv btn__hover">登録する</button>
       </form>
     </div>
   </div>
@@ -55,7 +55,7 @@
           <input :style="{'background-color': form.backGroundColor, 'border': `1px solid ${form.boderColor}`}" v-model="form.input" @blur="checkValidate(form)" :placeholder="form.placeholder" :autocomplete="form.autocomplete" :autocorrect="form.autocorrect" :autocapitalize="form.autocapitalize" :type="form.type" :name="form.name" :maxlength="form.maxlength" :size="form.size" class="sign__in__up__input__sm">
           <span v-if="form.errorFlag" class="sign__in__up__error___message__sm">{{ form.errorMessage }}</span>
         </div>
-        <input type="submit" name="commit" value="登録する" class="sign__in__up__button__sm button__cv btn__hover">
+        <button type="submit" name="commit" class="sign__in__up__button__sm button__cv btn__hover">登録する</button>
       </form>
     </div>
   </div>
