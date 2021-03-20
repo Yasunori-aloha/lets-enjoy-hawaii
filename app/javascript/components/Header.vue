@@ -11,6 +11,9 @@
     </ul>
     <ul v-else :class="{signup__login__wrapper: $mq !== 'sm', signup__login__wrapper__sm: $mq === 'sm'}">
       <li>
+        <span @click="guestUserLogin()" class="sl__link link__hover">ゲストユーザーログイン</span>
+      </li>
+      <li>
         <router-link to="/users/sign_in" class="sl__link link__hover">ログイン</router-link>
       </li>
       <li>
@@ -35,6 +38,11 @@ export default {
     },
   },
   methods: {
+    guestUserLogin: async function() {
+      await this.$store.dispatch('guestUserLogin').catch(error => {
+        console.log(error.response.data);
+      });
+    },
     userLogout: async function() {
       const redirectRoot = /\/users\/\d/.test(this.$route.path)
       const redirectSignUp = /\/experience\/review/.test(this.$route.path);
