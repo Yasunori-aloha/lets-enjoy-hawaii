@@ -303,7 +303,7 @@ export default {
   }
   /* スマホ表示用 */
   .sign__in__up__input__sm{
-    height: 40px;
+    height: 50px;
     width: 100%;
     padding: 15px;
     border-radius: 6px;
@@ -315,7 +315,7 @@ export default {
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
-    padding: 0 10px;
+    padding: 0 20px;
   }
   .sign__in__up__error___message__sm{
     font-size: 14px;
