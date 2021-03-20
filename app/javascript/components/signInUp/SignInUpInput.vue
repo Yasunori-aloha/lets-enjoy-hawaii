@@ -35,7 +35,7 @@
       <form @submit.prevent="userLogin(signInForms)" class="sign__in__up__user__sm">
         <div v-for="form in signInForms" class="sign__in__up__form__input">
           <input :style="{'background-color': form.backGroundColor, 'border': `1px solid ${form.boderColor}`}" v-model="form.input" @blur="checkValidate(form)" :placeholder="form.placeholder" :autocomplete="form.autocomplete" :autocorrect="form.autocorrect" :autocapitalize="form.autocapitalize" :type="form.type" :name="form.name" :maxlength="form.maxlength" :size="form.size" class="sign__in__up__input__sm">
-          <span v-if="form.errorFlag" class="sign__in__up__error___message">{{ form.errorMessage }}</span>
+          <span v-if="form.errorFlag" class="sign__in__up__error___message__sm">{{ form.errorMessage }}</span>
         </div>
         <div class="remember__password">
           <label class="remember__me">
@@ -53,7 +53,7 @@
       <form @submit.prevent="userSignUp(signUpForms)" class="sign__in__up__user__sm">
         <div v-for="form in signUpForms" class="sign__in__up__form__input">
           <input :style="{'background-color': form.backGroundColor, 'border': `1px solid ${form.boderColor}`}" v-model="form.input" @blur="checkValidate(form)" :placeholder="form.placeholder" :autocomplete="form.autocomplete" :autocorrect="form.autocorrect" :autocapitalize="form.autocapitalize" :type="form.type" :name="form.name" :maxlength="form.maxlength" :size="form.size" class="sign__in__up__input__sm">
-          <span v-if="form.errorFlag" class="sign__in__up__error___message">{{ form.errorMessage }}</span>
+          <span v-if="form.errorFlag" class="sign__in__up__error___message__sm">{{ form.errorMessage }}</span>
         </div>
         <input type="submit" name="commit" value="登録する" class="sign__in__up__button button__cv btn__hover">
       </form>
@@ -316,5 +316,12 @@ export default {
     align-items: center;
     margin: 0 auto;
     padding: 0 10px;
+  }
+  .sign__in__up__error___message__sm{
+    font-size: 14px;
+    color: #ff0000;
+    position: absolute;
+    left: 0;
+    top: 40px;
   }
 </style>

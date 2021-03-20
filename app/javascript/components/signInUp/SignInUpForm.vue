@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$mq !== 'sm'" class="sign__in__up__main">
+  <div v-if="$mq !== 'sm'" class="sign__in__up__main__sm">
     <span v-if="checkSignIn()" class="sign__in__up__text">ログイン</span>
     <span v-else class="sign__in__up__text">会員登録</span>
     <SignInUpInput />
@@ -10,9 +10,9 @@
       <button @click="guestUserLogin()" class="guest__user__login__button link__hover__not__underline">こちら</button>
     </div>
   </div>
-  <div v-else>
-    <span v-if="checkSignIn()" class="sign__in__up__text">ログイン</span>
-    <span v-else class="sign__in__up__text">会員登録</span>
+  <div v-else class="sign__in__up__main__sm">
+    <span v-if="checkSignIn()" class="sign__in__up__text__sm">ログイン</span>
+    <span v-else class="sign__in__up__text__sm">会員登録</span>
     <SignInUpInput />
     <!-- <SocialLoginLink /> -->
     <SignInUpLink />
@@ -91,5 +91,16 @@ export default {
     border: none;
     outline: none;
     cursor: pointer;
+  }
+  /* スマホ表示用 */
+  .sign__in__up__main__sm{
+    border-top: 1px solid #ccc;
+  }
+  .sign__in__up__text__sm{
+    margin: 28px 0 7px;
+    font-size: 21px;
+    font-weight: 700;
+    display: block;
+    text-align: center;
   }
 </style>
