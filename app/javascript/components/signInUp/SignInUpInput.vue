@@ -55,7 +55,7 @@
           <input :style="{'background-color': form.backGroundColor, 'border': `1px solid ${form.boderColor}`}" v-model="form.input" @blur="checkValidate(form)" :placeholder="form.placeholder" :autocomplete="form.autocomplete" :autocorrect="form.autocorrect" :autocapitalize="form.autocapitalize" :type="form.type" :name="form.name" :maxlength="form.maxlength" :size="form.size" class="sign__in__up__input__sm">
           <span v-if="form.errorFlag" class="sign__in__up__error___message__sm">{{ form.errorMessage }}</span>
         </div>
-        <input type="submit" name="commit" value="登録する" class="sign__in__up__button button__cv btn__hover">
+        <input type="submit" name="commit" value="登録する" class="sign__in__up__button__sm button__cv btn__hover">
       </form>
     </div>
   </div>
@@ -318,10 +318,14 @@ export default {
     padding: 0 20px;
   }
   .sign__in__up__error___message__sm{
-    font-size: 14px;
+    font-size: 11px;
     color: #ff0000;
     position: absolute;
     left: 0;
-    top: 40px;
+    top: 52px;
+  }
+  .sign__in__up__button__sm{
+    width: 100%;
+    font-size: 16px;
   }
 </style>
