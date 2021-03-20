@@ -84,7 +84,7 @@ export default {
         },
         {
           type: 'password',
-          placeholder: 'パスワード（8～20文字・半角英数字・記号を2種以上）',
+          placeholder: 'パスワード(8～20文字・半角英数字・記号を2種以上)',
           input: '',
           name: 'user[password]',
           autocomplete: 'current-password',
@@ -134,7 +134,7 @@ export default {
         },
         {
           type: 'password',
-          placeholder: 'パスワード（8～20文字・半角英数字・記号を2種以上）',
+          placeholder: 'パスワード(8～20文字・半角英数字・記号を2種以上)',
           input: '',
           name: 'user[password]',
           autocomplete: 'current-password',
@@ -307,10 +307,14 @@ export default {
   .sign__in__up__input__sm{
     height: 50px;
     width: 100%;
-    padding: 15px;
+    padding: 9px;
     border-radius: 6px;
     font-size: 14px;
     appearance: none;
+  }
+  .sign__in__up__input__sm::placeholder{
+    font-size: 13px;
+    color: balck;
   }
   .sign__in__up__user__sm{
     display: flex;
