@@ -46,20 +46,22 @@
     </div>
   </div>
   <div v-else>
-    <div class="search__main__header__sm">
-      <h1 v-if="isWordSearchPage" class="search__main__title__sm">" {{ searchData.word }} "が含まれるスポット</h1>
-      <h1 v-else class="search__main__title__sm">{{ searchData.typeWord }}のスポット</h1>
-    </div>
-    <div class="search__main__info__sm">
-      <div class="search__main__info__up__sm">
-        <ul class="ul__number__sm">
-          <li>1 - {{ experiencesList.length }}件</li>
-          <li>（全{{ experiencesList.length }}件中）</li>
-        </ul>
+    <div class="search__main__wrapper__sm">
+      <div class="search__main__header__sm">
+        <h1 v-if="isWordSearchPage" class="search__main__title__sm">" {{ searchData.word }} "が含まれるスポット</h1>
+        <h1 v-else class="search__main__title__sm">{{ searchData.typeWord }}のスポット</h1>
       </div>
-      <!-- <div class="search__main__left__info__down">
-        <Sort />
-      </div> -->
+      <div class="search__main__info__sm">
+        <div class="search__main__info__up__sm">
+          <ul class="ul__number__sm">
+            <li>1 - {{ experiencesList.length }}件</li>
+            <li>（全{{ experiencesList.length }}件中）</li>
+          </ul>
+        </div>
+        <div class="search__main__info__down__sm">
+          <Sort />
+        </div>
+      </div>
     </div>
     <!-- <ul :class="{active__fade__in: sort.isFadeIn}">
       <li v-for="(experience, index) in sort.activeList" :key="experience.id" class="search__experience__list">
@@ -220,9 +222,14 @@ export default {
     font-weight: bold;
   }
   /* スマホ表示 */
+  .search__main__wrapper__sm{
+    padding-bottom: 11px;
+    background-color: #efebe6;
+  }
   .search__main__header__sm{
     display: flex;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
+    background-color: white;
   }
   .search__main__title__sm{
     font-size: 16px;
@@ -233,10 +240,11 @@ export default {
   }
   .search__main__info__sm{
     color: #333333;
-    /* margin-bottom: 10px; */
+    border-bottom: 1px solid #ccc;
+    background-color: white;
   }
   .search__main__info__up__sm{
-    height: 31px;
+    height: 25px;
     display: flex;
     justify-content: space-between;
   }
@@ -245,5 +253,10 @@ export default {
     font-size: 12px;
     font-weight: bold;
     margin-left: 7px;
+  }
+  .search__main__info__down__sm{
+    height: 25px;
+    font-size: 12px;
+    font-weight: bold;
   }
 </style>
