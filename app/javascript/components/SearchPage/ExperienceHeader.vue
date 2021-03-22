@@ -42,10 +42,10 @@ export default {
   }
   /* スマホ表示用 */
   .search__experience__header__sm{
-    height: 87px;
-    padding: 3px 0 10px;
+    height: 69px;
+    padding-top: 3px;
     margin: 0 10px;
-    border-bottom: 2px dotted #ccc;
+    border-bottom: 1px dotted #ccc;
   }
   .show__experiences__sm{
     font-size: 14px;
