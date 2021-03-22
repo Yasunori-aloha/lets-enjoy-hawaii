@@ -260,6 +260,7 @@ export default {
     font-weight: bold;
   }
   .search__experience__wrapper__sm{
+    min-height: calc(100vh - 207px);
     overflow: hidden;
     background-color: whitesmoke;
   }
