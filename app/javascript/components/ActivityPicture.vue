@@ -1,6 +1,8 @@
 <template>
-  <img v-if="isUsersPage" :src="activityPictureUsersPage(activity)" class="experience__picture">
-  <img v-else :src="activityPicture(activity)" class="experience__picture">
+  <img v-if="isUsersPage && $mq !== 'sm'" :src="activityPictureUsersPage(activity)" class="experience__picture">
+  <img v-else-if="!isUsersPage && $mq !== 'sm'" :src="activityPicture(activity)" class="experience__picture">
+  <img v-else-if="isUsersPage" :src="activityPictureUsersPage(activity)" class="experience__picture__sm">
+  <img v-else-if="!isUsersPage" :src="activityPicture(activity)" class="experience__picture__sm">
 </template>
 
 <script>

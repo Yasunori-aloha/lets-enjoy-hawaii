@@ -63,7 +63,7 @@
         </div>
       </div>
     </div>
-    <ul :class="{active__fade__in: sort.isFadeIn}">
+    <ul :class="{active__fade__in: sort.isFadeIn}" style="background-color: #efebe6;">
       <li v-for="(experience, index) in sort.activeList" :key="experience.id" class="search__experience__list__sm">
         <ExperienceHeader :experience="experience" />
         <ExperienceMain :experience="experience" />
@@ -260,8 +260,9 @@ export default {
     font-weight: bold;
   }
   .search__experience__list__sm{
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
+    background-color: white;
   }
 </style>
