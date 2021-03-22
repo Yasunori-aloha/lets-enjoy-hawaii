@@ -224,7 +224,7 @@ export default {
   /* スマホ表示 */
   .search__main__wrapper__sm{
     padding-bottom: 10px;
-    background-color: #efebe6;
+    background-color: whitesmoke;
   }
   .search__main__header__sm{
     display: flex;
@@ -261,7 +261,7 @@ export default {
   }
   .search__experience__wrapper__sm{
     overflow: hidden;
-    background-color: #efebe6;
+    background-color: whitesmoke;
   }
   .search__experience__list__sm{
     margin-bottom: 10px;
