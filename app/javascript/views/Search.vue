@@ -63,12 +63,12 @@
         </div>
       </div>
     </div>
-    <!-- <ul :class="{active__fade__in: sort.isFadeIn}">
-      <li v-for="(experience, index) in sort.activeList" :key="experience.id" class="search__experience__list">
+    <ul :class="{active__fade__in: sort.isFadeIn}">
+      <li v-for="(experience, index) in sort.activeList" :key="experience.id" class="search__experience__list__sm">
         <ExperienceHeader :experience="experience" />
         <ExperienceMain :experience="experience" />
       </li>
-    </ul> -->
+    </ul>
   </div>
 </template>
 
@@ -223,7 +223,7 @@ export default {
   }
   /* スマホ表示 */
   .search__main__wrapper__sm{
-    padding-bottom: 11px;
+    padding-bottom: 10px;
     background-color: #efebe6;
   }
   .search__main__header__sm{
@@ -258,5 +258,10 @@ export default {
     height: 25px;
     font-size: 12px;
     font-weight: bold;
+  }
+  .search__experience__list__sm{
+    margin-bottom: 15px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
   }
 </style>
