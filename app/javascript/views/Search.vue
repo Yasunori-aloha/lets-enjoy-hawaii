@@ -46,29 +46,27 @@
     </div>
   </div>
   <div v-else>
-    <div class="search__main__left">
-      <div class="search__main__left__header__sm">
-        <h1 v-if="isWordSearchPage" class="search__main__title__sm">" {{ searchData.word }} "が含まれるスポット</h1>
-        <h1 v-else class="search__main__title__sm">{{ searchData.typeWord }}のスポット</h1>
-      </div>
-      <div class="search__main__left__info">
-        <div class="search__main__left__info__up">
-          <ul class="ul__number">
-            <li>1 - {{ experiencesList.length }}件</li>
-            <li class="all__number">（全{{ experiencesList.length }}件中）</li>
-          </ul>
-        </div>
-        <!-- <div class="search__main__left__info__down">
-          <Sort />
-        </div> -->
-      </div>
-      <!-- <ul :class="{active__fade__in: sort.isFadeIn}">
-        <li v-for="(experience, index) in sort.activeList" :key="experience.id" class="search__experience__list">
-          <ExperienceHeader :experience="experience" />
-          <ExperienceMain :experience="experience" />
-        </li>
-      </ul> -->
+    <div class="search__main__header__sm">
+      <h1 v-if="isWordSearchPage" class="search__main__title__sm">" {{ searchData.word }} "が含まれるスポット</h1>
+      <h1 v-else class="search__main__title__sm">{{ searchData.typeWord }}のスポット</h1>
     </div>
+    <div class="search__main__info__sm">
+      <div class="search__main__info__up__sm">
+        <ul class="ul__number__sm">
+          <li>1 - {{ experiencesList.length }}件</li>
+          <li>（全{{ experiencesList.length }}件中）</li>
+        </ul>
+      </div>
+      <!-- <div class="search__main__left__info__down">
+        <Sort />
+      </div> -->
+    </div>
+    <!-- <ul :class="{active__fade__in: sort.isFadeIn}">
+      <li v-for="(experience, index) in sort.activeList" :key="experience.id" class="search__experience__list">
+        <ExperienceHeader :experience="experience" />
+        <ExperienceMain :experience="experience" />
+      </li>
+    </ul> -->
   </div>
 </template>
 
@@ -222,7 +220,7 @@ export default {
     font-weight: bold;
   }
   /* スマホ表示 */
-  .search__main__left__header__sm{
+  .search__main__header__sm{
     display: flex;
     margin-bottom: 10px;
   }
@@ -232,5 +230,20 @@ export default {
     color: #333333;
     line-height: 40px;
     padding-left: 10px;
+  }
+  .search__main__info__sm{
+    color: #333333;
+    /* margin-bottom: 10px; */
+  }
+  .search__main__info__up__sm{
+    height: 31px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .ul__number__sm{
+    display: flex;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 7px;
   }
 </style>
