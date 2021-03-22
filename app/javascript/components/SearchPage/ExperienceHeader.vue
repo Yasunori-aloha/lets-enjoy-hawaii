@@ -42,7 +42,7 @@ export default {
   }
   /* スマホ表示用 */
   .search__experience__header__sm{
-    height: 69px;
+    min-height: 69px;
     padding-top: 3px;
     margin: 0 10px;
     border-bottom: 1px dotted #ccc;
