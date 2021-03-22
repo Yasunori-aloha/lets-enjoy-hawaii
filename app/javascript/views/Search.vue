@@ -46,6 +46,29 @@
     </div>
   </div>
   <div v-else>
+    <div class="search__main__left">
+      <div class="search__main__left__header__sm">
+        <h1 v-if="isWordSearchPage" class="search__main__title__sm">" {{ searchData.word }} "が含まれるスポット</h1>
+        <h1 v-else class="search__main__title__sm">{{ searchData.typeWord }}のスポット</h1>
+      </div>
+      <div class="search__main__left__info">
+        <div class="search__main__left__info__up">
+          <ul class="ul__number">
+            <li>1 - {{ experiencesList.length }}件</li>
+            <li class="all__number">（全{{ experiencesList.length }}件中）</li>
+          </ul>
+        </div>
+        <!-- <div class="search__main__left__info__down">
+          <Sort />
+        </div> -->
+      </div>
+      <!-- <ul :class="{active__fade__in: sort.isFadeIn}">
+        <li v-for="(experience, index) in sort.activeList" :key="experience.id" class="search__experience__list">
+          <ExperienceHeader :experience="experience" />
+          <ExperienceMain :experience="experience" />
+        </li>
+      </ul> -->
+    </div>
   </div>
 </template>
 
@@ -197,5 +220,17 @@ export default {
     margin-top: 4px;
     font-size: 12px;
     font-weight: bold;
+  }
+  /* スマホ表示 */
+  .search__main__left__header__sm{
+    display: flex;
+    margin-bottom: 10px;
+  }
+  .search__main__title__sm{
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+    line-height: 40px;
+    padding-left: 10px;
   }
 </style>
