@@ -1,5 +1,5 @@
 <template>
-  <div class="search__wrapper">
+  <div v-if="$mq !== 'sm'" class="search__wrapper">
     <div class="search__main__left">
       <div class="search__main__left__header">
         <h1 v-if="isWordSearchPage" class="search__main__title">" {{ searchData.word }} "が含まれるスポット</h1>
@@ -44,6 +44,8 @@
         </div>
       </div> -->
     </div>
+  </div>
+  <div v-else>
   </div>
 </template>
 
