@@ -1,5 +1,5 @@
 <template>
-  <div class="search__experience__main">
+  <div v-if="$mq !== 'sm'" class="search__experience__main">
     <ActivityPicture :activity="experience" />
     <div class="experience__outline__wrapper">
       <div class="experience__outline__main link__hover"></div>
@@ -9,6 +9,21 @@
         <span>{{ experience.genre.name }}</span>
       </div>
       <div class="search__experience__favorites">
+        <i class="fas fa-star star__icon"></i>
+        <span class="experience__favorite__counts">{{ experience.favorite_counts }}</span>
+      </div>
+    </div>
+  </div>
+  <div v-else class="search__experience__main__sm">
+    <ActivityPicture :activity="experience" />
+    <div class="experience__outline__wrapper">
+      <div class="experience__outline__main link__hover"></div>
+      <div class="experience__outline__sub"></div>
+      <div class="experience__outline__category">
+        <i class="fas fa-flag category__icon"></i>
+        <span>{{ experience.genre.name }}</span>
+      </div>
+      <div class="search__experience__favorites__sm">
         <i class="fas fa-star star__icon"></i>
         <span class="experience__favorite__counts">{{ experience.favorite_counts }}</span>
       </div>
@@ -35,8 +50,6 @@ export default {
     display: flex;
   }
   .experience__picture{
-    /* height: 134px;
-    width: 178px; */
     height: 150px;
     width: 180px;
     border: 1px solid #ccc;
@@ -79,5 +92,23 @@ export default {
   .experience__favorite__counts{
     font-weight: bold;
     line-height: 26px;
+  }
+  /* スマホ表示用 */
+  .search__experience__main__sm{
+    height: 79px;
+    margin: 7px 10px 16px;
+    display: flex;
+  }
+  .experience__picture__sm{
+    height: 79px;
+    width: 120px;
+    border: 1px solid #ccc;
+  }
+  .search__experience__favorites__sm{
+    position: absolute;
+    right: 0;
+    bottom: -10px;
+    color: #333333;
+    font-size: 22px;
   }
 </style>

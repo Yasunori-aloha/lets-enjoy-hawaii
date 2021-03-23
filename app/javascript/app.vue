@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-view name="header" />
-    <router-view name="pageMenu" />
+    <router-view v-if="$mq !== 'sm'" name="pageMenu" />
     <router-view />
     <router-view name="footer" />
   </div>

@@ -54,6 +54,7 @@ export default {
     padding: 0 5px;
   }
   .sort__link{
+    font-weight: normal;
     text-decoration: underline;
   }
   .active__sort{
