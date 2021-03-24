@@ -1,16 +1,25 @@
 <template>
-  <div>
-    <div class="experience__page__wrapper">
-      <div class="experience__page__left">
-        <div class="experience__info__wrapper">
-          <Info />
-          <MultiButton />
-        </div>
-        <Tab />
-        <Main v-if="isMain" />
-        <router-view v-else />
+  <div v-if="$mq !== 'sm'" class="experience__page__wrapper">
+    <div class="experience__page__left">
+      <div class="experience__info__wrapper">
+        <Info />
+        <MultiButton />
       </div>
-      <div class="experience__page__right"></div>
+      <Tab />
+      <Main v-if="isMain" />
+      <router-view v-else />
+    </div>
+    <div class="experience__page__right"></div>
+  </div>
+  <div v-else>
+    <div class="experience__page__wrapper">
+      <div class="experience__info__wrapper">
+        <Info />
+        <MultiButton />
+      </div>
+      <Tab />
+      <Main v-if="isMain" />
+      <router-view v-else />
     </div>
   </div>
 </template>
