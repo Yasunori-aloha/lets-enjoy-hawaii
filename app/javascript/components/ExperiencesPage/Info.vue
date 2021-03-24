@@ -1,9 +1,30 @@
 <template>
-  <div class="experience__info__left">
+  <div v-if="$mq !== 'sm'" class="experience__info__left">
     <ul>
       <li class="experience__name__wrapper">
         <CategoryIcon :category-name="experienceData.genre.category.search" />
         <h1 class="experinece__name">{{ experienceData.name }}</h1>
+      </li>
+      <li class="experience__score">
+        <StarRating :experience="experienceData" />
+      </li>
+      <li class="area__island__wrapeer">
+        <span class="area__name">エリア</span>
+        <router-link :to="{name: 'search', params:{name: experienceData.area.island.search, case: 'island', id: experienceData.area.island.id, typeWord: experienceData.area.island.name }}" class="link__hover area__island">{{ experienceData.area.island.name }}</router-link>
+        <router-link :to="{name: 'search', params:{name: experienceData.area.search, case: 'area', id: experienceData.area.id, typeWord: experienceData.area.name }}" class="area search_btn link__hover area__island">{{ experienceData.area.name }}</router-link>
+      </li>
+      <li class="genre__category__wrapper">
+        <span class="genre__name">ジャンル</span>
+        <router-link :to="{name: 'search', params:{name: experienceData.genre.category.search, case: 'category', id: experienceData.genre.category.id, typeWord: experienceData.genre.category.name }}" class="category search_btn link__hover genre__category">{{ experienceData.genre.category.name }}</router-link>
+        <router-link :to="{name: 'search', params:{name: experienceData.genre.search, case: 'genre', id: experienceData.genre.id, typeWord: experienceData.genre.name }}" class="genre search_btn link__hover genre__category">{{ experienceData.genre.name }}</router-link>
+      </li>
+    </ul>
+  </div>
+  <div v-else class="experience__info__sm">
+    <ul>
+      <li class="experience__name__wrapper__sm">
+        <CategoryIcon :category-name="experienceData.genre.category.search" />
+        <h1 class="experinece__name__sm">{{ experienceData.name }}</h1>
       </li>
       <li class="experience__score">
         <StarRating :experience="experienceData" />
@@ -84,5 +105,18 @@ export default {
   }
   .genre__category{
     margin: -1px 6px 0 8px;
+  }
+  /* スマホ表示用 */
+  .experience__info__sm{
+    color: #333333;
+  }
+  .experience__name__wrapper__sm{
+    margin: 13px 0 0 5px;
+    display: flex;
+  }
+  .experinece__name__sm{
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 5px;
   }
 </style>
