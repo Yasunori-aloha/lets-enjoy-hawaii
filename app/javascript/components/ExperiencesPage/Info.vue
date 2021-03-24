@@ -111,7 +111,7 @@ export default {
     color: #333333;
   }
   .experience__name__wrapper__sm{
-    margin: 13px 0 0 5px;
+    margin: 13px 0 0 10px;
     display: flex;
   }
   .experinece__name__sm{
