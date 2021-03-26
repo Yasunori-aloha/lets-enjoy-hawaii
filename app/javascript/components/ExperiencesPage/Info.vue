@@ -29,16 +29,6 @@
       <li class="experience__score">
         <StarRating :experience="experienceData" />
       </li>
-      <li class="area__island__wrapeer">
-        <span class="area__name">エリア</span>
-        <router-link :to="{name: 'search', params:{name: experienceData.area.island.search, case: 'island', id: experienceData.area.island.id, typeWord: experienceData.area.island.name }}" class="link__hover area__island">{{ experienceData.area.island.name }}</router-link>
-        <router-link :to="{name: 'search', params:{name: experienceData.area.search, case: 'area', id: experienceData.area.id, typeWord: experienceData.area.name }}" class="area search_btn link__hover area__island">{{ experienceData.area.name }}</router-link>
-      </li>
-      <li class="genre__category__wrapper">
-        <span class="genre__name">ジャンル</span>
-        <router-link :to="{name: 'search', params:{name: experienceData.genre.category.search, case: 'category', id: experienceData.genre.category.id, typeWord: experienceData.genre.category.name }}" class="category search_btn link__hover genre__category">{{ experienceData.genre.category.name }}</router-link>
-        <router-link :to="{name: 'search', params:{name: experienceData.genre.search, case: 'genre', id: experienceData.genre.id, typeWord: experienceData.genre.name }}" class="genre search_btn link__hover genre__category">{{ experienceData.genre.name }}</router-link>
-      </li>
     </ul>
   </div>
 </template>
