@@ -9,7 +9,7 @@
   <div v-else style="margin-top: 15px;">
     <div class="picture__wrapper__sm">
       <ActivityPicture :activity="experienceData" />
-      <p class="picture__link__sm">写真をもっと見る({{ experienceData.images_counts }}枚) ></p>
+      <router-link :to="`/experiences/${experienceData.id}/photos`" tag="p" class="picture__link__sm">写真をもっと見る({{ experienceData.images_counts }}枚) ></router-link>
       <!-- <ScoreDistribution /> -->
     </div>
     <!-- <TimeLocation /> -->
