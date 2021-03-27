@@ -15,19 +15,15 @@
     </router-link>
   </ul>
   <ul v-else class="experience__tabs__wrapper__sm">
-    <!-- <router-link :to="`/experiences/${experienceData.id}`" tag="li" class="tab" :class="{active__tab: mainPath}" >
+    <router-link :to="`/experiences/${experienceData.id}`" tag="li" class="tab__sm" :class="{active__tab__sm: mainPath}" >
       <span>概要</span>
     </router-link>
-    <router-link :to="`/experiences/${experienceData.id}/reviews`" tag="li" class="two__line__tab" :class="{active__tab: reviewPath}">
+    <router-link :to="`/experiences/${experienceData.id}/reviews`" tag="li" class="tab__sm" :class="{active__tab__sm: reviewPath}">
       <span>口コミ</span>
-      <br>
-      <span class="number">({{ experienceData.reviews_counts }}件)</span>
     </router-link>
-    <router-link :to="`/experiences/${experienceData.id}/photos`" tag="li" class="two__line__tab" :class="{active__tab: photoPath}">
+    <router-link :to="`/experiences/${experienceData.id}/photos`" tag="li" class="tab__sm" :class="{active__tab__sm: photoPath}">
       <span>写真</span>
-      <br>
-      <span class="number">({{ experienceData.images_counts }}枚)</span>
-    </router-link> -->
+    </router-link>
   </ul>
 </template>
 
@@ -130,5 +126,17 @@ export default {
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     display: flex;
+  }
+  .tab__sm{
+    width: calc(100% / 3);
+    margin: 4px 0;
+    padding-top: 7px;
+    font-size: 12px;
+    border-right: 1px solid #ccc;
+    font-weight: bold;
+    text-align: center;
+  }
+  .tab__sm:last-child{
+    border: none;
   }
 </style>
