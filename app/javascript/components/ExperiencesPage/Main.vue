@@ -9,6 +9,7 @@
   <div v-else style="margin-top: 15px;">
     <div class="picture__wrapper__sm">
       <ActivityPicture :activity="experienceData" />
+      <p class="picture__link__sm">写真をもっと見る({{ experienceData.images_counts }}枚) ></p>
       <!-- <ScoreDistribution /> -->
     </div>
     <!-- <TimeLocation /> -->
@@ -54,6 +55,15 @@ export default {
   .experience__picture__sm{
     height: 174px;
     width: calc(100% - 20px);
+    margin: 0 10px 4px;
+  }
+  .picture__link__sm{
+    height: 34px;
+    border: 1px solid #ccc;
     margin: 0 10px;
+    padding-top: 7px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
   }
 </style>
