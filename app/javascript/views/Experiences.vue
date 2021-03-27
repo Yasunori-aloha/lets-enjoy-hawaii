@@ -17,8 +17,8 @@
       <!-- <MultiButton /> -->
     </div>
     <Tab />
-    <!-- <Main v-if="isMain" />
-    <router-view v-else /> -->
+    <Main v-if="isMain" />
+    <!-- <router-view v-else /> -->
   </div>
 </template>
 

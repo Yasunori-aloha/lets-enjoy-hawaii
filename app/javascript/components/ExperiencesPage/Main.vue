@@ -1,10 +1,17 @@
 <template>
-  <div class="experience__main__wrapper">
+  <div v-if="$mq !== 'sm'" class="experience__main__wrapper">
     <div class="picture__score__wrapper">
       <ActivityPicture :activity="experienceData" />
       <ScoreDistribution />
     </div>
     <TimeLocation />
+  </div>
+  <div v-else style="margin-top: 15px;">
+    <div class="picture__wrapper__sm">
+      <ActivityPicture :activity="experienceData" />
+      <!-- <ScoreDistribution /> -->
+    </div>
+    <!-- <TimeLocation /> -->
   </div>
 </template>
 
@@ -42,5 +49,11 @@ export default {
     height: 370px;
     width: 490px;
     border: 1px solid #ccc;
+  }
+/* スマホ表示用 */
+  .experience__picture__sm{
+    height: 174px;
+    width: calc(100% - 20px);
+    margin: 0 10px;
   }
 </style>

@@ -128,6 +128,7 @@ export default {
     height: 44px;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
+    margin-top: 11px;
     display: flex;
   }
   .tab__sm{
