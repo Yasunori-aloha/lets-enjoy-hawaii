@@ -11,13 +11,13 @@
     </div>
     <div class="experience__page__right"></div>
   </div>
-  <div v-else class="experience__page__wrapper">
+  <div v-else>
     <div class="experience__info__wrapper">
       <Info />
       <!-- <MultiButton /> -->
     </div>
-    <!-- <Tab />
-    <Main v-if="isMain" />
+    <Tab />
+    <!-- <Main v-if="isMain" />
     <router-view v-else /> -->
   </div>
 </template>

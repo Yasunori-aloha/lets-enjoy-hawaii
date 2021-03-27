@@ -1,5 +1,5 @@
 <template>
-  <ul class="experience__tabs__wrapper">
+  <ul v-if="$mq !== 'sm'" class="experience__tabs__wrapper">
     <router-link :to="`/experiences/${experienceData.id}`" tag="li" class="tab" :class="{active__tab: mainPath}" >
       <span>概要</span>
     </router-link>
@@ -13,6 +13,21 @@
       <br>
       <span class="number">({{ experienceData.images_counts }}枚)</span>
     </router-link>
+  </ul>
+  <ul v-else class="experience__tabs__wrapper__sm">
+    <!-- <router-link :to="`/experiences/${experienceData.id}`" tag="li" class="tab" :class="{active__tab: mainPath}" >
+      <span>概要</span>
+    </router-link>
+    <router-link :to="`/experiences/${experienceData.id}/reviews`" tag="li" class="two__line__tab" :class="{active__tab: reviewPath}">
+      <span>口コミ</span>
+      <br>
+      <span class="number">({{ experienceData.reviews_counts }}件)</span>
+    </router-link>
+    <router-link :to="`/experiences/${experienceData.id}/photos`" tag="li" class="two__line__tab" :class="{active__tab: photoPath}">
+      <span>写真</span>
+      <br>
+      <span class="number">({{ experienceData.images_counts }}枚)</span>
+    </router-link> -->
   </ul>
 </template>
 
@@ -108,5 +123,12 @@ export default {
     color: orangered;
     font-weight: bold;
     cursor: auto;
+  }
+/* スマホ表示用 */
+  .experience__tabs__wrapper__sm{
+    height: 44px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: flex;
   }
 </style>
