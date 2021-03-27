@@ -29,6 +29,13 @@
       <li class="experience__score">
         <StarRating :experience="experienceData" />
       </li>
+      <li class="experinece__review__sm">
+        <router-link :to="`/experiences/${experienceData.id}/reviews`" class="review__link__wrapper__sm link__hover">
+          <span>口コミ</span>
+          <span class="review__count__sm">{{ experienceData.reviews_counts }}</span>
+          <span>件</span>
+        </router-link>
+      </li>
     </ul>
   </div>
 </template>
@@ -108,5 +115,17 @@ export default {
     font-size: 16px;
     font-weight: bold;
     margin-left: 5px;
+  }
+  .experinece__review__sm{
+    display: flex;
+    margin-left: 10px;
+  }
+  .review__link__wrapper__sm{
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .review__count__sm{
+    margin: 3px -2px 0;
   }
 </style>

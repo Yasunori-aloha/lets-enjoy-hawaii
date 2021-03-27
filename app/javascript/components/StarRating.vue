@@ -17,7 +17,7 @@
       <div class="star__rating__back">★★★★★</div>
     </div>
     <span :class="{rating__point__search__sm: isSearchPage, rating__point__experience__sm: !isSearchPage}">{{ scoreToFixed(experience.score) }}</span>
-    <div v-if="!unnecessaryReviewCounts" style="display: flex;">
+    <div v-if="!unnecessaryReviewCounts && $mq !== 'sm'" style="display: flex;">
       <span class="review__counts">（</span>
       <router-link :to="`/experiences/${experience.id}/reviews`" class="review__link review__counts link__hover"false>口コミ{{ experience.reviews_counts }}件</router-link>
       <span class="review__counts">）</span>
