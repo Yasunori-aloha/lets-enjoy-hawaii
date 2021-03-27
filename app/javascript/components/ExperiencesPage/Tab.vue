@@ -15,14 +15,17 @@
     </router-link>
   </ul>
   <ul v-else class="experience__tabs__wrapper__sm">
-    <router-link :to="`/experiences/${experienceData.id}`" tag="li" class="tab__sm" :class="{active__tab__sm: mainPath}" >
+    <router-link :to="`/experiences/${experienceData.id}`" tag="li" class="tab__sm" >
       <span>概要</span>
+      <div :class="{active__tab__sm: mainPath}" />
     </router-link>
-    <router-link :to="`/experiences/${experienceData.id}/reviews`" tag="li" class="tab__sm" :class="{active__tab__sm: reviewPath}">
+    <router-link :to="`/experiences/${experienceData.id}/reviews`" tag="li" class="tab__sm">
       <span>口コミ</span>
+      <div :class="{active__tab__sm: reviewPath}" />
     </router-link>
-    <router-link :to="`/experiences/${experienceData.id}/photos`" tag="li" class="tab__sm" :class="{active__tab__sm: photoPath}">
+    <router-link :to="`/experiences/${experienceData.id}/photos`" tag="li" class="tab__sm">
       <span>写真</span>
+      <div :class="{active__tab__sm: photoPath}" />
     </router-link>
   </ul>
 </template>
@@ -135,8 +138,16 @@ export default {
     border-right: 1px solid #ccc;
     font-weight: bold;
     text-align: center;
+    position: relative;
   }
   .tab__sm:last-child{
     border: none;
+  }
+  .active__tab__sm{
+    height: 4px;
+    width: 100%;
+    background-color: #ffa500;
+    position: absolute;
+    bottom: -4px;
   }
 </style>
