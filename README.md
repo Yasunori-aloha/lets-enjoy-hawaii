@@ -1,5 +1,7 @@
 # Let's Enjoy Hawaii
 
+[![Image from Gyazo](https://i.gyazo.com/d2e00b31c4a0d2578ad57dab3e71c7ac.jpg)](https://gyazo.com/d2e00b31c4a0d2578ad57dab3e71c7ac)
+
 ハワイ諸島の人気アクティビティや人気店等の情報を日本語で掲載し、口コミや評価を手軽に投稿できるサイトです。
 
 # アプリURL
@@ -28,15 +30,44 @@ Ruby on Railsで制作したアプリです。
 
 ※動画ではゲストユーザー用のメールアドレスを入力しています。(guest@sample.com)
 
+### ※登録済みメールアドレスお知らせ機能※
+<img src="https://i.gyazo.com/431906588bf28ae4e5d35af527a55c05.gif" alt="Image from Gyazo" width="500">
+
+<br>
+<br>
+
 ## ゲストユーザーログイン機能
 1. 画面右上の『ログイン』 or 『会員登録』をクリック
 2. 入力フォーム下部の`※アカウント登録せず、ユーザー機能を試したい方は こちら`をクリック
 
 ※ゲストユーザーは`ユーザー情報編集`をすることができません。
 
+### ※ゲストユーザーログイン※
+<img src="https://i.gyazo.com/c0241ece8f5a87d5ac51c84aefd4e03e.gif" alt="Image from Gyazo" width="500">
+
+### ※ゲストユーザー情報更新時の注意画面※
+<img src="https://i.gyazo.com/61fc30de5e2d53b6089375e3aa0b51a9.gif" alt="Image from Gyazo" width="500">
+
+<br>
+<br>
+
 ## 場所検索
 1. トップページの検索欄に任意のキーワードを入力 or 地図上・島名からいきたい場所を選択 or 目的別のボタンからやりたいことを選択
 2. 検索条件に該当する場所をクリック
+
+### ※島名検索※
+<img src="https://i.gyazo.com/d4abd52f2dc550c9bacbcd0f33e473fd.gif" alt="Image from Gyazo" width="700">
+
+<br>
+<br>
+
+## 検索結果並び替え
+1. 検索結果一覧ページの`並び替えタブ`の切り替えたい順序ボタンをクリック
+
+<img src="https://i.gyazo.com/0f58b738d397384bedf42e6555e4e4cb.gif" alt="Image from Gyazo" width="500">
+
+<br>
+<br>
 
 ## 口コミ投稿
 1. アクティビティ詳細ページの`口コミ投稿する`ボタンをクリック
@@ -46,6 +77,14 @@ Ruby on Railsで制作したアプリです。
 
 ※画像を添付した場合はプレビューが表示され、`写真削除`ボタンをクリックすると添付画像を削除できます。<br>
 ※口コミ投稿後は、アクティビティの評価点や★での5段階評価・詳細ページの評価分布が更新されます。
+### ※口コミページレイアウト※
+<img src="https://i.gyazo.com/0aaabddb458fbfb5ef94433bf9de457f.gif" alt="Image from Gyazo" width="500">
+
+### ※口コミ写真添付画面※
+<img src="https://i.gyazo.com/de5372a1130883f2943c1db38cfe2818.gif" alt="Image from Gyazo" width="500">
+
+<br>
+<br>
 
 ## お気に入り登録
 1. 検索ページから任意のアクティビティをクリック
@@ -53,35 +92,20 @@ Ruby on Railsで制作したアプリです。
 
 ※ `★`ボタンに変化していれば、再度クリックすることでお気に入り登録の解除ができます。
 
+### ※お気に入り・訪問記録登録※
+<img src="https://i.gyazo.com/6d00f23b23f7226f6eacaa8b80d7f3c6.gif" alt="Image from Gyazo" width="500">
+
+### ※お気に入り・訪問記録登録解除※
+<img src="https://i.gyazo.com/582f4aff95ab9098043f86693f22a1fc.gif" alt="Image from Gyazo" width="500">
+
+<br>
+<br>
+
 ## アクティビティへの訪問記録登録
 1. 検索ページから任意のアクティビティをクリック
 2. アクティビティの詳細ページ上部の`口コミ投稿`や`シェアする`ボタン下部にある`行った`ボタンをクリック
 
 ※ `行った`ボタンのアイコンが足跡マークからチェックマークに変化していれば、再度クリックすることで訪問記録の消去ができます。
-<br>
-<br>
-
-## ※登録済みメールアドレスお知らせ機能※
-<img src="https://i.gyazo.com/431906588bf28ae4e5d35af527a55c05.gif" alt="Image from Gyazo" width="500">
-
-## ※ゲストユーザーログイン※
-<img src="https://i.gyazo.com/c0241ece8f5a87d5ac51c84aefd4e03e.gif" alt="Image from Gyazo" width="500">
-
-## ※ゲストユーザー情報更新時の注意画面※
-<img src="https://i.gyazo.com/61fc30de5e2d53b6089375e3aa0b51a9.gif" alt="Image from Gyazo" width="500">
-
-## ※口コミページレイアウト※
-<img src="https://i.gyazo.com/0aaabddb458fbfb5ef94433bf9de457f.gif" alt="Image from Gyazo" width="500">
-
-## ※口コミ写真添付画面※
-<img src="https://i.gyazo.com/de5372a1130883f2943c1db38cfe2818.gif" alt="Image from Gyazo" width="500">
-
-## ※お気に入り・訪問記録登録※
-<img src="https://i.gyazo.com/6d00f23b23f7226f6eacaa8b80d7f3c6.gif" alt="Image from Gyazo" width="500">
-
-## ※お気に入り・訪問記録登録解除※
-<img src="https://i.gyazo.com/582f4aff95ab9098043f86693f22a1fc.gif" alt="Image from Gyazo" width="500">
-
 <br>
 <br>
 
