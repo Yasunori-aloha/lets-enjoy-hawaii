@@ -18,14 +18,13 @@
       </div>
     </ul>
   </div>
-  <div v-else>
+  <div v-else style="font-size: 12px;">
     <ul class="experience__info__sm">
       <li class="experience__info__left__sm">
         <span>所在地</span>
       </li>
       <li class="experience__info__right__sm">
-        <span class="location__postal__code__sm"></span>
-        <!-- <span class="location__postal__code__sm">{{ experienceData.address }}</span> -->
+        <span>{{ experienceData.address }}</span>
       </li>
     </ul>
     <ul class="experience__info__sm">
@@ -114,12 +113,15 @@ export default {
     border-top: 0px;
   }
   .experience__info__left__sm{
-    height: 100%;
     width: calc((100vw - 20px) * 0.4);
     padding: 8px 0 0 8px;
-    font-size: 12px;
     border-right: 1px solid #ccc;
     font-weight: bold;
     background-color: #eaeaea;
+  }
+  .experience__info__right__sm{
+    width: calc((100vw - 20px) * 0.6);
+    padding: 8px 0 8px 8px;
+    display: flex;
   }
 </style>
