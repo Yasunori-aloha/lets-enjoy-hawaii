@@ -7,14 +7,20 @@
     <TimeLocation />
   </div>
   <ul v-else style="margin-top: 15px;">
-    <li style="margin-bottom: 20px;">
+    <li class="main__wrapper__sm">
       <ActivityPicture :activity="experienceData" />
       <router-link :to="`/experiences/${experienceData.id}/photos`" tag="p" class="picture__link__sm">写真をもっと見る({{ experienceData.images_counts }}枚) ></router-link>
       <!-- <ScoreDistribution /> -->
     </li>
-    <li>
+    <li class="main__wrapper__sm">
       <p class="paragraph__header__sm">基本情報</p>
       <TimeLocation />
+    </li>
+    <li class="main__wrapper__sm">
+      <p class="paragraph__header__sm">関連エリア</p>
+    </li>
+    <li class="main__wrapper__sm">
+      <p class="paragraph__header__sm">関連ジャンル</p>
     </li>
   </ul>
 </template>
@@ -55,8 +61,8 @@ export default {
     border: 1px solid #ccc;
   }
 /* スマホ表示用 */
-  .picture__wrapper__sm{
-
+  .main__wrapper__sm{
+    margin-bottom: 20px;
   }
   .experience__picture__sm{
     height: 174px;
