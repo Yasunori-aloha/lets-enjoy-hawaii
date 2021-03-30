@@ -1,21 +1,20 @@
 <template>
-  <div v-if="$mq !== 'sm'">
-    <ul class="experience__business__hours">
-      <li class="business__hours__info">
+  <div v-if="$mq !== 'sm'" style="font-size: 12px;">
+    <ul class="experience__info__wrapper">
+      <li class="experience__info__left">
         <span>営業時間</span>
       </li>
-      <li class="business__hours__main">
+      <li class="experience__info__right">
         <span v-if="isExists">{{ experienceData.business_hours_start }} 〜 {{ experienceData.business_hours_finish }}</span>
       </li>
     </ul>
-    <ul class="experience__location">
-      <div class="location__info">
+    <ul class="experience__info__wrapper">
+      <li class="experience__info__left">
         <span>所在地</span>
-      </div>
-      <div class="locaiton__main">
+      </li>
+      <li class="experience__info__right">
         <span class="location__postal__code">{{ experienceData.address }}</span>
-        <!-- <span class="location__address">{{  }}</span> -->
-      </div>
+      </li>
     </ul>
   </div>
   <div v-else style="font-size: 12px;">
@@ -52,49 +51,30 @@ export default {
 </script>
 
 <style scoped>
-/* アクティビティの営業時間表示欄 */
-  .experience__business__hours{
+/* アクティビティ基本情報欄 */
+  .experience__info__wrapper{
     height: 36px;
     border: 1px solid #ccc;
     color: #333333;
     display: flex;
   }
-  .business__hours__info{
+  .experience__info__wrapper:not(:first-child){
+    margin-top: 0px;
+    border-top: 0px;
+  }
+  .experience__info__left{
     height: 100%;
     width: 175px;
     padding: 8px 0 0 8px;
-    font-size: 12px;
     border-right: 1px solid #ccc;
     font-weight: bold;
     background-color: #eaeaea;
   }
-  .business__hours__main{
+  .experience__info__right{
     padding: 8px 0 0 8px;
-    font-size: 12px;
     display: flex;
   }
 /* アクティビティの所在地表示欄 */
-  .experience__location{
-    height: 36px;
-    border: 1px solid #ccc;
-    border-top: 0;
-    color: #333333;
-    display: flex;
-  }
-  .location__info{
-    height: 100%;
-    width: 175px;
-    padding: 8px 0 0 8px;
-    font-size: 12px;
-    border-right: 1px solid #ccc;
-    font-weight: bold;
-    background-color: #eaeaea;
-  }
-  .locaiton__main{
-    padding: 8px 0 0 8px;
-    font-size: 12px;
-    display: flex;
-  }
   .location__postal__code{
     margin-right: 16px;
   }
