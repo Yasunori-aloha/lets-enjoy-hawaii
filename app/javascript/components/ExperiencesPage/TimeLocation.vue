@@ -26,16 +26,16 @@
       <li class="business__hours__main">
         <span v-if="isExists">{{ experienceData.business_hours_start }} 〜 {{ experienceData.business_hours_finish }}</span>
       </li>
-    </ul>
-    <ul class="experience__location">
-      <div class="location__info">
+    </ul> -->
+    <ul class="experience__location__sm">
+      <li class="location__info__sm">
         <span>所在地</span>
-      </div>
-      <div class="locaiton__main">
+      </li>
+      <li class="locaiton__main">
         <span class="location__postal__code">{{ experienceData.address }}</span>
         <span class="location__address">{{  }}</span>
-      </div>
-    </ul> -->
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -103,4 +103,18 @@ export default {
     margin-right: 4px;
   }
 /* スマホ表示用 */
+  .experience__location__sm{
+    margin: 11px 10px 0;
+    border: 1px solid #ccc;
+    color: #333333;
+    display: flex;
+  }
+  .location__info__sm{
+    width: 100%;
+    padding: 8px 0 0 8px;
+    font-size: 12px;
+    border-right: 1px solid #ccc;
+    font-weight: bold;
+    background-color: #eaeaea;
+  }
 </style>
