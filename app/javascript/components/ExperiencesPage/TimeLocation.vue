@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="$mq !== 'sm'">
     <ul class="experience__business__hours">
       <li class="business__hours__info">
         <span>営業時間</span>
@@ -17,6 +17,25 @@
         <!-- <span class="location__address">{{  }}</span> -->
       </div>
     </ul>
+  </div>
+  <div v-else>
+    <!-- <ul class="experience__business__hours">
+      <li class="business__hours__info">
+        <span>営業時間</span>
+      </li>
+      <li class="business__hours__main">
+        <span v-if="isExists">{{ experienceData.business_hours_start }} 〜 {{ experienceData.business_hours_finish }}</span>
+      </li>
+    </ul>
+    <ul class="experience__location">
+      <div class="location__info">
+        <span>所在地</span>
+      </div>
+      <div class="locaiton__main">
+        <span class="location__postal__code">{{ experienceData.address }}</span>
+        <span class="location__address">{{  }}</span>
+      </div>
+    </ul> -->
   </div>
 </template>
 
@@ -83,4 +102,5 @@ export default {
   .location__address{
     margin-right: 4px;
   }
+/* スマホ表示用 */
 </style>
