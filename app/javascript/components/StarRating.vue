@@ -115,4 +115,7 @@ export default {
     color: black;
     font-weight: bold;
   }
+  .test{
+    font-size: 25px;
+  }
 </style>

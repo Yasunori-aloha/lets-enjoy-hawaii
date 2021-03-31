@@ -13,11 +13,26 @@
       <!-- <ScoreDistribution /> -->
     </li>
     <li class="main__wrapper__sm">
+      <p class="paragraph__header__sm">口コミ</p>
+      <div class="rating__wrapper__sm">
+        <span style="font-weight: bold;">総合</span>
+        <StarRating class="test" :experience="experienceData" />
+      </div>
+    </li>
+    <li class="main__wrapper__sm">
       <p class="paragraph__header__sm">基本情報</p>
       <TimeLocation />
     </li>
     <li class="main__wrapper__sm">
       <p class="paragraph__header__sm">関連エリア</p>
+      <router-link :to="{name: 'search', params:{name: experienceData.area.island.search, case: 'island', id: experienceData.area.island.id, typeWord: experienceData.area.island.name }}" class="link__hover area__island__sm">
+        <span>{{ experienceData.area.island.name }}</span>
+        <span>></span>
+      </router-link>
+      <router-link :to="{name: 'search', params:{name: experienceData.area.search, case: 'area', id: experienceData.area.id, typeWord: experienceData.area.name }}" class="area search_btn link__hover area__island">
+        <span>{{ experienceData.area.name }}</span>
+        <span>></span>
+      </router-link>
     </li>
     <li class="main__wrapper__sm">
       <p class="paragraph__header__sm">関連ジャンル</p>
@@ -29,11 +44,13 @@
 import ActivityPicture from '../ActivityPicture.vue';
 import ScoreDistribution from '../ExperiencesPage/ScoreDistribution.vue';
 import TimeLocation from '../ExperiencesPage/TimeLocation.vue';
+import StarRating from '../StarRating.vue';
 
 export default {
   components: {
     ActivityPicture,
     ScoreDistribution,
+    StarRating,
     TimeLocation,
   },
   computed: {
@@ -85,5 +102,15 @@ export default {
     font-weight: bold;
     font-size: 18px;
     padding: 1px 0 0 10px;
+  }
+  .rating__wrapper__sm{
+    display: flex;
+    height: 50px;
+    padding: 14px 0 0 12px;
+  }
+  .area__island__sm{
+    display: block;
+    height: 46px;
+    border-bottom: 1px solid #ccc;
   }
 </style>
