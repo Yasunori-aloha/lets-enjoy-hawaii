@@ -25,13 +25,13 @@
     </li>
     <li class="main__wrapper__sm">
       <p class="paragraph__header__sm">関連エリア</p>
-      <router-link :to="{name: 'search', params:{name: experienceData.area.island.search, case: 'island', id: experienceData.area.island.id, typeWord: experienceData.area.island.name }}" class="link__hover area__island__sm">
+      <router-link :to="{name: 'search', params:{name: experienceData.area.island.search, case: 'island', id: experienceData.area.island.id, typeWord: experienceData.area.island.name }}" class="area__island__sm">
         <span>{{ experienceData.area.island.name }}</span>
-        <span>></span>
+        <i class="fas fa-angle-right"></i>
       </router-link>
-      <router-link :to="{name: 'search', params:{name: experienceData.area.search, case: 'area', id: experienceData.area.id, typeWord: experienceData.area.name }}" class="area search_btn link__hover area__island">
+      <router-link :to="{name: 'search', params:{name: experienceData.area.search, case: 'area', id: experienceData.area.id, typeWord: experienceData.area.name }}" class="area search_btn area__island__sm">
         <span>{{ experienceData.area.name }}</span>
-        <span>></span>
+        <i class="fas fa-angle-right"></i>
       </router-link>
     </li>
     <li class="main__wrapper__sm">
@@ -81,6 +81,12 @@ export default {
   .main__wrapper__sm{
     margin-bottom: 20px;
   }
+  .main__wrapper__sm a:first-of-type{
+    border-bottom: 1px solid #ccc;
+  }
+  .main__wrapper__sm:nth-child(4){
+    margin-bottom: 0px;
+  }
   .experience__picture__sm{
     height: 174px;
     width: calc(100% - 20px);
@@ -109,8 +115,14 @@ export default {
     padding: 14px 0 0 12px;
   }
   .area__island__sm{
-    display: block;
     height: 46px;
-    border-bottom: 1px solid #ccc;
+    padding: 0 10px;
+    font-size: 14px;
+    color: #333333;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 </style>
