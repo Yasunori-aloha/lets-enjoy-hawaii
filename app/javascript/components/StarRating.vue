@@ -97,7 +97,7 @@ export default {
     position: relative;
   }
   .star__rating__experience__sm{
-    margin: 0 3px 0 10px;
+    margin-right: 3px;
     width: 5em;
     line-height: 22px;
     font-size: 21px;

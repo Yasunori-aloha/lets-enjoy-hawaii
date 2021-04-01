@@ -21,7 +21,7 @@
     </ul>
   </div>
   <div v-else class="experience__info__sm">
-    <ul>
+    <ul style="padding-left: 10px;">
       <li class="experience__name__wrapper__sm">
         <CategoryIcon :category-name="experienceData.genre.category.search" />
         <h1 class="experinece__name__sm">{{ experienceData.name }}</h1>
@@ -108,7 +108,7 @@ export default {
     color: #333333;
   }
   .experience__name__wrapper__sm{
-    margin: 13px 0 0 10px;
+    margin-top: 13px;
     display: flex;
   }
   .experinece__name__sm{
@@ -118,7 +118,6 @@ export default {
   }
   .experinece__review__sm{
     display: flex;
-    margin-left: 10px;
   }
   .review__link__wrapper__sm{
     font-size: 12px;
