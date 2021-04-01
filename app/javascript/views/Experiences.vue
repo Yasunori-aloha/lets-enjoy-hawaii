@@ -19,10 +19,12 @@
     <Tab />
     <Main v-if="isMain" />
     <!-- <router-view v-else /> -->
+    <AreaGenre />
   </div>
 </template>
 
 <script>
+import AreaGenre from '../components/ExperiencesPage/AreaGenre.vue'
 import Info from '../components/ExperiencesPage/Info.vue';
 import MultiButton from '../components/ExperiencesPage/MultiButton.vue';
 import Tab from '../components/ExperiencesPage/Tab.vue';
@@ -30,6 +32,7 @@ import Main from '../components/ExperiencesPage/Main.vue';
 
 export default {
   components: {
+    AreaGenre,
     Info,
     MultiButton,
     Tab,
@@ -72,5 +75,12 @@ export default {
   }
   .experience__page__right{
     width: calc(100% - 770px)
+  }
+</style>
+
+<style>
+  .main__wrapper__sm{
+    margin-bottom: 20px;
+    list-style: none;
   }
 </style>

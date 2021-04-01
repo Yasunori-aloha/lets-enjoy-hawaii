@@ -27,28 +27,6 @@
       <p class="paragraph__header__sm">基本情報</p>
       <TimeLocation />
     </li>
-    <li class="main__wrapper__sm">
-      <p class="paragraph__header__sm">関連エリア</p>
-      <router-link :to="{name: 'search', params:{name: experienceData.area.island.search, case: 'island', id: experienceData.area.island.id, typeWord: experienceData.area.island.name }}" class="area__genre__sm">
-        <span>{{ experienceData.area.island.name }}</span>
-        <i class="fas fa-angle-right"></i>
-      </router-link>
-      <router-link :to="{name: 'search', params:{name: experienceData.area.search, case: 'area', id: experienceData.area.id, typeWord: experienceData.area.name }}" class="area__genre__sm">
-        <span>{{ experienceData.area.name }}</span>
-        <i class="fas fa-angle-right"></i>
-      </router-link>
-    </li>
-    <li class="main__wrapper__sm">
-      <p class="paragraph__header__sm">関連ジャンル</p>
-      <router-link :to="{name: 'search', params:{name: experienceData.genre.category.search, case: 'category', id: experienceData.genre.category.id, typeWord: experienceData.genre.category.name }}" class="area__genre__sm">
-        <span>{{ experienceData.genre.category.name }}</span>
-        <i class="fas fa-angle-right"></i>
-      </router-link>
-      <router-link :to="{name: 'search', params:{name: experienceData.genre.search, case: 'genre', id: experienceData.genre.id, typeWord: experienceData.genre.name }}" class="area__genre__sm">
-        <span>{{ experienceData.genre.name }}</span>
-        <i class="fas fa-angle-right"></i>
-      </router-link>
-    </li>
     <li class="return__to__top">
       <i class="fas fa-caret-up" style="margin-right: 3px;"></i>
       <span @click="returnToTop()" style="color: #0000FF;">このページのTOPへ</span>
@@ -59,8 +37,8 @@
 <script>
 import ActivityPicture from '../ActivityPicture.vue';
 import ScoreDistribution from '../ExperiencesPage/ScoreDistribution.vue';
-import TimeLocation from '../ExperiencesPage/TimeLocation.vue';
 import StarRating from '../StarRating.vue';
+import TimeLocation from '../ExperiencesPage/TimeLocation.vue';
 
 export default {
   components: {
@@ -102,18 +80,6 @@ export default {
     border: 1px solid #ccc;
   }
 /* スマホ表示用 */
-  .main__wrapper__sm{
-    margin-bottom: 20px;
-  }
-  .main__wrapper__sm a:first-of-type{
-    border-bottom: 1px solid #ccc;
-  }
-  .main__wrapper__sm:nth-child(4){
-    margin-bottom: 0px;
-  }
-  .main__wrapper__sm:nth-child(5){
-    margin-bottom: 0px;
-  }
   .experience__picture__sm{
     height: calc((100vw - 20px) / 4 * 3);
     width: calc(100% - 20px);
@@ -127,14 +93,6 @@ export default {
     font-size: 13px;
     font-weight: bold;
     text-align: center;
-  }
-  .paragraph__header__sm{
-    height: 30px;
-    background-color: #FFA500;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    padding: 1px 0 0 10px;
   }
   .rating__wrapper__sm{
     display: flex;
@@ -150,22 +108,6 @@ export default {
     font-size: 14px;
     margin-top: 3px;
   }
-  .fa-angle-right{
-    position: absolute;
-    top: 18px;
-    right: 6px;
-  }
-  .area__genre__sm{
-    height: 46px;
-    padding: 0 10px;
-    font-size: 14px;
-    color: #333333;
-    text-decoration: none;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
   .return__to__top{
     height: 38px;
     border-top: 1px solid #ccc;
@@ -176,5 +118,16 @@ export default {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+  }
+</style>
+
+<style>
+  .paragraph__header__sm{
+    height: 30px;
+    background-color: #FFA500;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 1px 0 0 10px;
   }
 </style>
