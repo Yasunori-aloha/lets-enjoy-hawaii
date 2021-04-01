@@ -14,10 +14,14 @@
     </li>
     <li class="main__wrapper__sm">
       <p class="paragraph__header__sm">口コミ</p>
-      <div class="rating__wrapper__sm">
+      <router-link :to="`/experiences/${experienceData.id}/reviews`" tag="div" class="rating__wrapper__sm">
         <span class="rating__all__sm">総合</span>
-        <StarRating :rating-point-font-size="14" :rating-font-size="24"  :experience="experienceData" />
-      </div>
+        <StarRating :margin-left-flag="true" :rating-point-font-size="16" :rating-font-size="24"  :experience="experienceData" />
+        <span style="margin-left: 20px;">(</span>
+        <span class="review__count__sm">{{ experienceData.reviews_counts }}</span>
+        <span style="margin-top: -3px;">件)</span>
+        <i class="fas fa-angle-right"></i>
+      </router-link>
     </li>
     <li class="main__wrapper__sm">
       <p class="paragraph__header__sm">基本情報</p>
@@ -136,10 +140,20 @@ export default {
     display: flex;
     height: 50px;
     padding: 14px 0 0 12px;
+    position: relative;
   }
   .rating__all__sm{
     margin-right: 12px;
     font-weight: bold;
+  }
+  .review__count__sm{
+    font-size: 14px;
+    margin-top: 3px;
+  }
+  .fa-angle-right{
+    position: absolute;
+    top: 18px;
+    right: 6px;
   }
   .area__genre__sm{
     height: 46px;
