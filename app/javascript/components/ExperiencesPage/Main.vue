@@ -115,7 +115,7 @@ export default {
     margin-bottom: 0px;
   }
   .experience__picture__sm{
-    height: 174px;
+    height: calc((100vw - 20px) / 4 * 3);
     width: calc(100% - 20px);
     margin: 0 10px 4px;
   }
