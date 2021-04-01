@@ -20,6 +20,7 @@
     <Main v-if="isMain" />
     <!-- <router-view v-else /> -->
     <AreaGenre />
+    <ReturnToTop />
   </div>
 </template>
 
@@ -29,6 +30,7 @@ import Info from '../components/ExperiencesPage/Info.vue';
 import MultiButton from '../components/ExperiencesPage/MultiButton.vue';
 import Tab from '../components/ExperiencesPage/Tab.vue';
 import Main from '../components/ExperiencesPage/Main.vue';
+import ReturnToTop from '../components/ExperiencesPage/ReturnToTop.vue'
 
 export default {
   components: {
@@ -37,6 +39,7 @@ export default {
     MultiButton,
     Tab,
     Main,
+    ReturnToTop,
   },
   computed: {
     isMain() {
