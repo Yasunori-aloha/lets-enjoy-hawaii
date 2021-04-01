@@ -45,6 +45,10 @@
         <i class="fas fa-angle-right"></i>
       </router-link>
     </li>
+    <li class="return__to__top">
+      <i class="fas fa-caret-up" style="margin-right: 3px;"></i>
+      <span style="color: #0000FF;">このページのTOPへ</span>
+    </li>
   </ul>
 </template>
 
@@ -95,6 +99,9 @@ export default {
   .main__wrapper__sm:nth-child(4){
     margin-bottom: 0px;
   }
+  .main__wrapper__sm:nth-child(5){
+    margin-bottom: 0px;
+  }
   .experience__picture__sm{
     height: 174px;
     width: calc(100% - 20px);
@@ -132,5 +139,16 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .return__to__top{
+    height: 38px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding-right: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
 </style>
