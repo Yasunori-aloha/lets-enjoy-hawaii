@@ -1,10 +1,22 @@
 <template>
-  <ul class="score__list">
+  <ul v-if="$mq !== 'sm'" class="score__list">
     <li class="list__title">評価分布</li>
     <li v-for="(evalution, index) in evalutions" :key="evalution" class="list__score">
       <span class="evalution">{{ evalution }}</span>
       <span class="percent">{{ scorePercent(index) }}%</span>
       <div class="percent__graph">
+        <div :style="percentGraph(index)" class="percent__graph__front"></div>
+        <div class="percent__graph__back"></div>
+      </div>
+    </li>
+  </ul>
+  <ul v-else class="score__list__sm">
+    <li class="list__title__sm">評価分布</li>
+    <li v-for="(evalution, index) in evalutions" :key="evalution" class="list__score__sm">
+      <span class="evalution__back__sm">★★★★★</span>
+      <span class="evalution__sm">{{ '★'.repeat(5 - index) }}</span>
+      <span class="percent__sm">{{ scorePercent(index) }}%</span>
+      <div class="percent__graph__sm">
         <div :style="percentGraph(index)" class="percent__graph__front"></div>
         <div class="percent__graph__back"></div>
       </div>
@@ -96,5 +108,50 @@ export default {
     height: 100%;
     width: 100%;
     border: 1px solid #ffa500;
+  }
+/* スマホ表示用 */
+  .score__list__sm{
+    height: 180px;
+    padding: 6px 10px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    color: #333333;
+  }
+  .list__title__sm{
+    font-size: 13px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .list__score__sm{
+    font-size: 12px;
+    margin-bottom: 7px;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+  }
+  .percent__graph__sm{
+    height: 14px;
+    width: 180px;
+    margin-top: 2px;
+    position: relative;
+  }
+  .evalution__back__sm, .evalution__sm{
+    line-height: 18px;
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+  }
+  .evalution__back__sm{
+    color: #808080;
+  }
+  .evalution__sm{
+    color: #FFA500;
+  }
+  .percent__sm{
+    width: 27px;
+    margin-right: 11px;
+    font-size: 16px;
+    text-align: end;
+    display: block;
   }
 </style>

@@ -10,7 +10,6 @@
     <li class="main__wrapper__sm">
       <ActivityPicture :activity="experienceData" />
       <router-link :to="`/experiences/${experienceData.id}/photos`" tag="p" class="picture__link__sm">写真をもっと見る({{ experienceData.images_counts }}枚) ></router-link>
-      <!-- <ScoreDistribution /> -->
     </li>
     <li class="main__wrapper__sm">
       <p class="paragraph__header__sm">口コミ</p>
@@ -22,6 +21,7 @@
         <span style="margin-top: -3px;">件)</span>
         <i class="fas fa-angle-right"></i>
       </router-link>
+      <ScoreDistribution />
     </li>
     <li class="main__wrapper__sm">
       <p class="paragraph__header__sm">基本情報</p>
