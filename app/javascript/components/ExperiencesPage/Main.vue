@@ -47,7 +47,7 @@
     </li>
     <li class="return__to__top">
       <i class="fas fa-caret-up" style="margin-right: 3px;"></i>
-      <span style="color: #0000FF;">このページのTOPへ</span>
+      <span @click="returnToTop()" style="color: #0000FF;">このページのTOPへ</span>
     </li>
   </ul>
 </template>
@@ -68,6 +68,14 @@ export default {
   computed: {
     experienceData() {
       return this.$store.getters.experienceData;
+    },
+  },
+  methods: {
+    returnToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
     },
   },
 };
