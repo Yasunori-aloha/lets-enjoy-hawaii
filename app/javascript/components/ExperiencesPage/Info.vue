@@ -27,7 +27,7 @@
         <h1 class="experinece__name__sm">{{ experienceData.name }}</h1>
       </li>
       <li class="experience__score">
-        <StarRating :experience="experienceData" />
+        <StarRating :rating-point-font-size="18" :rating-font-size="21" :experience="experienceData" />
       </li>
       <li class="experinece__review__sm">
         <router-link :to="`/experiences/${experienceData.id}/reviews`" class="review__link__wrapper__sm link__hover">

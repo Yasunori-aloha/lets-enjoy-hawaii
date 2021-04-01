@@ -12,11 +12,11 @@
     </div>
   </div>
   <div v-else style="display: flex;">
-    <div :class="{star__rating__search__sm: isSearchPage, star__rating__experience__sm: !isSearchPage}">
+    <div class="star__rating__sm" :style="ratingFontSizeMethod(ratingFontSize)">
       <div :style="starRatingWidth(experience.score)" class="star__rating__front">★★★★★</div>
       <div class="star__rating__back">★★★★★</div>
     </div>
-    <span :class="{rating__point__search__sm: isSearchPage, rating__point__experience__sm: !isSearchPage}">{{ scoreToFixed(experience.score) }}</span>
+    <span class="rating__point__sm" :style="ratingPointFontSizeMethod(ratingPointFontSize)">{{ scoreToFixed(experience.score) }}</span>
     <div v-if="!unnecessaryReviewCounts && $mq !== 'sm'" style="display: flex;">
       <span class="review__counts">（</span>
       <router-link :to="`/experiences/${experience.id}/reviews`" class="review__link review__counts link__hover"false>口コミ{{ experience.reviews_counts }}件</router-link>
@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  props: ["experience", "unnecessaryReviewCounts"],
+  props: ["experience", "unnecessaryReviewCounts", "ratingFontSize", "ratingPointFontSize"],
   computed: {
     isSearchPage() {
       const currentPath = /\/search/.test(this.$route.path);
@@ -38,6 +38,16 @@ export default {
     starRatingWidth(score) {
       return {
         '--width': `${score * 20}%`,
+      }
+    },
+    ratingFontSizeMethod(fontSize) {
+      return {
+        '--rating-font-size': `${fontSize}px`
+      }
+    },
+    ratingPointFontSizeMethod(fontSize) {
+      return {
+        '--rating-point-font-size': `${fontSize}px`
       }
     },
     scoreToFixed(score) {
@@ -89,33 +99,17 @@ export default {
     color: blue;
   }
   /* スマホ表示用 */
-  .star__rating__search__sm{
+  .star__rating__sm{
     margin-right: 3px;
     width: 5em;
     line-height: 22px;
-    font-size: 16px;
     position: relative;
+    font-size: var(--rating-font-size);
   }
-  .star__rating__experience__sm{
-    margin-right: 3px;
-    width: 5em;
-    line-height: 22px;
-    font-size: 21px;
-    position: relative;
-  }
-  .rating__point__search__sm{
+  .rating__point__sm{
     line-height: 24px;
-    font-size: 14px;
     color: black;
     font-weight: bold;
-  }
-  .rating__point__experience__sm{
-    line-height: 24px;
-    font-size: 18px;
-    color: black;
-    font-weight: bold;
-  }
-  .test{
-    font-size: 25px;
+    font-size: var(--rating-point-font-size);
   }
 </style>

@@ -15,8 +15,8 @@
     <li class="main__wrapper__sm">
       <p class="paragraph__header__sm">口コミ</p>
       <div class="rating__wrapper__sm">
-        <span style="font-weight: bold;">総合</span>
-        <StarRating class="test" :experience="experienceData" />
+        <span class="rating__all__sm">総合</span>
+        <StarRating :rating-point-font-size="14" :rating-font-size="24"  :experience="experienceData" />
       </div>
     </li>
     <li class="main__wrapper__sm">
@@ -136,6 +136,10 @@ export default {
     display: flex;
     height: 50px;
     padding: 14px 0 0 12px;
+  }
+  .rating__all__sm{
+    margin-right: 12px;
+    font-weight: bold;
   }
   .area__genre__sm{
     height: 46px;
