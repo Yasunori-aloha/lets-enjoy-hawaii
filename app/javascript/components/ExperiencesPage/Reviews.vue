@@ -209,11 +209,12 @@ export default {
     font-size: 22px;
   }
   .review__info__sm{
-    display: flex;
-    justify-content: space-between;
-    margin: 12px 10px 0;
+    padding: 12px 10px 20px;
+    border-bottom: 1px solid #ccc;
     font-size: 16px;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
     align-items: flex-end;
   }
   .review__number__sm{
