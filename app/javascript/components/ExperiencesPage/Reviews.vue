@@ -34,15 +34,15 @@
       <h1 class="review__title">{{ experienceData.name }}の口コミはまだありません</h1>
     </div>
   </div>
-  <div v-else-if="isExists && $mq === 'sm'" class="review__wrapper">
+  <div v-else-if="isExists && $mq === 'sm'" class="review__wrapper__sm">
     <router-link to="/experience/review" class="reviews__post__sm">
       <i class="far fa-comment-dots fa-flip-horizontal"></i>
       <span>口コミを投稿する</span>
     </router-link>
-    <div class="review__info">
-      <div class="review__number">
-        <span>1 - {{ experienceData.reviews_counts }}件目</span>
-        <span class="review__number__all">(全{{ experienceData.reviews_counts }}件中)</span>
+    <div class="review__info__sm">
+      <div class="review__number__sm">
+        <span>1 - {{ experienceData.reviews_counts }}件</span>
+        <span>(全{{ experienceData.reviews_counts }}件中)</span>
       </div>
       <Sort />
     </div>
@@ -184,13 +184,16 @@ export default {
     background-color: #ccc;
   }
 /* スマホ表示用 */
+  .review__wrapper__sm{
+    /* min-height: calc(100vh - 495px); */
+    margin-top: 15px;
+  }
   .reviews__post__sm{
     height: 40px;
     margin: 0 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     color: #000000;
-    /* background-color: blue; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -204,5 +207,20 @@ export default {
   }
   .fa-comment-dots{
     font-size: 22px;
+  }
+  .review__info__sm{
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 9px 0;
+    font-size: 16px;
+    font-weight: bold;
+    align-items: flex-end;
+  }
+  .review__number__sm{
+    display: flex;
+    align-items: flex-end;
+  }
+  .review__number__sm span:first-of-type{
+    margin-right: 11px;
   }
 </style>
