@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isExists" class="review__wrapper">
+  <div v-if="isExists && $mq !== 'sm'" class="review__wrapper">
     <div class="review__title__area">
       <div class="review__title__icon"></div>
       <h1 class="review__title">{{ experienceData.name }}の口コミ一覧</h1>
@@ -28,7 +28,42 @@
       </li>
     </ul>
   </div>
-  <div v-else class="review__wrapper">
+  <div v-else-if="!isExists && $mq !== 'sm'" class="review__wrapper">
+    <div class="review__title__area">
+      <div class="review__title__icon"></div>
+      <h1 class="review__title">{{ experienceData.name }}の口コミはまだありません</h1>
+    </div>
+  </div>
+  <div v-else-if="isExists && $mq === 'sm'" class="review__wrapper">
+    <router-link to="/experience/review" class="reviews__post__sm">
+      <i class="fas fa-comment-dots fa-flip-horizontal"></i>
+      <span>口コミを投稿する</span>
+    </router-link>
+    <div class="review__info">
+      <div class="review__number">
+        <span>1 - {{ experienceData.reviews_counts }}件目</span>
+        <span class="review__number__all">(全{{ experienceData.reviews_counts }}件中)</span>
+      </div>
+      <Sort />
+    </div>
+    <ul :class="{active__fade__in: sort.isFadeIn}">
+      <li v-for="(review, index) in experienceData.reviews" :key="review.id" class="review__main__wrapper">
+        <div class="review__main__area">
+          <h2 class="review__main__title">{{ review.title }}</h2>
+          <StarRating :experience="review" :unnecessaryReviewCounts="true" />
+          <span class="triangle">▲</span>
+          <div class="review__comment__area">
+            <span>{{  review.comment  }}</span>
+          </div>
+          <div class="review__user__area">
+            <UserImage :image="review.user.image_url" />
+            <span class="review__user__name">{{ review.user.name }}さん</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div v-else-if="!isExists && $mq === 'sm'" class="review__wrapper">
     <div class="review__title__area">
       <div class="review__title__icon"></div>
       <h1 class="review__title">{{ experienceData.name }}の口コミはまだありません</h1>
@@ -147,5 +182,26 @@ export default {
     width: 30px;
     margin-right: 9px;
     background-color: #ccc;
+  }
+/* スマホ表示用 */
+  .reviews__post__sm{
+    display: flex;
+    border: 1px solid blue;
+    height: 40px;
+    margin: 0 10px;
+    border-radius: 4px;
+    color: white;
+    background-color: blue;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .reviews__post__sm > span{
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 5px;
+  }
+  .fa-comment-dots{
+    font-size: 22px;
   }
 </style>

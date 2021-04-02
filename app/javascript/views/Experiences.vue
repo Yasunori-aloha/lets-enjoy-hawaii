@@ -18,7 +18,7 @@
     </div>
     <Tab />
     <Main v-if="isMain" />
-    <!-- <router-view v-else /> -->
+    <router-view v-else />
     <AreaGenre />
     <ReturnToTop />
   </div>
