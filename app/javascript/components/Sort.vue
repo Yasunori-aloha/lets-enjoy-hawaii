@@ -77,7 +77,17 @@ export default {
 /* スマホ表示用 */
   .review__sort__sm{
     display: flex;
-    font-size: 12px;
-    /* margin: 2px 64px 0 0; */
+    font-size: 14px;
+  }
+  .review__sort__sm > li{
+    height: 12px;
+    line-height: 12px;
+    border-right: 1px solid #ccc;
+    margin-bottom: 3px;
+    padding: 0 5px;
+  }
+  .review__sort__sm > li:last-child{
+    border-right: none;
+    padding-right: 0px;
   }
 </style>

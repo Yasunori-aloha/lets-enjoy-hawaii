@@ -211,7 +211,7 @@ export default {
   .review__info__sm{
     display: flex;
     justify-content: space-between;
-    margin: 12px 9px 0;
+    margin: 12px 10px 0;
     font-size: 16px;
     font-weight: bold;
     align-items: flex-end;
