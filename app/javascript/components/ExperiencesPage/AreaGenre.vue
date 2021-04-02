@@ -36,11 +36,6 @@ export default {
 </script>
 
 <style scoped>
-  .fa-angle-right{
-    position: absolute;
-    top: 18px;
-    right: 6px;
-  }
   .area__genre__sm{
     height: 46px;
     padding: 0 10px;

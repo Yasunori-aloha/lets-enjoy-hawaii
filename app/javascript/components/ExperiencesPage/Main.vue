@@ -83,10 +83,15 @@ export default {
     text-align: center;
   }
   .rating__wrapper__sm{
-    display: flex;
     height: 50px;
-    padding: 14px 0 0 12px;
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
     position: relative;
+  }
+  .rating__wrapper__sm > i{
+    position: absolute;
+    right: 10px;
   }
   .rating__all__sm{
     margin-right: 12px;
