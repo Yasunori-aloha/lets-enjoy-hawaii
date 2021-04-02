@@ -36,7 +36,7 @@
   </div>
   <div v-else-if="isExists && $mq === 'sm'" class="review__wrapper">
     <router-link to="/experience/review" class="reviews__post__sm">
-      <i class="fas fa-comment-dots fa-flip-horizontal"></i>
+      <i class="far fa-comment-dots fa-flip-horizontal"></i>
       <span>口コミを投稿する</span>
     </router-link>
     <div class="review__info">
@@ -185,21 +185,22 @@ export default {
   }
 /* スマホ表示用 */
   .reviews__post__sm{
-    display: flex;
-    border: 1px solid blue;
     height: 40px;
     margin: 0 10px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    color: white;
-    background-color: blue;
-    text-decoration: none;
+    color: #000000;
+    /* background-color: blue; */
+    display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
+    background: linear-gradient(#ffffff, #e4e4e4);
   }
   .reviews__post__sm > span{
+    margin-left: 5px;
     font-size: 16px;
     font-weight: bold;
-    margin-left: 5px;
   }
   .fa-comment-dots{
     font-size: 22px;
