@@ -47,10 +47,10 @@
       <Sort />
     </div>
     <ul :class="{active__fade__in: sort.isFadeIn}">
-      <li v-for="(review, index) in experienceData.reviews" :key="review.id" class="review__main__wrapper">
-        <div class="review__main__area">
-          <h2 class="review__main__title">{{ review.title }}</h2>
-          <StarRating :experience="review" :unnecessaryReviewCounts="true" />
+      <li v-for="(review, index) in experienceData.reviews" :key="review.id" class="review__main__wrapper__sm">
+        <div>
+          <h2 class="review__main__title__sm">{{ review.title }}</h2>
+          <StarRating :rating-point-font-size="16" :rating-font-size="17.5" :experience="review" :unnecessaryReviewCounts="true" />
           <span class="triangle">▲</span>
           <div class="review__comment__area">
             <span>{{  review.comment  }}</span>
@@ -223,5 +223,14 @@ export default {
   }
   .review__number__sm span:first-of-type{
     margin-right: 11px;
+  }
+  .review__main__wrapper__sm{
+    border-bottom: 1px solid #ccc;
+    padding: 10px 10px 13px;
+    color: #333333;
+  }
+  .review__main__title__sm{
+    font-size: 16px;
+    font-weight: bold;
   }
 </style>
