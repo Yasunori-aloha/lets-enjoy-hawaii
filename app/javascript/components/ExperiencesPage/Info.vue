@@ -1,5 +1,5 @@
 <template>
-  <div class="experience__info__left">
+  <div v-if="$mq !== 'sm'" class="experience__info__left">
     <ul>
       <li class="experience__name__wrapper">
         <CategoryIcon :category-name="experienceData.genre.category.search" />
@@ -17,6 +17,24 @@
         <span class="genre__name">ジャンル</span>
         <router-link :to="{name: 'search', params:{name: experienceData.genre.category.search, case: 'category', id: experienceData.genre.category.id, typeWord: experienceData.genre.category.name }}" class="category search_btn link__hover genre__category">{{ experienceData.genre.category.name }}</router-link>
         <router-link :to="{name: 'search', params:{name: experienceData.genre.search, case: 'genre', id: experienceData.genre.id, typeWord: experienceData.genre.name }}" class="genre search_btn link__hover genre__category">{{ experienceData.genre.name }}</router-link>
+      </li>
+    </ul>
+  </div>
+  <div v-else class="experience__info__sm">
+    <ul style="padding-left: 10px;">
+      <li class="experience__name__wrapper__sm">
+        <CategoryIcon :category-name="experienceData.genre.category.search" />
+        <h1 class="experinece__name__sm">{{ experienceData.name }}</h1>
+      </li>
+      <li class="experience__score">
+        <StarRating :rating-point-font-size="18" :rating-font-size="21" :experience="experienceData" />
+      </li>
+      <li class="experinece__review__sm">
+        <router-link :to="`/experiences/${experienceData.id}/reviews`" class="review__link__wrapper__sm link__hover">
+          <span>口コミ</span>
+          <span class="review__count__sm">{{ experienceData.reviews_counts }}</span>
+          <span>件</span>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -84,5 +102,29 @@ export default {
   }
   .genre__category{
     margin: -1px 6px 0 8px;
+  }
+  /* スマホ表示用 */
+  .experience__info__sm{
+    color: #333333;
+  }
+  .experience__name__wrapper__sm{
+    margin-top: 13px;
+    display: flex;
+  }
+  .experinece__name__sm{
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 5px;
+  }
+  .experinece__review__sm{
+    display: flex;
+  }
+  .review__link__wrapper__sm{
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .review__count__sm{
+    margin: 3px -2px 0;
   }
 </style>

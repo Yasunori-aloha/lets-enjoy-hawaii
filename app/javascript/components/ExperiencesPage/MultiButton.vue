@@ -1,5 +1,5 @@
 <template>
-  <div class="experience__info__right">
+  <div v-if="$mq !== 'sm'" class="experience__info__right">
     <ul>
       <router-link to="/experience/review" tag="li" class="reviews__share">
         <i class="far fa-comment-dots fa-flip-horizontal"></i>
@@ -16,6 +16,10 @@
       <HistoryButton />
     </ul>
   </div>
+  <ul v-else class="multi__tab__wrapper__sm">
+    <FavoriteButton />
+    <HistoryButton />
+  </ul>
 </template>
 
 <script>
@@ -65,5 +69,9 @@ export default {
 /* お気に入り・訪問記録登録表示欄 */
   .favorite__history__wrapper{
     display: flex;
+  }
+/* スマホ表示用 */
+  .multi__tab__wrapper__sm{
+    padding-right: 10px;
   }
 </style>

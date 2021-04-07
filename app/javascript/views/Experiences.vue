@@ -1,32 +1,45 @@
 <template>
-  <div>
-    <div class="experience__page__wrapper">
-      <div class="experience__page__left">
-        <div class="experience__info__wrapper">
-          <Info />
-          <MultiButton />
-        </div>
-        <Tab />
-        <Main v-if="isMain" />
-        <router-view v-else />
+  <div v-if="$mq !== 'sm'" class="experience__page__wrapper">
+    <div class="experience__page__left">
+      <div class="experience__info__wrapper">
+        <Info />
+        <MultiButton />
       </div>
-      <div class="experience__page__right"></div>
+      <Tab />
+      <Main v-if="isMain" />
+      <router-view v-else />
     </div>
+    <div class="experience__page__right"></div>
+  </div>
+  <div v-else>
+    <div class="experience__info__wrapper">
+      <Info />
+      <MultiButton />
+    </div>
+    <Tab />
+    <Main v-if="isMain" />
+    <router-view v-else />
+    <AreaGenre />
+    <ReturnToTop />
   </div>
 </template>
 
 <script>
+import AreaGenre from '../components/ExperiencesPage/AreaGenre.vue'
 import Info from '../components/ExperiencesPage/Info.vue';
 import MultiButton from '../components/ExperiencesPage/MultiButton.vue';
 import Tab from '../components/ExperiencesPage/Tab.vue';
 import Main from '../components/ExperiencesPage/Main.vue';
+import ReturnToTop from '../components/ExperiencesPage/ReturnToTop.vue'
 
 export default {
   components: {
+    AreaGenre,
     Info,
     MultiButton,
     Tab,
     Main,
+    ReturnToTop,
   },
   computed: {
     isMain() {
@@ -65,5 +78,12 @@ export default {
   }
   .experience__page__right{
     width: calc(100% - 770px)
+  }
+</style>
+
+<style>
+  .main__wrapper__sm{
+    margin-bottom: 20px;
+    list-style: none;
   }
 </style>

@@ -9,7 +9,7 @@
   <div v-else class="search__experience__header__sm">
     <router-link :to="`/experiences/${experience.id}`" class="show__experiences__sm link__hover">{{ experience.name }}</router-link>
     <p class="search__experience__location__sm">{{ experience.area.island.name }} > {{ experience.area.name }}</p>
-    <StarRating :experience="experience" />
+    <StarRating :rating-point-font-size="14" :rating-font-size="16" :experience="experience" />
   </div>
 </template>
 

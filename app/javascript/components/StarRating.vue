@@ -12,12 +12,12 @@
     </div>
   </div>
   <div v-else style="display: flex;">
-    <div class="star__rating__sm">
+    <div class="star__rating__sm" :style="ratingFontSizeMethod(ratingFontSize)">
       <div :style="starRatingWidth(experience.score)" class="star__rating__front">★★★★★</div>
       <div class="star__rating__back">★★★★★</div>
     </div>
-    <span class="rating__point__sm">{{ scoreToFixed(experience.score) }}</span>
-    <div v-if="!unnecessaryReviewCounts" style="display: flex;">
+    <span class="rating__point__sm" :style="ratingPointFontSizeMethod(ratingPointFontSize), marginLeft(marginLeftFlag)">{{ scoreToFixed(experience.score) }}</span>
+    <div v-if="!unnecessaryReviewCounts && $mq !== 'sm'" style="display: flex;">
       <span class="review__counts">（</span>
       <router-link :to="`/experiences/${experience.id}/reviews`" class="review__link review__counts link__hover"false>口コミ{{ experience.reviews_counts }}件</router-link>
       <span class="review__counts">）</span>
@@ -27,11 +27,38 @@
 
 <script>
 export default {
-  props: ["experience", "unnecessaryReviewCounts"],
+  props: ["experience", "unnecessaryReviewCounts", "ratingFontSize", "ratingPointFontSize", "marginLeftFlag"],
+  computed: {
+    isSearchPage() {
+      const currentPath = /\/search/.test(this.$route.path);
+      return currentPath ? true : false
+    },
+  },
   methods: {
     starRatingWidth(score) {
       return {
         '--width': `${score * 20}%`,
+      }
+    },
+    ratingFontSizeMethod(fontSize) {
+      return {
+        '--rating-font-size': `${fontSize}px`
+      }
+    },
+    ratingPointFontSizeMethod(fontSize) {
+      return {
+        '--rating-point-font-size': `${fontSize}px`
+      }
+    },
+    marginLeft(flag) {
+      if (flag) {
+        return {
+          '--margin-left': '12px',
+        }
+      } else {
+        return {
+          '--margin-left': '0px',
+        }
       }
     },
     scoreToFixed(score) {
@@ -87,13 +114,14 @@ export default {
     margin-right: 3px;
     width: 5em;
     line-height: 22px;
-    font-size: 16px;
     position: relative;
+    font-size: var(--rating-font-size);
   }
   .rating__point__sm{
     line-height: 24px;
-    font-size: 14px;
     color: black;
     font-weight: bold;
+    font-size: var(--rating-point-font-size);
+    margin-left: var(--margin-left);
   }
 </style>
