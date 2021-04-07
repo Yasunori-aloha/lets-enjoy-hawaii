@@ -25,8 +25,8 @@
       <span>1 - {{ experienceData.images_counts }}枚</span>
       <span>(全{{ experienceData.images_counts }}枚中)</span>
     </div>
-    <div class="photo__list">
-      <img v-for="(image, index) in images" :key="image" :src="image" :style="isNotRight(index + 1)" class="photo">
+    <div class="photo__list__sm">
+      <img v-for="(image, index) in images" :key="image" :src="image" :style="isNotRight(index + 1)" class="photo__sm">
     </div>
   </div>
   <div v-else-if="!isExists && $mq === 'sm'" class="photo__wrapper">
@@ -144,11 +144,24 @@ export default {
   .photo__number__sm{
     width: 100%;
     padding: 12px 10px 20px;
-    border-bottom: 1px solid #ccc;
     font-size: 16px;
     font-weight: bold;
   }
   .photo__number__sm  span:first-of-type{
     margin-right: 11px;
+  }
+  .photo__list__sm{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .photo__sm{
+    height: 141px;
+    width: calc((100vw / 2) - 0.5px);
+    margin-bottom: 1px;
+  }
+  .photo__sm:nth-child(odd){
+    margin-right: 1px;
   }
 </style>
