@@ -41,22 +41,25 @@ export default {
 
 <style scoped>
 /* お気に入り登録ボタン */
-  .favorite{
-    height: 25px;
-    width: calc((170px - 5px) / 2) ;
-    line-height: 25px;
-    font-size: 15px;
+  .favorite, .favorite__sm{
+    line-height: 26px;
     border: 1px solid #ccc;
     border-radius: 3px;
     padding-left: 5px;
-    position: relative;
     background: linear-gradient(#ffffff, #e4e4e4);
+  }
+  .favorite{
+    height: 25px;
+    width: calc((170px - 5px) / 2) ;
+    font-size: 15px;
     cursor: pointer;
   }
   .fa-star{
     color: #ffa500;
   }
   .favorite__sm{
-
+    height: calc(100% / 3);
+    width: calc(100vw / 4.5);
+    margin-top: calc(100% / 9);
   }
 </style>

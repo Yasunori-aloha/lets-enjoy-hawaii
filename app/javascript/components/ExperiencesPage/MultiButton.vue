@@ -16,12 +16,10 @@
       <HistoryButton />
     </ul>
   </div>
-  <div v-else class="experience__multi__tab__sm">
-    <ul class="multi__tab__wrapper__sm">
-      <FavoriteButton />
-      <HistoryButton />
-    </ul>
-  </div>
+  <ul v-else class="multi__tab__wrapper__sm">
+    <FavoriteButton />
+    <HistoryButton />
+  </ul>
 </template>
 
 <script>
@@ -73,4 +71,7 @@ export default {
     display: flex;
   }
 /* スマホ表示用 */
+  .multi__tab__wrapper__sm{
+    padding-right: 10px;
+  }
 </style>
