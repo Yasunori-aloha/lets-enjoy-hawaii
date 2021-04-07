@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isExists" class="photo__wrapper">
+  <div v-if="isExists && $mq !== 'sm'" class="photo__wrapper">
     <div class="photo__title__area">
       <div class="photo__title__icon"></div>
       <h1 class="photo__title">{{ experienceData.name }}の写真一覧</h1>
@@ -14,7 +14,22 @@
       <img v-for="(image, index) in images" :key="image" :src="image" :style="isNotRight(index + 1)" class="photo">
     </div>
   </div>
-  <div v-else class="photo__wrapper">
+  <div v-else-if="!isExists && $mq !== 'sm'" class="photo__wrapper">
+    <div class="photo__title__area">
+      <div class="photo__title__icon"></div>
+      <h1 class="photo__title">{{ experienceData.name }}の写真はまだありません</h1>
+    </div>
+  </div>
+  <div v-else-if="isExists && $mq === 'sm'" class="photo__wrapper__sm">
+    <div class="photo__number__sm">
+      <span>1 - {{ experienceData.images_counts }}枚</span>
+      <span>(全{{ experienceData.images_counts }}枚中)</span>
+    </div>
+    <div class="photo__list">
+      <img v-for="(image, index) in images" :key="image" :src="image" :style="isNotRight(index + 1)" class="photo">
+    </div>
+  </div>
+  <div v-else-if="!isExists && $mq === 'sm'" class="photo__wrapper">
     <div class="photo__title__area">
       <div class="photo__title__icon"></div>
       <h1 class="photo__title">{{ experienceData.name }}の写真はまだありません</h1>
@@ -119,5 +134,21 @@ export default {
     margin: 0 0 26px 0;
     border: 1px solid $gray;
     margin-right: var(--margin-right);
+  }
+/* スマホ表示用 */
+  .photo__wrapper__sm{
+    height: 302px;
+    height: auto !important;
+    min-height: calc(100vh - 495px);
+  }
+  .photo__number__sm{
+    width: 100%;
+    padding: 12px 10px 20px;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .photo__number__sm  span:first-of-type{
+    margin-right: 11px;
   }
 </style>
