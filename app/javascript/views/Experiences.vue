@@ -14,7 +14,7 @@
   <div v-else>
     <div class="experience__info__wrapper">
       <Info />
-      <!-- <MultiButton /> -->
+      <MultiButton />
     </div>
     <Tab />
     <Main v-if="isMain" />

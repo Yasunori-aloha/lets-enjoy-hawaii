@@ -1,9 +1,9 @@
 <template>
-  <li v-if="experienceData.already_historied" @click="historyRemove()" class="history__place">
+  <li v-if="experienceData.already_historied" @click="historyRemove()" :class="{history__place: $mq !== 'sm', history__place__sm: $mq === 'sm'}">
     <i class="fas fa-check"></i>
     <span class="history">行った</span>
   </li>
-  <li v-else @click="historyRegistration()" class="history__place">
+  <li v-else @click="historyRegistration()" :class="{history__place: $mq !== 'sm', history__place__sm: $mq === 'sm'}">
     <i class="fas fa-shoe-prints fa-rotate-270"></i>
     <span class="history">行った</span>
   </li>

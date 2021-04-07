@@ -1,9 +1,9 @@
 <template>
-  <li v-if="experienceData.already_favorited" @click="favoriteRemove()" class="favorite">
+  <li v-if="experienceData.already_favorited" @click="favoriteRemove()" :class="{favorite: $mq !== 'sm', favorite__sm: $mq === 'sm'}">
     <i class="fas fa-star"></i>
     <span>{{ experienceData.favorite_counts }}</span>
   </li>
-  <li v-else class="favorite" @click="favoriteRegistration()">
+  <li v-else :class="{favorite: $mq !== 'sm', favorite__sm: $mq === 'sm'}" @click="favoriteRegistration()">
     <i class="far fa-star"></i>
     <span>{{ experienceData.favorite_counts }}</span>
   </li>
@@ -55,5 +55,8 @@ export default {
   }
   .fa-star{
     color: #ffa500;
+  }
+  .favorite__sm{
+
   }
 </style>
