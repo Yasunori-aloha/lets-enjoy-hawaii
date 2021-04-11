@@ -25,21 +25,14 @@
       <div class="head__icon__sm"></div>
       <h1 class="head__name__sm">口コミを投稿する</h1>
     </div>
-    <!-- <div class="review__experience__info">
-      <ActivityPicture :activity="experienceData" />
-      <ul class="experience__name__wrapper">
-        <li class="experience__icon__name">
-          <CategoryIcon :category-name="experienceData.genre.category.search" />
-          <span class="experience__name">{{ experienceData.name }}</span>
-        </li>
-        <li class="experience__area">
-          <span>エリア：{{ experienceData.area.island.name }} > {{ experienceData.area.name }}</span>
-        </li>
-        <li class="experience__address">
-          <span>住所：{{ experienceData.address }}</span>
-        </li>
-      </ul>
-    </div> -->
+    <ul class="experience__name__wrapper__sm">
+      <li class="experience__area__sm">
+        <span>エリア：{{ experienceData.area.island.name }} > {{ experienceData.area.name }}</span>
+      </li>
+      <li class="experience__icon__name__sm">
+        <span>{{ experienceData.name }}</span>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -124,5 +117,16 @@ export default {
     font-size: 19px;
     font-weight: bold;
     line-height: 18px;
+  }
+  .experience__name__wrapper__sm{
+    padding: 14px 0 0 10px
+  }
+  .experience__area__sm{
+    font-size: 11px;
+  }
+  .experience__icon__name__sm{
+    padding-top: 2px;
+    font-size: 17px;
+    font-weight: bold;
   }
 </style>
