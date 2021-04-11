@@ -10,17 +10,13 @@
       </form>
     </div>
   </div>
-  <div v-else class="review__wrapper">
-    <div class="review__form">
-      <!-- <form>
-        <Title />
-        <Score />
-        <Comment />
-        <Picture />
-        <Submit />
-      </form> -->
-    </div>
-  </div>
+  <form v-else>
+    <Title />
+    <!-- <Score />
+    <Comment />
+    <Picture />
+    <Submit /> -->
+  </form>
 </template>
 
 <script>

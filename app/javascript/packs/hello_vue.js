@@ -13,7 +13,7 @@ Vue.use(Vuex);
 Vue.use(VueRouter);
 Vue.use(VueAxios, { axios: axios, csrfToken: csrfToken });
 
-axios.defaults.baseURL = process.env.API_URL;
+// axios.defaults.baseURL = process.env.API_URL;
 
 document.addEventListener("DOMContentLoaded", () => {
   store.dispatch('autoLogin');

@@ -1,5 +1,5 @@
 <template>
-  <div class="review__form__tile">
+  <div v-if="$mq !== 'sm'" class="review__form__tile">
     <div class="review__form__title__wrapper">
       <div class="head__icon"></div>
       <h1 class="head__name">口コミを投稿する</h1>
@@ -19,6 +19,27 @@
         </li>
       </ul>
     </div>
+  </div>
+  <div v-else>
+    <div class="review__form__title__wrapper__sm">
+      <div class="head__icon__sm"></div>
+      <h1 class="head__name__sm">口コミを投稿する</h1>
+    </div>
+    <!-- <div class="review__experience__info">
+      <ActivityPicture :activity="experienceData" />
+      <ul class="experience__name__wrapper">
+        <li class="experience__icon__name">
+          <CategoryIcon :category-name="experienceData.genre.category.search" />
+          <span class="experience__name">{{ experienceData.name }}</span>
+        </li>
+        <li class="experience__area">
+          <span>エリア：{{ experienceData.area.island.name }} > {{ experienceData.area.name }}</span>
+        </li>
+        <li class="experience__address">
+          <span>住所：{{ experienceData.address }}</span>
+        </li>
+      </ul>
+    </div> -->
   </div>
 </template>
 
@@ -86,5 +107,22 @@ export default {
     margin-top: 5px;
     font-size: 12px;
     word-spacing: 0;
+  }
+/* スマホ表示用 */
+  .review__form__title__wrapper__sm{
+    width: 100%;
+    padding: 32px 0 0 10px;
+    display: flex;
+  }
+  .head__icon__sm{
+    height: 19px;
+    width: 7px;
+    margin-right: 6px;
+    background-color: #FF4500;
+  }
+  .head__name__sm{
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 18px;
   }
 </style>
