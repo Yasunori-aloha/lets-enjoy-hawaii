@@ -27,23 +27,13 @@
       <span class="required__item__sm">必須</span>
       <h2 class="score__title__sm">口コミ</h2>
     </div>
-    <!-- <ul class="review__content__main">
-      <li class="review__title__info">
-        <div class="icon"></div>
-        <label for="review_title" class="name">タイトル（50文字以内）</label>
-      </li>
-      <li class="review__title__main">
-        <input v-model="reviewData.title" type="text" id="review_title" name="review[title]" maxlength="50" autocomplete="off" placeholder="体験した感想や伝えたいことをまとめましょう" size="50" class="review__title">
-      </li>
-      <li class="review__main__info">
-        <div class="icon"></div>
-        <label for="review_comment" class="name">内容（1000文字以内）</label>
-      </li>
-      <li class="review__main">
-        <textarea v-model="reviewData.comment" name="review[comment]" id="review_comment" maxlength="1000" placeholder="ご自身が実際に体験を通して感じた感想をお聞かせください。
-これから訪れようとしている人へのアドバイスやおすすめ等を記入してください。" class="review"></textarea>
-      </li>
-    </ul> -->
+    <div class="review__content__main__sm">
+      <label for="review_title" class="name__sm">タイトル（50文字以内）</label>
+      <input v-model="reviewData.title" type="text" id="review_title" name="review[title]" maxlength="50" autocomplete="off" placeholder="体験した感想や伝えたいことをまとめましょう" size="50" class="review__title__sm">
+      <label for="review_comment" class="name__sm">内容（1000文字以内）</label>
+      <textarea v-model="reviewData.comment" name="review[comment]" id="review_comment" maxlength="1000" placeholder="ご自身が実際に体験したことについてお聞かせください。
+これから訪れようとしている人へのアドバイスやおすすめ等を記入してください。" class="review__sm" />
+    </div>
   </div>
 </template>
 
@@ -134,5 +124,24 @@ export default {
   }
   .score__title__sm{
     margin-left: 10px;
+  }
+  .review__content__main__sm{
+    padding: 12px 10px 23px;
+  }
+  .name__sm{
+    font-size: 12px;
+  }
+  .review__title__sm, .review__sm{
+    width: calc(100vw - 20px);
+    font-size: 13px;
+    padding-left: 5px;
+  }
+  .review__title__sm{
+    margin: 6px 0;
+    height: 24px;
+  }
+  .review__sm{
+    height: 101px;
+    margin-top: 8px;
   }
 </style>
