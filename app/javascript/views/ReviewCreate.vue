@@ -12,8 +12,8 @@
   </div>
   <form v-else>
     <Title />
-    <!-- <Score />
-    <Comment />
+    <Score />
+    <!-- <Comment />
     <Picture />
     <Submit /> -->
   </form>
