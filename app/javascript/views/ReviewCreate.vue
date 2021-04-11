@@ -1,5 +1,5 @@
 <template>
-  <div class="review__wrapper">
+  <div v-if="$mq !== 'sm'" class="review__wrapper">
     <div class="review__form">
       <form>
         <Title />
@@ -8,6 +8,17 @@
         <Picture />
         <Submit />
       </form>
+    </div>
+  </div>
+  <div v-else class="review__wrapper">
+    <div class="review__form">
+      <!-- <form>
+        <Title />
+        <Score />
+        <Comment />
+        <Picture />
+        <Submit />
+      </form> -->
     </div>
   </div>
 </template>
