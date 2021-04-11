@@ -13,8 +13,8 @@
   <form v-else>
     <Title />
     <Score />
-    <!-- <Comment />
-    <Picture />
+    <Comment />
+    <!-- <Picture />
     <Submit /> -->
   </form>
 </template>

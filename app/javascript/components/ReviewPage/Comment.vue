@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="$mq !== 'sm'">
     <div class="review__content__title">
       <h2 class="score__title">口コミ</h2>
       <span class="required__item">必須</span>
@@ -21,6 +21,29 @@
 これから訪れようとしている人へのアドバイスやおすすめ等を記入してください。" class="review"></textarea>
       </li>
     </ul>
+  </div>
+  <div v-else>
+    <div class="review__content__title__sm">
+      <span class="required__item__sm">必須</span>
+      <h2 class="score__title__sm">口コミ</h2>
+    </div>
+    <!-- <ul class="review__content__main">
+      <li class="review__title__info">
+        <div class="icon"></div>
+        <label for="review_title" class="name">タイトル（50文字以内）</label>
+      </li>
+      <li class="review__title__main">
+        <input v-model="reviewData.title" type="text" id="review_title" name="review[title]" maxlength="50" autocomplete="off" placeholder="体験した感想や伝えたいことをまとめましょう" size="50" class="review__title">
+      </li>
+      <li class="review__main__info">
+        <div class="icon"></div>
+        <label for="review_comment" class="name">内容（1000文字以内）</label>
+      </li>
+      <li class="review__main">
+        <textarea v-model="reviewData.comment" name="review[comment]" id="review_comment" maxlength="1000" placeholder="ご自身が実際に体験を通して感じた感想をお聞かせください。
+これから訪れようとしている人へのアドバイスやおすすめ等を記入してください。" class="review"></textarea>
+      </li>
+    </ul> -->
   </div>
 </template>
 
@@ -87,5 +110,29 @@ export default {
   }
   input:focus::placeholder {
     color: transparent;
+  }
+/* スマホ表示用 */
+  .review__content__title__sm{
+    height: 26px;
+    line-height: 26px;
+    padding-left: 10px;
+    font-size: 14px;
+    display: flex;
+    color: white;
+    background-color: #FF4500;
+  }
+  .required__item__sm{
+    height: 18px;
+    width: 28px;
+    line-height: calc(26px - (4px * 2));
+    margin: 4px 0;
+    font-size: 11px;
+    text-align: center;
+    color: #FF4500;
+    background-color: white;
+    display: block;
+  }
+  .score__title__sm{
+    margin-left: 10px;
   }
 </style>
