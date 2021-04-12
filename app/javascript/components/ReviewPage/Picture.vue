@@ -28,10 +28,13 @@
       <span class="required__item__sm">任意</span>
       <h2 class="picture__title__sm">写真</h2>
     </li>
-    <li class="picture__btn">
-      <i class="fas fa-camera"></i>
-      <label for="review_images" class="picture__add">写真を追加する</label>
-      <input @change="previewImages()" ref="reviewImages" type="file" id="review_images" name="review[images][]" multiple="multiple" accept="image/*" class="hidden">
+    <li class="picture__btn__wrapper__sm">
+      <div class="picture__btn__sm">
+        <i class="fas fa-camera"></i>
+        <span class="picture__add__sm">写真を登録する</span>
+        <label for="review_images"/>
+        <input @change="previewImages()" ref="reviewImages" type="file" id="review_images" name="review[images][]" multiple="multiple" accept="image/*" class="hidden">
+      </div>
     </li>
     <li>
       <p class="picture__info">写真を複数選択して、一度に追加することができます。</p>
@@ -206,5 +209,49 @@ export default {
   }
   .picture__title__sm{
     margin-left: 10px;
+  }
+  .picture__btn__wrapper__sm{
+    height: 78px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .picture__btn__sm{
+    height: 46px;
+    width: calc(100% - 74px);
+    padding-left: 8px;
+    font-size: 25px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: linear-gradient(#ffffff, #e4e4e4);
+    color: #787878;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .picture__btn__sm > label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .fa-camera{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -13px 0 0 -68px;
+  }
+  .picture__add__sm{
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -29px;
   }
 </style>
