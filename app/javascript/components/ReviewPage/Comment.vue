@@ -126,7 +126,7 @@ export default {
     margin-left: 10px;
   }
   .review__content__main__sm{
-    padding: 12px 10px 23px;
+    padding: 12px 10px 18px;
   }
   .name__sm{
     font-size: 12px;
