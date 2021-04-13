@@ -1,5 +1,5 @@
 <template>
-  <ul class="review__picture">
+  <ul v-if="$mq !== 'sm'" class="review__picture">
     <li class="review__picture__title">
       <h2 class="picture__title">写真</h2>
     </li>
@@ -21,6 +21,29 @@
           </div>
         </li>
       </ul>
+    </li>
+  </ul>
+  <ul v-else>
+    <li class="review__picture__title__sm">
+      <span class="required__item__sm">任意</span>
+      <h2 class="picture__title__sm">写真</h2>
+    </li>
+    <li v-if="imagesUrl.length !== 0">
+      <ul>
+        <li v-for="(image, index) in imagesUrl" :key="image" class="preview__wrapper__sm">
+          <img class="preview__sm" :src="image">
+          <span class="preview__name__sm">{{ reviewData.images[index].name }}</span>
+          <div @click="previewDelete(index)" class="delete__btn__sm">×</div>
+        </li>
+      </ul>
+    </li>
+    <li class="picture__btn__wrapper__sm">
+      <div class="picture__btn__sm">
+        <i class="fas fa-camera camera__sm"></i>
+        <span class="picture__add__sm">写真を登録する</span>
+        <label for="review_images"/>
+        <input @change="previewImages()" ref="reviewImages" type="file" id="review_images" name="review[images][]" multiple="multiple" accept="image/*" class="hidden">
+      </div>
     </li>
   </ul>
 </template>
@@ -156,5 +179,100 @@ export default {
   .delete__btn{
     color: #0000ff;
     text-decoration: underline;
+  }
+/* スマホ表示用 */
+  .review__picture__title__sm{
+    height: 26px;
+    line-height: 26px;
+    margin-top: 5px;
+    padding-left: 10px;
+    font-size: 14px;
+    display: flex;
+    color: white;
+    background-color: #FF4500;
+  }
+  .required__item__sm{
+    height: 18px;
+    width: 28px;
+    line-height: calc(26px - (4px * 2));
+    margin: 4px 0;
+    font-size: 11px;
+    text-align: center;
+    color: #FF4500;
+    background-color: white;
+    display: block;
+  }
+  .picture__title__sm{
+    margin-left: 10px;
+  }
+  .picture__btn__wrapper__sm{
+    height: 78px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .picture__btn__sm{
+    height: 46px;
+    width: calc(100% - 74px);
+    padding-left: 8px;
+    font-size: 25px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: linear-gradient(#ffffff, #e4e4e4);
+    color: #787878;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .picture__btn__sm > label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .camera__sm{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -13px 0 0 -68px;
+  }
+  .picture__add__sm{
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -29px;
+  }
+/* スマホ表示用 */
+  .preview__wrapper__sm{
+    padding: 10px 10px;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+  }
+  .preview__sm{
+    height: 90px;
+    width: 120px;
+  }
+  .preview__name__sm{
+    width: calc(100vw - 170px);
+    margin-left: 10px;
+    font-size: 11px;
+  }
+  .delete__btn__sm{
+    height: 20px;
+    width: 20px;
+    line-height: 17px;
+    font-size: 18px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: gray;
   }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="review__form__tile">
+  <div v-if="$mq !== 'sm'" class="review__form__tile">
     <div class="review__form__title__wrapper">
       <div class="head__icon"></div>
       <h1 class="head__name">口コミを投稿する</h1>
@@ -19,6 +19,20 @@
         </li>
       </ul>
     </div>
+  </div>
+  <div v-else>
+    <div class="review__form__title__wrapper__sm">
+      <div class="head__icon__sm"></div>
+      <h1 class="head__name__sm">口コミを投稿する</h1>
+    </div>
+    <ul class="experience__name__wrapper__sm">
+      <li class="experience__area__sm">
+        <span>エリア：{{ experienceData.area.island.name }} > {{ experienceData.area.name }}</span>
+      </li>
+      <li class="experience__icon__name__sm">
+        <span>{{ experienceData.name }}</span>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -86,5 +100,33 @@ export default {
     margin-top: 5px;
     font-size: 12px;
     word-spacing: 0;
+  }
+/* スマホ表示用 */
+  .review__form__title__wrapper__sm{
+    width: 100%;
+    padding: 32px 0 0 10px;
+    display: flex;
+  }
+  .head__icon__sm{
+    height: 19px;
+    width: 7px;
+    margin-right: 6px;
+    background-color: #FF4500;
+  }
+  .head__name__sm{
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 18px;
+  }
+  .experience__name__wrapper__sm{
+    padding: 14px 0 0 10px
+  }
+  .experience__area__sm{
+    font-size: 11px;
+  }
+  .experience__icon__name__sm{
+    padding-top: 2px;
+    font-size: 17px;
+    font-weight: bold;
   }
 </style>

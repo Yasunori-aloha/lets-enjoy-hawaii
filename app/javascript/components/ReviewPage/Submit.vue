@@ -1,6 +1,9 @@
 <template>
-  <div class="review__submit">
+  <div v-if="$mq !== 'sm'" class="review__submit">
     <button @click.prevent="createReview()" class="submit btn__hover">投稿する</button>
+  </div>
+  <div v-else class="review__submit__sm" :style="submitHeight()">
+    <button @click.prevent="createReview()" class="submit__sm btn__hover">投稿する</button>
   </div>
 </template>
 
@@ -33,6 +36,15 @@ export default {
         this.$router.replace(`/experiences/${this.experienceData.id}`);
       });
     },
+    submitHeight() {
+      let imageCounts = this.reviewData.images.length;
+
+      if (imageCounts === 0) {
+        return {"--min-height": 'calc(100vh - 665px)'};
+      }
+
+      return {"--min-height": '0px'};
+    },
   },
 };
 </script>
@@ -61,5 +73,21 @@ export default {
     background-color: #00b900;
     outline: none;
     cursor: pointer;
+  }
+/* スマホ表示用 */
+  .review__submit__sm{
+    min-height: var(--min-height);
+  }
+  .submit__sm{
+    height: 57px;
+    width: calc(100% - 20px);
+    margin: 30px 10px;
+    font-size: 16px;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    background-color: #00b900;
+    outline: none;
   }
 </style>
