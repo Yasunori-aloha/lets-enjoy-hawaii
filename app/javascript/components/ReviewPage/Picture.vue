@@ -28,6 +28,15 @@
       <span class="required__item__sm">任意</span>
       <h2 class="picture__title__sm">写真</h2>
     </li>
+    <li>
+      <ul>
+        <li class="preview__wrapper__sm">
+          <img class="preview__sm" src="" alt="">
+          <span class="preview__name__sm"></span>
+          <div class="delete__btn__sm"></div>
+        </li>
+      </ul>
+    </li>
     <li class="picture__btn__wrapper__sm">
       <div class="picture__btn__sm">
         <i class="fas fa-camera"></i>
@@ -36,10 +45,7 @@
         <input @change="previewImages()" ref="reviewImages" type="file" id="review_images" name="review[images][]" multiple="multiple" accept="image/*" class="hidden">
       </div>
     </li>
-    <li>
-      <p class="picture__info">写真を複数選択して、一度に追加することができます。</p>
-    </li>
-    <li class="picture__main__wrapper">
+    <!-- <li class="picture__main__wrapper">
       <ul class="picture__preview__area" :style="previewAreaHeight(imagesUrl.length)">
         <li v-for="(image, index) in imagesUrl" :key="image" class="preview__wrapper">
           <img :src="image" class="preview">
@@ -49,7 +55,7 @@
           </div>
         </li>
       </ul>
-    </li>
+    </li> -->
   </ul>
 </template>
 
@@ -253,5 +259,27 @@ export default {
     top: 50%;
     left: 50%;
     margin: -10px 0 0 -29px;
+  }
+/* スマホ表示用 */
+  .preview__wrapper__sm{
+    padding: 10px 10px;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+  }
+  .preview__sm{
+    height: 90px;
+    width: 120px;
+  }
+  .preview__name__sm{
+    width: calc(100vw - 170px);
+    margin-left: 10px;
+    font-size: 11px;
+  }
+  .delete__btn__sm{
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    background-color: #ccc;
   }
 </style>
