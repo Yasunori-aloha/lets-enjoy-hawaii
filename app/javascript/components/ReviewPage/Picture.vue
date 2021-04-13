@@ -33,7 +33,7 @@
         <li class="preview__wrapper__sm">
           <img class="preview__sm" src="" alt="">
           <span class="preview__name__sm"></span>
-          <div class="delete__btn__sm"></div>
+          <div class="delete__btn__sm">×</div>
         </li>
       </ul>
     </li>
@@ -279,7 +279,12 @@ export default {
   .delete__btn__sm{
     height: 20px;
     width: 20px;
+    line-height: 17px;
+    font-size: 18px;
     border-radius: 10px;
-    background-color: #ccc;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: gray;
   }
 </style>
