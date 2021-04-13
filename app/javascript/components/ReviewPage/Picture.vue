@@ -28,7 +28,7 @@
       <span class="required__item__sm">任意</span>
       <h2 class="picture__title__sm">写真</h2>
     </li>
-    <li>
+    <li v-if="imagesUrl.length !== 0">
       <ul>
         <li class="preview__wrapper__sm">
           <img class="preview__sm" src="" alt="">
