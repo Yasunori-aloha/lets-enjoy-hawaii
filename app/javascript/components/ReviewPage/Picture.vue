@@ -30,9 +30,9 @@
     </li>
     <li v-if="imagesUrl.length !== 0">
       <ul>
-        <li class="preview__wrapper__sm">
-          <img class="preview__sm" src="" alt="">
-          <span class="preview__name__sm"></span>
+        <li v-for="(image, index) in imagesUrl" :key="image" class="preview__wrapper__sm">
+          <img class="preview__sm" :src="image">
+          <span class="preview__name__sm">{{ reviewData.images[index].name }}</span>
           <div class="delete__btn__sm">×</div>
         </li>
       </ul>
@@ -66,11 +66,8 @@ export default {
 
       // 入力された画像を'reviewData'に保存し、プレビュー用のURLを'imagesUrl'に保存する。
       for (const image of images) {
-        console.log(this.imagesUrl.length);
         this.reviewData.images.push(image);
         this.imagesUrl.push(URL.createObjectURL(image));
-        console.log(this.imagesUrl.length);
-        console.log(this.reviewData.images[0].name);
       }
 
       return this.$refs.reviewImages.value = null;
