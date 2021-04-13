@@ -15,7 +15,7 @@
     <Score />
     <Comment />
     <Picture />
-    <!-- <Submit /> -->
+    <Submit />
   </form>
 </template>
 

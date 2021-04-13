@@ -240,7 +240,6 @@ export default {
     margin: -13px 0 0 -68px;
   }
   .picture__add__sm{
-    width: 100%;
     font-size: 14px;
     font-weight: bold;
     color: #333333;
