@@ -33,7 +33,7 @@
         <li v-for="(image, index) in imagesUrl" :key="image" class="preview__wrapper__sm">
           <img class="preview__sm" :src="image">
           <span class="preview__name__sm">{{ reviewData.images[index].name }}</span>
-          <div class="delete__btn__sm">×</div>
+          <div @click="previewDelete(index)" class="delete__btn__sm">×</div>
         </li>
       </ul>
     </li>
