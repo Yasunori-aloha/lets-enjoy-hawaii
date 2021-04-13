@@ -39,23 +39,12 @@
     </li>
     <li class="picture__btn__wrapper__sm">
       <div class="picture__btn__sm">
-        <i class="fas fa-camera"></i>
+        <i class="fas fa-camera camera__sm"></i>
         <span class="picture__add__sm">写真を登録する</span>
         <label for="review_images"/>
         <input @change="previewImages()" ref="reviewImages" type="file" id="review_images" name="review[images][]" multiple="multiple" accept="image/*" class="hidden">
       </div>
     </li>
-    <!-- <li class="picture__main__wrapper">
-      <ul class="picture__preview__area" :style="previewAreaHeight(imagesUrl.length)">
-        <li v-for="(image, index) in imagesUrl" :key="image" class="preview__wrapper">
-          <img :src="image" class="preview">
-          <div @click="previewDelete(index)" @mouseover="buttonOver(index)" @mouseleave="buttonLeave(index)" class="picture__delete">
-            <i class="far fa-window-close"></i>
-            <span ref="deleteButton" class="delete__btn">写真削除</span>
-          </div>
-        </li>
-      </ul>
-    </li> -->
   </ul>
 </template>
 
@@ -77,8 +66,11 @@ export default {
 
       // 入力された画像を'reviewData'に保存し、プレビュー用のURLを'imagesUrl'に保存する。
       for (const image of images) {
+        console.log(this.imagesUrl.length);
         this.reviewData.images.push(image);
         this.imagesUrl.push(URL.createObjectURL(image));
+        console.log(this.imagesUrl.length);
+        console.log(this.reviewData.images[0].name);
       }
 
       return this.$refs.reviewImages.value = null;
@@ -244,7 +236,7 @@ export default {
     height: 100%;
     width: 100%;
   }
-  .fa-camera{
+  .camera__sm{
     position: absolute;
     top: 50%;
     left: 50%;
