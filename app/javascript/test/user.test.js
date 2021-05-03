@@ -13,14 +13,47 @@ describe('store/user.js', () => {
   })
 
   describe('getters', () => {
-    test('')
-  })
+    test('ユーザー認証用トークンを取得：userTokens', () => {
 
-  describe('mutations', () => {
-    test('')
+    })
+    test('ログインユーザー情報を取得：userData', () => {
+
+    })
+    test('ログインユーザーの口コミ情報を取得：userReviews', () => {
+
+    })
+    test('ログインユーザーのいいね一覧を取得：userFavorites', () => {
+
+    })
+    test('ログインユーザーの行った一覧を取得：userHistories', () => {
+
+    })
   })
 
   describe('actions', () => {
-    test('')
+    test('ユーザー認証用トークンがあれば自動ログインをする：autoLogin', () => {
+
+    })
+    test('ユーザー登録をする：userSignUp', () => {
+
+    })
+    test('メールアドレスが登録済みか確認する：isRegisterd', () => {
+
+    })
+    test('ユーザーをログインさせる：userLogin', () => {
+
+    })
+    test('ゲストユーザーとしてログインする：guestUserLogin', () => {
+
+    })
+    test('ユーザーをログアウトさせる：logout', () => {
+
+    })
+    test('ユーザーページへ遷移する：toUsersPage', () => {
+
+    })
+    test('ユーザー情報をStoreとLocalStorageにセットする：updateUserData', () => {
+
+    })
   })
 })
