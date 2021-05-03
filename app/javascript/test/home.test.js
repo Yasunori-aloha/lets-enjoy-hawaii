@@ -13,16 +13,21 @@ describe('store/home.js', () => {
   });
 
   describe('getters', () => {
-    test('サイトアクセス時の初期表示の地図を取得', () => {
-      const firstMap = store.getters['mapImageData']['mapImageIndex'];
-
-      expect(store.getters['mapImageData']['mapImages'][firstMap]).toBe('/images/hawaiian_islands.png');
-    });
-    test('mapImageIndexの値が変わると地図表示も変わる', () => {
-      store.getters['mapImageData']['mapImageIndex'] = 0;
-      const changeMap = store.getters['mapImageData']['mapImageIndex'];
-
-      expect(store.getters['mapImageData']['mapImages'][changeMap]).toBe('/images/hawaiian_islands_island_of_hawaii.png');
+    test('ホーム画面に表示する地図データを取得：mapImageData', () => {
+      expect(store.getters['mapImageData']).toEqual({
+      mapImages: [
+        '/images/hawaiian_islands_island_of_hawaii.png',
+        '/images/hawaiian_islands_maui.png',
+        '/images/hawaiian_islands_kahoolawe.png',
+        '/images/hawaiian_islands_lanai.png',
+        '/images/hawaiian_islands_molokai.png',
+        '/images/hawaiian_islands_oahu.png',
+        '/images/hawaiian_islands_kauai.png',
+        '/images/hawaiian_islands_niihau.png',
+        '/images/hawaiian_islands.png',
+      ],
+      mapImageIndex: 8,
+      })
     });
   });
 
