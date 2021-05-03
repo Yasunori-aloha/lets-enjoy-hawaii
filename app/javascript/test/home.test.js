@@ -1,4 +1,3 @@
-
 import Vuex from 'vuex';
 import home from '../store/modules/home';
 import { createLocalVue } from '@vue/test-utils';
