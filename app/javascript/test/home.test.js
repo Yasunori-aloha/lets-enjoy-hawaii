@@ -16,13 +16,26 @@ describe('store/home.js', () => {
     test('サイトアクセス時の初期表示の地図を取得', () => {
       const firstMap = store.getters['mapImageData']['mapImageIndex'];
 
-      expect(store.getters['mapImageData']['mapImages'][firstMap]).toMatch('/images/hawaiian_islands.png');
+      expect(store.getters['mapImageData']['mapImages'][firstMap]).toBe('/images/hawaiian_islands.png');
     });
     test('mapImageIndexの値が変わると地図表示も変わる', () => {
       store.getters['mapImageData']['mapImageIndex'] = 0;
       const changeMap = store.getters['mapImageData']['mapImageIndex'];
 
-      expect(store.getters['mapImageData']['mapImages'][changeMap]).toMatch('/images/hawaiian_islands_island_of_hawaii.png');
+      expect(store.getters['mapImageData']['mapImages'][changeMap]).toBe('/images/hawaiian_islands_island_of_hawaii.png');
+    });
+  });
+
+  describe('mutations', () => {
+    test('入力された値に地図画像番号を変更：mapChange', () => {
+      const changeNumber = Math.floor(Math.random() * 8);
+
+      home.mutations['mapChange'](store.state, changeNumber);
+      expect(store.getters['mapImageData']['mapImageIndex']).toBe(changeNumber);
+    });
+    test('地図画像番号を初期状態に戻す：mapReset', () => {
+      home.mutations['mapReset'](store.state);
+      expect(store.getters['mapImageData']['mapImageIndex']).toBe(8);
     });
   });
 });
