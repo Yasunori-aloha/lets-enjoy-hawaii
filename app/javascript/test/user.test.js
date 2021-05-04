@@ -86,6 +86,12 @@ describe('store/user.js', () => {
       axios.post.mockResolvedValue({ headers: userTokens, data: userData })
       await user.actions['userSignUp']({ commit }, signUpForms)
 
+      expect(axios.post).toHaveBeenCalledWith('/api/v1/auth', {
+        name: signUpForms[0].input,
+        email: signUpForms[1].input,
+        password: signUpForms[2].input,
+        password_confirmation: signUpForms[3].input,
+      })
       expect(store.getters['userTokens']).toEqual(userTokens)
       expect(store.getters['userData']).toEqual(userData)
       expect(window.localStorage.getItem('id')).toBe(userData['id'])
