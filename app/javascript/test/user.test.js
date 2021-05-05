@@ -159,8 +159,21 @@ describe('store/user.js', () => {
       expect(window.localStorage.getItem('client')).toBe(userTokens['client'])
       expect(window.localStorage.getItem('uid')).toBe(userTokens['uid'])
     })
-    test('ゲストユーザーとしてログインする：guestUserLogin', () => {
+    test('ゲストユーザーとしてログインする：guestUserLogin', async () => {
+      axios.post.mockResolvedValue({ headers: userTokens, data: userData})
+      await user.actions['guestUserLogin']({ commit })
 
+      expect(axios.post).toHaveBeenCalledWith('/api/v1/auth/sign_in', { guest_user: true })
+      expect(store.getters['userTokens']).toEqual(userTokens)
+      expect(store.getters['userData']).toEqual(userData)
+      expect(window.localStorage.getItem('id')).toBe(userData['id'])
+      expect(window.localStorage.getItem('name')).toBe(userData['name'])
+      expect(window.localStorage.getItem('email')).toBe(userData['email'])
+      expect(window.localStorage.getItem('introduce')).toBe(userData['introduce'])
+      expect(window.localStorage.getItem('admin')).toBe(userData['admin'])
+      expect(window.localStorage.getItem('access-token')).toBe(userTokens['access-token'])
+      expect(window.localStorage.getItem('client')).toBe(userTokens['client'])
+      expect(window.localStorage.getItem('uid')).toBe(userTokens['uid'])
     })
     test('ユーザーをログアウトさせる：logout', () => {
 
