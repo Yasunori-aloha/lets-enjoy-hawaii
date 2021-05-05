@@ -10,12 +10,14 @@ jest.mock('axios')
 
 describe('store/user.js', () => {
   let store
+  let state
   let commit
   let userTokens
   let userData
 
   beforeEach(() => {
     store = new Vuex.Store(user)
+    state = store.state
     commit = store.commit
     userTokens = {
       'access-token': 'testAccessToken',
@@ -50,9 +52,9 @@ describe('store/user.js', () => {
       reviews_counts: null,
       histories_counts: null,
     }
-    user.mutations['updateUserData'](store.state, userData)
-    user.mutations['updateUserTokens'](store.state, userTokens)
-    user.mutations['updateLocalStorage'](store.state, { userData: userData, userTokens: userTokens})
+    user.mutations['updateUserData'](state, userData)
+    user.mutations['updateUserTokens'](state, userTokens)
+    user.mutations['updateLocalStorage'](state, { userData: userData, userTokens: userTokens})
   })
 
   describe('getters', () => {
@@ -175,13 +177,50 @@ describe('store/user.js', () => {
       expect(window.localStorage.getItem('client')).toBe(userTokens['client'])
       expect(window.localStorage.getItem('uid')).toBe(userTokens['uid'])
     })
-    test('ユーザーをログアウトさせる：logout', () => {
+    test('ユーザーをログアウトさせる：logout', async () => {
+      user.mutations['updateUserData'](state, userData)
+      user.mutations['updateUserTokens'](store.state, userTokens)
+      user.mutations['updateLocalStorage'](state, { userData: userData, userTokens: userTokens})
 
+      axios.delete.mockResolvedValue({ status: 200 })
+      await user.actions['logout']({ commit })
+
+      expect(axios.delete).toHaveBeenCalledWith('/api/v1/auth/sign_out', {
+        headers: {
+          'access-token': userTokens['access-token'],
+          'client': userTokens['client'],
+          'uid': userTokens['uid'],
+        }
+      })
+      userTokens = {
+        'access-token': null,
+        'client': null,
+        'uid': null,
+      }
+      userData = {
+        id: null,
+        name: null,
+        email: null,
+        introduce: null,
+        admin: null,
+        image_url: null,
+        favorites_counts: null,
+        reviews_counts: null,
+        histories_counts: null,
+      }
+      user.mutations['updateUserData'](state, userData)
+      expect(store.getters['userTokens']).toEqual(userTokens)
+      expect(store.getters['userData']).toEqual(userData)
+      expect(window.localStorage.getItem('id')).toBe(null)
+      expect(window.localStorage.getItem('name')).toBe(null)
+      expect(window.localStorage.getItem('email')).toBe(null)
+      expect(window.localStorage.getItem('introduce')).toBe(null)
+      expect(window.localStorage.getItem('admin')).toBe(null)
+      expect(window.localStorage.getItem('access-token')).toBe(null)
+      expect(window.localStorage.getItem('client')).toBe(null)
+      expect(window.localStorage.getItem('uid')).toBe(null)
     })
     test('ユーザーページへ遷移する：toUsersPage', () => {
-
-    })
-    test('ユーザー情報をStoreとLocalStorageにセットする：updateUserData', () => {
 
     })
   })
