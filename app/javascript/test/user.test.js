@@ -202,8 +202,24 @@ describe('store/user.js', () => {
       expect(window.localStorage.getItem('client')).toBe(null)
       expect(window.localStorage.getItem('uid')).toBe(null)
     })
-    test('ユーザーページへ遷移する：toUsersPage', () => {
+    test('ユーザーページへ遷移する：toUsersPage', async () => {
+      const userId = 1
+      axios.get.mockResolvedValue({ data: {
+        favorites_counts: 1,
+        reviews_counts: 1,
+        histories_counts: 1,
+        userReviews: ['ダミー口コミ1', 'ダミー口コミ2'],
+        userFavorites: ['ダミーお気に入り1', 'ダミーお気に入り2'],
+        userHistories: ['ダミー訪問記録1', 'ダミー訪問記録2'],
+      }})
+      await user.actions['toUsersPage']({ commit }, userId)
 
+      expect(store.getters['userData']['favorites_counts']).toBe(1)
+      expect(store.getters['userData']['reviews_counts']).toBe(1)
+      expect(store.getters['userData']['histories_counts']).toBe(1)
+      expect(store.getters['userReviews']).toEqual(['ダミー口コミ1', 'ダミー口コミ2'])
+      expect(store.getters['userFavorites']).toEqual(['ダミーお気に入り1', 'ダミーお気に入り2'])
+      expect(store.getters['userHistories']).toEqual(['ダミー訪問記録1', 'ダミー訪問記録2'])
     })
   })
 })
