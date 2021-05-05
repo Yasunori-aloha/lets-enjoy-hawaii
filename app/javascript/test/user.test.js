@@ -62,27 +62,10 @@ describe('store/user.js', () => {
 
   describe('getters', () => {
     test('ユーザー認証用トークンを取得：userTokens', () => {
-      userTokens = {
-        'access-token': null,
-        'client': null,
-        'uid': null,
-      }
-
-      expect(store.getters['userTokens']).toEqual(userTokens)
+      expect(store.getters['userTokens']).toEqual(nullUserTokens)
     })
     test('ログインユーザー情報を取得：userData', () => {
-      userData = {
-        id: null,
-        name: null,
-        email: null,
-        introduce: null,
-        admin: null,
-        favorites_counts: null,
-        reviews_counts: null,
-        histories_counts: null,
-      }
-
-      expect(store.getters['userData']).toEqual(userData)
+      expect(store.getters['userData']).toEqual(nullUserData)
     })
     test('ログインユーザーの口コミ情報を取得：userReviews', () => {
       const userReviews = null
@@ -103,7 +86,19 @@ describe('store/user.js', () => {
 
   describe('actions', () => {
     test('ユーザー認証用トークンがあれば自動ログインをする：autoLogin', () => {
+      userData = {
+        id: '1',
+        name: 'テストユーザー',
+        email: 'guest@sample.com',
+        introduce: '',
+        admin: 'false',
+        image_url: 'http:test',
+      }
+      user.mutations['updateLocalStorage'](state, { userData: userData, userTokens: userTokens})
 
+      user.actions['autoLogin']({ commit })
+      expect(store.getters['userTokens']).toEqual(userTokens)
+      expect(store.getters['userData']).toEqual(userData)
     })
     test('ユーザーを新規登録して、VuexとLocalStorageにデータを格納する：userSignUp', async () => {
       const signUpForms = [
