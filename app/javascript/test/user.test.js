@@ -208,9 +208,9 @@ describe('store/user.js', () => {
         favorites_counts: 1,
         reviews_counts: 1,
         histories_counts: 1,
-        userReviews: ['ダミー口コミ1', 'ダミー口コミ2'],
-        userFavorites: ['ダミーお気に入り1', 'ダミーお気に入り2'],
-        userHistories: ['ダミー訪問記録1', 'ダミー訪問記録2'],
+        reviews: ['ダミー口コミ1', 'ダミー口コミ2'],
+        favorites: ['ダミーお気に入り1', 'ダミーお気に入り2'],
+        histories: ['ダミー訪問記録1', 'ダミー訪問記録2'],
       }})
       await user.actions['toUsersPage']({ commit }, userId)
 

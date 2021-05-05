@@ -29,6 +29,14 @@ export default {
     userHistories: state => state.userHistories,
   },
   mutations: {
+    getUserReviewsEtc(state, getData) {
+      state.userData.favorites_counts = getData.favorites_counts;
+      state.userData.reviews_counts = getData.reviews_counts;
+      state.userData.histories_counts = getData.histories_counts;
+      state.userReviews = getData.reviews;
+      state.userFavorites = getData.favorites;
+      state.userHistories = getData.histories;
+    },
     updateUserData(state, userData) {
       state.userData.id = userData.id;
       state.userData.name = userData.name;
@@ -161,7 +169,7 @@ export default {
         localStorage.removeItem('uid');
       });
     },
-    toUsersPage: async function({}, userId) {
+    toUsersPage: async function({ commit }, userId) {
       await axios.get(`/api/v1/users/${userId}`,
       {
         headers: {
@@ -171,12 +179,7 @@ export default {
         }
       })
       .then(response => {
-        this.state.user.userData.favorites_counts = response.data.favorites_counts;
-        this.state.user.userData.reviews_counts = response.data.reviews_counts;
-        this.state.user.userData.histories_counts = response.data.histories_counts;
-        this.state.user.userReviews = response.data.reviews;
-        this.state.user.userFavorites = response.data.favorites;
-        this.state.user.userHistories = response.data.histories;
+        commit('getUserReviewsEtc', response.data);
       });
     },
     updateUserData({ commit }, formData) {
