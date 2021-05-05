@@ -14,6 +14,8 @@ describe('store/user.js', () => {
   let commit
   let userTokens
   let userData
+  let nullUserTokens
+  let nullUserData
 
   beforeEach(() => {
     store = new Vuex.Store(user)
@@ -34,27 +36,28 @@ describe('store/user.js', () => {
       reviews_counts: '0',
       histories_counts: '0',
     }
-  })
-
-  afterEach(() => {
-    userTokens = {
+    nullUserTokens = {
       'access-token': null,
       'client': null,
       'uid': null,
     }
-    userData = {
+    nullUserData = {
       id: null,
       name: null,
       email: null,
       introduce: null,
       admin: null,
+      image_url: null,
       favorites_counts: null,
       reviews_counts: null,
       histories_counts: null,
     }
-    user.mutations['updateUserData'](state, userData)
-    user.mutations['updateUserTokens'](state, userTokens)
-    user.mutations['updateLocalStorage'](state, { userData: userData, userTokens: userTokens})
+  })
+
+  afterEach(() => {
+    user.mutations['updateUserData'](state, nullUserData)
+    user.mutations['updateUserTokens'](state, nullUserTokens)
+    user.mutations['updateLocalStorage'](state, { userData: nullUserData, userTokens: nullUserTokens})
   })
 
   describe('getters', () => {
@@ -192,25 +195,9 @@ describe('store/user.js', () => {
           'uid': userTokens['uid'],
         }
       })
-      userTokens = {
-        'access-token': null,
-        'client': null,
-        'uid': null,
-      }
-      userData = {
-        id: null,
-        name: null,
-        email: null,
-        introduce: null,
-        admin: null,
-        image_url: null,
-        favorites_counts: null,
-        reviews_counts: null,
-        histories_counts: null,
-      }
-      user.mutations['updateUserData'](state, userData)
-      expect(store.getters['userTokens']).toEqual(userTokens)
-      expect(store.getters['userData']).toEqual(userData)
+      user.mutations['updateUserData'](state, nullUserData)
+      expect(store.getters['userTokens']).toEqual(nullUserTokens)
+      expect(store.getters['userData']).toEqual(nullUserData)
       expect(window.localStorage.getItem('id')).toBe(null)
       expect(window.localStorage.getItem('name')).toBe(null)
       expect(window.localStorage.getItem('email')).toBe(null)
