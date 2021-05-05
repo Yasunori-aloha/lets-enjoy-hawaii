@@ -10,14 +10,54 @@ jest.mock('axios')
 
 describe('store/user.js', () => {
   let store
+  let commit
+  let userTokens
+  let userData
 
   beforeEach(() => {
     store = new Vuex.Store(user)
+    commit = store.commit
+    userTokens = {
+      'access-token': 'testAccessToken',
+      'client': 'testClentToken',
+      'uid': 'testUidToken',
+    }
+    userData = {
+      id: '1',
+      name: 'テストユーザー',
+      email: 'guest@sample.com',
+      introduce: '',
+      admin: 'false',
+      favorites_counts: '0',
+      reviews_counts: '0',
+      histories_counts: '0',
+    }
+  })
+
+  afterEach(() => {
+    userTokens = {
+      'access-token': null,
+      'client': null,
+      'uid': null,
+    }
+    userData = {
+      id: null,
+      name: null,
+      email: null,
+      introduce: null,
+      admin: null,
+      favorites_counts: null,
+      reviews_counts: null,
+      histories_counts: null,
+    }
+    user.mutations['updateUserData'](store.state, userData)
+    user.mutations['updateUserTokens'](store.state, userTokens)
+    user.mutations['updateLocalStorage'](store.state, { userData: userData, userTokens: userTokens})
   })
 
   describe('getters', () => {
     test('ユーザー認証用トークンを取得：userTokens', () => {
-      const userTokens = {
+      userTokens = {
         'access-token': null,
         'client': null,
         'uid': null,
@@ -26,7 +66,7 @@ describe('store/user.js', () => {
       expect(store.getters['userTokens']).toEqual(userTokens)
     })
     test('ログインユーザー情報を取得：userData', () => {
-      const userData = {
+      userData = {
         id: null,
         name: null,
         email: null,
@@ -61,28 +101,12 @@ describe('store/user.js', () => {
 
     })
     test('ユーザーを新規登録して、VuexとLocalStorageにデータを格納する：userSignUp', async () => {
-      const commit = store.commit
       const signUpForms = [
         { input: 'テストユーザー' },
         { input: 'guest@sample.com' },
         { input: 'testpassword' },
         { input: 'testpassword' },
       ]
-      const userTokens = {
-        'access-token': 'testAccessToken',
-        'client': 'testClentToken',
-        'uid': 'testUidToken',
-      }
-      const userData = {
-        id: '1',
-        name: 'テストユーザー',
-        email: 'guest@sample.com',
-        introduce: '',
-        admin: 'false',
-        favorites_counts: '0',
-        reviews_counts: '0',
-        histories_counts: '0',
-      }
       axios.post.mockResolvedValue({ headers: userTokens, data: userData })
       await user.actions['userSignUp']({ commit }, signUpForms)
 
@@ -113,26 +137,10 @@ describe('store/user.js', () => {
       expect(response).toStrictEqual({ data: true })
     })
     test('ユーザーをログインさせる：userLogin', async () => {
-      const commit = store.commit
       const loginForms = [
         { input: 'guest@sample.com' },
         { input: 'testpassword' },
       ]
-      const userTokens = {
-        'access-token': 'testAccessToken',
-        'client': 'testClentToken',
-        'uid': 'testUidToken',
-      }
-      const userData = {
-        id: '1',
-        name: 'テストユーザー',
-        email: 'guest@sample.com',
-        introduce: '',
-        admin: 'false',
-        favorites_counts: '0',
-        reviews_counts: '0',
-        histories_counts: '0',
-      }
       axios.post.mockResolvedValue({ headers: userTokens, data: userData })
       await user.actions['userLogin']({ commit }, loginForms)
 
