@@ -112,8 +112,44 @@ describe('store/user.js', () => {
       expect(axios.post).toHaveBeenCalledWith('/api/v1/auth/check_email', { email: email })
       expect(response).toStrictEqual({ data: true })
     })
-    test('ユーザーをログインさせる：userLogin', () => {
+    test('ユーザーをログインさせる：userLogin', async () => {
+      const commit = store.commit
+      const loginForms = [
+        { input: 'guest@sample.com' },
+        { input: 'testpassword' },
+      ]
+      const userTokens = {
+        'access-token': 'testAccessToken',
+        'client': 'testClentToken',
+        'uid': 'testUidToken',
+      }
+      const userData = {
+        id: '1',
+        name: 'テストユーザー',
+        email: 'guest@sample.com',
+        introduce: '',
+        admin: 'false',
+        favorites_counts: '0',
+        reviews_counts: '0',
+        histories_counts: '0',
+      }
+      axios.post.mockResolvedValue({ headers: userTokens, data: userData })
+      await user.actions['userLogin']({ commit }, loginForms)
 
+      expect(axios.post).toHaveBeenCalledWith('/api/v1/auth/sign_in', {
+        email: loginForms[0].input,
+        password: loginForms[1].input,
+      })
+      expect(store.getters['userTokens']).toEqual(userTokens)
+      expect(store.getters['userData']).toEqual(userData)
+      expect(window.localStorage.getItem('id')).toBe(userData['id'])
+      expect(window.localStorage.getItem('name')).toBe(userData['name'])
+      expect(window.localStorage.getItem('email')).toBe(userData['email'])
+      expect(window.localStorage.getItem('introduce')).toBe(userData['introduce'])
+      expect(window.localStorage.getItem('admin')).toBe(userData['admin'])
+      expect(window.localStorage.getItem('access-token')).toBe(userTokens['access-token'])
+      expect(window.localStorage.getItem('client')).toBe(userTokens['client'])
+      expect(window.localStorage.getItem('uid')).toBe(userTokens['uid'])
     })
     test('ゲストユーザーとしてログインする：guestUserLogin', () => {
 
